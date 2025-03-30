@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ArrowDown, ArrowRight, Check, ExternalLink, Github, Linkedin, Mail, Phone, Rocket } from "lucide-react";
 import { services } from "@/data/services";
@@ -9,6 +8,20 @@ import { Button } from "@/components/ui/button";
 import ProjectModal from "@/components/ProjectModal";
 import ContactForm from "@/components/ContactForm";
 import WorkflowCarousel from "@/components/WorkflowCarousel";
+import { 
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow
+} from "@/components/ui/table";
+import { 
+  ChartContainer, 
+  ChartTooltip, 
+  ChartTooltipContent
+} from "@/components/ui/chart";
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, LineChart, Line, CartesianGrid, Tooltip, Legend } from "recharts";
 
 const Index = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
@@ -19,6 +32,31 @@ const Index = () => {
     setSelectedProject(project);
     setModalOpen(true);
   };
+
+  // SEO performance data for charts
+  const seoPerformanceData = [
+    { 
+      name: 'Cojali USA', 
+      clicks: 2420, 
+      impressions: 67000,
+      ctr: 3.6,
+      avgPosition: 20 
+    },
+    { 
+      name: 'Grey Matters', 
+      clicks: 1200, 
+      impressions: 31000,
+      ctr: 3.9,
+      avgPosition: 14 
+    },
+    { 
+      name: 'Call All Pro', 
+      clicks: 900, 
+      impressions: 26000,
+      ctr: 3.5,
+      avgPosition: 23 
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-blue-gradient text-white overflow-x-hidden">
@@ -186,6 +224,136 @@ const Index = () => {
               <div className="flex items-start space-x-2">
                 <Check className="text-electric mt-1 flex-shrink-0" />
                 <span className="text-white/80">Recovered abandoned carts and boosted sales for Triad's Autel store</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Audits Section */}
+      <section id="seo-audits" className="section-padding">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">SEO Audits</h2>
+          <div className="max-w-3xl mx-auto mb-12">
+            <p className="text-white/80 text-center">
+              If your site isn't ranking, it's not working. Period. I offer deep-dive SEO audits that uncover exactly what's
+              holding your website back—and build a game plan to fix it, fast.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            {/* SEO charts */}
+            <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+              <h3 className="text-xl font-semibold mb-4 text-electric">Performance Data</h3>
+              <div className="h-80 w-full">
+                <ChartContainer
+                  className="h-full"
+                  config={{
+                    impressions: {
+                      label: "Impressions",
+                      theme: {
+                        light: "#3f8efc",
+                        dark: "#3f8efc",
+                      },
+                    },
+                    clicks: {
+                      label: "Clicks",
+                      theme: {
+                        light: "#10b981",
+                        dark: "#10b981",
+                      },
+                    },
+                  }}
+                >
+                  <BarChart data={seoPerformanceData}>
+                    <XAxis dataKey="name" stroke="#94a3b8" />
+                    <YAxis stroke="#94a3b8" />
+                    <ChartTooltip 
+                      content={<ChartTooltipContent />}
+                    />
+                    <Bar 
+                      dataKey="impressions" 
+                      name="impressions"
+                      fill="var(--color-impressions)" 
+                      radius={4} 
+                    />
+                    <Bar 
+                      dataKey="clicks" 
+                      name="clicks"
+                      fill="var(--color-clicks)" 
+                      radius={4} 
+                    />
+                  </BarChart>
+                </ChartContainer>
+              </div>
+            </div>
+
+            <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+              <h3 className="text-xl font-semibold mb-4 text-electric">SEO Health Score</h3>
+              <div className="flex items-center justify-center mb-8">
+                <div className="relative w-48 h-48">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-5xl font-bold">100</div>
+                  </div>
+                  <div className="w-full h-full rounded-full bg-gradient-to-r from-orange-500 via-yellow-500 to-green-500 flex items-center justify-center">
+                    <div className="w-[92%] h-[92%] rounded-full bg-black/60 backdrop-blur-sm"></div>
+                  </div>
+                </div>
+              </div>
+              <p className="text-center text-white/80">
+                Perfect health scores achieved for client websites with zero errors and optimized crawl status.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10 mb-12">
+            <h3 className="text-xl font-semibold mb-6 text-electric">What's Included in Every SEO Audit:</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Technical Health Check</h4>
+                <p className="text-sm text-white/70">Crawl errors, indexing issues, site speed, mobile-friendliness, and more—fixed and optimized.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">On-Page SEO Review</h4>
+                <p className="text-sm text-white/70">Meta tags, headers, internal linking, image optimization, keyword placement, and structure improvements.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Content Gap Analysis</h4>
+                <p className="text-sm text-white/70">Identify missing opportunities, weak pages, and underperforming content—then optimize for results.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Keyword Performance</h4>
+                <p className="text-sm text-white/70">Deep keyword audit with ranking insights, competition comparison, and growth strategy.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Backlink & Domain Authority Review</h4>
+                <p className="text-sm text-white/70">Track current link profile, identify toxic links, and outline authority-building steps.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Customized SEO Action Plan</h4>
+                <p className="text-sm text-white/70">Prioritized checklist with high-impact recommendations to get your rankings moving.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-12 bg-electric/10 rounded-xl p-6 border border-electric/20">
+            <h3 className="text-xl font-semibold mb-4 text-center text-electric">Results I've Achieved</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Cojali USA: 2.42K clicks, 67K impressions, and a 3.6% CTR within 3 months</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Keyword position improvement from avg. 45+ to top 20</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Grey Matters & Call All Pro: Boosted health scores to 100</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Strengthened internal linking and improved site structure</span>
               </div>
             </div>
           </div>
