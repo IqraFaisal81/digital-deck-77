@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from "react";
 import { ArrowDown, ArrowRight, Check, ExternalLink, Github, Linkedin, Mail, Phone, Rocket } from "lucide-react";
 import { services, sectionIds } from "@/data/services";
@@ -111,6 +112,9 @@ const Index = () => {
       avgPosition: 23 
     }
   ];
+
+  // Check if projects array exists before attempting to render
+  const displayProjects = projects ? projects.slice(0, 6) : [];
 
   return (
     <div className="min-h-screen bg-blue-gradient text-white overflow-x-hidden">
@@ -758,7 +762,7 @@ const Index = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Project Highlights</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.slice(0, 6).map((project) => (
+            {displayProjects.map((project) => (
               <div key={project.id} className="project-card overflow-hidden" onClick={() => openProjectModal(project)}>
                 <div className="relative h-48 overflow-hidden">
                   <img 
