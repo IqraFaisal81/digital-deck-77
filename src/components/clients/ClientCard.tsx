@@ -23,7 +23,7 @@ const ClientCard: React.FC<ClientCardProps> = ({ client, index, onOpenTestimonia
           href={client.website} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="bg-white h-28 w-full rounded-xl shadow-md border border-gray-100 flex items-center justify-center p-4 transition-all duration-300 hover:shadow-lg hover:border-blue-200 group"
+          className="bg-gray-800 h-28 w-full rounded-xl shadow-md border border-gray-700 flex items-center justify-center p-4 transition-all duration-300 hover:shadow-lg hover:border-blue-500 group"
         >
           <div className="relative w-full h-full flex items-center justify-center">
             <img 
@@ -31,7 +31,7 @@ const ClientCard: React.FC<ClientCardProps> = ({ client, index, onOpenTestimonia
               alt={client.name} 
               className="max-h-full max-w-full object-contain transition-all duration-300 group-hover:scale-105" 
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-1">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-500/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-1">
               <ExternalLink className="text-white w-4 h-4" />
             </div>
           </div>

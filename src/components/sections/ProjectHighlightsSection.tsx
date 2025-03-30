@@ -18,13 +18,13 @@ const ProjectHighlightsSection = () => {
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Transforming Businesses Through Digital Excellence
           </h2>
-          <p className="text-white/80 text-lg">
+          <p className="text-white/80 text-lg mb-6">
             Explore my portfolio of successful projects that have delivered measurable results
             across different industries. Each project represents a unique challenge solved with
             strategic thinking and technical expertise.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3 justify-center">
-            <span className="text-xs px-3 py-1 rounded-full bg-white/10 text-white/70 cursor-pointer hover:bg-electric/20 hover:text-electric transition-colors">All Projects</span>
+          <div className="flex flex-wrap gap-3 justify-center mb-4">
+            <span className="text-xs px-3 py-1 rounded-full bg-electric/20 text-white cursor-pointer hover:bg-electric/50 hover:text-white transition-colors">All Projects</span>
             <span className="text-xs px-3 py-1 rounded-full bg-white/10 text-white/70 cursor-pointer hover:bg-electric/20 hover:text-electric transition-colors">Web Development</span>
             <span className="text-xs px-3 py-1 rounded-full bg-white/10 text-white/70 cursor-pointer hover:bg-electric/20 hover:text-electric transition-colors">SEO & Analytics</span>
             <span className="text-xs px-3 py-1 rounded-full bg-white/10 text-white/70 cursor-pointer hover:bg-electric/20 hover:text-electric transition-colors">Automation</span>

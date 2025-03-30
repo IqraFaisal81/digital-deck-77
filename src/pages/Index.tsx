@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from "react";
 import { ProjectType } from "@/types/project";
 import Navbar from "@/components/Navbar";
@@ -41,6 +42,7 @@ const Index = () => {
   const scrollToSection = (sectionId: string | null) => {
     if (!sectionId) return;
     
+    // Toggle section visibility - if it's already visible, hide it, otherwise show it
     setVisibleSection(prevSection => prevSection === sectionId ? null : sectionId);
     
     setTimeout(() => {

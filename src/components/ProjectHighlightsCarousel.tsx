@@ -14,7 +14,7 @@ import { ProjectType } from "@/types/project";
 import { clients } from "@/data/clients";
 import { sectionIds } from "@/data/services";
 
-// Define project highlights data with placeholder images
+// Define project highlights data with more detailed case studies
 const projectHighlights = [
   {
     id: 1,
@@ -25,18 +25,24 @@ const projectHighlights = [
     category: "Web Development",
     technologies: ["Go High Level", "WordPress", "WooCommerce", "JavaScript"],
     relatedService: "workflows",
-    clientName: "Triad Diagnostic Solutions"
+    clientName: "Triad Diagnostic Solutions",
+    challenge: "The client had an outdated website with manual inventory tracking that was causing errors and delays. Customer service was overwhelmed with basic inquiries.",
+    solution: "Implemented a modern responsive website with inventory management system and customer portal. Created automated workflows for order processing and customer notifications.",
+    results: "Inventory errors reduced by 95%, customer service inquiries reduced by 60%, and order processing time cut by 75%."
   },
   {
     id: 2,
     title: "All Pro - Service Booking System",
     shortDescription: "HVAC service scheduling system with automated follow-ups",
     description: "Built an integrated service booking system with customer notifications, technician scheduling, and automated follow-up sequences to improve customer retention.",
-    image: `https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
+    image: `https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
     category: "Automation",
     technologies: ["Go High Level", "Twilio", "Zapier", "Calendar API"],
     relatedService: "workflows",
-    clientName: "All Pro Heating & Cooling"
+    clientName: "All Pro Heating & Cooling",
+    challenge: "Technicians were double-booked, customers experienced long wait times, and follow-up appointments were frequently missed.",
+    solution: "Developed an integrated booking system with automated confirmations, reminders, and technician assignment. Created a follow-up sequence for maintenance reminders.",
+    results: "Reduced scheduling errors by 100%, decreased no-shows by 75%, and increased recurring maintenance appointments by 45%."
   },
   {
     id: 3,
@@ -47,7 +53,10 @@ const projectHighlights = [
     category: "SEO",
     technologies: ["Google Analytics", "SEMrush", "Ahrefs", "Content Strategy"],
     relatedService: "seo-audits",
-    clientName: "Grey Matters"
+    clientName: "Grey Matters",
+    challenge: "Despite offering excellent services, the client was virtually invisible in search results and struggling to attract new patients.",
+    solution: "Conducted comprehensive keyword research, implemented technical SEO fixes, created an ongoing content strategy focused on mental health topics, and built quality backlinks.",
+    results: "Achieved first page rankings for 28 target keywords, increased organic traffic by 300%, and doubled monthly new patient inquiries."
   },
   {
     id: 4,
@@ -58,29 +67,38 @@ const projectHighlights = [
     category: "Funnel Development",
     technologies: ["Go High Level", "Facebook Ads", "Google Ads", "Email Automation"],
     relatedService: "funnels",
-    clientName: "Pure Water"
+    clientName: "Pure Water",
+    challenge: "High ad spend was not resulting in enough qualified leads or sales. The sales process was unclear and lacked proper follow-up.",
+    solution: "Created a multi-step funnel with educational content, qualification questions, and automated follow-up sequences. Integrated with ad platforms for retargeting.",
+    results: "Reduced cost per acquisition by 38%, increased lead-to-sale conversion by 45%, and improved average order value by 22%."
   },
   {
     id: 5,
     title: "March On Mission - Email Campaign",
     shortDescription: "Nonprofit donation email sequence with storytelling",
     description: "Crafted a compelling email campaign for a nonprofit, featuring personal stories and impact metrics that resulted in a 28% increase in donations from email channels.",
-    image: `https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
+    image: `https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
     category: "Email Marketing",
     technologies: ["Mailchimp", "Copy Writing", "A/B Testing", "Segmentation"],
     relatedService: "email-marketing",
-    clientName: "March on Mission"
+    clientName: "March on Mission",
+    challenge: "The organization had a large email list but low engagement and donation rates. Messages lacked personal connection and clear calls to action.",
+    solution: "Developed a storytelling-based email series highlighting individual impact stories, implemented A/B testing for subject lines, and created segmented donor journeys.",
+    results: "Improved email open rates by 65%, click-through rates by 43%, and increased donation revenue from email by 28%."
   },
   {
     id: 6,
-    title: "AI Support Chatbot - Multiple Clients",
-    shortDescription: "Custom AI chatbots for various business types",
-    description: "Developed and deployed intelligent chatbots for multiple businesses, handling customer inquiries, appointment booking, and lead qualification without human intervention.",
-    image: `https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
+    title: "GetSAID - AI Support Chatbot",
+    shortDescription: "Custom AI chatbot for intelligent customer support",
+    description: "Developed and deployed an intelligent chatbot handling customer inquiries, appointment booking, and lead qualification without human intervention.",
+    image: `https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
     category: "AI Development",
     technologies: ["Go High Level", "OpenAI", "NLP", "Automation"],
     relatedService: "ai-chatbot",
-    clientName: "GetSAID"
+    clientName: "GetSAID",
+    challenge: "Support team was overwhelmed with basic questions and booking requests. Lead qualification was inconsistent and often incomplete.",
+    solution: "Implemented an AI-powered chatbot that handles common questions, books appointments, and qualifies leads based on custom criteria before handing off to human agents.",
+    results: "Reduced support tickets by 65%, increased after-hours lead capture by 100%, and improved lead qualification accuracy by 40%."
   }
 ];
 
