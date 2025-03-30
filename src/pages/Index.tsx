@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from "react";
 import { ArrowDown, ArrowRight, Check, ExternalLink, Github, Linkedin, Mail, Phone, Rocket } from "lucide-react";
 import { services, sectionIds } from "@/data/services";
@@ -561,4 +562,389 @@ const Index = () => {
                 <p className="text-sm text-white/70">Sitemap setup, performance monitoring, technical issue fixes, and click-through behavior mapping.</p>
               </div>
               <div className="p-4 bg-black/30 rounded-lg">
-                <h4 className="
+                <h4 className="font-semibold mb-2">Google Analytics Configuration</h4>
+                <p className="text-sm text-white/70">Custom conversions, audience segments, and event tracking for better data-driven decisions.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Custom Dashboards</h4>
+                <p className="text-sm text-white/70">Looker Studio dashboards with real-time KPIs, funnel metrics, and engagement analytics.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Conversion Tracking</h4>
+                <p className="text-sm text-white/70">Phone calls, form submissions, purchases, and micro-conversions—all meticulously tracked.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Data-Driven PPC Campaigns</h4>
+                <p className="text-sm text-white/70">Google, Bing, and Meta ads with robust tracking, A/B testing, and ROAS optimization.</p>
+              </div>
+            </div>
+          </div>
+          
+          <h3 className="text-xl font-semibold mb-6 text-center">PPC & Analytics Examples</h3>
+          <PPCCarousel />
+          
+          <div className="mt-8 text-center">
+            <p className="text-white/80 italic mb-4">Stop flying blind. Start making data-backed decisions for your campaigns and website.</p>
+            <Button 
+              variant="ghost" 
+              className="border border-white/20 hover:bg-white/10"
+              onClick={() => setVisibleSection(null)}
+            >
+              Close Section
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Chatbot Section */}
+      <section id="ai-chatbot" ref={aiChatbotRef} className={`section-padding transition-all duration-300 ${isSectionVisible('ai-chatbot') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">AI Chatbot Development</h2>
+          <div className="max-w-3xl mx-auto mb-12">
+            <p className="text-white/80 text-center">
+              24/7 customer service without the staffing costs. I build intelligent, conversational AI chatbots that engage visitors, 
+              answer questions, and convert leads—even when you're sleeping. These aren't clunky bots; they're seamless 
+              extensions of your brand voice that solve real problems.
+            </p>
+          </div>
+          
+          <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10 mb-12">
+            <h3 className="text-xl font-semibold mb-6 text-electric">What I Deliver:</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Custom Chatbot Development</h4>
+                <p className="text-sm text-white/70">Tailored AI solutions built for your business goals—whether it's lead gen, appointment booking, or product recommendations.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Conversation Flows</h4>
+                <p className="text-sm text-white/70">Strategic conversation paths with smart branching logic, fallbacks, and human handoffs when needed.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Knowledge Base Integration</h4>
+                <p className="text-sm text-white/70">Connect your chatbot with your FAQs, docs, or knowledge base for accurate, instant answers.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Lead Capture & Qualification</h4>
+                <p className="text-sm text-white/70">Seamless CRM integration with automated lead scoring, tagging, and assignment.</p>
+              </div>
+            </div>
+          </div>
+          
+          <h3 className="text-xl font-semibold mb-6 text-center">AI Chatbot Examples</h3>
+          <AIChatbotCarousel />
+          
+          <div className="mt-12 bg-electric/10 rounded-xl p-6 border border-electric/20">
+            <h3 className="text-xl font-semibold mb-4 text-center text-electric">Results I&apos;ve Delivered</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Reduced customer service wait times by 78% for Pure Water</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Increased after-hours lead capture by 45% for All Pro HVAC</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Auto-booked 38 monthly therapy appointments via chatbot for Grey Matters</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Qualified 65% of chatbot interactions for Triad's sales team</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-8 text-center">
+            <Button 
+              variant="ghost" 
+              className="border border-white/20 hover:bg-white/10"
+              onClick={() => setVisibleSection(null)}
+            >
+              Close Section
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Lovable Projects Section */}
+      <section id="lovable-projects" ref={lovableProjectsRef} className={`section-padding transition-all duration-300 ${isSectionVisible('lovable-projects') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Lovable Projects</h2>
+          <div className="max-w-3xl mx-auto mb-12">
+            <p className="text-white/80 text-center">
+              Creating delightful, lovable projects that users adore and businesses profit from. These highlighted works showcase my approach 
+              to blending aesthetics with functionality, delivering solutions that are both beautiful and effective.
+            </p>
+          </div>
+          
+          <h3 className="text-xl font-semibold mb-6 text-center">Featured Lovable Projects</h3>
+          <LovableProjectsCarousel />
+          
+          <div className="mt-8 text-center">
+            <Button 
+              variant="ghost" 
+              className="border border-white/20 hover:bg-white/10"
+              onClick={() => setVisibleSection(null)}
+            >
+              Close Section
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Project Highlights Section */}
+      <section id="project-highlights" className="section-padding bg-black/30">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Project Highlights</h2>
+          <ProjectHighlightsCarousel />
+        </div>
+      </section>
+
+      {/* Projects Grid Section */}
+      <section id="projects" className="section-padding">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Featured Projects</h2>
+          
+          {/* Project Tabs */}
+          <div className="mb-12 flex flex-wrap justify-center gap-3">
+            {projectCategories.map((category) => (
+              <Button 
+                key={category}
+                variant="ghost"
+                className="border border-white/20 bg-black/20 hover:bg-black/40"
+              >
+                {category}
+              </Button>
+            ))}
+          </div>
+          
+          {/* Project Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {displayProjects.map((project) => (
+              <div 
+                key={project.id}
+                className="bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 hover:border-electric/30 transition-all hover:shadow-lg hover:shadow-electric/20 hover:scale-[1.02] cursor-pointer"
+                onClick={() => openProjectModal(project)}
+              >
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover object-center transform hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                  <p className="text-white/70 mb-4 line-clamp-2">
+                    {project.shortDescription}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech, index) => (
+                      <span 
+                        key={index}
+                        className="text-xs px-2 py-1 rounded-full bg-electric/20 text-electric"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex justify-end">
+                    <Button 
+                      variant="ghost" 
+                      size="sm"
+                      className="text-electric hover:text-electric/80 p-0 flex items-center"
+                    >
+                      View Project <ArrowRight className="ml-1 h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* View More Projects Button */}
+          <div className="mt-12 text-center">
+            <Button 
+              className="bg-electric hover:bg-electric/80"
+            >
+              View All Projects
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Results Section */}
+      <section id="seo-results" className="section-padding bg-black/30">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">SEO Performance</h2>
+          <p className="text-center text-white/80 max-w-3xl mx-auto mb-12">
+            Real results from my SEO work for real clients. Every audit and optimization translates to measurable business growth.
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* SEO Performance Table */}
+            <div className="bg-black/30 rounded-xl overflow-hidden border border-white/10 backdrop-blur-sm">
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-4">Client Performance Metrics</h3>
+                <Table>
+                  <TableHeader>
+                    <TableRow className="hover:bg-white/5">
+                      <TableHead>Client</TableHead>
+                      <TableHead className="text-right">Clicks</TableHead>
+                      <TableHead className="text-right">Impressions</TableHead>
+                      <TableHead className="text-right">CTR</TableHead>
+                      <TableHead className="text-right">Avg Position</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {seoPerformanceData.map((client) => (
+                      <TableRow key={client.name} className="hover:bg-white/5">
+                        <TableCell className="font-medium">{client.name}</TableCell>
+                        <TableCell className="text-right">{client.clicks.toLocaleString()}</TableCell>
+                        <TableCell className="text-right">{client.impressions.toLocaleString()}</TableCell>
+                        <TableCell className="text-right">{client.ctr}%</TableCell>
+                        <TableCell className="text-right">{client.avgPosition}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            </div>
+
+            {/* SEO Performance Chart */}
+            <div className="bg-black/30 rounded-xl overflow-hidden border border-white/10 backdrop-blur-sm">
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-4">Keyword Position Improvements</h3>
+                <div className="h-[300px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart
+                      data={[
+                        {month: 'Jan', position: 45, clicks: 200},
+                        {month: 'Feb', position: 38, clicks: 350},
+                        {month: 'Mar', position: 30, clicks: 580},
+                        {month: 'Apr', position: 24, clicks: 900},
+                        {month: 'May', position: 18, clicks: 1400},
+                        {month: 'Jun', position: 12, clicks: 2100},
+                      ]}
+                      margin={{top: 5, right: 30, left: 20, bottom: 5}}
+                    >
+                      <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+                      <XAxis dataKey="month" stroke="#aaa" />
+                      <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
+                      <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
+                      <Tooltip contentStyle={{backgroundColor: '#111', border: '1px solid #333'}} />
+                      <Legend />
+                      <Line yAxisId="left" type="monotone" dataKey="position" stroke="#8884d8" name="Avg. Position" />
+                      <Line yAxisId="right" type="monotone" dataKey="clicks" stroke="#82ca9d" name="Monthly Clicks" />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="section-padding">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Let&apos;s Work Together</h2>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+              <div className="bg-black/20 backdrop-blur-sm rounded-xl p-8 border border-white/10 h-full">
+                <h3 className="text-2xl font-semibold mb-6">Get In Touch</h3>
+                <p className="text-white/80 mb-8">
+                  Ready to transform your digital presence? Whether you need help with automation, SEO, funnels, 
+                  or a custom project—I&apos;m here to help your business grow.
+                </p>
+                
+                <div className="space-y-6">
+                  <div className="flex items-center">
+                    <div className="bg-electric/20 p-3 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                      <Mail className="text-electric" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-white/60">Email</p>
+                      <a href="mailto:hello@iqrafaisal.com" className="text-white hover:text-electric">hello@iqrafaisal.com</a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center">
+                    <div className="bg-electric/20 p-3 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                      <Phone className="text-electric" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-white/60">Phone</p>
+                      <a href="tel:+13125550123" className="text-white hover:text-electric">+1 (312) 555-0123</a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center">
+                    <div className="bg-electric/20 p-3 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                      <Linkedin className="text-electric" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-white/60">LinkedIn</p>
+                      <a href="https://linkedin.com/in/iqrafaisal" target="_blank" rel="noopener noreferrer" className="text-white hover:text-electric flex items-center">
+                        Connect on LinkedIn <ExternalLink className="ml-1 h-3 w-3" />
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center">
+                    <div className="bg-electric/20 p-3 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                      <Github className="text-electric" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-white/60">GitHub</p>
+                      <a href="https://github.com/iqrafaisal" target="_blank" rel="noopener noreferrer" className="text-white hover:text-electric flex items-center">
+                        View Code Samples <ExternalLink className="ml-1 h-3 w-3" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+      
+      {/* Footer Section */}
+      <footer className="py-8 bg-black/50 border-t border-white/10">
+        <div className="container mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-4 md:mb-0">
+              <p className="text-white/60">&copy; {new Date().getFullYear()} Iqra Faisal. All rights reserved.</p>
+            </div>
+            <div className="flex space-x-4">
+              <a href="https://linkedin.com/in/iqrafaisal" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-electric">
+                <Linkedin size={20} />
+              </a>
+              <a href="https://github.com/iqrafaisal" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-electric">
+                <Github size={20} />
+              </a>
+              <a href="mailto:hello@iqrafaisal.com" className="text-white/60 hover:text-electric">
+                <Mail size={20} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      
+      {/* Project Modal */}
+      {selectedProject && (
+        <ProjectModal 
+          isOpen={modalOpen} 
+          onClose={() => setModalOpen(false)} 
+          project={selectedProject} 
+        />
+      )}
+    </div>
+  );
+};
+
+export default Index;
