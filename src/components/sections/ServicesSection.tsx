@@ -73,29 +73,16 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
               </div>
             </motion.div>
           ))}
-          
-          {/* Case Studies Card */}
-          <motion.div 
-            variants={item}
-            className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl shadow-sm border border-blue-400 overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col h-full text-white"
-          >
-            <div className="p-6">
-              <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-4">
-                <FileText className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Case Studies</h3>
-              <p className="mb-6">See how my services have transformed real businesses with measurable results and proven strategies.</p>
-            </div>
-            <div className="mt-auto p-6 pt-2">
-              <Button 
-                className="w-full bg-white text-blue-700 hover:bg-blue-50"
-                onClick={() => scrollToSection("case-studies")}
-              >
-                View Case Studies
-              </Button>
-            </div>
-          </motion.div>
         </motion.div>
+        
+        <div className="mt-12 text-center">
+          <Button 
+            className="bg-blue-600 hover:bg-blue-700"
+            onClick={() => scrollToSection("case-studies")}
+          >
+            View Case Studies
+          </Button>
+        </div>
       </div>
     </section>
   );
