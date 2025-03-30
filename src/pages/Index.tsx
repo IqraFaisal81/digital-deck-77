@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react";
 import { ArrowDown, ArrowRight, Check, ExternalLink, Github, Linkedin, Mail, Phone, Rocket } from "lucide-react";
 import { services, sectionIds } from "@/data/services";
@@ -777,14 +776,11 @@ const Index = () => {
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                   <p className="text-white/70 text-sm mb-3 line-clamp-2">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
-                    {project.categories.slice(0, 3).map((category, idx) => (
-                      <span 
-                        key={idx} 
-                        className="text-xs px-2 py-1 rounded-full bg-electric/20 text-electric"
-                      >
-                        {category}
-                      </span>
-                    ))}
+                    <span 
+                      className="text-xs px-2 py-1 rounded-full bg-electric/20 text-electric"
+                    >
+                      {project.category}
+                    </span>
                   </div>
                 </div>
               </div>
