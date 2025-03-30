@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,7 +65,11 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Custom portfolio colors
+				royal: '#0a1d69',
+				midnight: '#000000',
+				electric: '#3f8efc',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +92,24 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'fade-in-right': {
+					'0%': { opacity: '0', transform: 'translateX(10px)' },
+					'100%': { opacity: '1', transform: 'translateX(0)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out forwards',
+				'fade-in-right': 'fade-in-right 0.5s ease-out forwards'
+			},
+			backgroundImage: {
+				'blue-gradient': 'linear-gradient(to bottom, #0a1d69, #000000)',
 			}
 		}
 	},
