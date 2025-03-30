@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
@@ -117,14 +116,6 @@ const ClientShowcase: React.FC = () => {
               "Iqra transformed our entire digital approach. From clunky systems to smooth automation, we now spend less time on admin and more time with clients."
               <footer className="text-white/60 mt-2">— Director, Grey Matters Studio</footer>
             </blockquote>
-            <Button 
-              className="bg-electric hover:bg-electric/80 mt-2"
-              asChild
-            >
-              <a href="https://greymatters.studio/" target="_blank" rel="noopener noreferrer">
-                View Case Study <ExternalLink className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
           </div>
         </div>
       </div>
