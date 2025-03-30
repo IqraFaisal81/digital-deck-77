@@ -6,7 +6,8 @@ import {
   Mail, 
   Search,
   Repeat,
-  Image
+  Image,
+  BarChart
 } from "lucide-react";
 
 export const services = [
@@ -36,7 +37,7 @@ export const services = [
     title: "PPC Campaigns",
     description: "Certified in Google Ads. I create click-worthy, conversion-optimized campaigns with strong CTRs, low CPCs, and high ROIs.",
     icon: Megaphone,
-    sectionId: null // No specific section
+    sectionId: "ppc-analytics" // Added section ID for PPC campaigns
   },
   {
     id: 5,
@@ -55,4 +56,4 @@ export const services = [
 ];
 
 // Array of all section IDs for toggling visibility
-export const sectionIds = ["workflows", "seo-audits", "funnels", "email-marketing"];
+export const sectionIds = ["workflows", "seo-audits", "funnels", "email-marketing", "ppc-analytics"];

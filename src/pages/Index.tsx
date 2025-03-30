@@ -11,6 +11,7 @@ import WorkflowCarousel from "@/components/WorkflowCarousel";
 import SEOAuditCarousel from "@/components/SEOAuditCarousel";
 import FunnelCarousel from "@/components/FunnelCarousel";
 import EmailMarketingCarousel from "@/components/EmailMarketingCarousel";
+import PPCCarousel from "@/components/PPCCarousel";
 import { 
   Accordion,
   AccordionContent,
@@ -48,6 +49,7 @@ const Index = () => {
   const seoAuditsRef = useRef<HTMLElement>(null);
   const funnelsRef = useRef<HTMLElement>(null);
   const emailMarketingRef = useRef<HTMLElement>(null);
+  const ppcAnalyticsRef = useRef<HTMLElement>(null);
 
   const openProjectModal = (project: ProjectType) => {
     setSelectedProject(project);
@@ -68,6 +70,8 @@ const Index = () => {
         funnelsRef.current.scrollIntoView({ behavior: "smooth" });
       } else if (sectionId === "email-marketing" && emailMarketingRef.current) {
         emailMarketingRef.current.scrollIntoView({ behavior: "smooth" });
+      } else if (sectionId === "ppc-analytics" && ppcAnalyticsRef.current) {
+        ppcAnalyticsRef.current.scrollIntoView({ behavior: "smooth" });
       }
     }, 100);
   };
@@ -503,6 +507,85 @@ const Index = () => {
           
           <div className="mt-8 text-center">
             <p className="text-white/80 italic mb-4">No more bland emails. No more low open rates. Just clean, custom-crafted email flows that convert with class.</p>
+            <Button 
+              variant="ghost" 
+              className="border border-white/20 hover:bg-white/10"
+              onClick={() => setVisibleSection(null)}
+            >
+              Close Section
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section id="ppc-analytics" ref={ppcAnalyticsRef} className={`section-padding transition-all duration-300 ${isSectionVisible('ppc-analytics') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">PPC, Analytics & Tracking Suite</h2>
+          <div className="max-w-3xl mx-auto mb-12">
+            <p className="text-white/80 text-center">
+              Total visibility. Smarter strategy. Bigger wins. I don't just launch campaigns—I measure everything. 
+              With expert-level setups in Google Tag Manager, Google Search Console, and Looker Studio, I track the 
+              full customer journey—so you know what's working, what's not, and what to scale.
+            </p>
+          </div>
+          
+          <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10 mb-12">
+            <h3 className="text-xl font-semibold mb-6 text-electric">What I Deliver:</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Google Tag Manager Setup</h4>
+                <p className="text-sm text-white/70">Form submissions, call tracking, eComm events, and custom triggers for high-intent actions.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Google Search Console Strategy</h4>
+                <p className="text-sm text-white/70">Sitemap setup, performance monitoring, technical issue fixes, and click-through behavior mapping.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Looker Studio Reporting</h4>
+                <p className="text-sm text-white/70">Custom dashboards that blend data from Google Ads, GSC, and GA4 for comprehensive insights.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">PPC Campaign Management</h4>
+                <p className="text-sm text-white/70">Strategic campaign structure, ad copy optimization, bidding strategies, and conversion tracking.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">E-commerce Tracking</h4>
+                <p className="text-sm text-white/70">Full funnel visibility from product views to cart additions and purchases with revenue attribution.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Monthly Performance Reports</h4>
+                <p className="text-sm text-white/70">Clear, actionable insights on what's working and recommendations for optimization.</p>
+              </div>
+            </div>
+          </div>
+          
+          <h3 className="text-xl font-semibold mb-6 text-center">Analytics & Campaign Showcase</h3>
+          <PPCCarousel />
+          
+          <div className="mt-12 bg-electric/10 rounded-xl p-6 border border-electric/20">
+            <h3 className="text-xl font-semibold mb-4 text-center text-electric">Results I've Delivered</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Cojali USA: 2.42K clicks, 67K impressions, 3.6% CTR with position improved from 32 → 17.5</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Triad DS: Implemented full GA4 + Meta Pixel integration for complete tracking visibility</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Office H2O: Built custom Looker dashboards showing clear ROI on ads spend</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Grey Matters Studio: Increased online visibility with 3.57K clicks and 223K impressions</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-8 text-center">
+            <p className="text-white/80 italic mb-4">"If you can't measure it, you can't grow it." This setup makes your funnels, ads, and content measurable—from first click to final sale.</p>
             <Button 
               variant="ghost" 
               className="border border-white/20 hover:bg-white/10"
