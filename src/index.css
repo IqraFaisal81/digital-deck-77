@@ -113,4 +113,24 @@
   .service-card {
     @apply bg-black/10 backdrop-blur-sm p-6 rounded-lg border border-white/10 transition-all duration-300 hover:bg-black/20 hover:border-electric/30;
   }
+  
+  .workflow-card {
+    @apply bg-black/10 backdrop-blur-sm rounded-lg border border-white/10 transition-all duration-300 hover:bg-black/20 hover:border-electric/30 hover:shadow-lg hover:shadow-electric/20;
+  }
+  
+  .bg-blue-gradient {
+    @apply bg-gradient-to-b from-[#0a1d69] to-black;
+  }
+  
+  .text-electric {
+    @apply text-[#3f8efc];
+  }
+  
+  .bg-royal {
+    @apply bg-[#0a1d69];
+  }
+  
+  .bg-electric {
+    @apply bg-[#3f8efc];
+  }
 }
