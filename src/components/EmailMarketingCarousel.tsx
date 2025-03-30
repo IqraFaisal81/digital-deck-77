@@ -1,61 +1,46 @@
 
-import { useState } from "react";
-import { 
-  Carousel, 
-  CarouselContent, 
-  CarouselItem, 
-  CarouselNext, 
-  CarouselPrevious 
+import React from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { ExternalLink } from "lucide-react";
-
-// Define email marketing campaigns data
-const emailCampaigns = [
-  {
-    id: 1,
-    title: "Triad DS – Abandoned Cart Recovery",
-    description: "Personalized WooCommerce workflow that recovered lost sales with timely nudges and upsell recommendations",
-    image: "/lovable-uploads/c53f75af-52db-4d19-bc94-5f4f76696d7f.png"
-  },
-  {
-    id: 2,
-    title: "All Pro – Winter Tips Newsletter",
-    description: "Seasonal email with actionable tips for property managers—boosting engagement and brand trust",
-    image: "/lovable-uploads/5d7ee011-c3bc-4db4-ac81-51e49738ad1a.png"
-  },
-  {
-    id: 3,
-    title: "Grey Matters Studio – BOGO Email Campaign",
-    description: "Wellness-focused campaign with heartfelt CTA, leading to higher open rates and more bookings",
-    image: "/lovable-uploads/8b183f32-fe44-4926-a6fe-d81abb48bae1.png"
-  },
-  {
-    id: 4,
-    title: "March on Mission – Awareness Email",
-    description: "Emotional storytelling + visual design = more awareness, donations, and heartfelt replies",
-    image: "/lovable-uploads/e98b0fe1-b86f-43f9-aa6b-67d50a3bfa8f.png"
-  },
-  {
-    id: 5,
-    title: "Email Newsletter Template",
-    description: "Clean, responsive newsletter design with clear call-to-action and branded elements",
-    image: "/lovable-uploads/bf6e5688-20fd-44ea-a3e9-bb48bbf06da3.png"
-  }
-];
+import { Card, CardContent } from "@/components/ui/card";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const EmailMarketingCarousel = () => {
-  const [selectedCampaign, setSelectedCampaign] = useState<typeof emailCampaigns[0] | null>(null);
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const openCampaignModal = (campaign: typeof emailCampaigns[0]) => {
-    setSelectedCampaign(campaign);
-    setModalOpen(true);
-  };
+  const emailImages = [
+    {
+      src: "/lovable-uploads/cd62fc60-1d8d-4724-8529-ab9612ca9c41.png",
+      alt: "All Pro Heating & Plumbing email newsletter",
+      description: "Property management winter heating newsletter",
+    },
+    {
+      src: "/lovable-uploads/37cac9ff-58d3-4577-aa46-17ca9bc6d57d.png",
+      alt: "Grey Matters Brain Training Studio newsletter",
+      description: "Health & wellness New Year newsletter",
+    },
+    {
+      src: "/lovable-uploads/c641dd9b-f122-4f6c-989b-d760cfd177a1.png",
+      alt: "March On Mission nonprofit email",
+      description: "Nonprofit support campaign email",
+    },
+    {
+      src: "/lovable-uploads/e99811cd-24a6-40c0-a28c-b85ada26d3b2.png",
+      alt: "Triad Diagnostic Solutions abandoned cart email",
+      description: "E-commerce cart recovery email",
+    },
+    {
+      src: "/lovable-uploads/e8bacddf-ae58-40e4-ab9a-679e21ec55db.png",
+      alt: "Triad Diagnostic Solutions review request email",
+      description: "Customer feedback request email",
+    },
+  ];
 
   return (
-    <div className="w-full">
+    <div className="relative w-full max-w-5xl mx-auto px-4 md:px-6">
       <Carousel
         opts={{
           align: "start",
@@ -64,54 +49,33 @@ const EmailMarketingCarousel = () => {
         className="w-full"
       >
         <CarouselContent>
-          {emailCampaigns.map((campaign) => (
-            <CarouselItem key={campaign.id} className="basis-full md:basis-1/2 lg:basis-1/3">
-              <div 
-                className="cursor-pointer h-full"
-                onClick={() => openCampaignModal(campaign)}
-              >
-                <div className="relative h-[200px] md:h-[220px] overflow-hidden rounded-t-lg">
-                  <img 
-                    src={campaign.image} 
-                    alt={campaign.title} 
-                    className="w-full h-full object-cover object-top transition-all duration-300 transform hover:scale-110"
-                  />
-                </div>
-                <div className="p-4 bg-black/30">
-                  <h4 className="text-lg font-semibold text-white">{campaign.title}</h4>
-                  <p className="text-white/70 text-sm mt-1">{campaign.description}</p>
-                </div>
+          {emailImages.map((image, index) => (
+            <CarouselItem
+              key={index}
+              className="md:basis-1/2 lg:basis-1/3 h-full"
+            >
+              <div className="p-1 h-full">
+                <Card className="overflow-hidden border border-gray-200 rounded-lg shadow-md h-full">
+                  <CardContent className="p-0">
+                    <AspectRatio ratio={9 / 16} className="bg-muted">
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="object-cover w-full h-full"
+                      />
+                    </AspectRatio>
+                    <div className="p-4 bg-white">
+                      <p className="text-sm text-gray-600">{image.description}</p>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-2 bg-black/50 hover:bg-black/80 border-none" />
-        <CarouselNext className="right-2 bg-black/50 hover:bg-black/80 border-none" />
+        <CarouselPrevious className="left-0 md:-left-12" />
+        <CarouselNext className="right-0 md:-right-12" />
       </Carousel>
-
-      {/* Campaign Modal */}
-      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="bg-royal/90 backdrop-blur-xl border border-white/10 text-white max-w-4xl max-h-[90vh] overflow-y-auto">
-          {selectedCampaign && (
-            <>
-              <DialogHeader>
-                <DialogTitle className="text-2xl font-bold">{selectedCampaign.title}</DialogTitle>
-                <DialogDescription className="text-white/80">
-                  {selectedCampaign.description}
-                </DialogDescription>
-              </DialogHeader>
-              
-              <div className="mt-4 bg-black/30 p-2 rounded-lg">
-                <img 
-                  src={selectedCampaign.image} 
-                  alt={selectedCampaign.title} 
-                  className="w-full object-contain rounded-lg"
-                />
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
     </div>
   );
 };
