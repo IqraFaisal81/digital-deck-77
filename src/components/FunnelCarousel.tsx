@@ -1,0 +1,125 @@
+
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselNext, 
+  CarouselPrevious 
+} from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+
+// Define funnels data
+const funnels = [
+  {
+    id: 1,
+    title: "All Pro - Refrigerant Change Consultation",
+    description: "Service funnel with clean CTAs and friction-free booking path",
+    image: "/lovable-uploads/2d5f250d-f776-46fd-8830-3db242d4e52d.png",
+    url: "https://go.callallproindy.com/all-pro---pimp-my-ride"
+  },
+  {
+    id: 2,
+    title: "Triad Diagnostic - Autel TCP Cards",
+    description: "E-commerce funnel with product listings and checkout flow",
+    image: "/lovable-uploads/bc480130-3453-4ec2-b46d-a946e98fb220.png",
+    url: "https://triaddiagnosticsolutions.com"
+  },
+  {
+    id: 3,
+    title: "Mike Greene Coaching",
+    description: "Client mentoring and booking funnel with qualification flow",
+    image: "https://placehold.co/600x400/e2e8f0/1e293b?text=Mike+Greene+Coaching",
+    url: "https://mikegreenecoaching.co.uk/mentoring-with-mike-greene"
+  }
+];
+
+const FunnelCarousel = () => {
+  const [selectedFunnel, setSelectedFunnel] = useState<typeof funnels[0] | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openFunnelModal = (funnel: typeof funnels[0]) => {
+    setSelectedFunnel(funnel);
+    setModalOpen(true);
+  };
+
+  return (
+    <div className="w-full">
+      <Carousel
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        className="w-full"
+      >
+        <CarouselContent>
+          {funnels.map((funnel) => (
+            <CarouselItem key={funnel.id} className="basis-full md:basis-1/2 lg:basis-1/3">
+              <div 
+                className="cursor-pointer h-full"
+                onClick={() => openFunnelModal(funnel)}
+              >
+                <div className="relative h-[200px] md:h-[220px] overflow-hidden rounded-t-lg">
+                  <img 
+                    src={funnel.image} 
+                    alt={funnel.title} 
+                    className="w-full h-full object-cover object-top transition-all duration-300 transform hover:scale-110"
+                  />
+                </div>
+                <div className="p-4 bg-black/30">
+                  <h4 className="text-lg font-semibold text-white">{funnel.title}</h4>
+                  <p className="text-white/70 text-sm mt-1">{funnel.description}</p>
+                </div>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="left-2 bg-black/50 hover:bg-black/80 border-none" />
+        <CarouselNext className="right-2 bg-black/50 hover:bg-black/80 border-none" />
+      </Carousel>
+
+      {/* Funnel Modal */}
+      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+        <DialogContent className="bg-royal/90 backdrop-blur-xl border border-white/10 text-white max-w-4xl max-h-[90vh] overflow-y-auto">
+          {selectedFunnel && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold">{selectedFunnel.title}</DialogTitle>
+                <DialogDescription className="text-white/80">
+                  {selectedFunnel.description}
+                </DialogDescription>
+              </DialogHeader>
+              
+              <div className="mt-4 bg-black/30 p-2 rounded-lg">
+                <img 
+                  src={selectedFunnel.image} 
+                  alt={selectedFunnel.title} 
+                  className="w-full object-contain rounded-lg"
+                />
+              </div>
+              
+              <div className="mt-4 flex justify-end">
+                <Button 
+                  asChild
+                  className="bg-electric hover:bg-electric/80"
+                >
+                  <a 
+                    href={selectedFunnel.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    View Live Funnel
+                  </a>
+                </Button>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+};
+
+export default FunnelCarousel;

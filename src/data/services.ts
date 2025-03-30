@@ -22,7 +22,7 @@ export const services = [
     title: "Funnel Development",
     description: "Whether it's onboarding, e-commerce, or lead capture—I build high-converting funnels that look great and drive real results.",
     icon: Repeat,
-    sectionId: "workflows" // Also link to workflows section
+    sectionId: "funnels" // Updated to link to funnels section
   },
   {
     id: 3,
@@ -55,4 +55,4 @@ export const services = [
 ];
 
 // Array of all section IDs for toggling visibility
-export const sectionIds = ["workflows", "seo-audits"];
+export const sectionIds = ["workflows", "seo-audits", "funnels"];
