@@ -1,3 +1,4 @@
+
 import { ArrowDown, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -26,7 +27,7 @@ const HomeSection = () => {
                 size="lg" 
                 className="bg-electric hover:bg-electric/90 text-white rounded-md group"
               >
-                <a href="#projects" className="flex items-center">
+                <a href="#services" className="flex items-center">
                   View My Work
                   <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </a>
