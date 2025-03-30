@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ArrowDown, ArrowRight, Check, ExternalLink, Github, Linkedin, Mail, Phone, Rocket } from "lucide-react";
 import { services } from "@/data/services";
 import { projects, getProjectCategories, getProjectsByCategory } from "@/data/projects";
@@ -9,6 +9,12 @@ import ProjectModal from "@/components/ProjectModal";
 import ContactForm from "@/components/ContactForm";
 import WorkflowCarousel from "@/components/WorkflowCarousel";
 import SEOAuditCarousel from "@/components/SEOAuditCarousel";
+import { 
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from "@/components/ui/accordion";
 import { 
   Table,
   TableBody,
@@ -28,13 +34,25 @@ const Index = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const projectCategories = getProjectCategories();
+  
+  const workflowsRef = useRef<HTMLElement>(null);
+  const seoAuditsRef = useRef<HTMLElement>(null);
 
   const openProjectModal = (project: ProjectType) => {
     setSelectedProject(project);
     setModalOpen(true);
   };
 
-  // SEO performance data for charts
+  const scrollToSection = (sectionId: string | null) => {
+    if (!sectionId) return;
+    
+    if (sectionId === "workflows" && workflowsRef.current) {
+      workflowsRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (sectionId === "seo-audits" && seoAuditsRef.current) {
+      seoAuditsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const seoPerformanceData = [
     { 
       name: 'Cojali USA', 
@@ -63,7 +81,6 @@ const Index = () => {
     <div className="min-h-screen bg-blue-gradient text-white overflow-x-hidden">
       <Navbar />
 
-      {/* Hero Section */}
       <section id="home" className="section-padding min-h-screen flex items-center pt-20">
         <div className="container mx-auto">
           <div className="flex flex-col items-center text-center">
@@ -110,7 +127,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section */}
       <section id="about" className="section-padding">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">About Me</h2>
@@ -154,26 +170,34 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Section */}
       <section id="services" className="section-padding">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">What I Do</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => (
-              <div key={service.id} className="service-card">
+              <div 
+                key={service.id} 
+                className={`service-card ${service.sectionId ? 'cursor-pointer hover:bg-black/20' : ''}`}
+                onClick={() => scrollToSection(service.sectionId)}
+              >
                 <div className="bg-electric/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
                   <service.icon className="text-electric" size={24} />
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
                 <p className="text-white/70">{service.description}</p>
+                {service.sectionId && (
+                  <div className="mt-3 text-electric text-sm flex items-center">
+                    <span>View details</span>
+                    <ArrowRight size={14} className="ml-1" />
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Workflow Automation Section */}
-      <section id="workflows" className="section-padding">
+      <section id="workflows" ref={workflowsRef} className="section-padding">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Workflow Automations</h2>
           <div className="max-w-3xl mx-auto mb-12">
@@ -231,8 +255,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* SEO Audits Section */}
-      <section id="seo-audits" className="section-padding">
+      <section id="seo-audits" ref={seoAuditsRef} className="section-padding">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">SEO Audits</h2>
           <div className="max-w-3xl mx-auto mb-12">
@@ -242,7 +265,6 @@ const Index = () => {
             </p>
           </div>
 
-          {/* SEO Audit Dashboards Carousel */}
           <div className="mb-12">
             <SEOAuditCarousel />
           </div>
@@ -301,7 +323,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Projects Section */}
       <section id="projects" className="section-padding">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Project Highlights</h2>
@@ -342,7 +363,6 @@ const Index = () => {
         />
       </section>
 
-      {/* Contact Section */}
       <section id="contact" className="section-padding">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Get In Touch</h2>
@@ -392,7 +412,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="py-8 border-t border-white/10">
         <div className="container mx-auto text-center text-white/50">
           <p>© {new Date().getFullYear()} Iqra Faisal. All rights reserved.</p>
