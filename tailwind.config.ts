@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -65,23 +66,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Updated custom colors for black and white design
-				royal: '#000000',
+				// Custom portfolio colors
+				royal: '#0a1d69',
 				midnight: '#000000',
-				electric: '#000000',
-				maroon: {
-					DEFAULT: '#800000',  // Classic maroon red
-					'50': '#FFE5E5',
-					'100': '#FFC1C1',
-					'200': '#FF9999',
-					'300': '#FF7070',
-					'400': '#FF4747',
-					'500': '#800000',
-					'600': '#660000',
-					'700': '#4D0000',
-					'800': '#330000',
-					'900': '#1A0000'
-				},
+				electric: '#3f8efc',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -121,7 +109,7 @@ export default {
 				'fade-in-right': 'fade-in-right 0.5s ease-out forwards'
 			},
 			backgroundImage: {
-				'blue-gradient': 'linear-gradient(to bottom, #000000, #FFFFFF)',
+				'blue-gradient': 'linear-gradient(to bottom, #0a1d69, #000000)',
 			}
 		}
 	},
