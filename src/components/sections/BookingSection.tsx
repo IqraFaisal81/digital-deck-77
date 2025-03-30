@@ -2,8 +2,16 @@
 import { Calendar, Clock, DollarSign } from "lucide-react";
 import CalendlyWidget from "@/components/CalendlyWidget";
 import { Card, CardContent } from "@/components/ui/card";
+import { useEffect, useState } from "react";
 
 const BookingSection = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  // Use this to ensure we only render client-side components after hydration
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <section id="booking" className="section-padding py-24 relative overflow-hidden">
       {/* Background decoration */}
@@ -94,11 +102,13 @@ const BookingSection = () => {
           </div>
           
           {/* Calendly widget */}
-          <div className="lg:col-span-8 bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/10">
-            <CalendlyWidget 
-              url="https://calendly.com/iqrafaisal81/30min" 
-              height={650} 
-            />
+          <div className="lg:col-span-8 bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/10 min-h-[650px]">
+            {isClient && (
+              <CalendlyWidget 
+                url="https://calendly.com/iqrafaisal81/30min" 
+                height={650} 
+              />
+            )}
           </div>
         </div>
       </div>
