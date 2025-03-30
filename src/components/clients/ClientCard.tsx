@@ -31,8 +31,8 @@ const ClientCard: React.FC<ClientCardProps> = ({ client, index, onOpenTestimonia
               alt={client.name} 
               className="max-h-full max-w-full object-contain transition-all duration-300 group-hover:scale-105" 
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-50/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-1">
-              <ExternalLink className="text-blue-500 w-4 h-4" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-1">
+              <ExternalLink className="text-white w-4 h-4" />
             </div>
           </div>
         </a>
