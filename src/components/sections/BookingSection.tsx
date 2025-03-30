@@ -95,7 +95,10 @@ const BookingSection = () => {
           
           {/* Calendly widget */}
           <div className="lg:col-span-2 bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/10">
-            <CalendlyWidget url="https://calendly.com/iqrafaisal81/30min" height={600} />
+            <CalendlyWidget 
+              url="https://calendly.com/iqrafaisal81/30min" 
+              height={600} 
+            />
           </div>
         </div>
       </div>

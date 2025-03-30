@@ -20,9 +20,13 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({ url, height = 700 }) =>
 
   return (
     <div 
-      className="calendly-inline-widget rounded-lg overflow-hidden shadow-xl" 
+      className="calendly-inline-widget overflow-hidden" 
       data-url={url}
-      style={{ minWidth: '320px', height: `${height}px` }}
+      style={{ 
+        minWidth: '320px', 
+        height: `${height}px`, 
+        overflow: 'hidden' 
+      }}
     />
   );
 };
