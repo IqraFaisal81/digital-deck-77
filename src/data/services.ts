@@ -29,7 +29,7 @@ export const services = [
     title: "Email Marketing",
     description: "I craft email campaigns and automations that engage, convert, and retain your audience without sounding like a robot.",
     icon: Mail,
-    sectionId: null // No specific section
+    sectionId: "email-marketing" // Updated to link to the new email marketing section
   },
   {
     id: 4,
@@ -55,4 +55,4 @@ export const services = [
 ];
 
 // Array of all section IDs for toggling visibility
-export const sectionIds = ["workflows", "seo-audits", "funnels"];
+export const sectionIds = ["workflows", "seo-audits", "funnels", "email-marketing"];
