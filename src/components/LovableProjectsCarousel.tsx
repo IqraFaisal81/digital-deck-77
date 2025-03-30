@@ -8,10 +8,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 
 const LovableProjectsCarousel = () => {
   const projects = [
@@ -101,7 +100,27 @@ const LovableProjectsCarousel = () => {
                 />
               </div>
               
-              <div className="mt-4 flex justify-end">
+              <div className="mt-6 p-4 bg-electric/10 rounded-lg border border-electric/20">
+                <h4 className="text-lg font-semibold text-white mb-2">Need a custom AI-powered solution?</h4>
+                <p className="text-white/80 mb-4">I can create similar or more advanced solutions tailored to your specific business needs.</p>
+                <Button
+                  className="bg-electric hover:bg-electric/80 w-full text-white"
+                  asChild
+                  onClick={() => {
+                    setModalOpen(false);
+                    setTimeout(() => {
+                      document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 300);
+                  }}
+                >
+                  <a className="flex items-center justify-center">
+                    <Calendar className="mr-2 h-4 w-4" />
+                    Schedule a Consultation
+                  </a>
+                </Button>
+              </div>
+              
+              <DialogFooter className="mt-6 flex justify-between">
                 <Button 
                   asChild
                   className="bg-electric hover:bg-electric/80"
@@ -114,7 +133,15 @@ const LovableProjectsCarousel = () => {
                     View Demo <ExternalLink size={16} className="ml-2" />
                   </a>
                 </Button>
-              </div>
+                
+                <Button 
+                  onClick={() => setModalOpen(false)}
+                  variant="ghost"
+                  className="border border-white/20 hover:bg-white/10"
+                >
+                  Close
+                </Button>
+              </DialogFooter>
             </>
           )}
         </DialogContent>

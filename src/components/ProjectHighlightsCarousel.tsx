@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 import { 
   Carousel, 
   CarouselContent, 
@@ -9,7 +9,7 @@ import {
   CarouselPrevious 
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { ProjectType } from "@/types/project";
 import { clients } from "@/data/clients";
 import { sectionIds } from "@/data/services";
@@ -101,6 +101,11 @@ const ProjectHighlightsCarousel = () => {
     }
   };
 
+  const openProjectModal = (project: typeof projectHighlights[0]) => {
+    setSelectedProject(project);
+    setModalOpen(true);
+  };
+
   return (
     <div className="w-full">
       <Carousel
@@ -115,7 +120,7 @@ const ProjectHighlightsCarousel = () => {
             <CarouselItem key={project.id} className="basis-full md:basis-1/2 lg:basis-1/3 h-full">
               <div 
                 className="bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 hover:border-electric/30 transition-all hover:shadow-lg hover:shadow-electric/20 hover:scale-[1.02] cursor-pointer h-full flex flex-col"
-                onClick={() => project.relatedService && scrollToServiceSection(project.relatedService)}
+                onClick={() => openProjectModal(project)}
               >
                 <div className="h-48 overflow-hidden">
                   <img 
@@ -174,6 +179,93 @@ const ProjectHighlightsCarousel = () => {
         <CarouselPrevious className="left-2 bg-black/50 hover:bg-black/80 border-none" />
         <CarouselNext className="right-2 bg-black/50 hover:bg-black/80 border-none" />
       </Carousel>
+
+      {/* Project Modal */}
+      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+        <DialogContent className="bg-royal/90 backdrop-blur-xl border border-white/10 text-white max-w-4xl max-h-[90vh] overflow-y-auto">
+          {selectedProject && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold">{selectedProject.title}</DialogTitle>
+                <DialogDescription className="text-white/80">
+                  {selectedProject.category} for {selectedProject.clientName}
+                </DialogDescription>
+              </DialogHeader>
+              
+              <div className="mt-4 bg-black/30 p-4 rounded-lg">
+                <img 
+                  src={selectedProject.image} 
+                  alt={selectedProject.title} 
+                  className="w-full h-auto rounded-lg mb-6"
+                />
+                
+                <div className="space-y-4">
+                  <p className="text-white/80">{selectedProject.description}</p>
+                  
+                  <div>
+                    <h4 className="text-lg font-semibold text-electric mb-2">Technologies Used</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProject.technologies.map((tech, index) => (
+                        <span 
+                          key={index}
+                          className="text-sm px-3 py-1 rounded-full bg-electric/20 text-electric"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className="mt-4 p-4 bg-electric/10 rounded-lg border border-electric/20">
+                    <h4 className="text-lg font-semibold text-white mb-2">Interested in a similar solution?</h4>
+                    <p className="text-white/80 mb-4">Let's discuss how I can help you achieve comparable results for your business.</p>
+                    <Button
+                      className="bg-electric hover:bg-electric/80 w-full text-white"
+                      asChild
+                      onClick={() => {
+                        setModalOpen(false);
+                        setTimeout(() => {
+                          document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+                        }, 300);
+                      }}
+                    >
+                      <a className="flex items-center justify-center">
+                        <Calendar className="mr-2 h-4 w-4" />
+                        Book a Consultation
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+              
+              <DialogFooter className="mt-6 flex justify-between">
+                <Button 
+                  variant="ghost"
+                  className="border border-white/20 hover:bg-white/10"
+                  onClick={() => {
+                    if (selectedProject.relatedService) {
+                      setModalOpen(false);
+                      setTimeout(() => {
+                        scrollToServiceSection(selectedProject.relatedService);
+                      }, 300);
+                    }
+                  }}
+                >
+                  View Related Service
+                </Button>
+                
+                <Button 
+                  onClick={() => setModalOpen(false)}
+                  variant="ghost"
+                  className="border border-white/20 hover:bg-white/10"
+                >
+                  Close
+                </Button>
+              </DialogFooter>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
