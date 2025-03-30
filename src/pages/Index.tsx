@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from "react";
 import { ArrowDown, ArrowRight, Check, ExternalLink, Github, Linkedin, Mail, Phone, Rocket } from "lucide-react";
 import { services, sectionIds } from "@/data/services";
@@ -562,4 +563,223 @@ const Index = () => {
               </div>
               <div className="p-4 bg-black/30 rounded-lg">
                 <h4 className="font-semibold mb-2">PPC Campaign Management</h4>
-                <p className="text-sm text-white/70">
+                <p className="text-sm text-white/70">Strategic campaign structure, ad copy optimization, bidding strategies, and conversion tracking.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">E-commerce Tracking</h4>
+                <p className="text-sm text-white/70">Full funnel visibility from product views to cart additions and purchases with revenue attribution.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Conversion Optimization</h4>
+                <p className="text-sm text-white/70">A/B testing, heat mapping, and user behavior analysis to boost conversion rates.</p>
+              </div>
+            </div>
+          </div>
+          
+          <h3 className="text-xl font-semibold mb-6 text-center">Analytics Showcase</h3>
+          <PPCCarousel />
+          
+          <div className="mt-12 bg-electric/10 rounded-xl p-6 border border-electric/20">
+            <h3 className="text-xl font-semibold mb-4 text-center text-electric">Tracking Solutions I&apos;ve Delivered</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Call All Pro: Built comprehensive call tracking system to monitor lead sources</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Grey Matters: Created custom GA4 events to track specific user interactions</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Cojali USA: Implemented enhanced e-commerce tracking for full sales visibility</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Triad DS: Built custom GTM container with 15+ triggered events</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-8 text-center">
+            <Button 
+              variant="ghost" 
+              className="border border-white/20 hover:bg-white/10"
+              onClick={() => setVisibleSection(null)}
+            >
+              Close Section
+            </Button>
+          </div>
+        </div>
+      </section>
+      
+      {/* AI Chatbot Section */}
+      <section id="ai-chatbot" ref={aiChatbotRef} className={`section-padding transition-all duration-300 ${isSectionVisible('ai-chatbot') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">AI Chatbot & Voice Agent</h2>
+          <div className="max-w-3xl mx-auto mb-12">
+            <p className="text-white/80 text-center">
+              Smart conversations, real-time responses, and zero missed opportunities. I build custom AI-powered chat 
+              and voice solutions that engage your website visitors, answer questions instantly, and convert more leads—24/7.
+            </p>
+          </div>
+          
+          <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10 mb-12">
+            <h3 className="text-xl font-semibold mb-6 text-electric">What I Build:</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Customer Service Chatbots</h4>
+                <p className="text-sm text-white/70">Answer FAQs, troubleshoot common issues, and guide users through help documentation without human intervention.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Lead Qualification Bots</h4>
+                <p className="text-sm text-white/70">Qualify leads with smart questions, collect contact info, and route to the right team members based on responses.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Booking & Scheduling Assistants</h4>
+                <p className="text-sm text-white/70">Let your AI take care of appointment scheduling, confirmations, and reminders with calendar integration.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Voice AI Phone Systems</h4>
+                <p className="text-sm text-white/70">Natural language phone agents that handle calls, collect information, and create tickets or schedule callbacks.</p>
+              </div>
+            </div>
+          </div>
+          
+          <h3 className="text-xl font-semibold mb-6 text-center">AI Solutions Showcase</h3>
+          <AIChatbotCarousel />
+          
+          <div className="mt-12 bg-electric/10 rounded-xl p-6 border border-electric/20">
+            <h3 className="text-xl font-semibold mb-4 text-center text-electric">AI Implementations I&apos;ve Delivered</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Call All Pro: 24/7 emergency service bot that qualified leads and routed urgent calls</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Triad DS: Product recommendation chatbot that guided techs to the right diagnostic tools</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Grey Matters: Appointment scheduling bot with intake form integration</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Charley Grey: Knowledge base assistant for client onboarding questions</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-8 text-center">
+            <Button 
+              variant="ghost" 
+              className="border border-white/20 hover:bg-white/10"
+              onClick={() => setVisibleSection(null)}
+            >
+              Close Section
+            </Button>
+          </div>
+        </div>
+      </section>
+      
+      {/* Lovable Projects Section */}
+      <section id="lovable-projects" ref={lovableProjectsRef} className={`section-padding transition-all duration-300 ${isSectionVisible('lovable-projects') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Lovable Projects</h2>
+          <div className="max-w-3xl mx-auto mb-12">
+            <p className="text-white/80 text-center">
+              Creating exceptional AI-powered web applications with the innovative Lovable platform. From chatbots to dashboards, 
+              I build modern apps that delight users and solve real business problems with cutting-edge technology.
+            </p>
+          </div>
+          
+          <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10 mb-12">
+            <h3 className="text-xl font-semibold mb-6 text-electric">What I Build:</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">AI-Powered Web Applications</h4>
+                <p className="text-sm text-white/70">Custom solutions that leverage artificial intelligence to deliver personalized user experiences.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Interactive Dashboards</h4>
+                <p className="text-sm text-white/70">Data visualization tools that turn complex information into actionable insights with real-time updates.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Chatbot Platforms</h4>
+                <p className="text-sm text-white/70">Custom chatbot creation tools that allow businesses to deploy conversational AI easily.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">SaaS Solutions</h4>
+                <p className="text-sm text-white/70">Cloud-based software applications designed for specific business needs with subscription models.</p>
+              </div>
+            </div>
+          </div>
+          
+          <h3 className="text-xl font-semibold mb-6 text-center">Featured Lovable Projects</h3>
+          <LovableProjectsCarousel />
+          
+          <div className="mt-12 bg-electric/10 rounded-xl p-6 border border-electric/20">
+            <h3 className="text-xl font-semibold mb-4 text-center text-electric">Project Outcomes</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">ChatGenius Embedify: No-code chatbot platform that reduced development time by 80%</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">SupaFriendly Dashboard: Social analytics tool with intuitive interface and real-time data</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">PromptVault Pilot: AI prompt management system that improved team productivity</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Rapid development and deployment with modern tech stack and clean code</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-8 text-center">
+            <Button 
+              variant="ghost" 
+              className="border border-white/20 hover:bg-white/10"
+              onClick={() => setVisibleSection(null)}
+            >
+              Close Section
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section (This would be the parent section for all projects) */}
+      <section id="projects" className="section-padding">
+        {/* Project section content would go here */}
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="section-padding">
+        {/* Contact form and details would go here */}
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-black/30 py-8">
+        <div className="container mx-auto text-center">
+          <p className="text-white/60">© {new Date().getFullYear()} Iqra Faisal. All rights reserved.</p>
+        </div>
+      </footer>
+
+      {/* Project Modal */}
+      {selectedProject && (
+        <ProjectModal 
+          project={selectedProject} 
+          isOpen={modalOpen} 
+          setIsOpen={setModalOpen} 
+        />
+      )}
+    </div>
+  );
+};
+
+export default Index;
