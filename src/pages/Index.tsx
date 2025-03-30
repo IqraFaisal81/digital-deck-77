@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react";
 import { ProjectType } from "@/types/project";
 import Navbar from "@/components/Navbar";
@@ -18,6 +17,7 @@ import EmailMarketingSection from "@/components/sections/EmailMarketingSection";
 import PPCAnalyticsSection from "@/components/sections/PPCAnalyticsSection";
 import AIChatbotSection from "@/components/sections/AIChatbotSection";
 import LovableProjectsSection from "@/components/sections/LovableProjectsSection";
+import BookingSection from "@/components/sections/BookingSection";
 import ContactSection from "@/components/sections/ContactSection";
 
 const Index = () => {
@@ -132,6 +132,7 @@ const Index = () => {
         setVisibleSection={setVisibleSection} 
         lovableProjectsRef={lovableProjectsRef} 
       />
+      <BookingSection />
       <ContactSection />
 
       {selectedProject && (

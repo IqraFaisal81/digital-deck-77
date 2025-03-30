@@ -21,7 +21,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <h3 className="font-semibold mb-1">Email Me</h3>
-                <p className="text-white/70">iqra@example.com</p>
+                <p className="text-white/70">iqrafaisal81@gmail.com</p>
               </div>
             </div>
             
@@ -31,7 +31,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <h3 className="font-semibold mb-1">Call Me</h3>
-                <p className="text-white/70">(123) 456-7890</p>
+                <p className="text-white/70">+44 7555 859390</p>
               </div>
             </div>
             
@@ -41,7 +41,7 @@ const ContactSection = () => {
                 <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-black/30 p-3 rounded-full hover:bg-electric/20 transition-colors">
                   <Github size={20} className="text-white" />
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-black/30 p-3 rounded-full hover:bg-electric/20 transition-colors">
+                <a href="https://www.linkedin.com/in/iqra-faisal-b6687919b/" target="_blank" rel="noopener noreferrer" className="bg-black/30 p-3 rounded-full hover:bg-electric/20 transition-colors">
                   <Linkedin size={20} className="text-white" />
                 </a>
               </div>
