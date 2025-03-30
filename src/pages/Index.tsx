@@ -37,6 +37,8 @@ import {
   CollapsibleContent,
   CollapsibleTrigger
 } from "@/components/ui/collapsible";
+import AIChatbotCarousel from "@/components/AIChatbotCarousel";
+import LovableProjectsCarousel from "@/components/LovableProjectsCarousel";
 
 const Index = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
@@ -50,6 +52,8 @@ const Index = () => {
   const funnelsRef = useRef<HTMLElement>(null);
   const emailMarketingRef = useRef<HTMLElement>(null);
   const ppcAnalyticsRef = useRef<HTMLElement>(null);
+  const aiChatbotRef = useRef<HTMLElement>(null);
+  const lovableProjectsRef = useRef<HTMLElement>(null);
 
   const openProjectModal = (project: ProjectType) => {
     setSelectedProject(project);
@@ -72,6 +76,10 @@ const Index = () => {
         emailMarketingRef.current.scrollIntoView({ behavior: "smooth" });
       } else if (sectionId === "ppc-analytics" && ppcAnalyticsRef.current) {
         ppcAnalyticsRef.current.scrollIntoView({ behavior: "smooth" });
+      } else if (sectionId === "ai-chatbot" && aiChatbotRef.current) {
+        aiChatbotRef.current.scrollIntoView({ behavior: "smooth" });
+      } else if (sectionId === "lovable-projects" && lovableProjectsRef.current) {
+        lovableProjectsRef.current.scrollIntoView({ behavior: "smooth" });
       }
     }, 100);
   };
@@ -552,147 +560,4 @@ const Index = () => {
                 <h4 className="font-semibold mb-2">E-commerce Tracking</h4>
                 <p className="text-sm text-white/70">Full funnel visibility from product views to cart additions and purchases with revenue attribution.</p>
               </div>
-              <div className="p-4 bg-black/30 rounded-lg">
-                <h4 className="font-semibold mb-2">Monthly Performance Reports</h4>
-                <p className="text-sm text-white/70">Clear, actionable insights on what's working and recommendations for optimization.</p>
-              </div>
-            </div>
-          </div>
-          
-          <h3 className="text-xl font-semibold mb-6 text-center">Analytics & Campaign Showcase</h3>
-          <PPCCarousel />
-          
-          <div className="mt-12 bg-electric/10 rounded-xl p-6 border border-electric/20">
-            <h3 className="text-xl font-semibold mb-4 text-center text-electric">Results I've Delivered</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex items-start space-x-2">
-                <Check className="text-electric mt-1 flex-shrink-0" />
-                <span className="text-white/80">Cojali USA: 2.42K clicks, 67K impressions, 3.6% CTR with position improved from 32 → 17.5</span>
-              </div>
-              <div className="flex items-start space-x-2">
-                <Check className="text-electric mt-1 flex-shrink-0" />
-                <span className="text-white/80">Triad DS: Implemented full GA4 + Meta Pixel integration for complete tracking visibility</span>
-              </div>
-              <div className="flex items-start space-x-2">
-                <Check className="text-electric mt-1 flex-shrink-0" />
-                <span className="text-white/80">Office H2O: Built custom Looker dashboards showing clear ROI on ads spend</span>
-              </div>
-              <div className="flex items-start space-x-2">
-                <Check className="text-electric mt-1 flex-shrink-0" />
-                <span className="text-white/80">Grey Matters Studio: Increased online visibility with 3.57K clicks and 223K impressions</span>
-              </div>
-            </div>
-          </div>
-          
-          <div className="mt-8 text-center">
-            <p className="text-white/80 italic mb-4">"If you can't measure it, you can't grow it." This setup makes your funnels, ads, and content measurable—from first click to final sale.</p>
-            <Button 
-              variant="ghost" 
-              className="border border-white/20 hover:bg-white/10"
-              onClick={() => setVisibleSection(null)}
-            >
-              Close Section
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" className="section-padding">
-        <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Project Highlights</h2>
-          
-          {projectCategories.map((category) => (
-            <div key={category} className="mb-20">
-              <h3 className="text-2xl font-semibold mb-8 pl-4 border-l-4 border-electric">
-                {category}
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {getProjectsByCategory(category).map((project) => (
-                  <div 
-                    key={project.id} 
-                    className="project-card cursor-pointer"
-                    onClick={() => openProjectModal(project)}
-                  >
-                    <div className="relative h-[240px]">
-                      <img 
-                        src={project.image} 
-                        alt={project.title} 
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                        <h4 className="text-lg font-semibold">{project.title}</h4>
-                        <span className="text-sm text-electric">{project.category}</span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-        <ProjectModal 
-          project={selectedProject} 
-          isOpen={modalOpen} 
-          setIsOpen={setModalOpen} 
-        />
-      </section>
-
-      <section id="contact" className="section-padding">
-        <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Get In Touch</h2>
-          <div className="bg-black/20 backdrop-blur-sm rounded-xl p-8 border border-white/10 max-w-4xl mx-auto">
-            <p className="text-white/80 text-center mb-8">
-              Let's build something great together.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-              <a 
-                href="mailto:iqrafaisal81@gmail.com" 
-                className="flex items-center justify-center md:justify-start gap-3 p-4 bg-black/30 rounded-lg hover:bg-black/40 transition-colors"
-              >
-                <Mail className="text-electric" />
-                <span>iqrafaisal81@gmail.com</span>
-              </a>
-              <a 
-                href="tel:+447555859390" 
-                className="flex items-center justify-center md:justify-start gap-3 p-4 bg-black/30 rounded-lg hover:bg-black/40 transition-colors"
-              >
-                <Phone className="text-electric" />
-                <span>+44 7555 859390 | +92 331 0043676</span>
-              </a>
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center justify-center md:justify-start gap-3 p-4 bg-black/30 rounded-lg hover:bg-black/40 transition-colors"
-              >
-                <Linkedin className="text-electric" />
-                <span>LinkedIn</span>
-                <ExternalLink size={14} className="ml-auto" />
-              </a>
-              <a 
-                href="https://github.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center justify-center md:justify-start gap-3 p-4 bg-black/30 rounded-lg hover:bg-black/40 transition-colors"
-              >
-                <Github className="text-electric" />
-                <span>GitHub</span>
-                <ExternalLink size={14} className="ml-auto" />
-              </a>
-            </div>
-            
-            <ContactForm />
-          </div>
-        </div>
-      </section>
-
-      <footer className="py-8 border-t border-white/10">
-        <div className="container mx-auto text-center text-white/50">
-          <p>© {new Date().getFullYear()} Iqra Faisal. All rights reserved.</p>
-        </div>
-      </footer>
-    </div>
-  );
-};
-
-export default Index;
+              <div className="p-4 bg

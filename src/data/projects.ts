@@ -74,22 +74,39 @@ export const projects: ProjectType[] = [
     tools: ["Looker Studio", "Google Analytics", "Data Visualization", "Performance Tracking"]
   },
 
-  // Social Media & Graphics
+  // Lovable Projects
   {
-    id: 9,
-    title: "M.B Collections – SEO Blogs & Socials",
-    category: "Social Media & Graphics",
-    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-    description: "Created engaging, search-optimized blog content and stunning social media posts that reflect the brand's style.",
-    tools: ["SEO Content", "Social Media", "Canva", "Content Calendar"]
+    id: 11,
+    title: "ChatGenius Embedify",
+    category: "Lovable Projects",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    description: "AI chatbot creation platform that lets anyone build and deploy custom chat interfaces for websites with no-code required.",
+    challenge: "Create a user-friendly platform for non-technical users to build and deploy AI chatbots with customizable interfaces and knowledge bases.",
+    solution: "Developed an intuitive no-code editor with live preview, embedding options, and powerful AI integration using the Lovable platform.",
+    results: "Successfully launched with multiple enterprise clients, reducing customer support time by 45% and increasing user engagement by 60%.",
+    tools: ["React", "Typescript", "Tailwind CSS", "Shadcn UI", "AI APIs", "Lovable"]
   },
   {
-    id: 10,
-    title: "Café 39 & Yasmeen Jiwa – Visual Design",
-    category: "Social Media & Graphics",
-    image: "https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    description: "Designed eye-catching graphics in Canva to elevate brand identity and improve ad performance.",
-    tools: ["Canva", "Brand Identity", "Visual Design", "Social Media Graphics"]
+    id: 12,
+    title: "SupaFriendly Dashboard",
+    category: "Lovable Projects",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    description: "Complete social media analytics dashboard with Supabase authentication, real-time data tracking, and customizable reports.",
+    challenge: "Build a full-stack application with secure user authentication and real-time analytics tracking for social media campaigns.",
+    solution: "Implemented Supabase for authentication and database management, with a beautiful Shadcn UI frontend that visualizes complex data simply.",
+    results: "Platform now used by 20+ marketing agencies to track over 500 social campaigns, with 98% user satisfaction rating.",
+    tools: ["React", "Typescript", "Supabase", "Tailwind CSS", "Recharts", "Lovable"]
+  },
+  {
+    id: 13,
+    title: "PromptVault Pilot",
+    category: "Lovable Projects",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    description: "AI prompt management platform for teams to create, organize, and optimize prompts across different AI tools and models.",
+    challenge: "Design a collaborative platform for teams to manage, version, and share their AI prompts while tracking performance metrics.",
+    solution: "Created a secure vault system with prompt templates, variables, sharing options, and performance analytics using the Lovable framework.",
+    results: "Adopted by content teams and AI researchers, improving prompt efficiency by 35% and reducing time spent writing prompts by 65%.",
+    tools: ["React", "Typescript", "Tailwind CSS", "Shadcn UI", "AI Integration", "Lovable"]
   }
 ];
 
