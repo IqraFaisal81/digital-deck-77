@@ -105,7 +105,7 @@ const Index = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex items-start space-x-2">
                   <Check className="text-electric mt-1 flex-shrink-0" />
-                  <span className="text-white/80">Fitness & Wellness</span>
+                  <span className="text-white/80">Total visibility. Smarter strategy. Bigger wins. I don't just launch campaigns—I measure everything. With expert-level setups in Google Tag Manager, Google Search Console, and Looker Studio, I track the full customer journey—so you know what's working, what's not, and what to scale.</span>
                 </div>
                 <div className="flex items-start space-x-2">
                   <Check className="text-electric mt-1 flex-shrink-0" />
