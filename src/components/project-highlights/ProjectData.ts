@@ -1,4 +1,3 @@
-
 // Define project highlights data with more detailed case studies
 export const projectHighlights = [
   {
@@ -6,7 +5,6 @@ export const projectHighlights = [
     title: "GreyMatters Studio – Automated Lead Pipeline",
     shortDescription: "Building a fully automated lead pipeline in Go High Level for a mental health studio",
     description: "Developed a comprehensive automation system for neurofeedback lead nurturing, tracking, and conversion, resulting in 3x increase in bookings.",
-    image: `https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
     category: "CRM Automation",
     technologies: ["Go High Level", "Email Automation", "Funnel Building", "Lead Tracking"],
     relatedService: "workflows",
@@ -20,7 +18,6 @@ export const projectHighlights = [
     title: "Triad Diagnostic Solutions - Redesign",
     shortDescription: "Complete rebrand and website overhaul with CRM integration",
     description: "Full website redesign with custom inventory system and customer portal integration. Added automated workflows for inventory management and order processing.",
-    image: `https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
     category: "Web Development",
     technologies: ["Go High Level", "WordPress", "WooCommerce", "JavaScript"],
     relatedService: "workflows",
@@ -34,7 +31,6 @@ export const projectHighlights = [
     title: "All Pro - Service Booking System",
     shortDescription: "HVAC service scheduling system with automated follow-ups",
     description: "Built an integrated service booking system with customer notifications, technician scheduling, and automated follow-up sequences to improve customer retention.",
-    image: `https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
     category: "Automation",
     technologies: ["Go High Level", "Twilio", "Zapier", "Calendar API"],
     relatedService: "workflows",
@@ -48,7 +44,6 @@ export const projectHighlights = [
     title: "Grey Matters - SEO & Content Strategy",
     shortDescription: "Complete SEO overhaul for mental health services",
     description: "Comprehensive SEO audit and implementation for a mental health studio, resulting in 300% increase in organic traffic and first-page rankings for key terms.",
-    image: `https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
     category: "SEO",
     technologies: ["Google Analytics", "SEMrush", "Ahrefs", "Content Strategy"],
     relatedService: "seo-audits",
@@ -62,7 +57,6 @@ export const projectHighlights = [
     title: "Pure Water - E-commerce Sales Funnel",
     shortDescription: "High-converting funnel for bottleless water coolers",
     description: "Designed and implemented a multi-step sales funnel for a bottleless water cooler company, increasing lead conversion rate by 45% and reducing customer acquisition cost.",
-    image: `https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
     category: "Funnel Development",
     technologies: ["Go High Level", "Facebook Ads", "Google Ads", "Email Automation"],
     relatedService: "funnels",
@@ -76,7 +70,6 @@ export const projectHighlights = [
     title: "March On Mission - Email Campaign",
     shortDescription: "Nonprofit donation email sequence with storytelling",
     description: "Crafted a compelling email campaign for a nonprofit, featuring personal stories and impact metrics that resulted in a 28% increase in donations from email channels.",
-    image: `https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
     category: "Email Marketing",
     technologies: ["Mailchimp", "Copy Writing", "A/B Testing", "Segmentation"],
     relatedService: "email-marketing",
@@ -90,7 +83,6 @@ export const projectHighlights = [
     title: "GetSAID - AI Support Chatbot",
     shortDescription: "Custom AI chatbot for intelligent customer support",
     description: "Developed and deployed an intelligent chatbot handling customer inquiries, appointment booking, and lead qualification without human intervention.",
-    image: `https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
     category: "AI Development",
     technologies: ["Go High Level", "OpenAI", "NLP", "Automation"],
     relatedService: "ai-chatbot",

@@ -4,7 +4,6 @@ export interface CaseStudy {
   title: string;
   client: string;
   category: string;
-  image: string;
   challenge: string;
   strategy: string[];
   results: {
@@ -13,10 +12,4 @@ export interface CaseStudy {
     stat3?: { value: string; label: string; };
   };
   tags: string[];
-  shortDescription?: string;
-  description?: string;
-  solution?: string;
-  technologies?: string[];
-  relatedService?: string;
-  clientName?: string;
 }

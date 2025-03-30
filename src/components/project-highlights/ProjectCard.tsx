@@ -16,13 +16,6 @@ const ProjectCard = ({ project, scrollToServiceSection, openProjectModal }: Proj
       className="bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 hover:border-electric/30 transition-all hover:shadow-lg hover:shadow-electric/20 hover:scale-[1.02] cursor-pointer h-full flex flex-col"
       onClick={() => openProjectModal(project)}
     >
-      <div className="h-48 overflow-hidden">
-        <img 
-          src={project.image} 
-          alt={project.title} 
-          className="w-full h-full object-cover object-center transform hover:scale-110 transition-transform duration-500"
-        />
-      </div>
       <div className="p-6 flex-1 flex flex-col">
         <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
         <p className="text-white/70 mb-4 flex-1">
@@ -43,7 +36,7 @@ const ProjectCard = ({ project, scrollToServiceSection, openProjectModal }: Proj
             Related: {sectionIds.includes(project.relatedService) ? 
               <button 
                 onClick={(e) => {
-                  e.stopPropagation(); // Prevent triggering parent onClick
+                  e.stopPropagation();
                   scrollToServiceSection(project.relatedService);
                 }}
                 className="text-electric hover:underline"
@@ -58,7 +51,7 @@ const ProjectCard = ({ project, scrollToServiceSection, openProjectModal }: Proj
             size="sm"
             className="text-electric hover:text-electric/80 p-0 flex items-center"
             onClick={(e) => {
-              e.stopPropagation(); // Prevent triggering parent onClick
+              e.stopPropagation();
               scrollToServiceSection(project.relatedService);
             }}
           >

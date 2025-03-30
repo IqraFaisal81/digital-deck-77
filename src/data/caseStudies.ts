@@ -1,14 +1,12 @@
 
 import { CaseStudy } from "@/types/caseStudy";
 
-// Define case studies data
 export const caseStudies: CaseStudy[] = [
   {
     id: 1,
     title: "Re-engagement Workflow for Abandoned Cart Users",
     client: "Triad Diagnostic Solutions",
     category: "Email Marketing",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
     challenge: "Triad wanted to recover high-value customers who abandoned carts—specifically those considering ADAS kits and full diagnostic packages. The lack of SKU tracking in their system made automation complex, requiring manual segmentation.",
     strategy: [
       "Tags were applied post-abandonment to identify Full Kit vs. ADAS Kit interest.",
@@ -27,7 +25,6 @@ export const caseStudies: CaseStudy[] = [
     title: "Automated Lead Pipeline Development",
     client: "GreyMatters Studio",
     category: "CRM Automation",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
     challenge: "GreyMatters Studio needed a way to automate lead nurturing for their neurofeedback services. Their team was overwhelmed with manual follow-ups and lacked a proper system to track leads downloading their free resources.",
     strategy: [
       "Built a customized funnel inside Go High Level that captured users who downloaded the Brain Users Handbook.",
@@ -46,7 +43,6 @@ export const caseStudies: CaseStudy[] = [
     title: "Product Development for Finance Management Software",
     client: "Confidential (Under NDA)",
     category: "Product Development",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
     challenge: "The client, a fintech startup, aimed to launch a user-friendly finance management platform tailored to young professionals juggling savings, debt, and daily budgeting. Existing tools in the market were either overly complex or lacked emotional connection with users.",
     strategy: [
       "Developed user personas from interviews with young professionals, side-hustle earners, and financially-anxious first-time budgeters.",
