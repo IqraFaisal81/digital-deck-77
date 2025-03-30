@@ -264,33 +264,6 @@ const ProjectHighlightsSection = () => {
           </div>
         )}
         
-        {/* Supporting case study cards */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8 text-gray-900">More Client Success Stories</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {supportingCaseStudies.map((study, index) => (
-              <Card key={index} className="hover:shadow-md transition-all hover:translate-y-[-5px]">
-                <CardHeader>
-                  <CardTitle>{study.title}</CardTitle>
-                  <CardDescription>{study.category}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">
-                    {study.description}
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Button variant="ghost" className="text-electric hover:text-electric/80 w-full" asChild>
-                    <a href="#booking" className="flex items-center justify-center">
-                      Get Similar Results <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-        </div>
-        
         {/* Call-to-action */}
         <div className="max-w-5xl mx-auto bg-electric/10 p-8 rounded-2xl shadow-sm border border-electric/20">
           <h3 className="text-2xl font-bold text-center mb-6 text-gray-900">Ready for Your Own Success Story?</h3>
