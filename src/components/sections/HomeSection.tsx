@@ -1,4 +1,3 @@
-
 import { ArrowDown, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -36,7 +35,7 @@ const HomeSection = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-white/30 text-white hover:bg-white/10 rounded-md"
+                className="border-2 border-white/30 text-electric hover:bg-white/10 rounded-md"
               >
                 <a href="#contact" className="flex items-center">Contact Me</a>
               </Button>
