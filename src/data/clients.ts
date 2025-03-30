@@ -1,4 +1,3 @@
-
 import { ClientType } from "@/types/client";
 
 export const clients: ClientType[] = [
@@ -51,8 +50,20 @@ export const clients: ClientType[] = [
     }
   },
   {
+    name: "BearPlex",
+    logo: "/lovable-uploads/bd245a13-0fd7-4a6b-8e9d-eb3bc2e36fd9.png",
+    website: "https://bearplex.com/",
+    description: "Innovative digital solutions and technology services for modern businesses.",
+    testimonial: {
+      quote: "Working with Iqra was transformative for our client onboarding process. The automated workflows have reduced our admin time by 65%.",
+      author: "Alex Johnson",
+      position: "CTO",
+      rating: 5
+    }
+  },
+  {
     name: "March on Mission",
-    logo: "/lovable-uploads/459570af-5ccd-4c1d-9cd0-3b4bc8a4a618.png",
+    logo: "/lovable-uploads/cfff5fd4-2370-420e-891e-11a54ae6a4f0.png",
     website: "https://www.marchonmission.org/",
     description: "Nonprofit organization dedicated to making positive impacts in communities through targeted initiatives.",
     testimonial: {
@@ -74,16 +85,4 @@ export const clients: ClientType[] = [
       rating: 5
     }
   },
-  {
-    name: "BearPlex",
-    logo: "/lovable-uploads/84abbd7d-4c45-4186-8442-6b7415f8a35a.png",
-    website: "https://bearplex.com/",
-    description: "Innovative digital solutions and technology services for modern businesses.",
-    testimonial: {
-      quote: "Working with Iqra was transformative for our client onboarding process. The automated workflows have reduced our admin time by 65%.",
-      author: "Alex Johnson",
-      position: "CTO",
-      rating: 5
-    }
-  }
 ];
