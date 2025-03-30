@@ -12,17 +12,37 @@ import { useState } from "react";
 const SEOAuditCarousel = () => {
   // Array of SEO dashboard images
   const seoImages = [
-    "/lovable-uploads/3db53d79-7906-4ee7-b2a9-2a28b2c5212a.png",
-    "/lovable-uploads/5a0ede87-2de2-421a-af7a-5e44aad3886d.png",
-    "/lovable-uploads/9fef311f-0699-4e7c-b2d1-918ce9e8e960.png",
-    "/lovable-uploads/fc1fe9d9-754d-4c31-a3fb-7c9d18da2df4.png",
-    "/lovable-uploads/66fbb743-7c92-4338-9760-c6e38c8e404f.png"
+    {
+      src: "/lovable-uploads/3db53d79-7906-4ee7-b2a9-2a28b2c5212a.png",
+      alt: "SEO Dashboard Example 1",
+      description: "Technical site audit dashboard with performance metrics"
+    },
+    {
+      src: "/lovable-uploads/5a0ede87-2de2-421a-af7a-5e44aad3886d.png",
+      alt: "SEO Dashboard Example 2",
+      description: "Keyword ranking and content gap analysis"
+    },
+    {
+      src: "/lovable-uploads/9fef311f-0699-4e7c-b2d1-918ce9e8e960.png",
+      alt: "SEO Dashboard Example 3",
+      description: "Backlink profile and domain authority metrics"
+    },
+    {
+      src: "/lovable-uploads/fc1fe9d9-754d-4c31-a3fb-7c9d18da2df4.png",
+      alt: "SEO Dashboard Example 4",
+      description: "Organic traffic growth and conversion analytics"
+    },
+    {
+      src: "/lovable-uploads/66fbb743-7c92-4338-9760-c6e38c8e404f.png",
+      alt: "SEO Dashboard Example 5",
+      description: "Competitor comparison and search visibility"
+    }
   ];
 
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<typeof seoImages[0] | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
 
-  const openImageModal = (image: string) => {
+  const openImageModal = (image: typeof seoImages[0]) => {
     setSelectedImage(image);
     setModalOpen(true);
   };
@@ -38,21 +58,21 @@ const SEOAuditCarousel = () => {
       >
         <CarouselContent>
           {seoImages.map((image, index) => (
-            <CarouselItem key={index} className="basis-full md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={index} className="basis-full md:basis-1/2 lg:basis-1/3 h-full">
               <div 
                 className="cursor-pointer h-full"
                 onClick={() => openImageModal(image)}
               >
                 <div className="relative h-[200px] md:h-[220px] overflow-hidden rounded-t-lg">
                   <img 
-                    src={image} 
-                    alt={`SEO Dashboard Example ${index + 1}`} 
+                    src={image.src} 
+                    alt={image.alt} 
                     className="w-full h-full object-cover object-top transition-all duration-300 transform hover:scale-110" 
                   />
                 </div>
-                <div className="p-4">
+                <div className="p-4 bg-black/30">
                   <h4 className="text-lg font-semibold text-white">SEO Dashboard {index + 1}</h4>
-                  <p className="text-white/70 text-sm mt-1">Analytics and performance metrics</p>
+                  <p className="text-white/70 text-sm mt-1">{image.description}</p>
                 </div>
               </div>
             </CarouselItem>
@@ -70,14 +90,14 @@ const SEOAuditCarousel = () => {
               <DialogHeader>
                 <DialogTitle className="text-2xl font-bold">SEO Dashboard</DialogTitle>
                 <DialogDescription className="text-white/80">
-                  Detailed SEO performance metrics and analytics
+                  {selectedImage.description}
                 </DialogDescription>
               </DialogHeader>
               
               <div className="mt-4 bg-black/30 p-2 rounded-lg">
                 <img 
-                  src={selectedImage} 
-                  alt="SEO Dashboard" 
+                  src={selectedImage.src} 
+                  alt={selectedImage.alt} 
                   className="w-full object-contain rounded-lg"
                 />
               </div>
