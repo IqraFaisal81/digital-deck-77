@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Star, Quote } from "lucide-react";
@@ -194,7 +193,11 @@ const ClientShowcase: React.FC = () => {
             </footer>
             
             <div className="mt-6 flex justify-end">
-              <Button variant="outline" onClick={() => setActiveClient(null)}>
+              <Button 
+                variant="outline" 
+                onClick={() => setActiveClient(null)}
+                className="text-electric"
+              >
                 Close
               </Button>
             </div>
