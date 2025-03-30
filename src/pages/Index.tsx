@@ -1,6 +1,7 @@
+
 import { useState, useRef, useEffect } from "react";
 import { ArrowDown, ArrowRight, Check, ExternalLink, Github, Linkedin, Mail, Phone, Rocket } from "lucide-react";
-import { services } from "@/data/services";
+import { services, sectionIds } from "@/data/services";
 import { projects, getProjectCategories, getProjectsByCategory } from "@/data/projects";
 import { ProjectType } from "@/types/project";
 import Navbar from "@/components/Navbar";
@@ -29,11 +30,19 @@ import {
   ChartTooltipContent
 } from "@/components/ui/chart";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, LineChart, Line, CartesianGrid, Tooltip, Legend } from "recharts";
+import { 
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger
+} from "@/components/ui/collapsible";
 
 const Index = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const projectCategories = getProjectCategories();
+  
+  // State to track which section is currently visible
+  const [visibleSection, setVisibleSection] = useState<string | null>(null);
   
   const workflowsRef = useRef<HTMLElement>(null);
   const seoAuditsRef = useRef<HTMLElement>(null);
@@ -46,11 +55,22 @@ const Index = () => {
   const scrollToSection = (sectionId: string | null) => {
     if (!sectionId) return;
     
-    if (sectionId === "workflows" && workflowsRef.current) {
-      workflowsRef.current.scrollIntoView({ behavior: "smooth" });
-    } else if (sectionId === "seo-audits" && seoAuditsRef.current) {
-      seoAuditsRef.current.scrollIntoView({ behavior: "smooth" });
-    }
+    // Set the visible section
+    setVisibleSection(prevSection => prevSection === sectionId ? null : sectionId);
+    
+    // Scroll to the section after a short delay to ensure the section is visible
+    setTimeout(() => {
+      if (sectionId === "workflows" && workflowsRef.current) {
+        workflowsRef.current.scrollIntoView({ behavior: "smooth" });
+      } else if (sectionId === "seo-audits" && seoAuditsRef.current) {
+        seoAuditsRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  };
+
+  // Function to determine if a section should be visible
+  const isSectionVisible = (sectionId: string) => {
+    return visibleSection === sectionId;
   };
 
   const seoPerformanceData = [
@@ -177,7 +197,7 @@ const Index = () => {
             {services.map((service) => (
               <div 
                 key={service.id} 
-                className={`service-card ${service.sectionId ? 'cursor-pointer hover:bg-black/20' : ''}`}
+                className={`service-card ${service.sectionId ? 'cursor-pointer hover:bg-black/20' : ''} ${service.sectionId && visibleSection === service.sectionId ? 'ring-2 ring-electric' : ''}`}
                 onClick={() => scrollToSection(service.sectionId)}
               >
                 <div className="bg-electric/20 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
@@ -187,7 +207,7 @@ const Index = () => {
                 <p className="text-white/70">{service.description}</p>
                 {service.sectionId && (
                   <div className="mt-3 text-electric text-sm flex items-center">
-                    <span>View details</span>
+                    <span>{visibleSection === service.sectionId ? 'Hide details' : 'View details'}</span>
                     <ArrowRight size={14} className="ml-1" />
                   </div>
                 )}
@@ -197,7 +217,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="workflows" ref={workflowsRef} className="section-padding">
+      {/* Specialized sections with collapsible content */}
+      <section id="workflows" ref={workflowsRef} className={`section-padding transition-all duration-300 ${isSectionVisible('workflows') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Workflow Automations</h2>
           <div className="max-w-3xl mx-auto mb-12">
@@ -252,10 +273,20 @@ const Index = () => {
               </div>
             </div>
           </div>
+          
+          <div className="mt-8 text-center">
+            <Button 
+              variant="ghost" 
+              className="border border-white/20 hover:bg-white/10"
+              onClick={() => setVisibleSection(null)}
+            >
+              Close Section
+            </Button>
+          </div>
         </div>
       </section>
 
-      <section id="seo-audits" ref={seoAuditsRef} className="section-padding">
+      <section id="seo-audits" ref={seoAuditsRef} className={`section-padding transition-all duration-300 ${isSectionVisible('seo-audits') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">SEO Audits</h2>
           <div className="max-w-3xl mx-auto mb-12">
@@ -319,6 +350,16 @@ const Index = () => {
                 <span className="text-white/80">Strengthened internal linking and improved site structure</span>
               </div>
             </div>
+          </div>
+          
+          <div className="mt-8 text-center">
+            <Button 
+              variant="ghost" 
+              className="border border-white/20 hover:bg-white/10"
+              onClick={() => setVisibleSection(null)}
+            >
+              Close Section
+            </Button>
           </div>
         </div>
       </section>

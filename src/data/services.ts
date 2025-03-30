@@ -53,3 +53,6 @@ export const services = [
     sectionId: null // No specific section
   },
 ];
+
+// Array of all section IDs for toggling visibility
+export const sectionIds = ["workflows", "seo-audits"];
