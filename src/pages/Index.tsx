@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react";
 import { ArrowDown, ArrowRight, Check, ExternalLink, Github, Linkedin, Mail, Phone, Rocket } from "lucide-react";
 import { services, sectionIds } from "@/data/services";
@@ -117,6 +116,23 @@ const Index = () => {
 
   // Check if projects array exists before attempting to render
   const displayProjects = projects ? projects.slice(0, 6) : [];
+
+  useEffect(() => {
+    // Add event listener for showing services sections from project modals
+    const handleShowSection = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail && customEvent.detail.sectionId) {
+        setVisibleSection(customEvent.detail.sectionId);
+        scrollToSection(customEvent.detail.sectionId);
+      }
+    };
+
+    document.addEventListener('show-section', handleShowSection);
+    
+    return () => {
+      document.removeEventListener('show-section', handleShowSection);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-blue-gradient text-white overflow-x-hidden">
@@ -402,46 +418,6 @@ const Index = () => {
           </div>
           
           <ProjectHighlightsCarousel />
-
-          <div className="mt-12 bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-            <h3 className="text-xl font-semibold mb-6 text-electric text-center">Project Impact Breakdown</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="p-6 bg-black/30 rounded-lg">
-                <h4 className="font-semibold mb-4 text-electric text-lg">Business Transformation</h4>
-                <ul className="space-y-3">
-                  <li className="flex items-start space-x-2">
-                    <Check className="text-electric mt-1 flex-shrink-0" />
-                    <span className="text-white/80">Automated workflows that saved 20+ hours/week in manual tasks</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <Check className="text-electric mt-1 flex-shrink-0" />
-                    <span className="text-white/80">CRM implementations that unified customer data across platforms</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <Check className="text-electric mt-1 flex-shrink-0" />
-                    <span className="text-white/80">Custom dashboards for real-time business intelligence</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="p-6 bg-black/30 rounded-lg">
-                <h4 className="font-semibold mb-4 text-electric text-lg">Growth & Revenue</h4>
-                <ul className="space-y-3">
-                  <li className="flex items-start space-x-2">
-                    <Check className="text-electric mt-1 flex-shrink-0" />
-                    <span className="text-white/80">45% increase in conversion rates through optimized funnels</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <Check className="text-electric mt-1 flex-shrink-0" />
-                    <span className="text-white/80">300% boost in organic traffic via strategic SEO implementations</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <Check className="text-electric mt-1 flex-shrink-0" />
-                    <span className="text-white/80">30% reduction in customer acquisition costs</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -610,46 +586,3 @@ const Index = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Email Me</h3>
-                  <a href="mailto:iqra@example.com" className="text-white/80 hover:text-electric transition-colors">
-                    iqra@example.com
-                  </a>
-                </div>
-              </div>
-              
-              <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10 flex items-start space-x-4">
-                <div className="bg-electric/20 p-3 rounded-full flex-shrink-0">
-                  <Phone className="text-electric" size={24} />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Call Me</h3>
-                  <a href="tel:+1234567890" className="text-white/80 hover:text-electric transition-colors">
-                    +1 (234) 567-890
-                  </a>
-                </div>
-              </div>
-              
-              <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-                <h3 className="font-semibold mb-4">Connect With Me</h3>
-                <div className="flex space-x-4">
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-electric/20 p-3 rounded-full hover:bg-electric/30 transition-colors">
-                    <Linkedin className="text-electric" size={24} />
-                  </a>
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-electric/20 p-3 rounded-full hover:bg-electric/30 transition-colors">
-                    <Github className="text-electric" size={24} />
-                  </a>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-black/20 backdrop-blur-sm rounded-xl p-8 border border-white/10">
-              <ContactForm />
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-};
-
-export default Index;
-
