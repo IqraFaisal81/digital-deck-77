@@ -1,12 +1,13 @@
 
 import { useState } from "react";
-import { ArrowDown, ArrowRight, Check, ExternalLink, Github, Linkedin, Mail, Phone } from "lucide-react";
+import { ArrowDown, ArrowRight, Check, ExternalLink, Github, Linkedin, Mail, Phone, Rocket } from "lucide-react";
 import { services } from "@/data/services";
 import { projects, getProjectCategories, getProjectsByCategory } from "@/data/projects";
 import { ProjectType } from "@/types/project";
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import ProjectModal from "@/components/ProjectModal";
+import ContactForm from "@/components/ContactForm";
 
 const Index = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
@@ -26,14 +27,22 @@ const Index = () => {
       <section id="home" className="section-padding min-h-screen flex items-center pt-20">
         <div className="container mx-auto">
           <div className="flex flex-col items-center text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">
-              John <span className="text-electric">Doe</span>
+            <div className="relative w-32 h-32 mb-6 rounded-full overflow-hidden shadow-lg animate-fade-in">
+              <img 
+                src="/lovable-uploads/934937cb-710e-4f8e-aa1e-757407b8a2ab.png" 
+                alt="Iqra Faisal" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in flex items-center justify-center">
+              <Rocket className="mr-2 text-electric" />
+              Iqra <span className="text-electric">Faisal</span>
             </h1>
             <h2 className="text-xl md:text-2xl text-white/80 mb-6 animate-fade-in">
-              SaaS Developer & Automation Specialist
+              SaaS Developer · CRM Automation Specialist · Digital Marketing Pro
             </h2>
             <p className="max-w-2xl text-white/70 mb-8 animate-fade-in">
-              I help businesses automate workflows, optimize marketing funnels, and drive growth through strategic digital solutions. With 6+ years of experience in CRM systems, marketing automation, and digital strategy.
+              Building smart systems, automating success, and scaling businesses with code & creativity.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in">
               <Button 
@@ -41,7 +50,7 @@ const Index = () => {
                 className="bg-electric hover:bg-electric/80 text-white"
                 asChild
               >
-                <a href="#projects">View My Work<ArrowRight className="ml-2 h-4 w-4" /></a>
+                <a href="#contact">Let's Work Together<ArrowRight className="ml-2 h-4 w-4" /></a>
               </Button>
               <Button 
                 size="lg" 
@@ -49,7 +58,7 @@ const Index = () => {
                 className="border-white/20 hover:bg-white/10"
                 asChild
               >
-                <a href="#contact">Get In Touch</a>
+                <a href="#projects">View My Work</a>
               </Button>
             </div>
           </div>
@@ -67,37 +76,37 @@ const Index = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">About Me</h2>
           <div className="bg-black/20 backdrop-blur-sm rounded-xl p-8 border border-white/10 max-w-4xl mx-auto">
             <p className="text-white/80 mb-6">
-              I'm a full-stack developer and digital marketing specialist with over 6 years of experience helping businesses streamline their operations and grow their online presence. My expertise lies at the intersection of technology and marketing, where I build systems that drive real business results.
+              Hey! I'm Iqra Faisal, a SaaS developer and CRM automation expert with 6+ years of experience turning business chaos into smooth digital workflows. I specialize in building custom systems using Go High Level, automation frameworks, and full-funnel strategies that just work.
             </p>
             <p className="text-white/80 mb-6">
-              Having worked across various industries including SaaS, e-commerce, healthcare, and professional services, I bring a diverse perspective to every project. I'm particularly passionate about creating seamless customer journeys through strategic automation and data-driven decision making.
+              I've worked across industries like fitness, e-commerce, mental health, bottleless water coolers, HVAC, and professional services—delivering results that speak for themselves. From Google Ads and SEO to funnel design and automation—I'm your one-stop tech & marketing solution.
             </p>
             <div className="mt-8">
-              <h3 className="text-xl font-semibold mb-4 text-electric">My Expertise</h3>
+              <h3 className="text-xl font-semibold mb-4 text-electric">Industries I've Worked With</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex items-start space-x-2">
                   <Check className="text-electric mt-1 flex-shrink-0" />
-                  <span className="text-white/80">CRM Implementation & Automation</span>
+                  <span className="text-white/80">Fitness & Wellness</span>
                 </div>
                 <div className="flex items-start space-x-2">
                   <Check className="text-electric mt-1 flex-shrink-0" />
-                  <span className="text-white/80">Full-Stack Web Development</span>
+                  <span className="text-white/80">E-commerce</span>
                 </div>
                 <div className="flex items-start space-x-2">
                   <Check className="text-electric mt-1 flex-shrink-0" />
-                  <span className="text-white/80">Marketing Funnel Optimization</span>
+                  <span className="text-white/80">Mental Health Services</span>
                 </div>
                 <div className="flex items-start space-x-2">
                   <Check className="text-electric mt-1 flex-shrink-0" />
-                  <span className="text-white/80">Digital Marketing Strategy</span>
+                  <span className="text-white/80">Bottleless Water Coolers</span>
                 </div>
                 <div className="flex items-start space-x-2">
                   <Check className="text-electric mt-1 flex-shrink-0" />
-                  <span className="text-white/80">Data Analysis & Reporting</span>
+                  <span className="text-white/80">HVAC Services</span>
                 </div>
                 <div className="flex items-start space-x-2">
                   <Check className="text-electric mt-1 flex-shrink-0" />
-                  <span className="text-white/80">Email Marketing Automation</span>
+                  <span className="text-white/80">Professional Services</span>
                 </div>
               </div>
             </div>
@@ -108,7 +117,7 @@ const Index = () => {
       {/* Services Section */}
       <section id="services" className="section-padding">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">My Services</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">What I Do</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => (
               <div key={service.id} className="service-card">
@@ -126,7 +135,7 @@ const Index = () => {
       {/* Projects Section */}
       <section id="projects" className="section-padding">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Featured Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Project Highlights</h2>
           
           {projectCategories.map((category) => (
             <div key={category} className="mb-20">
@@ -168,24 +177,24 @@ const Index = () => {
       <section id="contact" className="section-padding">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Get In Touch</h2>
-          <div className="bg-black/20 backdrop-blur-sm rounded-xl p-8 border border-white/10 max-w-3xl mx-auto">
+          <div className="bg-black/20 backdrop-blur-sm rounded-xl p-8 border border-white/10 max-w-4xl mx-auto">
             <p className="text-white/80 text-center mb-8">
-              Interested in working together? Let's discuss how I can help your business grow through strategic automation and digital marketing.
+              Let's build something great together.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
               <a 
-                href="mailto:hello@example.com" 
+                href="mailto:iqrafaisal81@gmail.com" 
                 className="flex items-center justify-center md:justify-start gap-3 p-4 bg-black/30 rounded-lg hover:bg-black/40 transition-colors"
               >
                 <Mail className="text-electric" />
-                <span>hello@example.com</span>
+                <span>iqrafaisal81@gmail.com</span>
               </a>
               <a 
-                href="tel:+1234567890" 
+                href="tel:+447555859390" 
                 className="flex items-center justify-center md:justify-start gap-3 p-4 bg-black/30 rounded-lg hover:bg-black/40 transition-colors"
               >
                 <Phone className="text-electric" />
-                <span>+1 (234) 567-890</span>
+                <span>+44 7555 859390 | +92 331 0043676</span>
               </a>
               <a 
                 href="https://linkedin.com" 
@@ -208,6 +217,8 @@ const Index = () => {
                 <ExternalLink size={14} className="ml-auto" />
               </a>
             </div>
+            
+            <ContactForm />
           </div>
         </div>
       </section>
@@ -215,7 +226,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-8 border-t border-white/10">
         <div className="container mx-auto text-center text-white/50">
-          <p>© {new Date().getFullYear()} Portfolio. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Iqra Faisal. All rights reserved.</p>
         </div>
       </footer>
     </div>

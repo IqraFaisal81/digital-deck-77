@@ -1,48 +1,49 @@
 
 import { 
-  DatabaseZap, 
+  Settings, 
   LineChart, 
   Megaphone, 
   Mail, 
   Search,
-  Shuffle
+  Repeat,
+  Image
 } from "lucide-react";
 
 export const services = [
   {
     id: 1,
-    title: "CRM Automation",
-    description: "Custom CRM solutions and automations to streamline your business processes and improve customer relationships.",
-    icon: DatabaseZap,
+    title: "CRM Automations",
+    description: "Streamline your operations with powerful Go High Level workflows, lead nurturing, tagging, and customer journeys that practically run themselves.",
+    icon: Settings,
   },
   {
     id: 2,
-    title: "Sales Funnels",
-    description: "High-converting sales funnels designed to guide prospects through the buyer's journey and maximize conversions.",
-    icon: Shuffle,
+    title: "Funnel Development",
+    description: "Whether it's onboarding, e-commerce, or lead capture—I build high-converting funnels that look great and drive real results.",
+    icon: Repeat,
   },
   {
     id: 3,
     title: "Email Marketing",
-    description: "Strategic email campaigns that nurture leads, boost engagement, and drive revenue for your business.",
+    description: "I craft email campaigns and automations that engage, convert, and retain your audience without sounding like a robot.",
     icon: Mail,
   },
   {
     id: 4,
-    title: "PPC Advertising",
-    description: "Data-driven pay-per-click campaigns that target the right audience and deliver measurable ROI.",
+    title: "PPC Campaigns",
+    description: "Certified in Google Ads. I create click-worthy, conversion-optimized campaigns with strong CTRs, low CPCs, and high ROIs.",
     icon: Megaphone,
   },
   {
     id: 5,
     title: "SEO & Analytics",
-    description: "Comprehensive SEO strategies and analytics setup to improve visibility and track performance metrics.",
+    description: "From keyword strategy to Google Analytics and Looker dashboards, I make sure your brand gets seen—and tracked—with precision.",
     icon: Search,
   },
   {
     id: 6,
-    title: "Performance Tracking",
-    description: "Custom dashboards and reporting systems to track KPIs and measure the success of your marketing efforts.",
-    icon: LineChart,
+    title: "Social Media & Graphics",
+    description: "Custom Canva designs and content strategies for strong brand aesthetics and engagement on every scroll.",
+    icon: Image,
   },
 ];
