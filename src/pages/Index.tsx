@@ -13,6 +13,7 @@ import SEOAuditCarousel from "@/components/SEOAuditCarousel";
 import FunnelCarousel from "@/components/FunnelCarousel";
 import EmailMarketingCarousel from "@/components/EmailMarketingCarousel";
 import PPCCarousel from "@/components/PPCCarousel";
+import ProjectHighlightsCarousel from "@/components/ProjectHighlightsCarousel";
 import { 
   Accordion,
   AccordionContent,
@@ -759,7 +760,32 @@ const Index = () => {
       {/* Projects Section (This would be the parent section for all projects) */}
       <section id="projects" className="section-padding">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Project Highlights</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Project Highlights</h2>
+          <p className="text-white/80 text-center max-w-3xl mx-auto mb-12">
+            Explore a selection of our most innovative and impactful projects. Each one represents 
+            a unique challenge solved with creativity, technical excellence, and attention to detail.
+          </p>
+          
+          <ProjectHighlightsCarousel />
+          
+          <div className="mt-12 text-center">
+            <Button 
+              className="bg-electric hover:bg-electric/80 text-white px-6 py-3"
+              onClick={() => setModalOpen(true)}
+            >
+              View All Projects
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Projects Grid - Alternative Display */}
+      <section id="featured-projects-grid" className="section-padding bg-black/20 backdrop-blur-sm">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Featured Projects</h2>
+          <p className="text-white/80 text-center max-w-3xl mx-auto mb-12">
+            A closer look at some of our client work across various industries and technologies.
+          </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {displayProjects.map((project) => (
@@ -789,15 +815,6 @@ const Index = () => {
                 </div>
               </div>
             ))}
-          </div>
-          
-          <div className="mt-12 text-center">
-            <Button 
-              className="bg-electric hover:bg-electric/80 text-white px-6 py-3"
-              onClick={() => setModalOpen(true)}
-            >
-              View All Projects
-            </Button>
           </div>
         </div>
       </section>
