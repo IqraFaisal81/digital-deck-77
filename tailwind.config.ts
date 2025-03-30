@@ -70,6 +70,7 @@ export default {
 				royal: '#0a1d69',
 				midnight: '#000000',
 				electric: '#3f8efc',
+				maroon: '#800020', // Added maroon color
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

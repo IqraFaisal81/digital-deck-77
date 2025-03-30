@@ -107,30 +107,22 @@
   }
   
   .project-card {
-    @apply bg-black/20 backdrop-blur-sm rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-electric/20;
+    @apply bg-black/5 backdrop-blur-sm rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-maroon/20;
   }
   
   .service-card {
-    @apply bg-black/10 backdrop-blur-sm p-6 rounded-lg border border-white/10 transition-all duration-300 hover:bg-black/20 hover:border-electric/30;
+    @apply bg-black/5 backdrop-blur-sm p-6 rounded-lg border border-black/10 transition-all duration-300 hover:bg-black/10 hover:border-maroon/30;
   }
   
   .workflow-card {
-    @apply bg-black/10 backdrop-blur-sm rounded-lg border border-white/10 transition-all duration-300 hover:bg-black/20 hover:border-electric/30 hover:shadow-lg hover:shadow-electric/20;
+    @apply bg-black/5 backdrop-blur-sm rounded-lg border border-black/10 transition-all duration-300 hover:bg-black/10 hover:border-maroon/30 hover:shadow-lg hover:shadow-maroon/20;
   }
   
-  .bg-blue-gradient {
-    @apply bg-gradient-to-b from-[#0a1d69] to-black;
+  .text-maroon {
+    @apply text-[#800020];
   }
   
-  .text-electric {
-    @apply text-[#3f8efc];
-  }
-  
-  .bg-royal {
-    @apply bg-[#0a1d69];
-  }
-  
-  .bg-electric {
-    @apply bg-[#3f8efc];
+  .bg-maroon {
+    @apply bg-[#800020];
   }
 }
