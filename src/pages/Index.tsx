@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from "react";
 import { ArrowDown, ArrowRight, Check, ExternalLink, Github, Linkedin, Mail, Phone, Rocket } from "lucide-react";
 import { services, sectionIds } from "@/data/services";
@@ -572,4 +573,83 @@ const Index = () => {
                 <Check className="text-electric mt-1 flex-shrink-0" />
                 <span className="text-white/80">Triad DS – Abandoned Cart Recovery: Built a personalized WooCommerce workflow that recovered lost sales</span>
               </div>
-              <div className="flex items-start space-x-2
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Grey Matters – Welcome Sequence: 92% open rate and 45% click rate</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-8 text-center">
+            <Button 
+              variant="ghost" 
+              className="border border-white/20 hover:bg-white/10"
+              onClick={() => setVisibleSection(null)}
+            >
+              Close Section
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="section-padding min-h-screen flex items-center">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Let&apos;s Work Together</h2>
+          <div className="max-w-3xl mx-auto mb-12">
+            <p className="text-white/80 text-center">
+              Ready to transform your business with smart systems, automation, and marketing that works? Let&apos;s chat about how I can help you scale with less stress.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <div className="space-y-8">
+              <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10 flex items-start space-x-4">
+                <div className="bg-electric/20 p-3 rounded-full flex-shrink-0">
+                  <Mail className="text-electric" size={24} />
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1">Email Me</h3>
+                  <a href="mailto:iqra@example.com" className="text-white/80 hover:text-electric transition-colors">
+                    iqra@example.com
+                  </a>
+                </div>
+              </div>
+              
+              <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10 flex items-start space-x-4">
+                <div className="bg-electric/20 p-3 rounded-full flex-shrink-0">
+                  <Phone className="text-electric" size={24} />
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1">Call Me</h3>
+                  <a href="tel:+1234567890" className="text-white/80 hover:text-electric transition-colors">
+                    +1 (234) 567-890
+                  </a>
+                </div>
+              </div>
+              
+              <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                <h3 className="font-semibold mb-4">Connect With Me</h3>
+                <div className="flex space-x-4">
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-electric/20 p-3 rounded-full hover:bg-electric/30 transition-colors">
+                    <Linkedin className="text-electric" size={24} />
+                  </a>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-electric/20 p-3 rounded-full hover:bg-electric/30 transition-colors">
+                    <Github className="text-electric" size={24} />
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-black/20 backdrop-blur-sm rounded-xl p-8 border border-white/10">
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Index;
+
