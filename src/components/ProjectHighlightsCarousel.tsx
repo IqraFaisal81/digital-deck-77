@@ -18,6 +18,7 @@ type HighlightProject = {
   longDescription?: string;
   technologies?: string[];
   link?: string;
+  serviceId?: string; // Added service ID to link project with service section
 };
 
 const ProjectHighlightsCarousel = () => {
@@ -28,7 +29,8 @@ const ProjectHighlightsCarousel = () => {
       image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
       longDescription: "A comprehensive analytics solution that processes large datasets and presents actionable insights through interactive visualizations and customizable reporting tools.",
       technologies: ["React", "TypeScript", "D3.js", "Firebase", "TensorFlow.js"],
-      link: "https://example.com/analytics"
+      link: "https://example.com/analytics",
+      serviceId: "ppc-analytics"
     },
     {
       title: "Developer Productivity Platform",
@@ -36,7 +38,8 @@ const ProjectHighlightsCarousel = () => {
       image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
       longDescription: "A suite of developer productivity tools that integrates with popular IDEs to provide code suggestions, automate routine tasks, and optimize development workflows.",
       technologies: ["React", "Node.js", "Machine Learning", "VS Code API", "GraphQL"],
-      link: "https://example.com/devtools"
+      link: "https://example.com/devtools",
+      serviceId: "workflows"
     },
     {
       title: "Enterprise Collaboration Suite",
@@ -44,7 +47,8 @@ const ProjectHighlightsCarousel = () => {
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
       longDescription: "An end-to-end enterprise solution for remote teams that combines document management, video conferencing, and project tracking in a secure, scalable platform.",
       technologies: ["React", "WebRTC", "Redux", "Socket.io", "AWS Services"],
-      link: "https://example.com/collab"
+      link: "https://example.com/collab",
+      serviceId: "email-marketing"
     },
     {
       title: "Cloud Infrastructure Management",
@@ -52,7 +56,8 @@ const ProjectHighlightsCarousel = () => {
       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
       longDescription: "A platform that simplifies cloud resource management with automated provisioning, cost optimization, and performance monitoring across multiple cloud providers.",
       technologies: ["React", "Terraform", "Kubernetes", "AWS", "Azure", "GCP"],
-      link: "https://example.com/cloud"
+      link: "https://example.com/cloud",
+      serviceId: "lovable-projects"
     },
     {
       title: "Smart Energy Monitoring System",
@@ -60,7 +65,8 @@ const ProjectHighlightsCarousel = () => {
       image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
       longDescription: "An innovative energy monitoring system that uses IoT sensors and machine learning to optimize energy consumption in residential and commercial buildings.",
       technologies: ["React", "IoT", "MQTT", "TensorFlow", "Time-series DB"],
-      link: "https://example.com/energy"
+      link: "https://example.com/energy",
+      serviceId: "seo-audits"
     },
     {
       title: "Urban Planning Visualization",
@@ -68,7 +74,8 @@ const ProjectHighlightsCarousel = () => {
       image: "https://images.unsplash.com/photo-1493397212122-2b85dda8106b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
       longDescription: "A 3D visualization platform for urban planners that simulates traffic flow, environmental impact, and population growth to support sustainable city development.",
       technologies: ["React", "Three.js", "WebGL", "GIS", "Data Visualization"],
-      link: "https://example.com/urban"
+      link: "https://example.com/urban",
+      serviceId: "ai-chatbot"
     }
   ];
 
@@ -78,6 +85,18 @@ const ProjectHighlightsCarousel = () => {
   const openProjectModal = (project: HighlightProject) => {
     setSelectedProject(project);
     setModalOpen(true);
+  };
+
+  // New function to handle navigation to service section
+  const navigateToService = (serviceId: string | undefined, event: React.MouseEvent) => {
+    if (serviceId) {
+      event.stopPropagation(); // Stop event from triggering the card click
+      const element = document.getElementById(serviceId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        // Add any additional logic to show the section if it's initially hidden
+      }
+    }
   };
 
   return (
@@ -107,8 +126,18 @@ const ProjectHighlightsCarousel = () => {
                 <div className="p-5 bg-black/50 backdrop-blur-sm">
                   <h4 className="text-xl font-bold text-white">{project.title}</h4>
                   <p className="text-white/80 text-sm mt-2">{project.description}</p>
-                  <div className="mt-4 flex justify-end">
+                  <div className="mt-4 flex justify-between items-center">
                     <span className="text-electric text-sm">View Project</span>
+                    {project.serviceId && (
+                      <Button 
+                        variant="link" 
+                        size="sm" 
+                        className="text-white/70 hover:text-electric p-0"
+                        onClick={(e) => navigateToService(project.serviceId, e)}
+                      >
+                        View Related Service <ArrowRight size={14} className="ml-1" />
+                      </Button>
+                    )}
                   </div>
                 </div>
               </div>
@@ -159,8 +188,8 @@ const ProjectHighlightsCarousel = () => {
                   </div>
                 )}
                 
-                {selectedProject.link && (
-                  <div className="mt-6 flex justify-end">
+                <div className="mt-6 flex justify-between items-center">
+                  {selectedProject.link && (
                     <Button 
                       asChild
                       className="bg-electric hover:bg-electric/80"
@@ -173,8 +202,23 @@ const ProjectHighlightsCarousel = () => {
                         Visit Project <ExternalLink size={16} className="ml-2" />
                       </a>
                     </Button>
-                  </div>
-                )}
+                  )}
+                  
+                  {selectedProject.serviceId && (
+                    <Button 
+                      variant="outline"
+                      className="border-white/20 hover:bg-white/10"
+                      onClick={(e) => {
+                        setModalOpen(false);
+                        setTimeout(() => {
+                          navigateToService(selectedProject.serviceId, e);
+                        }, 300);
+                      }}
+                    >
+                      View Related Service <ArrowRight size={16} className="ml-2" />
+                    </Button>
+                  )}
+                </div>
               </div>
             </>
           )}
