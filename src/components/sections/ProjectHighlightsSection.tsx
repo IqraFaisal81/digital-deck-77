@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const ProjectHighlightsSection = () => {
   return (
-    <section id="project-highlights" className="section-padding relative">
+    <section id="case-studies" className="section-padding relative">
       {/* Background decorative elements */}
       <div className="absolute top-20 right-10 w-64 h-64 bg-electric/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 left-10 w-80 h-80 bg-electric/5 rounded-full blur-3xl"></div>

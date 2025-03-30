@@ -27,7 +27,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
           {services && services.map((service) => (
             <div 
               key={service.id} 
-              className={`rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-white border border-gray-100 p-6 ${service.sectionId ? 'cursor-pointer' : ''}`}
+              className={`rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-white border border-gray-100 p-6 ${service.sectionId ? 'cursor-pointer hover:bg-blue-50' : ''} ${service.sectionId && visibleSection === service.sectionId ? 'ring-2 ring-blue-500' : ''}`}
               onClick={() => scrollToSection(service.sectionId)}
             >
               <div className="bg-blue-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
@@ -39,7 +39,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
               <div className="flex justify-between items-center">
                 {service.sectionId && (
                   <div className="text-blue-600 text-sm flex items-center">
-                    <span>View details</span>
+                    <span>{visibleSection === service.sectionId ? 'Hide details' : 'View details'}</span>
                     <ArrowRight size={14} className="ml-1" />
                   </div>
                 )}

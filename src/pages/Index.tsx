@@ -18,6 +18,7 @@ import PPCAnalyticsSection from "@/components/sections/PPCAnalyticsSection";
 import AIChatbotSection from "@/components/sections/AIChatbotSection";
 import LovableProjectsSection from "@/components/sections/LovableProjectsSection";
 import BookingSection from "@/components/sections/BookingSection";
+import ProjectHighlightsSection from "@/components/sections/ProjectHighlightsSection";
 
 const Index = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
@@ -41,7 +42,9 @@ const Index = () => {
   const scrollToSection = (sectionId: string | null) => {
     if (!sectionId) return;
     
-    // Only scroll, but don't toggle visibility - we want case studies to always be visible
+    // Toggle section visibility - if it's already visible, hide it, otherwise show it
+    setVisibleSection(prevSection => prevSection === sectionId ? null : sectionId);
+    
     setTimeout(() => {
       if (sectionId === "workflows" && workflowsRef.current) {
         workflowsRef.current.scrollIntoView({ behavior: "smooth" });
@@ -61,14 +64,16 @@ const Index = () => {
     }, 100);
   };
 
-  // Always show all sections by default
-  const isSectionVisible = () => true;
+  const isSectionVisible = (sectionId: string) => {
+    return visibleSection === sectionId;
+  };
 
   useEffect(() => {
     // Add event listener for showing services sections from project modals
     const handleShowSection = (e: Event) => {
       const customEvent = e as CustomEvent;
       if (customEvent.detail && customEvent.detail.sectionId) {
+        setVisibleSection(customEvent.detail.sectionId);
         scrollToSection(customEvent.detail.sectionId);
       }
     };
@@ -127,6 +132,8 @@ const Index = () => {
         setVisibleSection={setVisibleSection} 
         lovableProjectsRef={lovableProjectsRef} 
       />
+      {/* Case Studies section - always visible */}
+      <ProjectHighlightsSection />
       <BookingSection />
 
       {selectedProject && (
