@@ -23,7 +23,7 @@ const ClientCard: React.FC<ClientCardProps> = ({ client, index, onOpenTestimonia
           href={client.website} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="bg-black/30 h-36 w-full rounded-xl backdrop-blur-sm border border-white/10 flex items-center justify-center p-6 transition-all duration-300 hover:border-electric/50 hover:shadow-lg hover:shadow-electric/20 group"
+          className="bg-white h-28 w-full rounded-xl shadow-md border border-gray-100 flex items-center justify-center p-4 transition-all duration-300 hover:shadow-lg hover:border-blue-200 group"
         >
           <div className="relative w-full h-full flex items-center justify-center">
             <img 
@@ -31,8 +31,8 @@ const ClientCard: React.FC<ClientCardProps> = ({ client, index, onOpenTestimonia
               alt={client.name} 
               className="max-h-full max-w-full object-contain transition-all duration-300 group-hover:scale-105" 
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/0 to-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-2">
-              <ExternalLink className="text-white/80 w-5 h-5" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-50/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-1">
+              <ExternalLink className="text-blue-500 w-4 h-4" />
             </div>
           </div>
         </a>
@@ -40,9 +40,9 @@ const ClientCard: React.FC<ClientCardProps> = ({ client, index, onOpenTestimonia
         {client.testimonial && (
           <button 
             onClick={() => onOpenTestimonial(client)}
-            className="mt-2 text-sm text-electric hover:underline flex items-center justify-center w-full"
+            className="mt-1 text-xs text-blue-600 hover:text-blue-700 hover:underline flex items-center justify-center w-full"
           >
-            <Quote size={14} className="mr-1" />
+            <Quote size={12} className="mr-1" />
             View Testimonial
           </button>
         )}

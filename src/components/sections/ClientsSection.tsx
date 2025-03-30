@@ -3,13 +3,13 @@ import ClientShowcase from "@/components/ClientShowcase";
 
 const ClientsSection = () => {
   return (
-    <section id="clients" className="py-16 px-4 md:px-8 bg-gradient-to-b from-white to-blue-50 relative overflow-hidden">
+    <section id="clients" className="py-12 px-4 md:px-8 bg-gradient-to-b from-white to-blue-50 relative overflow-hidden">
       <div className="container mx-auto relative z-10">
-        <div className="flex flex-col items-center mb-10">
+        <div className="flex flex-col items-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center text-gray-900">
             Trusted By <span className="text-blue-600">Industry Leaders</span>
           </h2>
-          <div className="w-16 h-1 bg-blue-600 mb-6"></div>
+          <div className="w-16 h-1 bg-blue-600 mb-4"></div>
           <p className="text-gray-700 max-w-2xl mx-auto text-center">
             I've had the privilege of working with these remarkable businesses, helping them transform their digital presence and automate their success.
           </p>

@@ -19,13 +19,6 @@ const ClientShowcase: React.FC = () => {
 
   return (
     <div className="w-full">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Trusted By Industry Leaders</h2>
-        <p className="text-white/80 max-w-2xl mx-auto">
-          I've had the privilege of working with these remarkable businesses, helping them transform their digital presence and automate their success.
-        </p>
-      </div>
-
       {/* Main showcase with hover effects */}
       <ClientGrid 
         clients={clients} 
