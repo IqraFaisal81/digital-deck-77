@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { Calendar } from "lucide-react";
+import { SendIcon } from "lucide-react";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -68,7 +68,7 @@ const ContactForm = () => {
           value={formData.message}
           onChange={handleChange}
           required
-          rows={5}
+          rows={4}
           className="w-full p-3 rounded-lg bg-black/30 border border-white/10 text-white focus:outline-none focus:border-electric resize-none"
         />
       </div>
@@ -79,14 +79,8 @@ const ContactForm = () => {
         disabled={isSubmitting}
       >
         {isSubmitting ? "Sending..." : "Send Message"}
+        {!isSubmitting && <SendIcon className="ml-2 h-4 w-4" />}
       </Button>
-      
-      <div className="mt-6 pt-6 border-t border-white/10">
-        <a href="#booking" className="flex items-center justify-center gap-2 text-electric hover:text-electric/80 transition-colors">
-          <Calendar className="w-5 h-5" />
-          <span>Or book a consultation directly</span>
-        </a>
-      </div>
     </form>
   );
 };

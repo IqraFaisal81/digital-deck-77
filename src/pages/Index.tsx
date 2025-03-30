@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react";
 import { ProjectType } from "@/types/project";
 import Navbar from "@/components/Navbar";
@@ -19,7 +18,6 @@ import PPCAnalyticsSection from "@/components/sections/PPCAnalyticsSection";
 import AIChatbotSection from "@/components/sections/AIChatbotSection";
 import LovableProjectsSection from "@/components/sections/LovableProjectsSection";
 import BookingSection from "@/components/sections/BookingSection";
-import ContactSection from "@/components/sections/ContactSection";
 
 const Index = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
@@ -134,7 +132,6 @@ const Index = () => {
         lovableProjectsRef={lovableProjectsRef} 
       />
       <BookingSection />
-      <ContactSection />
 
       {selectedProject && (
         <ProjectModal

@@ -31,8 +31,7 @@ const Navbar = () => {
     { label: "Clients", icon: <Users className="mr-2 h-4 w-4" />, href: "#clients" },
     { label: "Services", icon: <Wrench className="mr-2 h-4 w-4" />, href: "#services" },
     { label: "Projects", icon: <Briefcase className="mr-2 h-4 w-4" />, href: "#project-highlights" },
-    { label: "Book a Call", icon: <Calendar className="mr-2 h-4 w-4" />, href: "#booking" },
-    { label: "Contact", icon: <Phone className="mr-2 h-4 w-4" />, href: "#contact" },
+    { label: "Contact Me", icon: <Phone className="mr-2 h-4 w-4" />, href: "#booking" },
   ];
 
   return (
