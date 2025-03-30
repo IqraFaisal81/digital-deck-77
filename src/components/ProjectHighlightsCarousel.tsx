@@ -14,14 +14,14 @@ import { ProjectType } from "@/types/project";
 import { clients } from "@/data/clients";
 import { sectionIds } from "@/data/services";
 
-// Define project highlights data
+// Define project highlights data with placeholder images
 const projectHighlights = [
   {
     id: 1,
     title: "Triad Diagnostic Solutions - Redesign",
     shortDescription: "Complete rebrand and website overhaul with CRM integration",
     description: "Full website redesign with custom inventory system and customer portal integration. Added automated workflows for inventory management and order processing.",
-    image: "/lovable-uploads/c53f75af-52db-4d19-bc94-5f4f76696d7f.png",
+    image: `https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
     category: "Web Development",
     technologies: ["Go High Level", "WordPress", "WooCommerce", "JavaScript"],
     relatedService: "workflows",
@@ -32,7 +32,7 @@ const projectHighlights = [
     title: "All Pro - Service Booking System",
     shortDescription: "HVAC service scheduling system with automated follow-ups",
     description: "Built an integrated service booking system with customer notifications, technician scheduling, and automated follow-up sequences to improve customer retention.",
-    image: "/lovable-uploads/8298ac25-72ea-45df-8b02-fec826aa557c.png",
+    image: `https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
     category: "Automation",
     technologies: ["Go High Level", "Twilio", "Zapier", "Calendar API"],
     relatedService: "workflows",
@@ -43,7 +43,7 @@ const projectHighlights = [
     title: "Grey Matters - SEO & Content Strategy",
     shortDescription: "Complete SEO overhaul for mental health services",
     description: "Comprehensive SEO audit and implementation for a mental health studio, resulting in 300% increase in organic traffic and first-page rankings for key terms.",
-    image: "/lovable-uploads/fc1fe9d9-754d-4c31-a3fb-7c9d18da2df4.png",
+    image: `https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
     category: "SEO",
     technologies: ["Google Analytics", "SEMrush", "Ahrefs", "Content Strategy"],
     relatedService: "seo-audits",
@@ -54,7 +54,7 @@ const projectHighlights = [
     title: "Pure Water - E-commerce Sales Funnel",
     shortDescription: "High-converting funnel for bottleless water coolers",
     description: "Designed and implemented a multi-step sales funnel for a bottleless water cooler company, increasing lead conversion rate by 45% and reducing customer acquisition cost.",
-    image: "/lovable-uploads/9bcb292a-8bfc-4d7d-b048-fa75e96bec94.png",
+    image: `https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
     category: "Funnel Development",
     technologies: ["Go High Level", "Facebook Ads", "Google Ads", "Email Automation"],
     relatedService: "funnels",
@@ -65,7 +65,7 @@ const projectHighlights = [
     title: "March On Mission - Email Campaign",
     shortDescription: "Nonprofit donation email sequence with storytelling",
     description: "Crafted a compelling email campaign for a nonprofit, featuring personal stories and impact metrics that resulted in a 28% increase in donations from email channels.",
-    image: "/lovable-uploads/c641dd9b-f122-4f6c-989b-d760cfd177a1.png",
+    image: `https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
     category: "Email Marketing",
     technologies: ["Mailchimp", "Copy Writing", "A/B Testing", "Segmentation"],
     relatedService: "email-marketing",
@@ -76,7 +76,7 @@ const projectHighlights = [
     title: "AI Support Chatbot - Multiple Clients",
     shortDescription: "Custom AI chatbots for various business types",
     description: "Developed and deployed intelligent chatbots for multiple businesses, handling customer inquiries, appointment booking, and lead qualification without human intervention.",
-    image: "/lovable-uploads/1f2af988-6cc7-44a9-b183-662c459cb9ef.png",
+    image: `https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
     category: "AI Development",
     technologies: ["Go High Level", "OpenAI", "NLP", "Automation"],
     relatedService: "ai-chatbot",
