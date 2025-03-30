@@ -1,33 +1,37 @@
 
 import { useState } from "react";
 import { caseStudies } from "@/data/caseStudies";
-import CategoryFilter from "@/components/project-highlights/CategoryFilter";
-import CaseStudyThumbnail from "@/components/project-highlights/CaseStudyThumbnail";
-import CaseStudyDetails from "@/components/project-highlights/CaseStudyDetails";
-import CallToAction from "@/components/project-highlights/CallToAction";
 import { CaseStudy } from "@/types/caseStudy";
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselNext, 
+  CarouselPrevious
+} from "@/components/ui/carousel";
+import { useCarouselState } from "@/hooks/useCarouselState";
+import CaseStudyModal from "@/components/project-highlights/CaseStudyModal";
+import CaseStudyCarouselItem from "@/components/project-highlights/CaseStudyCarouselItem";
 
 const ProjectHighlightsSection = () => {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
-  const [activeCaseStudy, setActiveCaseStudy] = useState<CaseStudy>(caseStudies[0]);
+  const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const { carouselApi, setCarouselApi, currentIndex } = useCarouselState();
   
-  // Extract unique categories
-  const categories = ["all", ...Array.from(new Set(caseStudies.map(study => study.category)))];
-  
-  // Filter case studies based on active category
-  const filteredCaseStudies = activeCategory === "all" 
-    ? caseStudies 
-    : caseStudies.filter(study => study.category === activeCategory);
+  const openCaseStudyModal = (caseStudy: CaseStudy) => {
+    setSelectedCaseStudy(caseStudy);
+    setModalOpen(true);
+  };
 
   return (
     <section id="case-studies" className="section-padding relative bg-gradient-to-b from-white to-gray-50">
       {/* Background decorative elements */}
-      <div className="absolute top-20 right-10 w-64 h-64 bg-electric/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-80 h-80 bg-electric/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-20 right-10 w-64 h-64 bg-blue-50 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 left-10 w-80 h-80 bg-blue-50 rounded-full blur-3xl"></div>
       
       <div className="container mx-auto relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-10">
-          <div className="inline-block px-4 py-1 bg-electric/10 rounded-full text-electric text-sm font-medium mb-4">
+          <div className="inline-block px-4 py-1 bg-blue-100 rounded-full text-blue-600 text-sm font-medium mb-4">
             Client Success Stories
           </div>
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-black">
@@ -37,36 +41,49 @@ const ProjectHighlightsSection = () => {
             See how our strategic approach and technical expertise delivered measurable outcomes
             for businesses looking to improve their customer engagement and revenue.
           </p>
+        </div>
+        
+        {/* Case Study Carousel */}
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full"
+          setApi={setCarouselApi}
+        >
+          <CarouselContent>
+            {caseStudies.map((caseStudy, index) => (
+              <CarouselItem key={index} className="basis-full md:basis-1/2 lg:basis-1/3 px-4">
+                <CaseStudyCarouselItem 
+                  caseStudy={caseStudy} 
+                  onClick={() => openCaseStudyModal(caseStudy)} 
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
           
-          {/* Category filter tabs */}
-          <div className="flex justify-center mb-2">
-            <CategoryFilter 
-              categories={categories} 
-              activeCategory={activeCategory} 
-              setActiveCategory={setActiveCategory} 
-            />
+          <div className="flex justify-center gap-2 mt-6">
+            <CarouselPrevious className="static transform-none bg-blue-100 hover:bg-blue-200 text-blue-600 border-none h-8 w-8 rounded-full" />
+            <div className="flex items-center space-x-2">
+              {caseStudies.map((_, idx) => (
+                <span 
+                  key={idx} 
+                  className={`block h-2 w-2 rounded-full cursor-pointer transition-all ${currentIndex === idx ? 'bg-blue-600 w-4' : 'bg-blue-200'}`}
+                  onClick={() => carouselApi?.scrollTo(idx)}
+                />
+              ))}
+            </div>
+            <CarouselNext className="static transform-none bg-blue-100 hover:bg-blue-200 text-blue-600 border-none h-8 w-8 rounded-full" />
           </div>
-        </div>
+        </Carousel>
         
-        {/* Case study navigation thumbnails */}
-        <div className="flex flex-wrap justify-center gap-4 mb-10">
-          {filteredCaseStudies.map((study) => (
-            <CaseStudyThumbnail 
-              key={study.id}
-              study={study}
-              isActive={activeCaseStudy.id === study.id}
-              onClick={() => setActiveCaseStudy(study)}
-            />
-          ))}
-        </div>
-        
-        {/* Featured case study showcase */}
-        {activeCaseStudy && (
-          <CaseStudyDetails caseStudy={activeCaseStudy} />
-        )}
-        
-        {/* Call-to-action */}
-        <CallToAction />
+        {/* Case Study Modal */}
+        <CaseStudyModal 
+          isOpen={modalOpen} 
+          onClose={() => setModalOpen(false)} 
+          caseStudy={selectedCaseStudy} 
+        />
       </div>
     </section>
   );

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { SendIcon, Calendar } from "lucide-react";
+import { SendIcon } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -46,7 +46,7 @@ const ContactForm = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full bg-white border-electric text-gray-900 focus:border-electric"
+            className="w-full bg-white border-blue-600 text-gray-900 focus:border-blue-600"
           />
         </div>
         
@@ -59,7 +59,7 @@ const ContactForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full bg-white border-electric text-gray-900 focus:border-electric"
+            className="w-full bg-white border-blue-600 text-gray-900 focus:border-blue-600"
           />
         </div>
         
@@ -72,32 +72,19 @@ const ContactForm = () => {
             onChange={handleChange}
             required
             rows={4}
-            className="w-full bg-white border-electric text-gray-900 focus:border-electric resize-none"
+            className="w-full bg-white border-blue-600 text-gray-900 focus:border-blue-600 resize-none"
           />
         </div>
         
         <Button 
           type="submit"
-          className="w-full bg-electric hover:bg-electric/80 text-white font-semibold py-3"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Sending..." : "Send Message"}
           {!isSubmitting && <SendIcon className="ml-2 h-4 w-4" />}
         </Button>
       </form>
-      
-      <div className="mt-6 text-center">
-        <p className="text-white/70 mb-3">Prefer to schedule a call directly?</p>
-        <Button 
-          className="bg-black/40 hover:bg-black/60 border border-electric text-electric font-semibold"
-          asChild
-        >
-          <a href="#booking" className="flex items-center justify-center">
-            <Calendar className="mr-2 h-4 w-4" />
-            Book a Consultation
-          </a>
-        </Button>
-      </div>
     </div>
   );
 };
