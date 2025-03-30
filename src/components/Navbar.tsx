@@ -1,27 +1,24 @@
 
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-
-const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Workflows", href: "#workflows" },
-  { name: "SEO Audits", href: "#seo-audits" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-];
+import React, { useState, useEffect } from "react";
+import { Menu, X, Briefcase, User, Wrench, Phone, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useMobile } from "@/hooks/use-mobile";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const isMobile = useMobile();
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
+      if (window.scrollY > 50) {
+        setScrolled(true);
       } else {
-        setIsScrolled(false);
+        setScrolled(false);
       }
     };
 
@@ -29,65 +26,86 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const menuItems = [
+    { label: "About", icon: <User className="mr-2 h-4 w-4" />, href: "#about" },
+    { label: "Clients", icon: <Users className="mr-2 h-4 w-4" />, href: "#clients" },
+    { label: "Services", icon: <Wrench className="mr-2 h-4 w-4" />, href: "#services" },
+    { label: "Projects", icon: <Briefcase className="mr-2 h-4 w-4" />, href: "#project-highlights" },
+    { label: "Contact", icon: <Phone className="mr-2 h-4 w-4" />, href: "#contact" },
+  ];
+
   return (
-    <header
+    <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-black/80 backdrop-blur-md py-3"
-          : "bg-transparent py-5"
+        scrolled ? "py-3 bg-black/80 backdrop-blur-lg shadow-lg" : "py-5 bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#home" className="text-white font-bold text-xl">
-          <span className="text-electric">Iqra</span>Faisal
+          Iqra Faisal
         </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:block">
-          <ul className="flex space-x-8">
-            {navItems.map((item) => (
-              <li key={item.name}>
-                <a
-                  href={item.href}
-                  className="text-white/80 hover:text-electric transition-colors duration-300"
-                >
-                  {item.name}
-                </a>
-              </li>
+        {/* Desktop Menu */}
+        {!isMobile && (
+          <div className="hidden md:flex space-x-1">
+            {menuItems.map((item, index) => (
+              <a
+                key={index}
+                href={item.href}
+                className="px-4 py-2 text-white/80 hover:text-white rounded-lg hover:bg-white/10 transition-colors duration-300 flex items-center"
+              >
+                {item.icon}
+                {item.label}
+              </a>
             ))}
-          </ul>
-        </nav>
+            <Button
+              className="ml-2 bg-electric hover:bg-electric/80"
+              asChild
+              size="sm"
+            >
+              <a href="#contact">Let's Work Together</a>
+            </Button>
+          </div>
+        )}
 
-        {/* Mobile Navigation Toggle */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Menu Button */}
+        {isMobile && (
+          <button onClick={toggleMenu} className="text-white">
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        )}
       </div>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-black/90 backdrop-blur-md">
-          <nav className="py-5">
-            <ul className="flex flex-col space-y-4 items-center">
-              {navItems.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    className="text-white/80 hover:text-electric transition-colors duration-300"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+      {/* Mobile Menu Dropdown */}
+      {isMobile && (
+        <div
+          className={`fixed inset-0 bg-black/95 backdrop-blur-xl z-40 transition-transform duration-300 ease-in-out ${
+            isOpen ? "translate-x-0" : "translate-x-full"
+          } pt-20`}
+        >
+          <div className="container mx-auto px-4 flex flex-col space-y-4">
+            {menuItems.map((item, index) => (
+              <a
+                key={index}
+                href={item.href}
+                onClick={toggleMenu}
+                className="px-4 py-4 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors duration-300 flex items-center"
+              >
+                {item.icon}
+                {item.label}
+              </a>
+            ))}
+            <Button
+              className="mt-4 bg-electric hover:bg-electric/80"
+              asChild
+              onClick={toggleMenu}
+            >
+              <a href="#contact">Let's Work Together</a>
+            </Button>
+          </div>
         </div>
       )}
-    </header>
+    </nav>
   );
 };
 
