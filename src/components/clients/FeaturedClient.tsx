@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { ExternalLink, Filter } from "lucide-react";
 import { 
@@ -71,17 +70,17 @@ const caseStudies: CaseStudy[] = [
     }
   },
   {
-    name: "All Pro Heating & Cooling",
-    logo: "/lovable-uploads/cbda554d-0f5b-483c-99ad-5b285101ffd3.png",
-    website: "https://www.callallproindy.com/",
-    category: "Service Automation",
-    description: "Developed a comprehensive service scheduling system with automatic notifications and technician dispatch. Implemented customer follow-up sequences.",
-    testimonial: "The CRM system Iqra implemented helped us track service calls and follow-ups seamlessly. Our response time has improved by 40%.",
-    author: "James Thompson, Operations Manager",
+    name: "Finance Management Platform",
+    logo: "/lovable-uploads/64c324e0-6cd3-4ea1-84b9-45893813da58.png",
+    website": "#",
+    category: "Product Development",
+    description: "Designed and developed a user-friendly finance management platform for young professionals juggling savings, debt, and daily budgeting using the Lovable framework for UX/UI strategy and product development.",
+    testimonial: "By leaning into Lovable's user-centered, emotion-driven development process, we successfully designed a financial tool that didn't just solve problems—it created an emotional connection with users.",
+    author: "Product Lead, Fintech Startup",
     results: {
-      stat1: { value: "40%", label: "Improved response time" },
-      stat2: { value: "75%", label: "Decrease in no-shows" },
-      stat3: { value: "45%", label: "Increase in recurring business" }
+      stat1: { value: "86%", label: "User recommendation rate" },
+      stat2: { value: "40%", label: "Time-on-task reduction" },
+      stat3: { value: "90%", label: "Task completion rate" }
     }
   },
   {

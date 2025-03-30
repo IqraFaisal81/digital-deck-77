@@ -13,7 +13,7 @@ export const projects: ProjectType[] = [
   },
   {
     id: 2,
-    title: "All Pro – Lead Nurture Workflow",
+    title: "Grey Matters – Lead Nurture Workflow",
     category: "CRM Automation",
     image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     description: "Automated lead follow-up across channels using conditional logic, improving engagement and conversions.",
@@ -87,6 +87,21 @@ export const projects: ProjectType[] = [
     tools: ["Go High Level", "Email Automation", "Customer Segmentation", "Tagging System"],
     clientName: "Triad Diagnostic Solutions",
     relatedService: "email-marketing"
+  },
+  
+  // New Finance Management Software Case Study
+  {
+    id: 10,
+    title: "Finance Management Software Development",
+    category: "Product Development",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    description: "Designed and developed a user-friendly finance management platform for young professionals using the Lovable framework.",
+    challenge: "The client, a fintech startup, aimed to launch a user-friendly finance management platform tailored to young professionals juggling savings, debt, and daily budgeting. Existing tools in the market were either overly complex or lacked emotional connection with users.",
+    solution: "Developed user personas from interviews, mapped emotional triggers to features, used Lovable's prioritization matrix for MVP features, and created interactive wireframes tested with 20+ early users before development.",
+    results: "86% of test users said they would recommend the platform after just one session. Time-on-task for key actions was reduced by 40% compared to leading competitors. Helped secure pre-seed funding based on user traction and prototype validation.",
+    tools: ["Lovable Framework", "UX/UI Design", "Market Research", "Prototype Testing"],
+    clientName: "Confidential (Under NDA)",
+    relatedService: "product-development"
   },
 
   // Lovable Projects

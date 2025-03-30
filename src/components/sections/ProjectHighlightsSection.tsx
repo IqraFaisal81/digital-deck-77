@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ArrowRight, Calendar, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -64,22 +63,23 @@ const caseStudies: CaseStudy[] = [
   },
   {
     id: 3,
-    title: "Service Booking System Implementation",
-    client: "All Pro Heating & Cooling",
-    category: "Service Automation",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
-    challenge: "Technicians were double-booked, customers experienced long wait times, and follow-up appointments were frequently missed, leading to lost revenue and customer dissatisfaction.",
+    title: "Product Development for Finance Management Software",
+    client: "Confidential (Under NDA)",
+    category: "Product Development",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+    challenge: "The client, a fintech startup, aimed to launch a user-friendly finance management platform tailored to young professionals juggling savings, debt, and daily budgeting. Existing tools in the market were either overly complex or lacked emotional connection with users.",
     strategy: [
-      "Developed an integrated booking system with automated confirmations, reminders, and technician assignment.",
-      "Created customer profiles with service history and equipment details for better continuity.",
-      "Implemented a follow-up sequence for maintenance reminders and seasonal service opportunities."
+      "Developed user personas from interviews with young professionals, side-hustle earners, and financially-anxious first-time budgeters.",
+      "Mapped user frustrations and aspirations to emotional triggers—security, autonomy, and motivation—for feature design.",
+      "Used Lovable's prioritization matrix to decide on the minimum viable features that delivered maximum emotional impact.",
+      "Created interactive wireframes and tested with 20+ early users to gather real-time feedback before development sprints."
     ],
     results: {
-      stat1: { value: "100%", label: "Reduction in scheduling errors" },
-      stat2: { value: "75%", label: "Decrease in no-shows" },
-      stat3: { value: "45%", label: "Increase in recurring maintenance" }
+      stat1: { value: "86%", label: "User recommendation rate" },
+      stat2: { value: "40%", label: "Time-on-task reduction" },
+      stat3: { value: "90%", label: "Task completion rate" }
     },
-    tags: ["Service Automation", "Booking System", "Customer Management", "Go High Level"]
+    tags: ["Product Development", "UX/UI Strategy", "Market Research", "Lovable Framework"]
   }
 ];
 
@@ -91,7 +91,7 @@ const supportingCaseStudies = [
     description: "Built a customized funnel inside Go High Level that captured users who downloaded the Brain Users Handbook with 12-week automated email workflow."
   },
   {
-    title: "All Pro – Lead Nurture Workflow",
+    title: "Triad DS – Abandoned Cart Recovery",
     category: "Email Automation",
     description: "Automated lead follow-up across channels using conditional logic, improving engagement and conversions."
   },
