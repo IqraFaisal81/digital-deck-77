@@ -116,6 +116,7 @@ const Index = () => {
     <div className="min-h-screen bg-blue-gradient text-white overflow-x-hidden">
       <Navbar />
 
+      {/* Home Section */}
       <section id="home" className="section-padding min-h-screen flex items-center pt-20">
         <div className="container mx-auto">
           <div className="flex flex-col items-center text-center">
@@ -162,6 +163,7 @@ const Index = () => {
         </div>
       </section>
 
+      {/* About Section */}
       <section id="about" className="section-padding">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">About Me</h2>
@@ -205,6 +207,7 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Services Section */}
       <section id="services" className="section-padding">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">What I Do</h2>
@@ -232,7 +235,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Workflow Automations Section */}
+      {/* Workflows Section */}
       <section id="workflows" ref={workflowsRef} className={`section-padding transition-all duration-300 ${isSectionVisible('workflows') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Workflow Automations</h2>
@@ -301,7 +304,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Funnel Development Section */}
+      {/* Funnels Section */}
       <section id="funnels" ref={funnelsRef} className={`section-padding transition-all duration-300 ${isSectionVisible('funnels') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Funnel Development</h2>
@@ -559,4 +562,4 @@ const Index = () => {
               </div>
               <div className="p-4 bg-black/30 rounded-lg">
                 <h4 className="font-semibold mb-2">PPC Campaign Management</h4>
-                <p className="text-sm text-white/70">Strategic campaign structure, ad copy optimization, bidding strategies, and conversion tracking.</p>
+                <p className="text-sm text-white/70">
