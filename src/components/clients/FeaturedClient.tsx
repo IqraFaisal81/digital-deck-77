@@ -20,6 +20,14 @@ const featuredClients = [
     author: "Director, Grey Matters Studio"
   },
   {
+    name: "Triad Diagnostic Solutions",
+    logo: "/lovable-uploads/64c324e0-6cd3-4ea1-84b9-45893813da58.png",
+    website: "https://triaddiagnosticsolutions.com/",
+    description: "Developed a segmented email automation workflow to recover high-value abandoned carts for automotive diagnostic products, specifically ADAS kits and full diagnostic packages.",
+    testimonial: "The abandoned cart recovery system increased our conversions by 22% and helped us collect 60% more reviews. The automated segmentation saves our team hours of manual work every week.",
+    author: "Operations Manager, Triad Diagnostic Solutions"
+  },
+  {
     name: "GetSAID",
     logo: "/lovable-uploads/64c324e0-6cd3-4ea1-84b9-45893813da58.png",
     website: "https://getsaid.ai/",

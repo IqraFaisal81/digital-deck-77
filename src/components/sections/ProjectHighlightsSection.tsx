@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ArrowRight, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,7 +21,7 @@ const ProjectHighlightsSection = () => {
           </h2>
           <p className="text-black/80 text-lg mb-8">
             See how our strategic approach and technical expertise delivered measurable outcomes
-            for a mental health practice struggling with lead management and follow-up.
+            for businesses looking to improve their customer engagement and revenue.
           </p>
         </div>
         
@@ -30,8 +31,8 @@ const ProjectHighlightsSection = () => {
             {/* Image Section */}
             <div className="h-full">
               <img 
-                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
-                alt="GreyMatters Studio Neurofeedback Technology" 
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475" 
+                alt="Triad Diagnostic Solutions Abandoned Cart Recovery" 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -40,12 +41,12 @@ const ProjectHighlightsSection = () => {
             <div className="p-8 md:p-12 flex flex-col h-full">
               <div>
                 <h3 className="text-xl font-medium text-electric mb-2">CLIENT SUCCESS STORY</h3>
-                <h2 className="text-3xl font-bold mb-4">GreyMatters Studio – Building a Fully Automated Lead Pipeline</h2>
+                <h2 className="text-3xl font-bold mb-4">Triad Diagnostic Solutions – Re-engagement Workflow for Abandoned Cart Users</h2>
                 <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="text-xs px-3 py-1 rounded-full bg-electric/10 text-electric">CRM Automation</span>
-                  <span className="text-xs px-3 py-1 rounded-full bg-electric/10 text-electric">Funnel Building</span>
                   <span className="text-xs px-3 py-1 rounded-full bg-electric/10 text-electric">Email Marketing</span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-electric/10 text-electric">Automation Strategy</span>
                   <span className="text-xs px-3 py-1 rounded-full bg-electric/10 text-electric">Go High Level</span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-electric/10 text-electric">Customer Recovery</span>
                 </div>
               </div>
               
@@ -53,21 +54,21 @@ const ProjectHighlightsSection = () => {
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-2">The Challenge</h4>
                   <p className="text-gray-700">
-                    GreyMatters Studio needed a way to automate lead nurturing for their neurofeedback services. 
-                    Their team was overwhelmed with manual follow-ups and lacked a proper system to track leads 
-                    downloading their free resources.
+                    Triad wanted to recover high-value customers who abandoned carts—specifically those considering ADAS kits 
+                    and full diagnostic packages. The lack of SKU tracking in their system made automation complex, requiring 
+                    manual segmentation.
                   </p>
                 </div>
                 
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-2">The Strategy</h4>
                   <p className="text-gray-700 mb-3">
-                    I built a customized funnel inside Go High Level that captured users who downloaded the Brain Users Handbook. From there:
+                    I developed a segmented email automation workflow based on manual tagging:
                   </p>
                   <ul className="list-disc pl-5 space-y-2 text-gray-700">
-                    <li>Created a tagging system ("DL Brain Users HB") for segmenting these leads.</li>
-                    <li>Developed a pipeline stage inside "Patient Pipeline" to track progress.</li>
-                    <li>Designed a 12-week automated email workflow that delivered weekly education-based content, helping hesitant leads understand the value of therapy.</li>
+                    <li>Tags were applied post-abandonment to identify Full Kit vs. ADAS Kit interest.</li>
+                    <li>Custom emails were triggered at 10, 15, and 30-day intervals, encouraging return visits and offering help from support.</li>
+                    <li>Built-in review request automation post-purchase to drive testimonials.</li>
                   </ul>
                 </div>
                 
@@ -75,16 +76,16 @@ const ProjectHighlightsSection = () => {
                   <h4 className="text-lg font-semibold text-electric mb-3">The Results</h4>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="bg-white p-4 rounded-lg shadow-sm text-center">
-                      <div className="text-3xl font-bold text-electric">3x</div>
-                      <p className="text-gray-700 text-sm">Increase in bookings within 6 weeks</p>
+                      <div className="text-3xl font-bold text-electric">22%</div>
+                      <p className="text-gray-700 text-sm">Recovery rate on abandoned carts</p>
                     </div>
                     <div className="bg-white p-4 rounded-lg shadow-sm text-center">
-                      <div className="text-3xl font-bold text-electric">48%</div>
-                      <p className="text-gray-700 text-sm">Average email open rate</p>
+                      <div className="text-3xl font-bold text-electric">60%</div>
+                      <p className="text-gray-700 text-sm">Increase in review submissions</p>
                     </div>
                     <div className="bg-white p-4 rounded-lg shadow-sm text-center">
-                      <div className="text-3xl font-bold text-electric">70%</div>
-                      <p className="text-gray-700 text-sm">Reduction in admin workload</p>
+                      <div className="text-3xl font-bold text-electric">↓</div>
+                      <p className="text-gray-700 text-sm">Reduced sales team friction</p>
                     </div>
                   </div>
                 </div>
@@ -111,12 +112,12 @@ const ProjectHighlightsSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card className="hover:shadow-md transition-all hover:translate-y-[-5px]">
               <CardHeader>
-                <CardTitle>Triad DS – Chat Widget Automation</CardTitle>
+                <CardTitle>GreyMatters Studio – Automated Lead Pipeline</CardTitle>
                 <CardDescription>CRM Automation</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700">
-                  Built a smart system that auto-tags leads, triggers SMS/email replies, and syncs with Google Ads to simplify tracking and retargeting.
+                  Built a customized funnel inside Go High Level that captured users who downloaded the Brain Users Handbook with 12-week automated email workflow.
                 </p>
               </CardContent>
               <CardFooter>

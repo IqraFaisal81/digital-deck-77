@@ -74,6 +74,21 @@ export const projects: ProjectType[] = [
     tools: ["Looker Studio", "Google Analytics", "Data Visualization", "Performance Tracking"]
   },
 
+  // New Triad Re-engagement Workflow Case Study
+  {
+    id: 9,
+    title: "Triad DS – Abandoned Cart Recovery",
+    category: "Email Marketing",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    description: "Developed a segmented email automation workflow to recover high-value abandoned carts for automotive diagnostic products.",
+    challenge: "Triad wanted to recover high-value customers who abandoned carts—specifically those considering ADAS kits and full diagnostic packages. The lack of SKU tracking in their system made automation complex, requiring manual segmentation.",
+    solution: "Developed a segmented email automation workflow based on manual tagging. Tags were applied post-abandonment to identify Full Kit vs. ADAS Kit interest. Custom emails were triggered at 10, 15, and 30-day intervals, encouraging return visits and offering help from support. Built-in review request automation post-purchase to drive testimonials.",
+    results: "22% recovery rate on abandoned cart emails (above the B2B average). 60% increase in review submissions within 30 days of purchase. Reduced friction for sales and support team by delivering more qualified leads.",
+    tools: ["Go High Level", "Email Automation", "Customer Segmentation", "Tagging System"],
+    clientName: "Triad Diagnostic Solutions",
+    relatedService: "email-marketing"
+  },
+
   // Lovable Projects
   {
     id: 11,
