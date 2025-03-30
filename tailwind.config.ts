@@ -66,11 +66,25 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom portfolio colors
+				// Updated color palette with softer grays
 				royal: '#0a1d69',
 				midnight: '#000000',
 				electric: '#3f8efc',
-				maroon: '#800020', // Added maroon color
+				maroon: '#800020',
+				
+				// New gray palette
+				gray: {
+					50: '#f9fafb',    // Lightest gray
+					100: '#f3f4f6',   // Very light gray
+					200: '#e5e7eb',   // Light gray
+					300: '#d1d5db',   // Soft medium gray
+					400: '#9ca3af',   // Medium gray
+					500: '#6b7280',   // Dark medium gray
+					600: '#4b5563',   // Dark gray
+					700: '#374151',   // Darker gray
+					800: '#1f2937',   // Very dark gray
+					900: '#111827',   // Almost black
+				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
