@@ -17,7 +17,7 @@ const CaseStudyThumbnail = ({ study, isActive, onClick }: CaseStudyThumbnailProp
           : 'opacity-80 hover:opacity-100'
       }`}
     >
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-4 flex flex-col justify-end">
+      <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-blue-500/40 p-4 flex flex-col justify-end">
         <h4 className="text-white text-sm font-medium">{study.client}</h4>
         <p className="text-white/80 text-xs">{study.title}</p>
       </div>
