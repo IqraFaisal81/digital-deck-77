@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { ExternalLink, Filter } from "lucide-react";
 import { 
@@ -103,20 +102,6 @@ const caseStudies: CaseStudy[] = [
 const FeaturedClient: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
-  const [activeCategory, setActiveCategory] = useState<string>("all");
-  const [filteredStudies, setFilteredStudies] = useState<CaseStudy[]>(caseStudies);
-
-  // Extract unique categories
-  const categories = ["all", ...Array.from(new Set(caseStudies.map(study => study.category)))];
-
-  // Filter case studies based on active category
-  useEffect(() => {
-    if (activeCategory === "all") {
-      setFilteredStudies(caseStudies);
-    } else {
-      setFilteredStudies(caseStudies.filter(study => study.category === activeCategory));
-    }
-  }, [activeCategory]);
 
   // Update the current index when the carousel changes
   React.useEffect(() => {
@@ -136,23 +121,6 @@ const FeaturedClient: React.FC = () => {
     <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 mb-12">
       <div className="flex flex-col md:flex-row justify-between items-center mb-6">
         <h2 className="text-2xl font-bold text-gray-900 mb-4 md:mb-0">Client Case Studies</h2>
-        <div className="flex items-center space-x-2">
-          <Filter size={18} className="text-blue-600" />
-          <span className="text-sm text-gray-600 mr-2">Filter by service:</span>
-          <Tabs defaultValue="all" value={activeCategory} onValueChange={setActiveCategory} className="w-full md:w-auto">
-            <TabsList className="bg-blue-50 p-1 rounded-md">
-              {categories.map((category) => (
-                <TabsTrigger 
-                  key={category} 
-                  value={category}
-                  className="text-xs px-3 py-1 capitalize"
-                >
-                  {category === "all" ? "All" : category}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </Tabs>
-        </div>
       </div>
 
       <Carousel
@@ -164,7 +132,7 @@ const FeaturedClient: React.FC = () => {
         setApi={setCarouselApi}
       >
         <CarouselContent>
-          {filteredStudies.map((study, index) => (
+          {caseStudies.map((study, index) => (
             <CarouselItem key={index} className="basis-full pl-0">
               <div className="flex flex-col md:flex-row gap-6 items-center">
                 <div className="md:w-1/3">
@@ -232,7 +200,7 @@ const FeaturedClient: React.FC = () => {
         <div className="flex justify-center gap-2 mt-6">
           <CarouselPrevious className="static transform-none bg-blue-100 hover:bg-blue-200 text-blue-600 border-none h-8 w-8 rounded-full" />
           <div className="flex items-center space-x-2">
-            {filteredStudies.map((_, idx) => (
+            {caseStudies.map((_, idx) => (
               <span 
                 key={idx} 
                 className={`block h-2 w-2 rounded-full cursor-pointer transition-all ${currentIndex === idx ? 'bg-blue-600 w-4' : 'bg-blue-200'}`}
