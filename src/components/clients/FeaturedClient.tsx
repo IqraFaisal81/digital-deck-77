@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { ExternalLink, ArrowLeft, ArrowRight } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { 
   Carousel, 
   CarouselContent, 
@@ -8,6 +8,7 @@ import {
   CarouselNext, 
   CarouselPrevious 
 } from "@/components/ui/carousel";
+import type { CarouselApi } from "@/components/ui/carousel";
 
 const featuredClients = [
   {
@@ -38,6 +39,21 @@ const featuredClients = [
 
 const FeaturedClient: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
+
+  // Update the current index when the carousel changes
+  React.useEffect(() => {
+    if (!carouselApi) return;
+
+    const onSelect = () => {
+      setCurrentIndex(carouselApi.selectedScrollSnap());
+    };
+
+    carouselApi.on("select", onSelect);
+    return () => {
+      carouselApi.off("select", onSelect);
+    };
+  }, [carouselApi]);
 
   return (
     <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 mb-12">
@@ -47,11 +63,7 @@ const FeaturedClient: React.FC = () => {
           loop: true,
         }}
         className="w-full"
-        onSelect={(api) => {
-          if (api) {
-            setCurrentIndex(api.selectedScrollSnap());
-          }
-        }}
+        setApi={setCarouselApi}
       >
         <CarouselContent>
           {featuredClients.map((client, index) => (
