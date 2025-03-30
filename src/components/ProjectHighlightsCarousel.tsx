@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ArrowRight, Calendar } from "lucide-react";
 import { 
@@ -16,6 +15,20 @@ import { sectionIds } from "@/data/services";
 
 // Define project highlights data with more detailed case studies
 const projectHighlights = [
+  {
+    id: 7,
+    title: "GreyMatters Studio – Automated Lead Pipeline",
+    shortDescription: "Building a fully automated lead pipeline in Go High Level for a mental health studio",
+    description: "Developed a comprehensive automation system for neurofeedback lead nurturing, tracking, and conversion, resulting in 3x increase in bookings.",
+    image: `https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80`,
+    category: "CRM Automation",
+    technologies: ["Go High Level", "Email Automation", "Funnel Building", "Lead Tracking"],
+    relatedService: "workflows",
+    clientName: "GreyMatters Studio",
+    challenge: "GreyMatters Studio needed a way to automate lead nurturing for their neurofeedback services. Their team was overwhelmed with manual follow-ups and lacked a proper system to track leads downloading their free resources.",
+    solution: "Built a customized funnel inside Go High Level that captured users who downloaded the Brain Users Handbook. Created a tagging system for segmenting leads. Developed a pipeline stage inside 'Patient Pipeline' to track progress. Designed a 12-week automated email workflow that delivered weekly education-based content.",
+    results: "3x increase in bookings within 6 weeks of implementation. 48% average open rate across the nurturing sequence. Reduced administrative workload by 70%, allowing the team to focus on client care."
+  },
   {
     id: 1,
     title: "Triad Diagnostic Solutions - Redesign",
@@ -219,6 +232,21 @@ const ProjectHighlightsCarousel = () => {
                 
                 <div className="space-y-4">
                   <p className="text-white/80">{selectedProject.description}</p>
+                  
+                  <div>
+                    <h4 className="text-lg font-semibold text-electric mb-2">Challenge</h4>
+                    <p className="text-white/80">{selectedProject.challenge}</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-lg font-semibold text-electric mb-2">Solution</h4>
+                    <p className="text-white/80">{selectedProject.solution}</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-lg font-semibold text-electric mb-2">Results</h4>
+                    <p className="text-white/80">{selectedProject.results}</p>
+                  </div>
                   
                   <div>
                     <h4 className="text-lg font-semibold text-electric mb-2">Technologies Used</h4>
