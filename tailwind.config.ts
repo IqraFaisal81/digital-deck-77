@@ -69,7 +69,7 @@ export default {
 				// Updated custom portfolio colors
 				royal: '#000000',
 				midnight: '#000000',
-				electric: '#ff3a3a', // Changed to red from blue
+				electric: '#ff3a3a', // Red accent color
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -109,7 +109,7 @@ export default {
 				'fade-in-right': 'fade-in-right 0.5s ease-out forwards'
 			},
 			backgroundImage: {
-				'blue-gradient': 'linear-gradient(to bottom, #000000, #1a1a1a)',
+				'gradient': 'linear-gradient(to bottom, #000000, #1a1a1a)',
 				'red-gradient': 'linear-gradient(to bottom, #000000, #3a0000)',
 			}
 		}
