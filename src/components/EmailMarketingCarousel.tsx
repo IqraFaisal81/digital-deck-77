@@ -17,25 +17,25 @@ const emailCampaigns = [
     id: 1,
     title: "Triad DS – Abandoned Cart Recovery",
     description: "Personalized WooCommerce workflow that recovered lost sales with timely nudges and upsell recommendations",
-    image: "/lovable-uploads/5a0ede87-2de2-421a-af7a-5e44aad3886d.png"
+    image: "/lovable-uploads/c53f75af-52db-4d19-bc94-5f4f76696d7f.png"
   },
   {
     id: 2,
     title: "All Pro – Winter Tips Newsletter",
     description: "Seasonal email with actionable tips for property managers—boosting engagement and brand trust",
-    image: "/lovable-uploads/a4cb880c-6522-440b-844c-c9a7dc627fd1.png"
+    image: "/lovable-uploads/5d7ee011-c3bc-4db4-ac81-51e49738ad1a.png"
   },
   {
     id: 3,
     title: "Grey Matters Studio – BOGO Email Campaign",
     description: "Wellness-focused campaign with heartfelt CTA, leading to higher open rates and more bookings",
-    image: "/lovable-uploads/c7722c5c-bb7d-46ae-a69b-9b2d19dfb790.png"
+    image: "/lovable-uploads/8b183f32-fe44-4926-a6fe-d81abb48bae1.png"
   },
   {
     id: 4,
     title: "March on Mission – Awareness Email",
     description: "Emotional storytelling + visual design = more awareness, donations, and heartfelt replies",
-    image: "/lovable-uploads/a0b4591b-d7e2-4f13-a3fe-710c0f306cbd.png"
+    image: "/lovable-uploads/e98b0fe1-b86f-43f9-aa6b-67d50a3bfa8f.png"
   },
   {
     id: 5,

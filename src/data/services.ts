@@ -34,8 +34,8 @@ export const services = [
   },
   {
     id: 4,
-    title: "PPC Campaigns",
-    description: "Certified in Google Ads. I create click-worthy, conversion-optimized campaigns with strong CTRs, low CPCs, and high ROIs.",
+    title: "PPC, Analytics & Tracking",
+    description: "I don't just launch campaigns—I measure everything. With expert-level setups in Google Tag Manager, Google Search Console, and Looker Studio, I track the full customer journey.",
     icon: Megaphone,
     sectionId: "ppc-analytics" // Added section ID for PPC campaigns
   },
