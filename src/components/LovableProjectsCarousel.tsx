@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -11,6 +11,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 const LovableProjectsCarousel = () => {
   const projects = [
@@ -34,8 +35,16 @@ const LovableProjectsCarousel = () => {
     }
   ];
 
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openProjectModal = (project: typeof projects[0]) => {
+    setSelectedProject(project);
+    setModalOpen(true);
+  };
+
   return (
-    <div className="relative w-full max-w-5xl mx-auto px-4 md:px-6">
+    <div className="w-full">
       <Carousel
         opts={{
           align: "start",
@@ -47,40 +56,69 @@ const LovableProjectsCarousel = () => {
           {projects.map((project, index) => (
             <CarouselItem
               key={index}
-              className="md:basis-1/2 lg:basis-1/3 h-full"
+              className="basis-full md:basis-1/2 lg:basis-1/3 h-full"
             >
-              <div className="p-1 h-full">
-                <Card className="overflow-hidden border border-white/10 bg-black/30 backdrop-blur-sm rounded-lg shadow-lg h-full">
-                  <CardContent className="p-0">
-                    <AspectRatio ratio={16 / 9} className="bg-muted">
-                      <img
-                        src={project.image}
-                        alt={project.name}
-                        className="object-cover w-full h-full"
-                      />
-                    </AspectRatio>
-                    <div className="p-6 space-y-4">
-                      <h3 className="text-xl font-semibold text-white">{project.name}</h3>
-                      <p className="text-white/70">{project.description}</p>
-                      <Button 
-                        variant="outline" 
-                        className="w-full border-white/10 hover:bg-white/10 flex items-center justify-center gap-2"
-                        asChild
-                      >
-                        <a href={project.url} target="_blank" rel="noopener noreferrer">
-                          View Demo <ExternalLink size={14} />
-                        </a>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
+              <div 
+                className="cursor-pointer h-full"
+                onClick={() => openProjectModal(project)}
+              >
+                <div className="relative h-[200px] md:h-[220px] overflow-hidden rounded-t-lg">
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-full object-cover object-top transition-all duration-300 transform hover:scale-110"
+                  />
+                </div>
+                <div className="p-4 bg-black/30">
+                  <h4 className="text-lg font-semibold text-white">{project.name}</h4>
+                  <p className="text-white/70 text-sm mt-1">{project.description}</p>
+                </div>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-0 md:-left-12 bg-black/50 text-white border-white/10 hover:bg-black/70" />
-        <CarouselNext className="right-0 md:-right-12 bg-black/50 text-white border-white/10 hover:bg-black/70" />
+        <CarouselPrevious className="left-2 bg-black/50 hover:bg-black/80 border-none" />
+        <CarouselNext className="right-2 bg-black/50 hover:bg-black/80 border-none" />
       </Carousel>
+
+      {/* Project Modal */}
+      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+        <DialogContent className="bg-royal/90 backdrop-blur-xl border border-white/10 text-white max-w-4xl max-h-[90vh] overflow-y-auto">
+          {selectedProject && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold">{selectedProject.name}</DialogTitle>
+                <DialogDescription className="text-white/80">
+                  {selectedProject.description}
+                </DialogDescription>
+              </DialogHeader>
+              
+              <div className="mt-4 bg-black/30 p-2 rounded-lg">
+                <img 
+                  src={selectedProject.image} 
+                  alt={selectedProject.name} 
+                  className="w-full object-contain rounded-lg"
+                />
+              </div>
+              
+              <div className="mt-4 flex justify-end">
+                <Button 
+                  asChild
+                  className="bg-electric hover:bg-electric/80"
+                >
+                  <a 
+                    href={selectedProject.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    View Demo <ExternalLink size={16} className="ml-2" />
+                  </a>
+                </Button>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
