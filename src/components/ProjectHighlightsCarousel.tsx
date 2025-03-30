@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { 
@@ -87,16 +88,6 @@ const ProjectHighlightsCarousel = () => {
   const [selectedProject, setSelectedProject] = useState<typeof projectHighlights[0] | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
 
-  const openProjectModal = (project: typeof projectHighlights[0]) => {
-    setSelectedProject(project);
-    setModalOpen(true);
-  };
-
-  const getClientTestimonial = (clientName: string) => {
-    const client = clients.find(c => c.name === clientName);
-    return client?.testimonial || null;
-  };
-
   const scrollToServiceSection = (sectionId: string | null) => {
     if (!sectionId) return;
     
@@ -124,7 +115,7 @@ const ProjectHighlightsCarousel = () => {
             <CarouselItem key={project.id} className="basis-full md:basis-1/2 lg:basis-1/3 h-full">
               <div 
                 className="bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 hover:border-electric/30 transition-all hover:shadow-lg hover:shadow-electric/20 hover:scale-[1.02] cursor-pointer h-full flex flex-col"
-                onClick={() => openProjectModal(project)}
+                onClick={() => project.relatedService && scrollToServiceSection(project.relatedService)}
               >
                 <div className="h-48 overflow-hidden">
                   <img 
@@ -153,7 +144,7 @@ const ProjectHighlightsCarousel = () => {
                       Related: {sectionIds.includes(project.relatedService) ? 
                         <button 
                           onClick={(e) => {
-                            e.stopPropagation(); // Prevent opening the modal
+                            e.stopPropagation(); // Prevent triggering parent onClick
                             scrollToServiceSection(project.relatedService);
                           }}
                           className="text-electric hover:underline"
@@ -167,8 +158,12 @@ const ProjectHighlightsCarousel = () => {
                       variant="ghost" 
                       size="sm"
                       className="text-electric hover:text-electric/80 p-0 flex items-center"
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevent triggering parent onClick
+                        scrollToServiceSection(project.relatedService);
+                      }}
                     >
-                      View Details <ArrowRight className="ml-1 h-4 w-4" />
+                      Go to Service <ArrowRight className="ml-1 h-4 w-4" />
                     </Button>
                   </div>
                 </div>
@@ -179,89 +174,6 @@ const ProjectHighlightsCarousel = () => {
         <CarouselPrevious className="left-2 bg-black/50 hover:bg-black/80 border-none" />
         <CarouselNext className="right-2 bg-black/50 hover:bg-black/80 border-none" />
       </Carousel>
-
-      {/* Project Modal */}
-      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="bg-royal/90 backdrop-blur-xl border border-white/10 text-white max-w-4xl max-h-[90vh] overflow-y-auto">
-          {selectedProject && (
-            <>
-              <DialogHeader>
-                <DialogTitle className="text-2xl font-bold">{selectedProject.title}</DialogTitle>
-                <DialogDescription className="text-white/80 flex items-center">
-                  <span className="mr-2">{selectedProject.category}</span>
-                  {selectedProject.relatedService && (
-                    <span className="text-sm px-2 py-1 rounded-full bg-electric/20 text-electric ml-2">
-                      {selectedProject.relatedService.replace("-", " ")}
-                    </span>
-                  )}
-                </DialogDescription>
-              </DialogHeader>
-              
-              <div className="mt-4 bg-black/30 p-4 rounded-lg">
-                <img 
-                  src={selectedProject.image} 
-                  alt={selectedProject.title} 
-                  className="w-full h-auto object-contain rounded-lg mb-6"
-                />
-                
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-lg font-semibold text-electric mb-2">Overview</h4>
-                    <p className="text-white/80">{selectedProject.description}</p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-semibold text-electric mb-2">Technologies Used</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedProject.technologies.map((tech, index) => (
-                        <span 
-                          key={index}
-                          className="text-sm px-3 py-1 rounded-full bg-electric/20 text-electric"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {getClientTestimonial(selectedProject.clientName) && (
-                    <div>
-                      <h4 className="text-lg font-semibold text-electric mb-2">Client Testimonial</h4>
-                      <blockquote className="italic text-white/80 border-l-4 border-electric/50 pl-4 py-2">
-                        "{getClientTestimonial(selectedProject.clientName)?.quote}"
-                        <footer className="text-white/60 mt-2 not-italic">
-                          — {getClientTestimonial(selectedProject.clientName)?.author}, {getClientTestimonial(selectedProject.clientName)?.position}
-                        </footer>
-                      </blockquote>
-                    </div>
-                  )}
-                </div>
-              </div>
-              
-              <div className="mt-6 flex justify-between">
-                <Button 
-                  variant="outline"
-                  className="border-white/20 hover:bg-white/10"
-                  onClick={() => {
-                    setModalOpen(false);
-                    scrollToServiceSection(selectedProject.relatedService);
-                  }}
-                >
-                  View Related Service <ArrowRight className="ml-1 h-4 w-4" />
-                </Button>
-                
-                <Button 
-                  onClick={() => setModalOpen(false)}
-                  variant="ghost"
-                  className="border border-white/20 hover:bg-white/10"
-                >
-                  Close
-                </Button>
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
     </div>
   );
 };
