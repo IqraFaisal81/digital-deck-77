@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react";
 import { ProjectType } from "@/types/project";
 import Navbar from "@/components/Navbar";
@@ -12,7 +11,6 @@ import ClientsSection from "@/components/sections/ClientsSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import WorkflowsSection from "@/components/sections/WorkflowsSection";
 import FunnelsSection from "@/components/sections/FunnelsSection";
-import ProjectHighlightsSection from "@/components/sections/ProjectHighlightsSection";
 import SeoAuditsSection from "@/components/sections/SeoAuditsSection";
 import EmailMarketingSection from "@/components/sections/EmailMarketingSection";
 import PPCAnalyticsSection from "@/components/sections/PPCAnalyticsSection";
@@ -107,7 +105,6 @@ const Index = () => {
         setVisibleSection={setVisibleSection} 
         funnelsRef={funnelsRef} 
       />
-      <ProjectHighlightsSection />
       <SeoAuditsSection 
         isSectionVisible={isSectionVisible} 
         setVisibleSection={setVisibleSection} 
