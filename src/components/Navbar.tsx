@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { Menu, X, Briefcase, User, Wrench, Phone, Users } from "lucide-react";
+import { Menu, X, Briefcase, User, Wrench, Phone, Users, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -31,6 +31,7 @@ const Navbar = () => {
     { label: "Clients", icon: <Users className="mr-2 h-4 w-4" />, href: "#clients" },
     { label: "Services", icon: <Wrench className="mr-2 h-4 w-4" />, href: "#services" },
     { label: "Projects", icon: <Briefcase className="mr-2 h-4 w-4" />, href: "#project-highlights" },
+    { label: "Book a Call", icon: <Calendar className="mr-2 h-4 w-4" />, href: "#booking" },
     { label: "Contact", icon: <Phone className="mr-2 h-4 w-4" />, href: "#contact" },
   ];
 
@@ -63,7 +64,7 @@ const Navbar = () => {
               asChild
               size="sm"
             >
-              <a href="#contact">Let's Work Together</a>
+              <a href="#booking">Book Consultation</a>
             </Button>
           </div>
         )}
@@ -100,7 +101,7 @@ const Navbar = () => {
               asChild
               onClick={toggleMenu}
             >
-              <a href="#contact">Let's Work Together</a>
+              <a href="#booking">Book Consultation</a>
             </Button>
           </div>
         </div>

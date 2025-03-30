@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { Calendar } from "lucide-react";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -33,8 +34,6 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <h3 className="text-xl font-semibold mb-4 text-center">Or fill out the form below—I'll get back to you ASAP.</h3>
-      
       <div className="space-y-2">
         <label htmlFor="name" className="block text-white/70">Name</label>
         <input
@@ -81,6 +80,13 @@ const ContactForm = () => {
       >
         {isSubmitting ? "Sending..." : "Send Message"}
       </Button>
+      
+      <div className="mt-6 pt-6 border-t border-white/10">
+        <a href="#booking" className="flex items-center justify-center gap-2 text-electric hover:text-electric/80 transition-colors">
+          <Calendar className="w-5 h-5" />
+          <span>Or book a consultation directly</span>
+        </a>
+      </div>
     </form>
   );
 };
