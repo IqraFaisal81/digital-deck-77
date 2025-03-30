@@ -755,12 +755,119 @@ const Index = () => {
 
       {/* Projects Section (This would be the parent section for all projects) */}
       <section id="projects" className="section-padding">
-        {/* Project section content would go here */}
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Project Highlights</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.slice(0, 6).map((project) => (
+              <div key={project.id} className="project-card overflow-hidden" onClick={() => openProjectModal(project)}>
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover object-top transition-all duration-300 transform hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <Button variant="ghost" className="text-white border border-white/40 hover:bg-white/20">
+                      View Project
+                    </Button>
+                  </div>
+                </div>
+                <div className="p-5 bg-black/30">
+                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                  <p className="text-white/70 text-sm mb-3 line-clamp-2">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.categories.slice(0, 3).map((category, idx) => (
+                      <span 
+                        key={idx} 
+                        className="text-xs px-2 py-1 rounded-full bg-electric/20 text-electric"
+                      >
+                        {category}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-12 text-center">
+            <Button 
+              className="bg-electric hover:bg-electric/80 text-white px-6 py-3"
+              onClick={() => setModalOpen(true)}
+            >
+              View All Projects
+            </Button>
+          </div>
+        </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="section-padding">
-        {/* Contact form and details would go here */}
+      <section id="contact" className="section-padding bg-black/20 backdrop-blur-sm">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Get In Touch</h2>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+              <div className="bg-black/20 backdrop-blur-sm rounded-xl p-8 border border-white/10 h-full">
+                <h3 className="text-2xl font-semibold mb-6">Let's Connect</h3>
+                <p className="text-white/80 mb-8">
+                  Ready to level up your digital presence? I'm excited to hear about your project and how we can work together.
+                  Whether you need workflow automation, funnel development, or just have a question—I'm here to help.
+                </p>
+                
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="bg-electric/20 p-3 rounded-full w-12 h-12 flex items-center justify-center">
+                      <Mail className="text-electric" size={20} />
+                    </div>
+                    <div>
+                      <h4 className="text-sm text-white/60">Email</h4>
+                      <a href="mailto:iqra@example.com" className="text-white hover:text-electric transition-colors">
+                        iqra@example.com
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-4">
+                    <div className="bg-electric/20 p-3 rounded-full w-12 h-12 flex items-center justify-center">
+                      <Phone className="text-electric" size={20} />
+                    </div>
+                    <div>
+                      <h4 className="text-sm text-white/60">Phone</h4>
+                      <a href="tel:+11234567890" className="text-white hover:text-electric transition-colors">
+                        +1 (123) 456-7890
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-6 flex space-x-4">
+                    <a 
+                      href="https://linkedin.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="bg-electric/20 p-3 rounded-full w-12 h-12 flex items-center justify-center hover:bg-electric/30 transition-colors"
+                    >
+                      <Linkedin className="text-electric" size={20} />
+                    </a>
+                    <a 
+                      href="https://github.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="bg-electric/20 p-3 rounded-full w-12 h-12 flex items-center justify-center hover:bg-electric/30 transition-colors"
+                    >
+                      <Github className="text-electric" size={20} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-black/20 backdrop-blur-sm rounded-xl p-8 border border-white/10">
+              <ContactForm />
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Footer */}
