@@ -23,7 +23,7 @@
     --secondary-foreground: 0 0% 0%;
 
     --muted: 0 0% 95%;
-    --muted-foreground: 0 0% 45%; /* Lighter gray for secondary text */
+    --muted-foreground: 0 0% 45%;
 
     --accent: 0 0% 0%;
     --accent-foreground: 0 0% 100%;
@@ -44,12 +44,12 @@
     --sidebar-accent: 0 0% 95%;
     --sidebar-accent-foreground: 0 0% 10%;
     --sidebar-border: 0 0% 90%;
-    --sidebar-ring: 0 85% 30%;
+    --sidebar-ring: 0 0% 0%;
   }
 
   .dark {
     --background: 0 0% 0%;
-    --foreground: 0 0% 95%; /* Light text for dark backgrounds */
+    --foreground: 0 0% 95%;
 
     --card: 0 0% 0%;
     --card-foreground: 0 0% 100%;
@@ -64,7 +64,7 @@
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%; /* Softer muted text */
+    --muted-foreground: 0 0% 65%;
 
     --accent: 0 0% 15%;
     --accent-foreground: 0 0% 100%;
@@ -83,7 +83,7 @@
     --sidebar-accent: 0 0% 15%;
     --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 0 85% 30%;
+    --sidebar-ring: 0 0% 0%;
   }
 
   * {
@@ -106,15 +106,15 @@
   }
   
   .project-card {
-    @apply bg-black/10 backdrop-blur-sm rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#8b0000]/20;
+    @apply bg-black/10 backdrop-blur-sm rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-black/20;
   }
   
   .service-card {
-    @apply bg-black/5 backdrop-blur-sm p-6 rounded-lg border border-black/10 transition-all duration-300 hover:bg-black/10 hover:border-[#8b0000]/30;
+    @apply bg-black/5 backdrop-blur-sm p-6 rounded-lg border border-black/10 transition-all duration-300 hover:bg-black/10 hover:border-black/30;
   }
   
   .workflow-card {
-    @apply bg-black/5 backdrop-blur-sm rounded-lg border border-black/10 transition-all duration-300 hover:bg-black/10 hover:border-[#8b0000]/30 hover:shadow-lg hover:shadow-[#8b0000]/20;
+    @apply bg-black/5 backdrop-blur-sm rounded-lg border border-black/10 transition-all duration-300 hover:bg-black/10 hover:border-black/30 hover:shadow-lg hover:shadow-black/20;
   }
   
   .bg-gradient {
@@ -122,7 +122,7 @@
   }
   
   .text-gradient {
-    @apply bg-gradient-to-r from-black via-black/90 to-black/80 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-black via-black/80 to-black bg-clip-text text-transparent;
   }
 
   .text-accent {
@@ -137,3 +137,4 @@
     @apply bg-black;
   }
 }
+
