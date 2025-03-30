@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { 
@@ -11,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { ProjectType } from "@/types/project";
 import { clients } from "@/data/clients";
+import { sectionIds } from "@/data/services";
 
 // Define project highlights data
 const projectHighlights = [
@@ -147,7 +149,21 @@ const ProjectHighlightsCarousel = () => {
                       </span>
                     ))}
                   </div>
-                  <div className="flex justify-end">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-white/50">
+                      Related: {sectionIds.includes(project.relatedService) ? 
+                        <button 
+                          onClick={(e) => {
+                            e.stopPropagation(); // Prevent opening the modal
+                            scrollToServiceSection(project.relatedService);
+                          }}
+                          className="text-electric hover:underline"
+                        >
+                          {project.relatedService.replace("-", " ")}
+                        </button> : 
+                        project.relatedService
+                      }
+                    </span>
                     <Button 
                       variant="ghost" 
                       size="sm"
@@ -172,8 +188,13 @@ const ProjectHighlightsCarousel = () => {
             <>
               <DialogHeader>
                 <DialogTitle className="text-2xl font-bold">{selectedProject.title}</DialogTitle>
-                <DialogDescription className="text-white/80">
-                  {selectedProject.category}
+                <DialogDescription className="text-white/80 flex items-center">
+                  <span className="mr-2">{selectedProject.category}</span>
+                  {selectedProject.relatedService && (
+                    <span className="text-sm px-2 py-1 rounded-full bg-electric/20 text-electric ml-2">
+                      {selectedProject.relatedService.replace("-", " ")}
+                    </span>
+                  )}
                 </DialogDescription>
               </DialogHeader>
               
