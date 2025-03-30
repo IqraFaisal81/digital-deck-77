@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from "react";
 import { ArrowDown, ArrowRight, Check, ExternalLink, Github, Linkedin, Mail, Phone, Rocket } from "lucide-react";
 import { services, sectionIds } from "@/data/services";
@@ -586,3 +587,50 @@ const Index = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Email Me</h3>
+                  <p className="text-white/70">iqra@example.com</p>
+                </div>
+              </div>
+              
+              <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10 flex items-start space-x-4">
+                <div className="bg-electric/20 p-3 rounded-full flex-shrink-0">
+                  <Phone className="text-electric" size={24} />
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1">Call Me</h3>
+                  <p className="text-white/70">(123) 456-7890</p>
+                </div>
+              </div>
+              
+              <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                <h3 className="font-semibold mb-4">Connect With Me</h3>
+                <div className="flex gap-4">
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-black/30 p-3 rounded-full hover:bg-electric/20 transition-colors">
+                    <Github size={20} className="text-white" />
+                  </a>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-black/30 p-3 rounded-full hover:bg-electric/20 transition-colors">
+                    <Linkedin size={20} className="text-white" />
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+              <h3 className="text-xl font-semibold mb-6">Send Me a Message</h3>
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+        />
+      )}
+    </div>
+  );
+};
+
+export default Index;
