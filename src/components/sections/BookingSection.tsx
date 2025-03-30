@@ -1,4 +1,3 @@
-
 import { Calendar, Clock, DollarSign, Mail, Phone, Linkedin } from "lucide-react";
 import CalendlyWidget from "@/components/CalendlyWidget";
 import { Card, CardContent } from "@/components/ui/card";
@@ -125,11 +124,11 @@ const BookingSection = () => {
           </div>
           
           {/* Right side - Calendly widget */}
-          <div className="lg:col-span-8 bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/10 h-[650px] flex">
+          <div className="lg:col-span-8 bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/10 h-[700px] flex">
             {isClient && (
               <CalendlyWidget 
-                url="https://calendly.com/iqrafaisal81/30min" 
-                height={650} 
+                url="https://calendly.com/iqrafaisal81/discovery-call" 
+                height={700} 
               />
             )}
           </div>
