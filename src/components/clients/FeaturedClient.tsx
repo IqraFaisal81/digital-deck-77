@@ -16,7 +16,7 @@ const FeaturedClient: React.FC = () => {
   const { carouselApi, setCarouselApi, currentIndex } = useCarouselState();
 
   return (
-    <div className="bg-gradient-to-r from-blue-100 to-indigo-100 rounded-xl shadow-lg border border-blue-200 p-6 mb-12">
+    <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 mb-12">
       <div className="flex flex-col md:flex-row justify-between items-center mb-6">
         <h2 className="text-2xl font-bold text-gray-900 mb-4 md:mb-0">Client Testimonials</h2>
       </div>
@@ -34,7 +34,7 @@ const FeaturedClient: React.FC = () => {
             <CarouselItem key={index} className="basis-full pl-0">
               <div className="flex flex-col md:flex-row gap-6 items-start">
                 <div className="md:w-1/3">
-                  <div className="bg-gradient-to-r from-blue-100 to-indigo-100 p-5 rounded-lg flex items-center justify-center h-48 border border-blue-200">
+                  <div className="bg-white p-5 rounded-lg flex items-center justify-center h-48 border border-gray-200">
                     <img 
                       src={client.logo} 
                       alt={`${client.name} logo`} 

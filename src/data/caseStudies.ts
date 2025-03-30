@@ -41,7 +41,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 3,
     title: "Product Development for Finance Management Software",
-    client: "Confidential (Under NDA)",
+    client: "Finance Verge",
     category: "Product Development",
     challenge: "The client, a fintech startup, aimed to launch a user-friendly finance management platform tailored to young professionals juggling savings, debt, and daily budgeting. Existing tools in the market were either overly complex or lacked emotional connection with users.",
     strategy: [

@@ -3,7 +3,7 @@ import ClientShowcase from "@/components/ClientShowcase";
 
 const ClientsSection = () => {
   return (
-    <section id="clients" className="py-12 px-4 md:px-8 bg-gradient-to-b from-white to-blue-50 relative overflow-hidden">
+    <section id="clients" className="py-12 px-4 md:px-8 bg-white relative overflow-hidden">
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col items-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center text-gray-900">
@@ -17,8 +17,8 @@ const ClientsSection = () => {
         
         <ClientShowcase />
         
-        <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-100 rounded-full opacity-30 blur-3xl"></div>
-        <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-100 rounded-full opacity-30 blur-3xl"></div>
+        <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-50 rounded-full opacity-30 blur-3xl"></div>
+        <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-50 rounded-full opacity-30 blur-3xl"></div>
       </div>
     </section>
   );

@@ -24,10 +24,10 @@ const ProjectHighlightsSection = () => {
   };
 
   return (
-    <section id="case-studies" className="section-padding relative bg-gradient-to-b from-white to-gray-50">
+    <section id="case-studies" className="section-padding relative bg-white">
       {/* Background decorative elements */}
-      <div className="absolute top-20 right-10 w-64 h-64 bg-blue-50 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-80 h-80 bg-blue-50 rounded-full blur-3xl"></div>
+      <div className="absolute top-20 right-10 w-64 h-64 bg-blue-50 rounded-full blur-3xl opacity-30"></div>
+      <div className="absolute bottom-20 left-10 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-30"></div>
       
       <div className="container mx-auto relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-10">
@@ -44,39 +44,41 @@ const ProjectHighlightsSection = () => {
         </div>
         
         {/* Case Study Carousel */}
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full"
-          setApi={setCarouselApi}
-        >
-          <CarouselContent>
-            {caseStudies.map((caseStudy, index) => (
-              <CarouselItem key={index} className="basis-full md:basis-1/2 lg:basis-1/3 px-4">
-                <CaseStudyCarouselItem 
-                  caseStudy={caseStudy} 
-                  onClick={() => openCaseStudyModal(caseStudy)} 
-                />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          
-          <div className="flex justify-center gap-2 mt-6">
-            <CarouselPrevious className="static transform-none bg-blue-100 hover:bg-blue-200 text-blue-600 border-none h-8 w-8 rounded-full" />
-            <div className="flex items-center space-x-2">
-              {caseStudies.map((_, idx) => (
-                <span 
-                  key={idx} 
-                  className={`block h-2 w-2 rounded-full cursor-pointer transition-all ${currentIndex === idx ? 'bg-blue-600 w-4' : 'bg-blue-200'}`}
-                  onClick={() => carouselApi?.scrollTo(idx)}
-                />
+        <div className="max-w-6xl mx-auto">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+            setApi={setCarouselApi}
+          >
+            <CarouselContent>
+              {caseStudies.map((caseStudy, index) => (
+                <CarouselItem key={index} className="basis-full md:basis-1/2 lg:basis-1/3 px-4">
+                  <CaseStudyCarouselItem 
+                    caseStudy={caseStudy} 
+                    onClick={() => openCaseStudyModal(caseStudy)} 
+                  />
+                </CarouselItem>
               ))}
+            </CarouselContent>
+            
+            <div className="flex justify-center gap-2 mt-6">
+              <CarouselPrevious className="static transform-none bg-blue-100 hover:bg-blue-200 text-blue-600 border-none h-8 w-8 rounded-full" />
+              <div className="flex items-center space-x-2">
+                {caseStudies.map((_, idx) => (
+                  <span 
+                    key={idx} 
+                    className={`block h-2 w-2 rounded-full cursor-pointer transition-all ${currentIndex === idx ? 'bg-blue-600 w-4' : 'bg-blue-200'}`}
+                    onClick={() => carouselApi?.scrollTo(idx)}
+                  />
+                ))}
+              </div>
+              <CarouselNext className="static transform-none bg-blue-100 hover:bg-blue-200 text-blue-600 border-none h-8 w-8 rounded-full" />
             </div>
-            <CarouselNext className="static transform-none bg-blue-100 hover:bg-blue-200 text-blue-600 border-none h-8 w-8 rounded-full" />
-          </div>
-        </Carousel>
+          </Carousel>
+        </div>
         
         {/* Case Study Modal */}
         <CaseStudyModal 
