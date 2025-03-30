@@ -1,3 +1,4 @@
+
 import { ClientType } from "@/types/client";
 
 export const clients: ClientType[] = [
@@ -39,7 +40,7 @@ export const clients: ClientType[] = [
   },
   {
     name: "MB Collections",
-    logo: "/lovable-uploads/a2f6aa66-f631-443c-a7da-7418a3f06fb2.png",
+    logo: "/lovable-uploads/3a39faba-8d75-4638-b552-02c125f678c5.png",
     website: "https://mbcollections.com.pk/",
     description: "Curated fashion collections bringing premium style and elegance to discerning clients.",
     testimonial: {
