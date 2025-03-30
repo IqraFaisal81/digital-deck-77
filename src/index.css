@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -8,7 +7,7 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    --foreground: 0 0% 10%; // Dark gray for better readability
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 0%;
@@ -23,10 +22,10 @@
     --secondary-foreground: 0 0% 0%;
 
     --muted: 0 0% 95%;
-    --muted-foreground: 0 0% 45%;
+    --muted-foreground: 0 0% 45%; // Lighter gray for secondary text
 
-    --accent: 0 0% 95%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 0 84% 60%; // Accent colors with more subtle gradient
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -49,7 +48,7 @@
 
   .dark {
     --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
+    --foreground: 0 0% 95%; // Light text for dark backgrounds
 
     --card: 0 0% 0%;
     --card-foreground: 0 0% 100%;
@@ -64,7 +63,7 @@
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    --muted-foreground: 0 0% 65%; // Softer muted text
 
     --accent: 0 0% 15%;
     --accent-foreground: 0 0% 100%;
@@ -85,9 +84,7 @@
     --sidebar-border: 0 0% 15%;
     --sidebar-ring: 0 85% 60%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
@@ -123,8 +120,28 @@
     @apply bg-gradient-to-b from-[#000000] to-black;
   }
   
+  .project-card {
+    @apply bg-black/20 backdrop-blur-sm rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#ff3a3a]/20;
+  }
+  
+  .service-card {
+    @apply bg-black/10 backdrop-blur-sm p-6 rounded-lg border border-white/10 transition-all duration-300 hover:bg-black/20 hover:border-[#ff3a3a]/30;
+  }
+  
+  .workflow-card {
+    @apply bg-black/10 backdrop-blur-sm rounded-lg border border-white/10 transition-all duration-300 hover:bg-black/20 hover:border-[#ff3a3a]/30 hover:shadow-lg hover:shadow-[#ff3a3a]/20;
+  }
+  
+  .bg-gradient {
+    @apply bg-gradient-to-b from-[#000000] to-black;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-black via-black/80 to-[#ff3a3a] bg-clip-text text-transparent;
+  }
+
   .text-accent {
-    @apply text-[#ff3a3a];
+    @apply text-[#ff3a3a] font-semibold;
   }
   
   .bg-royal {
