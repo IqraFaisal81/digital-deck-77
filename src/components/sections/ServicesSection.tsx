@@ -1,7 +1,10 @@
 
-import { ArrowRight, Calendar } from "lucide-react";
+import { useRef } from "react";
+import { motion } from "framer-motion";
 import { services } from "@/data/services";
+import { LightBulbIcon, FolderIcon, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useMediaQuery } from "@/hooks/use-mobile";
 
 interface ServicesSectionProps {
   visibleSection: string | null;
@@ -9,69 +12,90 @@ interface ServicesSectionProps {
 }
 
 const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionProps) => {
+  const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+  
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    show: { y: 0, opacity: 1 }
+  };
+
   return (
-    <section id="services" className="section-padding bg-gradient-to-b from-white to-blue-50">
-      <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-gray-900">Services</h2>
-        <div className="max-w-3xl mx-auto mb-12">
-          <p className="text-gray-700 text-center">
-            I offer a comprehensive range of services to help your business grow through strategic digital solutions, 
-            automation, and marketing optimization. Click on any service to learn more.
+    <section id="services" className="section-padding py-20 bg-blue-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">My Services</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            I bring the perfect mix of technical skills, creative thinking, and strategic planning to help your business thrive online.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services && services.map((service) => (
-            <div 
-              key={service.id} 
-              className={`rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-white border border-gray-100 p-6 ${service.sectionId ? 'cursor-pointer hover:bg-blue-50' : ''} ${service.sectionId && visibleSection === service.sectionId ? 'ring-2 ring-blue-500' : ''}`}
-              onClick={() => scrollToSection(service.sectionId)}
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {services.map((service, index) => (
+            <motion.div 
+              key={index}
+              ref={el => cardRefs.current[index] = el}
+              variants={item}
+              className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col h-full"
             >
-              <div className="bg-blue-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                <service.icon className="text-blue-600" size={24} />
+              <div className="p-6">
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                  <service.icon className="w-6 h-6 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3 text-gray-900">{service.title}</h3>
+                <p className="text-gray-600 mb-6">{service.description}</p>
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">{service.title}</h3>
-              <p className="text-gray-600 mb-4">{service.description}</p>
-              
-              <div className="flex justify-between items-center">
+              <div className="mt-auto p-6 pt-2">
                 {service.sectionId && (
-                  <div className="text-blue-600 text-sm flex items-center">
-                    <span>{visibleSection === service.sectionId ? 'Hide details' : 'View details'}</span>
-                    <ArrowRight size={14} className="ml-1" />
-                  </div>
+                  <Button 
+                    className="w-full bg-blue-600 hover:bg-blue-700"
+                    onClick={() => scrollToSection(service.sectionId)}
+                  >
+                    See Details
+                  </Button>
                 )}
-                
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 text-xs"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  <Calendar className="mr-1 h-3 w-3" />
-                  Book Consultation
-                </Button>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
-        
-        <div className="mt-16 text-center">
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Not sure which service you need? Let's discuss your goals in a personalized consultation.
-          </p>
-          <Button 
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-5 h-auto"
-            asChild
+          
+          {/* Case Studies Card */}
+          <motion.div 
+            variants={item}
+            className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl shadow-sm border border-blue-400 overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col h-full text-white"
           >
-            <a href="#booking" className="flex items-center">
-              <Calendar className="mr-2 h-5 w-5" />
-              Schedule a Free Strategy Call
-            </a>
-          </Button>
-        </div>
+            <div className="p-6">
+              <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-4">
+                <FileText className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Case Studies</h3>
+              <p className="mb-6">See how my services have transformed real businesses with measurable results and proven strategies.</p>
+            </div>
+            <div className="mt-auto p-6 pt-2">
+              <Button 
+                className="w-full bg-white text-blue-700 hover:bg-blue-50"
+                onClick={() => scrollToSection("case-studies")}
+              >
+                View Case Studies
+              </Button>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

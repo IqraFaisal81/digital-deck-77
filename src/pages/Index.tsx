@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from "react";
 import { ProjectType } from "@/types/project";
 import Navbar from "@/components/Navbar";
@@ -17,6 +18,7 @@ import PPCAnalyticsSection from "@/components/sections/PPCAnalyticsSection";
 import AIChatbotSection from "@/components/sections/AIChatbotSection";
 import LovableProjectsSection from "@/components/sections/LovableProjectsSection";
 import BookingSection from "@/components/sections/BookingSection";
+import CaseStudiesSection from "@/components/sections/CaseStudiesSection";
 
 const Index = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
@@ -31,6 +33,7 @@ const Index = () => {
   const ppcAnalyticsRef = useRef<HTMLElement>(null);
   const aiChatbotRef = useRef<HTMLElement>(null);
   const lovableProjectsRef = useRef<HTMLElement>(null);
+  const caseStudiesRef = useRef<HTMLElement>(null);
 
   const openProjectModal = (project: ProjectType) => {
     setSelectedProject(project);
@@ -58,6 +61,8 @@ const Index = () => {
         aiChatbotRef.current.scrollIntoView({ behavior: "smooth" });
       } else if (sectionId === "lovable-projects" && lovableProjectsRef.current) {
         lovableProjectsRef.current.scrollIntoView({ behavior: "smooth" });
+      } else if (sectionId === "case-studies" && caseStudiesRef.current) {
+        caseStudiesRef.current.scrollIntoView({ behavior: "smooth" });
       }
     }, 100);
   };
@@ -129,6 +134,11 @@ const Index = () => {
         isSectionVisible={isSectionVisible} 
         setVisibleSection={setVisibleSection} 
         lovableProjectsRef={lovableProjectsRef} 
+      />
+      <CaseStudiesSection 
+        isSectionVisible={isSectionVisible} 
+        setVisibleSection={setVisibleSection} 
+        caseStudiesRef={caseStudiesRef} 
       />
       <BookingSection />
 
