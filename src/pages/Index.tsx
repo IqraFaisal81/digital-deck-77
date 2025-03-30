@@ -45,7 +45,7 @@ import LovableProjectsCarousel from "@/components/LovableProjectsCarousel";
 const Index = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
-  const projectCategories = getProjectCategories();
+  const projectCategories = getProjectCategories() || [];
   
   const [visibleSection, setVisibleSection] = useState<string | null>(null);
   
@@ -217,7 +217,7 @@ const Index = () => {
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => (
+            {services && services.map((service) => (
               <div 
                 key={service.id} 
                 className={`rounded-lg overflow-hidden shadow-lg shadow-black/30 transition-all duration-300 hover:shadow-electric/30 hover:scale-[1.02] bg-black/50 backdrop-blur-sm border border-white/10 p-6 ${service.sectionId ? 'cursor-pointer hover:bg-black/20' : ''} ${service.sectionId && visibleSection === service.sectionId ? 'ring-2 ring-electric' : ''}`}
@@ -708,7 +708,7 @@ const Index = () => {
           
           {/* Project Tabs */}
           <div className="mb-12 flex flex-wrap justify-center gap-3">
-            {projectCategories.map((category) => (
+            {projectCategories && projectCategories.map((category) => (
               <Button 
                 key={category}
                 variant="ghost"
@@ -721,7 +721,7 @@ const Index = () => {
           
           {/* Project Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayProjects.map((project) => (
+            {displayProjects && displayProjects.map((project) => (
               <div 
                 key={project.id}
                 className="bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 hover:border-electric/30 transition-all hover:shadow-lg hover:shadow-electric/20 hover:scale-[1.02] cursor-pointer"
@@ -740,7 +740,7 @@ const Index = () => {
                     {project.shortDescription}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech, index) => (
+                    {project.technologies && project.technologies.map((tech, index) => (
                       <span 
                         key={index}
                         className="text-xs px-2 py-1 rounded-full bg-electric/20 text-electric"
@@ -798,7 +798,7 @@ const Index = () => {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {seoPerformanceData.map((client) => (
+                    {seoPerformanceData && seoPerformanceData.map((client) => (
                       <TableRow key={client.name} className="hover:bg-white/5">
                         <TableCell className="font-medium">{client.name}</TableCell>
                         <TableCell className="text-right">{client.clicks.toLocaleString()}</TableCell>
