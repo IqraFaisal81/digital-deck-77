@@ -36,7 +36,7 @@ const ContactForm = () => {
       <h3 className="text-xl font-semibold mb-4 text-center">Or fill out the form below—I'll get back to you ASAP.</h3>
       
       <div className="space-y-2">
-        <label htmlFor="name" className="block text-white/70">Name</label>
+        <label htmlFor="name" className="block text-black/70">Name</label>
         <input
           type="text"
           id="name"
@@ -44,12 +44,12 @@ const ContactForm = () => {
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full p-3 rounded-lg bg-black/30 border border-white/10 text-white focus:outline-none focus:border-electric"
+          className="w-full p-3 rounded-lg bg-white border border-black/10 text-black focus:outline-none focus:border-black"
         />
       </div>
       
       <div className="space-y-2">
-        <label htmlFor="email" className="block text-white/70">Email</label>
+        <label htmlFor="email" className="block text-black/70">Email</label>
         <input
           type="email"
           id="email"
@@ -57,12 +57,12 @@ const ContactForm = () => {
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full p-3 rounded-lg bg-black/30 border border-white/10 text-white focus:outline-none focus:border-electric"
+          className="w-full p-3 rounded-lg bg-white border border-black/10 text-black focus:outline-none focus:border-black"
         />
       </div>
       
       <div className="space-y-2">
-        <label htmlFor="message" className="block text-white/70">Message</label>
+        <label htmlFor="message" className="block text-black/70">Message</label>
         <textarea
           id="message"
           name="message"
@@ -70,13 +70,13 @@ const ContactForm = () => {
           onChange={handleChange}
           required
           rows={5}
-          className="w-full p-3 rounded-lg bg-black/30 border border-white/10 text-white focus:outline-none focus:border-electric resize-none"
+          className="w-full p-3 rounded-lg bg-white border border-black/10 text-black focus:outline-none focus:border-black resize-none"
         />
       </div>
       
       <Button 
         type="submit"
-        className="w-full bg-electric hover:bg-electric/80 text-white font-semibold py-3"
+        className="w-full bg-black hover:bg-black/80 text-white font-semibold py-3"
         disabled={isSubmitting}
       >
         {isSubmitting ? "Sending..." : "Send Message"}
