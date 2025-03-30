@@ -119,27 +119,27 @@ const AIChatbotCarousel = () => {
       </Dialog>
 
       <div className="mt-8 text-center">
-        <h3 className="text-xl font-bold mb-2">🔥 Why It Works:</h3>
+        <h3 className="text-xl font-bold mb-2 text-blue-600">Why It Works:</h3>
         <ul className="inline-block text-left mx-auto mb-6">
           <li className="flex items-start mb-2">
-            <span className="text-green-500 mr-2">✅</span>
-            <span>Converts cold traffic into warm leads via chat</span>
+            <span className="text-green-500 mr-2">✓</span>
+            <span className="text-black">Converts cold traffic into warm leads via chat</span>
           </li>
           <li className="flex items-start mb-2">
-            <span className="text-green-500 mr-2">✅</span>
-            <span>Filters & qualifies callers using AI before they hit your team</span>
+            <span className="text-green-500 mr-2">✓</span>
+            <span className="text-black">Filters & qualifies callers using AI before they hit your team</span>
           </li>
           <li className="flex items-start mb-2">
-            <span className="text-green-500 mr-2">✅</span>
-            <span>Scalable for agencies, service providers, and product brands</span>
+            <span className="text-green-500 mr-2">✓</span>
+            <span className="text-black">Scalable for agencies, service providers, and product brands</span>
           </li>
           <li className="flex items-start">
-            <span className="text-green-500 mr-2">✅</span>
-            <span>Available 24/7 – no burnout, no bottlenecks</span>
+            <span className="text-green-500 mr-2">✓</span>
+            <span className="text-black">Available 24/7 – no burnout, no bottlenecks</span>
           </li>
         </ul>
-        <p className="text-lg font-medium">Let your AI do the talking.</p>
-        <p className="text-gray-600">From live chat to inbound voice—I'll help you build the kind of smart system that never sleeps (but always sells). 😎</p>
+        <p className="text-lg font-medium text-black">Let your AI do the talking.</p>
+        <p className="text-gray-600">From live chat to inbound voice—I'll help you build the kind of smart system that never sleeps (but always sells).</p>
       </div>
     </div>
   );
