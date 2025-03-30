@@ -82,7 +82,7 @@ export default {
         royal: '#000000',
         midnight: '#000000',
         electric: {
-          DEFAULT: '#ff3a3a',
+          DEFAULT: '#000000',
           foreground: '#ffffff',
         },
       },

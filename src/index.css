@@ -138,11 +138,11 @@
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-black via-black/80 to-[#ff3a3a] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-black via-black/80 to-black bg-clip-text text-transparent;
   }
 
   .text-accent {
-    @apply text-[#ff3a3a] font-semibold;
+    @apply text-black font-semibold;
   }
   
   .bg-royal {
@@ -150,6 +150,6 @@
   }
   
   .bg-accent {
-    @apply bg-[#ff3a3a];
+    @apply bg-black;
   }
 }
