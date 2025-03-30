@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from "react";
 import { ArrowDown, ArrowRight, Check, ExternalLink, Github, Linkedin, Mail, Phone, Rocket } from "lucide-react";
 import { services, sectionIds } from "@/data/services";
@@ -142,7 +143,7 @@ const Index = () => {
                 className="bg-electric hover:bg-electric/80 text-white"
                 asChild
               >
-                <a href="#contact">Let's Work Together<ArrowRight className="ml-2 h-4 w-4" /></a>
+                <a href="#contact">Let&apos;s Work Together<ArrowRight className="ml-2 h-4 w-4" /></a>
               </Button>
               <Button 
                 size="lg" 
@@ -167,13 +168,13 @@ const Index = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">About Me</h2>
           <div className="bg-black/20 backdrop-blur-sm rounded-xl p-8 border border-white/10 max-w-4xl mx-auto">
             <p className="text-white/80 mb-6">
-              Hey! I'm Iqra Faisal, a SaaS developer and CRM automation expert with 6+ years of experience turning business chaos into smooth digital workflows. I specialize in building custom systems using Go High Level, automation frameworks, and full-funnel strategies that just work.
+              Hey! I&apos;m Iqra Faisal, a SaaS developer and CRM automation expert with 6+ years of experience turning business chaos into smooth digital workflows. I specialize in building custom systems using Go High Level, automation frameworks, and full-funnel strategies that just work.
             </p>
             <p className="text-white/80 mb-6">
-              I've worked across industries like fitness, e-commerce, mental health, bottleless water coolers, HVAC, and professional services—delivering results that speak for themselves. From Google Ads and SEO to funnel design and automation—I'm your one-stop tech & marketing solution.
+              I&apos;ve worked across industries like fitness, e-commerce, mental health, bottleless water coolers, HVAC, and professional services—delivering results that speak for themselves. From Google Ads and SEO to funnel design and automation—I&apos;m your one-stop tech & marketing solution.
             </p>
             <div className="mt-8">
-              <h3 className="text-xl font-semibold mb-4 text-electric">Industries I've Worked With</h3>
+              <h3 className="text-xl font-semibold mb-4 text-electric">Industries I&apos;ve Worked With</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex items-start space-x-2">
                   <Check className="text-electric mt-1 flex-shrink-0" />
@@ -232,6 +233,7 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Workflow Automations Section */}
       <section id="workflows" ref={workflowsRef} className={`section-padding transition-all duration-300 ${isSectionVisible('workflows') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Workflow Automations</h2>
@@ -267,7 +269,7 @@ const Index = () => {
           <WorkflowCarousel />
           
           <div className="mt-12 bg-electric/10 rounded-xl p-6 border border-electric/20">
-            <h3 className="text-xl font-semibold mb-4 text-center text-electric">Real Results I've Delivered</h3>
+            <h3 className="text-xl font-semibold mb-4 text-center text-electric">Real Results I&apos;ve Delivered</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex items-start space-x-2">
                 <Check className="text-electric mt-1 flex-shrink-0" />
@@ -283,7 +285,7 @@ const Index = () => {
               </div>
               <div className="flex items-start space-x-2">
                 <Check className="text-electric mt-1 flex-shrink-0" />
-                <span className="text-white/80">Recovered abandoned carts and boosted sales for Triad's Autel store</span>
+                <span className="text-white/80">Recovered abandoned carts and boosted sales for Triad&apos;s Autel store</span>
               </div>
             </div>
           </div>
@@ -300,12 +302,13 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Funnel Development Section */}
       <section id="funnels" ref={funnelsRef} className={`section-padding transition-all duration-300 ${isSectionVisible('funnels') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Funnel Development</h2>
           <div className="max-w-3xl mx-auto mb-12">
             <p className="text-white/80 text-center">
-              Let's turn clicks into conversions—with zero guesswork. I design and build high-converting funnels that guide your prospects from "just looking" to ready to buy, using psychology-backed flows, clean design, and automation that does the heavy lifting.
+              Let&apos;s turn clicks into conversions—with zero guesswork. I design and build high-converting funnels that guide your prospects from &quot;just looking&quot; to ready to buy, using psychology-backed flows, clean design, and automation that does the heavy lifting.
             </p>
           </div>
           
@@ -339,7 +342,7 @@ const Index = () => {
           <FunnelCarousel />
           
           <div className="mt-12 bg-electric/10 rounded-xl p-6 border border-electric/20">
-            <h3 className="text-xl font-semibold mb-4 text-center text-electric">Funnels I've Delivered</h3>
+            <h3 className="text-xl font-semibold mb-4 text-center text-electric">Funnels I&apos;ve Delivered</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex items-start space-x-2">
                 <Check className="text-electric mt-1 flex-shrink-0" />
@@ -372,12 +375,13 @@ const Index = () => {
         </div>
       </section>
 
+      {/* SEO Audits Section */}
       <section id="seo-audits" ref={seoAuditsRef} className={`section-padding transition-all duration-300 ${isSectionVisible('seo-audits') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">SEO Audits</h2>
           <div className="max-w-3xl mx-auto mb-12">
             <p className="text-white/80 text-center">
-              If your site isn't ranking, it's not working. Period. I offer deep-dive SEO audits that uncover exactly what's
+              If your site isn&apos;t ranking, it&apos;s not working. Period. I offer deep-dive SEO audits that uncover exactly what&apos;s
               holding your website back—and build a game plan to fix it, fast.
             </p>
           </div>
@@ -387,7 +391,7 @@ const Index = () => {
           </div>
 
           <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10 mb-12">
-            <h3 className="text-xl font-semibold mb-6 text-electric">What's Included in Every SEO Audit:</h3>
+            <h3 className="text-xl font-semibold mb-6 text-electric">What&apos;s Included in Every SEO Audit:</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="p-4 bg-black/30 rounded-lg">
                 <h4 className="font-semibold mb-2">Technical Health Check</h4>
@@ -417,7 +421,7 @@ const Index = () => {
           </div>
           
           <div className="mt-12 bg-electric/10 rounded-xl p-6 border border-electric/20">
-            <h3 className="text-xl font-semibold mb-4 text-center text-electric">Results I've Achieved</h3>
+            <h3 className="text-xl font-semibold mb-4 text-center text-electric">Results I&apos;ve Achieved</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex items-start space-x-2">
                 <Check className="text-electric mt-1 flex-shrink-0" />
@@ -450,6 +454,7 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Email Marketing Section */}
       <section id="email-marketing" ref={emailMarketingRef} className={`section-padding transition-all duration-300 ${isSectionVisible('email-marketing') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Email Marketing & Automation</h2>
@@ -458,7 +463,7 @@ const Index = () => {
               Inbox strategy that speaks human—not spammy. I craft high-impact email campaigns and automated flows that engage, nurture, and convert—without annoying your audience or clogging their inbox.
             </p>
             <p className="text-white/80 text-center mt-4">
-              Whether it's onboarding sequences, abandoned cart reminders, newsletters, or drip campaigns—I design every touchpoint with strategy, storytelling, and sales psychology in mind.
+              Whether it&apos;s onboarding sequences, abandoned cart reminders, newsletters, or drip campaigns—I design every touchpoint with strategy, storytelling, and sales psychology in mind.
             </p>
           </div>
           
@@ -492,7 +497,7 @@ const Index = () => {
           <EmailMarketingCarousel />
           
           <div className="mt-12 bg-electric/10 rounded-xl p-6 border border-electric/20">
-            <h3 className="text-xl font-semibold mb-4 text-center text-electric">Results I've Delivered</h3>
+            <h3 className="text-xl font-semibold mb-4 text-center text-electric">Results I&apos;ve Delivered</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex items-start space-x-2">
                 <Check className="text-electric mt-1 flex-shrink-0" />
@@ -526,14 +531,15 @@ const Index = () => {
         </div>
       </section>
 
+      {/* PPC Analytics Section */}
       <section id="ppc-analytics" ref={ppcAnalyticsRef} className={`section-padding transition-all duration-300 ${isSectionVisible('ppc-analytics') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">PPC, Analytics & Tracking Suite</h2>
           <div className="max-w-3xl mx-auto mb-12">
             <p className="text-white/80 text-center">
-              Total visibility. Smarter strategy. Bigger wins. I don't just launch campaigns—I measure everything. 
+              Total visibility. Smarter strategy. Bigger wins. I don&apos;t just launch campaigns—I measure everything. 
               With expert-level setups in Google Tag Manager, Google Search Console, and Looker Studio, I track the 
-              full customer journey—so you know what's working, what's not, and what to scale.
+              full customer journey—so you know what&apos;s working, what&apos;s not, and what to scale.
             </p>
           </div>
           
@@ -560,4 +566,283 @@ const Index = () => {
                 <h4 className="font-semibold mb-2">E-commerce Tracking</h4>
                 <p className="text-sm text-white/70">Full funnel visibility from product views to cart additions and purchases with revenue attribution.</p>
               </div>
-              <div className="p-4 bg
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Ad Creative Direction</h4>
+                <p className="text-sm text-white/70">Compelling headlines, persuasive copy, and strategic creative that aligns with your brand and drives action.</p>
+              </div>
+            </div>
+          </div>
+          
+          <h3 className="text-xl font-semibold mb-6 text-center">PPC & Analytics Examples</h3>
+          <PPCCarousel />
+          
+          <div className="mt-12 bg-electric/10 rounded-xl p-6 border border-electric/20">
+            <h3 className="text-xl font-semibold mb-4 text-center text-electric">Analytics Success Stories</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">All Pro – Custom Looker Studio dashboard for lead source attribution</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Triad DS – E-commerce revenue tracking with 100% accurate attribution</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Charley Grey – Lead magnet campaign with 247% ROI</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Grey Matters – ROAS improvement from 1.2x to 3.7x through strategic remarketing</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-8 text-center">
+            <Button 
+              variant="ghost" 
+              className="border border-white/20 hover:bg-white/10"
+              onClick={() => setVisibleSection(null)}
+            >
+              Close Section
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Chatbot Section */}
+      <section id="ai-chatbot" ref={aiChatbotRef} className={`section-padding transition-all duration-300 ${isSectionVisible('ai-chatbot') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Conversational & Voice AI</h2>
+          <div className="max-w-3xl mx-auto mb-12">
+            <p className="text-white/80 text-center">
+              Smart conversations, real-time responses, and zero missed opportunities. I design and implement Conversational AI and Voice AI Agents that engage users instantly, qualify leads, and automate support—powered by cutting-edge tech and human-like flow.
+            </p>
+          </div>
+          
+          <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10 mb-12">
+            <h3 className="text-xl font-semibold mb-6 text-electric">AI Solutions I Implement:</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Chat Widget AI</h4>
+                <p className="text-sm text-white/70">Intelligent chat widgets that capture user inquiries and contact details, with instant response acknowledgment and automated team notifications.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Voice AI Agents</h4>
+                <p className="text-sm text-white/70">Natural voice assistants for inbound call handling, with dynamic voice selection, call routing based on caller behavior, and business-specific branding.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Lead Qualification Bots</h4>
+                <p className="text-sm text-white/70">AI-powered systems that filter and qualify callers before they reach your team, saving time and improving efficiency.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Automated Support Assistants</h4>
+                <p className="text-sm text-white/70">24/7 customer support bots that handle common queries, freeing up your team to focus on more complex issues.</p>
+              </div>
+            </div>
+          </div>
+          
+          <h3 className="text-xl font-semibold mb-6 text-center">AI Chatbot & Voice Agent Examples</h3>
+          <AIChatbotCarousel />
+          
+          <div className="mt-12 bg-electric/10 rounded-xl p-6 border border-electric/20">
+            <h3 className="text-xl font-semibold mb-4 text-center text-electric">Why It Works</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Converts cold traffic into warm leads via chat</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Filters & qualifies callers using AI before they hit your team</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Scalable for agencies, service providers, and product brands</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Available 24/7 – no burnout, no bottlenecks</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-8 text-center">
+            <p className="text-white/80 italic mb-4">Let your AI do the talking. From live chat to inbound voice—I&apos;ll help you build the kind of smart system that never sleeps (but always sells).</p>
+            <Button 
+              variant="ghost" 
+              className="border border-white/20 hover:bg-white/10"
+              onClick={() => setVisibleSection(null)}
+            >
+              Close Section
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Lovable Projects Section */}
+      <section id="lovable-projects" ref={lovableProjectsRef} className={`section-padding transition-all duration-300 ${isSectionVisible('lovable-projects') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Lovable Projects</h2>
+          <div className="max-w-3xl mx-auto mb-12">
+            <p className="text-white/80 text-center">
+              Creating exceptional AI-powered web applications with the innovative Lovable platform. From chatbots to dashboards, I build modern apps that delight users and solve real business problems.
+            </p>
+          </div>
+          
+          <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10 mb-12">
+            <h3 className="text-xl font-semibold mb-6 text-electric">What I Build on Lovable:</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">AI Chatbot Interfaces</h4>
+                <p className="text-sm text-white/70">Custom chatbot UIs that connect to various AI models, with features like chat history, knowledge base integration, and more.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Analytics Dashboards</h4>
+                <p className="text-sm text-white/70">Real-time data visualization dashboards that integrate with databases and APIs to provide actionable insights.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Prompt Management Systems</h4>
+                <p className="text-sm text-white/70">Tools for teams to create, store, and optimize AI prompts for consistent results across different use cases.</p>
+              </div>
+              <div className="p-4 bg-black/30 rounded-lg">
+                <h4 className="font-semibold mb-2">Customer Portals</h4>
+                <p className="text-sm text-white/70">Secure, branded client dashboards with authentication, personalized content, and interactive features.</p>
+              </div>
+            </div>
+          </div>
+          
+          <h3 className="text-xl font-semibold mb-6 text-center">Featured Lovable Projects</h3>
+          <LovableProjectsCarousel />
+          
+          <div className="mt-12 bg-electric/10 rounded-xl p-6 border border-electric/20">
+            <h3 className="text-xl font-semibold mb-4 text-center text-electric">Benefits of Lovable Projects</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Rapid development with AI-powered assistance</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Modern, responsive UI that works across all devices</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Easy integration with existing systems and APIs</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Check className="text-electric mt-1 flex-shrink-0" />
+                <span className="text-white/80">Scalable architecture that grows with your business</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-8 text-center">
+            <Button 
+              variant="ghost" 
+              className="border border-white/20 hover:bg-white/10"
+              onClick={() => setVisibleSection(null)}
+            >
+              Close Section
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="section-padding">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Get In Touch</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+              <div className="bg-black/20 backdrop-blur-sm rounded-xl p-8 border border-white/10 h-full">
+                <h3 className="text-xl font-semibold mb-6 text-electric">Let&apos;s Build Something Amazing</h3>
+                <p className="text-white/80 mb-8">
+                  Ready to transform your business with smarter systems, better automation, or more effective marketing? I&apos;m here to help! Fill out the form or reach out directly.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="bg-electric/20 p-3 rounded-full w-12 h-12 flex items-center justify-center">
+                      <Mail className="text-electric" size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-medium">Email</h4>
+                      <a href="mailto:hello@iqrafaisal.com" className="text-white/70 hover:text-electric">
+                        hello@iqrafaisal.com
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <div className="bg-electric/20 p-3 rounded-full w-12 h-12 flex items-center justify-center">
+                      <Phone className="text-electric" size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-medium">Phone</h4>
+                      <a href="tel:+12345678901" className="text-white/70 hover:text-electric">
+                        +1 (234) 567-8901
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <div className="bg-electric/20 p-3 rounded-full w-12 h-12 flex items-center justify-center">
+                      <Github className="text-electric" size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-medium">GitHub</h4>
+                      <a href="https://github.com/iqrafaisal" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-electric">
+                        github.com/iqrafaisal
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <div className="bg-electric/20 p-3 rounded-full w-12 h-12 flex items-center justify-center">
+                      <Linkedin className="text-electric" size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-medium">LinkedIn</h4>
+                      <a href="https://linkedin.com/in/iqrafaisal" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-electric">
+                        linkedin.com/in/iqrafaisal
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="py-8 border-t border-white/10">
+        <div className="container mx-auto text-center">
+          <p className="text-white/60">
+            &copy; {new Date().getFullYear()} Iqra Faisal. All rights reserved.
+          </p>
+          <div className="flex items-center justify-center space-x-4 mt-4">
+            <a href="https://linkedin.com/in/iqrafaisal" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-electric">
+              <Linkedin size={18} />
+            </a>
+            <a href="https://github.com/iqrafaisal" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-electric">
+              <Github size={18} />
+            </a>
+            <a href="mailto:hello@iqrafaisal.com" className="text-white/60 hover:text-electric">
+              <Mail size={18} />
+            </a>
+          </div>
+        </div>
+      </footer>
+
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+        />
+      )}
+    </div>
+  );
+};
+
+export default Index;
