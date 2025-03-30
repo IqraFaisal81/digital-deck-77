@@ -24,14 +24,14 @@ const funnels = [
     id: 2,
     title: "Triad Diagnostic - Autel Black Friday",
     description: "E-commerce funnel with product listings and checkout flow",
-    image: "/lovable-uploads/00166fd4-fe91-46af-afd4-15c78b573a88.png",
+    image: "/lovable-uploads/bc480130-3453-4ec2-b46d-a946e98fb220.png",
     url: "https://chuck.triad-ds.com/triads-autel-black-friday"
   },
   {
     id: 3,
     title: "Mike Greene Coaching",
     description: "Client mentoring and booking funnel with qualification flow",
-    image: "/lovable-uploads/bc480130-3453-4ec2-b46d-a946e98fb220.png",
+    image: "/lovable-uploads/00166fd4-fe91-46af-afd4-15c78b573a88.png",
     url: "https://mikegreenecoaching.co.uk/mentoring-with-mike-greene"
   }
 ];
