@@ -16,7 +16,7 @@ const ProjectHighlightsSection = () => {
           <div className="inline-block px-4 py-1 bg-electric/10 rounded-full text-electric text-sm font-medium mb-4">
             Featured Case Study
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-black">
             Real Results for Real Clients
           </h2>
           <p className="text-black/80 text-lg mb-8">
