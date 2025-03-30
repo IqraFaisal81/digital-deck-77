@@ -1,3 +1,4 @@
+
 import { Calendar, Clock, DollarSign, Mail, Phone, Linkedin } from "lucide-react";
 import CalendlyWidget from "@/components/CalendlyWidget";
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,6 +12,18 @@ const BookingSection = () => {
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  // Load Calendly script
+  useEffect(() => {
+    // Load Calendly script only if it hasn't been loaded yet
+    if (!document.getElementById('calendly-script') && isClient) {
+      const script = document.createElement('script');
+      script.id = 'calendly-script';
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, [isClient]);
 
   return (
     <section id="booking" className="section-padding py-24 relative overflow-hidden">
@@ -124,7 +137,7 @@ const BookingSection = () => {
           </div>
           
           {/* Right side - Calendly widget */}
-          <div className="lg:col-span-8 bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/10 h-[700px] flex">
+          <div className="lg:col-span-8 bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/10">
             {isClient && (
               <CalendlyWidget 
                 url="https://calendly.com/iqrafaisal81/discovery-call" 
