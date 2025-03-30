@@ -1,4 +1,3 @@
-
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import EmailMarketingCarousel from "@/components/EmailMarketingCarousel";
@@ -53,15 +52,15 @@ const EmailMarketingSection = ({ isSectionVisible, setVisibleSection, emailMarke
         <EmailMarketingCarousel />
         
         <div className="mt-12 bg-electric/10 rounded-xl p-6 border border-electric/20">
-          <h3 className="text-xl font-semibold mb-4 text-center text-electric">Results I&apos;ve Delivered</h3>
+          <h3 className="text-xl font-semibold mb-4 text-center text-electric">Results I've Delivered</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-start space-x-2">
               <Check className="text-electric mt-1 flex-shrink-0" />
-              <span className="text-white/80">Triad DS – Abandoned Cart Recovery: Built a personalized WooCommerce workflow that recovered lost sales</span>
+              <span className="text-white/80 text-white/60">Triad DS – Abandoned Cart Recovery: Built a personalized WooCommerce workflow that recovered lost sales</span>
             </div>
             <div className="flex items-start space-x-2">
               <Check className="text-electric mt-1 flex-shrink-0" />
-              <span className="text-white/80">Grey Matters – Welcome Sequence: 92% open rate and 45% click rate</span>
+              <span className="text-white/80 text-white/60">Grey Matters – Welcome Sequence: 92% open rate and 45% click rate</span>
             </div>
           </div>
         </div>

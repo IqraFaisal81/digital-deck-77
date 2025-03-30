@@ -1,4 +1,3 @@
-
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import WorkflowCarousel from "@/components/WorkflowCarousel";
@@ -46,23 +45,23 @@ const WorkflowsSection = ({ isSectionVisible, setVisibleSection, workflowsRef }:
         <WorkflowCarousel />
         
         <div className="mt-12 bg-electric/10 rounded-xl p-6 border border-electric/20">
-          <h3 className="text-xl font-semibold mb-4 text-center text-electric">Real Results I&apos;ve Delivered</h3>
+          <h3 className="text-xl font-semibold mb-4 text-center text-electric">Real Results I've Delivered</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-start space-x-2">
               <Check className="text-electric mt-1 flex-shrink-0" />
-              <span className="text-white/80">40% increase in lead conversion rates via tailored nurture workflows</span>
+              <span className="text-white/80 text-white/60">40% increase in lead conversion rates via tailored nurture workflows</span>
             </div>
             <div className="flex items-start space-x-2">
               <Check className="text-electric mt-1 flex-shrink-0" />
-              <span className="text-white/80">100% automated chat-to-lead tagging system built for Triad DS</span>
+              <span className="text-white/80 text-white/60">100% automated chat-to-lead tagging system built for Triad DS</span>
             </div>
             <div className="flex items-start space-x-2">
               <Check className="text-electric mt-1 flex-shrink-0" />
-              <span className="text-white/80">50+ hours/month saved on manual follow-ups for All Pro</span>
+              <span className="text-white/80 text-white/60">50+ hours/month saved on manual follow-ups for All Pro</span>
             </div>
             <div className="flex items-start space-x-2">
               <Check className="text-electric mt-1 flex-shrink-0" />
-              <span className="text-white/80">Recovered abandoned carts and boosted sales for Triad&apos;s Autel store</span>
+              <span className="text-white/80 text-white/60">Recovered abandoned carts and boosted sales for Triad's Autel store</span>
             </div>
           </div>
         </div>
