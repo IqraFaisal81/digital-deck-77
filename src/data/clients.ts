@@ -86,4 +86,16 @@ export const clients: ClientType[] = [
       rating: 5
     }
   },
+  {
+    name: "GetSAID",
+    logo: "/lovable-uploads/64c324e0-6cd3-4ea1-84b9-45893813da58.png",
+    website: "https://getsaid.ai/",
+    description: "AI-powered communication platform that helps businesses improve their messaging and customer engagement.",
+    testimonial: {
+      quote: "Iqra's integration of our AI tools with automated marketing sequences increased our conversion rates by 45%. Her technical expertise is outstanding.",
+      author: "David Chen",
+      position: "Product Manager",
+      rating: 5
+    }
+  },
 ];
