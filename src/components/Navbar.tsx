@@ -37,11 +37,11 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "py-3 bg-black/80 backdrop-blur-lg shadow-lg" : "py-5 bg-transparent"
+        scrolled ? "py-3 bg-white/90 backdrop-blur-lg shadow-md" : "py-5 bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="text-white font-bold text-xl">
+        <a href="#home" className="text-gray-900 font-bold text-xl">
           Iqra Faisal
         </a>
 
@@ -52,14 +52,14 @@ const Navbar = () => {
               <a
                 key={index}
                 href={item.href}
-                className="px-4 py-2 text-white/80 hover:text-white rounded-lg hover:bg-white/10 transition-colors duration-300 flex items-center"
+                className="px-4 py-2 text-gray-700 hover:text-blue-600 rounded-lg hover:bg-blue-50 transition-colors duration-300 flex items-center"
               >
                 {item.icon}
                 {item.label}
               </a>
             ))}
             <Button
-              className="ml-2 bg-electric hover:bg-electric/80"
+              className="ml-2 bg-blue-600 hover:bg-blue-700"
               asChild
               size="sm"
             >
@@ -70,7 +70,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         {isMobile && (
-          <button onClick={toggleMenu} className="text-white">
+          <button onClick={toggleMenu} className="text-gray-900">
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         )}
@@ -79,7 +79,7 @@ const Navbar = () => {
       {/* Mobile Menu Dropdown */}
       {isMobile && (
         <div
-          className={`fixed inset-0 bg-black/95 backdrop-blur-xl z-40 transition-transform duration-300 ease-in-out ${
+          className={`fixed inset-0 bg-white/98 backdrop-blur-xl z-40 transition-transform duration-300 ease-in-out ${
             isOpen ? "translate-x-0" : "translate-x-full"
           } pt-20`}
         >
@@ -89,14 +89,14 @@ const Navbar = () => {
                 key={index}
                 href={item.href}
                 onClick={toggleMenu}
-                className="px-4 py-4 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors duration-300 flex items-center"
+                className="px-4 py-4 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-300 flex items-center"
               >
                 {item.icon}
                 {item.label}
               </a>
             ))}
             <Button
-              className="mt-4 bg-electric hover:bg-electric/80"
+              className="mt-4 bg-blue-600 hover:bg-blue-700"
               asChild
               onClick={toggleMenu}
             >
