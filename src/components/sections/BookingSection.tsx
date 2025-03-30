@@ -43,7 +43,17 @@ const BookingSection = () => {
         </div>
         
         <div className="grid grid-cols-1 gap-8 max-w-5xl mx-auto">
-          {/* Contact form and info */}
+          {/* Calendly widget - MOVED THIS ABOVE THE CONTACT FORM */}
+          <div className="bg-white shadow-md rounded-xl overflow-hidden border border-gray-100 h-[700px]">
+            {isClient && (
+              <CalendlyWidget 
+                url="https://calendly.com/iqrafaisal81/discovery-call" 
+                height={700} 
+              />
+            )}
+          </div>
+          
+          {/* Contact form and info - MOVED THIS BELOW THE CALENDAR */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card className="bg-white shadow-md border border-gray-100 overflow-hidden">
               <CardContent className="p-6">
@@ -136,16 +146,6 @@ const BookingSection = () => {
                 </CardContent>
               </Card>
             </div>
-          </div>
-          
-          {/* Calendly widget */}
-          <div className="bg-white shadow-md rounded-xl overflow-hidden border border-gray-100 h-[700px]">
-            {isClient && (
-              <CalendlyWidget 
-                url="https://calendly.com/iqrafaisal81/discovery-call" 
-                height={700} 
-              />
-            )}
           </div>
         </div>
       </div>
