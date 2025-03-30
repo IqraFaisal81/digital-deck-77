@@ -56,21 +56,21 @@ const FunnelCarousel = () => {
       >
         <CarouselContent>
           {funnels.map((funnel) => (
-            <CarouselItem key={funnel.id} className="basis-full md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={funnel.id} className="basis-full md:basis-1/2 lg:basis-1/3 p-2">
               <div 
-                className="cursor-pointer h-full"
+                className="cursor-pointer h-full bg-white shadow-md rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg"
                 onClick={() => openFunnelModal(funnel)}
               >
-                <div className="relative h-[200px] md:h-[220px] overflow-hidden rounded-t-lg">
+                <div className="relative h-[200px] md:h-[220px] overflow-hidden">
                   <img 
                     src={funnel.image} 
                     alt={funnel.title} 
                     className="w-full h-full object-cover object-top transition-all duration-300 transform hover:scale-110"
                   />
                 </div>
-                <div className="p-4 bg-black/30">
-                  <h4 className="text-lg font-semibold text-white">{funnel.title}</h4>
-                  <p className="text-white/70 text-sm mt-1">{funnel.description}</p>
+                <div className="p-4 bg-gray-50">
+                  <h4 className="text-lg font-semibold text-black">{funnel.title}</h4>
+                  <p className="text-gray-800 text-sm mt-1">{funnel.description}</p>
                 </div>
               </div>
             </CarouselItem>

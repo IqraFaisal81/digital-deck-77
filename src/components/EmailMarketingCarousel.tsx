@@ -59,22 +59,22 @@ const EmailMarketingCarousel = () => {
           {emailImages.map((image, index) => (
             <CarouselItem
               key={index}
-              className="basis-full md:basis-1/2 lg:basis-1/3 h-full"
+              className="basis-full md:basis-1/2 lg:basis-1/3 p-2"
             >
               <div 
-                className="cursor-pointer h-full"
+                className="cursor-pointer h-full bg-white shadow-md rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg"
                 onClick={() => openImageModal(image)}
               >
-                <div className="relative h-[200px] md:h-[220px] overflow-hidden rounded-t-lg">
+                <div className="relative h-[200px] md:h-[220px] overflow-hidden">
                   <img
                     src={image.src}
                     alt={image.alt}
                     className="w-full h-full object-cover object-top transition-all duration-300 transform hover:scale-110"
                   />
                 </div>
-                <div className="p-4 bg-black/30">
-                  <h4 className="text-lg font-semibold text-white">Email Campaign {index + 1}</h4>
-                  <p className="text-white/70 text-sm mt-1">{image.description.split(" ").slice(0, 6).join(" ")}...</p>
+                <div className="p-4 bg-gray-50">
+                  <h4 className="text-lg font-semibold text-black">Email Campaign {index + 1}</h4>
+                  <p className="text-gray-800 text-sm mt-1">{image.description.split(" ").slice(0, 6).join(" ")}...</p>
                 </div>
               </div>
             </CarouselItem>
