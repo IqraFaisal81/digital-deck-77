@@ -9,8 +9,21 @@ interface AIChatbotSectionProps {
 }
 
 const AIChatbotSection = ({ isSectionVisible, setVisibleSection, aiChatbotRef }: AIChatbotSectionProps) => {
+  const isVisible = isSectionVisible('ai-chatbot');
+  
   return (
-    <section id="ai-chatbot" ref={aiChatbotRef} className={`section-padding bg-gradient-to-br from-blue-50 to-white transition-all duration-300 ${isSectionVisible('ai-chatbot') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
+    <section 
+      id="ai-chatbot" 
+      ref={aiChatbotRef} 
+      className={`section-padding bg-gradient-to-br from-blue-50 to-white transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      style={{ 
+        display: isVisible ? 'block' : 'none',
+        height: isVisible ? 'auto' : '0',
+        overflow: isVisible ? 'visible' : 'hidden',
+        position: 'relative',
+        zIndex: isVisible ? '10' : '-1'
+      }}
+    >
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-gray-900">AI Chatbot & Voice Agent</h2>
         <div className="max-w-3xl mx-auto mb-12">

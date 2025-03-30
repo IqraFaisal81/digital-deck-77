@@ -1,3 +1,4 @@
+
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import WorkflowCarousel from "@/components/WorkflowCarousel";
@@ -9,8 +10,21 @@ interface WorkflowsSectionProps {
 }
 
 const WorkflowsSection = ({ isSectionVisible, setVisibleSection, workflowsRef }: WorkflowsSectionProps) => {
+  const isVisible = isSectionVisible('workflows');
+  
   return (
-    <section id="workflows" ref={workflowsRef} className={`section-padding transition-all duration-300 ${isSectionVisible('workflows') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
+    <section 
+      id="workflows" 
+      ref={workflowsRef} 
+      className={`section-padding transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      style={{ 
+        display: isVisible ? 'block' : 'none',
+        height: isVisible ? 'auto' : '0',
+        overflow: isVisible ? 'visible' : 'hidden',
+        position: 'relative',
+        zIndex: isVisible ? '10' : '-1'
+      }}
+    >
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Workflow Automations</h2>
         <div className="max-w-3xl mx-auto mb-12">
@@ -49,19 +63,19 @@ const WorkflowsSection = ({ isSectionVisible, setVisibleSection, workflowsRef }:
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-start space-x-2">
               <Check className="text-electric mt-1 flex-shrink-0" />
-              <span className="text-white/80 text-white/60">40% increase in lead conversion rates via tailored nurture workflows</span>
+              <span className="text-white text-opacity-70">40% increase in lead conversion rates via tailored nurture workflows</span>
             </div>
             <div className="flex items-start space-x-2">
               <Check className="text-electric mt-1 flex-shrink-0" />
-              <span className="text-white/80 text-white/60">100% automated chat-to-lead tagging system built for Triad DS</span>
+              <span className="text-white text-opacity-70">100% automated chat-to-lead tagging system built for Triad DS</span>
             </div>
             <div className="flex items-start space-x-2">
               <Check className="text-electric mt-1 flex-shrink-0" />
-              <span className="text-white/80 text-white/60">50+ hours/month saved on manual follow-ups for All Pro</span>
+              <span className="text-white text-opacity-70">50+ hours/month saved on manual follow-ups for All Pro</span>
             </div>
             <div className="flex items-start space-x-2">
               <Check className="text-electric mt-1 flex-shrink-0" />
-              <span className="text-white/80 text-white/60">Recovered abandoned carts and boosted sales for Triad's Autel store</span>
+              <span className="text-white text-opacity-70">Recovered abandoned carts and boosted sales for Triad's Autel store</span>
             </div>
           </div>
         </div>

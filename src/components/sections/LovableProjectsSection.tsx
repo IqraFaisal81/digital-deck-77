@@ -9,8 +9,21 @@ interface LovableProjectsSectionProps {
 }
 
 const LovableProjectsSection = ({ isSectionVisible, setVisibleSection, lovableProjectsRef }: LovableProjectsSectionProps) => {
+  const isVisible = isSectionVisible('lovable-projects');
+  
   return (
-    <section id="lovable-projects" ref={lovableProjectsRef} className={`section-padding transition-all duration-300 ${isSectionVisible('lovable-projects') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
+    <section 
+      id="lovable-projects" 
+      ref={lovableProjectsRef} 
+      className={`section-padding transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      style={{ 
+        display: isVisible ? 'block' : 'none',
+        height: isVisible ? 'auto' : '0',
+        overflow: isVisible ? 'visible' : 'hidden',
+        position: 'relative',
+        zIndex: isVisible ? '10' : '-1'
+      }}
+    >
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Lovable Projects</h2>
         <div className="max-w-3xl mx-auto mb-12">

@@ -1,3 +1,4 @@
+
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import EmailMarketingCarousel from "@/components/EmailMarketingCarousel";
@@ -9,8 +10,21 @@ interface EmailMarketingSectionProps {
 }
 
 const EmailMarketingSection = ({ isSectionVisible, setVisibleSection, emailMarketingRef }: EmailMarketingSectionProps) => {
+  const isVisible = isSectionVisible('email-marketing');
+  
   return (
-    <section id="email-marketing" ref={emailMarketingRef} className={`section-padding transition-all duration-300 ${isSectionVisible('email-marketing') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
+    <section 
+      id="email-marketing" 
+      ref={emailMarketingRef} 
+      className={`section-padding transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      style={{ 
+        display: isVisible ? 'block' : 'none',
+        height: isVisible ? 'auto' : '0',
+        overflow: isVisible ? 'visible' : 'hidden',
+        position: 'relative',
+        zIndex: isVisible ? '10' : '-1'
+      }}
+    >
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Email Marketing & Automation</h2>
         <div className="max-w-3xl mx-auto mb-12">
@@ -56,11 +70,11 @@ const EmailMarketingSection = ({ isSectionVisible, setVisibleSection, emailMarke
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-start space-x-2">
               <Check className="text-electric mt-1 flex-shrink-0" />
-              <span className="text-white/80 text-white/60">Triad DS – Abandoned Cart Recovery: Built a personalized WooCommerce workflow that recovered lost sales</span>
+              <span className="text-white text-opacity-70">Triad DS – Abandoned Cart Recovery: Built a personalized WooCommerce workflow that recovered lost sales</span>
             </div>
             <div className="flex items-start space-x-2">
               <Check className="text-electric mt-1 flex-shrink-0" />
-              <span className="text-white/80 text-white/60">Grey Matters – Welcome Sequence: 92% open rate and 45% click rate</span>
+              <span className="text-white text-opacity-70">Grey Matters – Welcome Sequence: 92% open rate and 45% click rate</span>
             </div>
           </div>
         </div>

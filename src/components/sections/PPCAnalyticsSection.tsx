@@ -9,8 +9,21 @@ interface PPCAnalyticsSectionProps {
 }
 
 const PPCAnalyticsSection = ({ isSectionVisible, setVisibleSection, ppcAnalyticsRef }: PPCAnalyticsSectionProps) => {
+  const isVisible = isSectionVisible('ppc-analytics');
+  
   return (
-    <section id="ppc-analytics" ref={ppcAnalyticsRef} className={`section-padding transition-all duration-300 ${isSectionVisible('ppc-analytics') ? 'opacity-100' : 'hidden opacity-0 h-0 overflow-hidden'}`}>
+    <section 
+      id="ppc-analytics" 
+      ref={ppcAnalyticsRef} 
+      className={`section-padding transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      style={{ 
+        display: isVisible ? 'block' : 'none',
+        height: isVisible ? 'auto' : '0',
+        overflow: isVisible ? 'visible' : 'hidden',
+        position: 'relative',
+        zIndex: isVisible ? '10' : '-1'
+      }}
+    >
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">PPC & Analytics</h2>
         <div className="max-w-3xl mx-auto mb-12">
