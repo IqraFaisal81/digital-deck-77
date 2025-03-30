@@ -66,9 +66,9 @@ export default {
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))'
         },
-        royal: '#000000',
+        royal: '#ffffff',
         midnight: '#000000',
-        electric: '#000000',
+        electric: '#8b0000', // Changed to dark red for shadows
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -100,10 +100,9 @@ export default {
         'fade-in-right': 'fade-in-right 0.5s ease-out forwards'
       },
       backgroundImage: {
-        'blue-gradient': 'linear-gradient(to bottom, #000000, #000000)',
+        'blue-gradient': 'linear-gradient(to bottom, #ffffff, #ffffff)',
       }
     }
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
-
