@@ -13,4 +13,10 @@ export interface CaseStudy {
     stat3?: { value: string; label: string; };
   };
   tags: string[];
+  shortDescription?: string;
+  description?: string;
+  solution?: string;
+  technologies?: string[];
+  relatedService?: string;
+  clientName?: string;
 }
