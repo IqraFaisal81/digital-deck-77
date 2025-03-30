@@ -87,7 +87,7 @@
   }
 
   * {
-    @apply border-border text-black; // Add text-black here
+    @apply border-border text-black;
   }
 
   body {
