@@ -1,14 +1,9 @@
-
 import { Check, User, Building, Package } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="section-padding py-32 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl opacity-50"></div>
-      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl opacity-50"></div>
-      
+    <section id="about" className="section-padding bg-white relative overflow-hidden">
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col items-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center text-gray-900">
@@ -18,8 +13,7 @@ const AboutSection = () => {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start max-w-6xl mx-auto">
-          {/* Main content */}
-          <Card className="lg:col-span-3 bg-white shadow-md border border-gray-100 overflow-hidden">
+          <Card className="lg:col-span-3 bg-white soft-shadow border border-gray-100 overflow-hidden">
             <CardContent className="p-8">
               <p className="text-gray-800 mb-6 text-lg leading-relaxed">
                 Hey! I&apos;m Iqra Faisal, a SaaS developer and CRM automation expert with 6+ years of experience turning business chaos into smooth digital workflows. I specialize in building custom systems using Go High Level, automation frameworks, and full-funnel strategies that just work.
@@ -30,8 +24,7 @@ const AboutSection = () => {
             </CardContent>
           </Card>
           
-          {/* Industries list */}
-          <Card className="lg:col-span-2 bg-gradient-to-br from-blue-50 to-white shadow-md border border-gray-100 overflow-hidden">
+          <Card className="lg:col-span-2 white-blue-gradient soft-shadow border border-gray-100 overflow-hidden">
             <CardContent className="p-8">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
