@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import ProjectModal from "@/components/ProjectModal";
 import ContactForm from "@/components/ContactForm";
 import WorkflowCarousel from "@/components/WorkflowCarousel";
+import SEOAuditCarousel from "@/components/SEOAuditCarousel";
 import { 
   Table,
   TableBody,
@@ -241,69 +242,9 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            {/* SEO charts */}
-            <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-              <h3 className="text-xl font-semibold mb-4 text-electric">Performance Data</h3>
-              <div className="h-80 w-full">
-                <ChartContainer
-                  className="h-full"
-                  config={{
-                    impressions: {
-                      label: "Impressions",
-                      theme: {
-                        light: "#3f8efc",
-                        dark: "#3f8efc",
-                      },
-                    },
-                    clicks: {
-                      label: "Clicks",
-                      theme: {
-                        light: "#10b981",
-                        dark: "#10b981",
-                      },
-                    },
-                  }}
-                >
-                  <BarChart data={seoPerformanceData}>
-                    <XAxis dataKey="name" stroke="#94a3b8" />
-                    <YAxis stroke="#94a3b8" />
-                    <ChartTooltip 
-                      content={<ChartTooltipContent />}
-                    />
-                    <Bar 
-                      dataKey="impressions" 
-                      name="impressions"
-                      fill="var(--color-impressions)" 
-                      radius={4} 
-                    />
-                    <Bar 
-                      dataKey="clicks" 
-                      name="clicks"
-                      fill="var(--color-clicks)" 
-                      radius={4} 
-                    />
-                  </BarChart>
-                </ChartContainer>
-              </div>
-            </div>
-
-            <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-              <h3 className="text-xl font-semibold mb-4 text-electric">SEO Health Score</h3>
-              <div className="flex items-center justify-center mb-8">
-                <div className="relative w-48 h-48">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-5xl font-bold">100</div>
-                  </div>
-                  <div className="w-full h-full rounded-full bg-gradient-to-r from-orange-500 via-yellow-500 to-green-500 flex items-center justify-center">
-                    <div className="w-[92%] h-[92%] rounded-full bg-black/60 backdrop-blur-sm"></div>
-                  </div>
-                </div>
-              </div>
-              <p className="text-center text-white/80">
-                Perfect health scores achieved for client websites with zero errors and optimized crawl status.
-              </p>
-            </div>
+          {/* SEO Audit Dashboards Carousel */}
+          <div className="mb-12">
+            <SEOAuditCarousel />
           </div>
 
           <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10 mb-12">
