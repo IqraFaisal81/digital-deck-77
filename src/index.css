@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -7,7 +8,7 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 10%; // Dark gray for better readability
+    --foreground: 0 0% 10%; /* Dark gray for better readability */
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 0%;
@@ -22,9 +23,9 @@
     --secondary-foreground: 0 0% 0%;
 
     --muted: 0 0% 95%;
-    --muted-foreground: 0 0% 45%; // Lighter gray for secondary text
+    --muted-foreground: 0 0% 45%; /* Lighter gray for secondary text */
 
-    --accent: 0 84% 60%; // Accent colors with more subtle gradient
+    --accent: 0 84% 60%; /* Accent colors with more subtle gradient */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -48,7 +49,7 @@
 
   .dark {
     --background: 0 0% 0%;
-    --foreground: 0 0% 95%; // Light text for dark backgrounds
+    --foreground: 0 0% 95%; /* Light text for dark backgrounds */
 
     --card: 0 0% 0%;
     --card-foreground: 0 0% 100%;
@@ -63,7 +64,7 @@
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%; // Softer muted text
+    --muted-foreground: 0 0% 65%; /* Softer muted text */
 
     --accent: 0 0% 15%;
     --accent-foreground: 0 0% 100%;
