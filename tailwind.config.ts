@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -70,6 +69,19 @@ export default {
 				royal: '#000000',
 				midnight: '#000000',
 				electric: '#000000',
+				maroon: {
+					DEFAULT: '#800000',  // Classic maroon red
+					'50': '#FFE5E5',
+					'100': '#FFC1C1',
+					'200': '#FF9999',
+					'300': '#FF7070',
+					'400': '#FF4747',
+					'500': '#800000',
+					'600': '#660000',
+					'700': '#4D0000',
+					'800': '#330000',
+					'900': '#1A0000'
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
