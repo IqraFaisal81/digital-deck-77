@@ -1,88 +1,123 @@
 
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { X } from "lucide-react";
 import { ProjectType } from "@/types/project";
+import { 
+  Dialog, 
+  DialogContent, 
+  DialogHeader, 
+  DialogTitle, 
+  DialogDescription,
+  DialogFooter
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 
-interface ProjectModalProps {
-  project: ProjectType | null;
+export interface ProjectModalProps {
   isOpen: boolean;
-  setIsOpen: (open: boolean) => void;
+  onClose: () => void;
+  project: ProjectType;
 }
 
-const ProjectModal = ({ project, isOpen, setIsOpen }: ProjectModalProps) => {
-  if (!project) return null;
-
+const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="bg-royal/90 backdrop-blur-xl border border-white/10 text-white max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <div className="flex items-center justify-between">
-            <DialogTitle className="text-2xl font-bold">{project.title}</DialogTitle>
-            <button 
-              onClick={() => setIsOpen(false)}
-              className="text-white/60 hover:text-white"
-            >
-              <X size={24} />
-            </button>
-          </div>
+          <DialogTitle className="text-2xl font-bold">{project.title}</DialogTitle>
           <DialogDescription className="text-white/80">
-            <span className="inline-block px-3 py-1 bg-electric/20 text-electric rounded-full text-sm mt-2">
-              {project.category}
-            </span>
+            {project.category}
           </DialogDescription>
         </DialogHeader>
         
-        <div className="mt-4">
+        <div className="mt-4 bg-black/30 p-4 rounded-lg">
           <img 
             src={project.image} 
             alt={project.title} 
-            className="w-full h-[250px] md:h-[350px] object-cover rounded-lg"
+            className="w-full h-auto object-contain rounded-lg mb-6"
           />
+          
+          <div className="space-y-4">
+            {project.description && (
+              <div>
+                <h4 className="text-lg font-semibold text-electric mb-2">Description</h4>
+                <p className="text-white/80">{project.description}</p>
+              </div>
+            )}
+            
+            {project.challenge && (
+              <div>
+                <h4 className="text-lg font-semibold text-electric mb-2">Challenge</h4>
+                <p className="text-white/80">{project.challenge}</p>
+              </div>
+            )}
+            
+            {project.solution && (
+              <div>
+                <h4 className="text-lg font-semibold text-electric mb-2">Solution</h4>
+                <p className="text-white/80">{project.solution}</p>
+              </div>
+            )}
+            
+            {project.results && (
+              <div>
+                <h4 className="text-lg font-semibold text-electric mb-2">Results</h4>
+                <p className="text-white/80">{project.results}</p>
+              </div>
+            )}
+            
+            {project.tools && project.tools.length > 0 && (
+              <div>
+                <h4 className="text-lg font-semibold text-electric mb-2">Tools Used</h4>
+                <div className="flex flex-wrap gap-2">
+                  {project.tools.map((tool, index) => (
+                    <span 
+                      key={index}
+                      className="text-sm px-3 py-1 rounded-full bg-electric/20 text-electric"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+            
+            {project.technologies && project.technologies.length > 0 && (
+              <div>
+                <h4 className="text-lg font-semibold text-electric mb-2">Technologies</h4>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech, index) => (
+                    <span 
+                      key={index}
+                      className="text-sm px-3 py-1 rounded-full bg-electric/20 text-electric"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
         
-        <div className="mt-6 space-y-4">
-          <div>
-            <h4 className="text-lg font-semibold text-electric mb-2">Project Overview</h4>
-            <p className="text-white/90">{project.description}</p>
-          </div>
-          
-          {project.challenge && (
-            <div>
-              <h4 className="text-lg font-semibold text-electric mb-2">The Challenge</h4>
-              <p className="text-white/90">{project.challenge}</p>
-            </div>
+        <DialogFooter className="mt-6 flex justify-between">
+          {project.url && (
+            <Button 
+              className="bg-electric hover:bg-electric/80"
+              asChild
+            >
+              <a href={project.url} target="_blank" rel="noopener noreferrer">
+                View Live Project <ExternalLink className="ml-1 h-4 w-4" />
+              </a>
+            </Button>
           )}
           
-          {project.solution && (
-            <div>
-              <h4 className="text-lg font-semibold text-electric mb-2">The Solution</h4>
-              <p className="text-white/90">{project.solution}</p>
-            </div>
-          )}
-          
-          {project.results && (
-            <div>
-              <h4 className="text-lg font-semibold text-electric mb-2">Results</h4>
-              <p className="text-white/90">{project.results}</p>
-            </div>
-          )}
-          
-          {project.tools && (
-            <div>
-              <h4 className="text-lg font-semibold text-electric mb-2">Tools & Technologies</h4>
-              <div className="flex flex-wrap gap-2">
-                {project.tools.map((tool, index) => (
-                  <span 
-                    key={index} 
-                    className="px-3 py-1 bg-black/30 text-white/90 rounded-full text-sm"
-                  >
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
+          <Button 
+            onClick={onClose}
+            variant="ghost"
+            className="border border-white/20 hover:bg-white/10"
+          >
+            Close
+          </Button>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );

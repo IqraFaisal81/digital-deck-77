@@ -1,101 +1,100 @@
 
 import { useState } from "react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+import { ArrowRight } from "lucide-react";
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselNext, 
+  CarouselPrevious 
 } from "@/components/ui/carousel";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { ProjectType } from "@/types/project";
 
-type HighlightProject = {
-  title: string;
-  description: string;
-  image: string;
-  longDescription?: string;
-  technologies?: string[];
-  link?: string;
-  serviceId?: string; // Added service ID to link project with service section
-};
+// Define project highlights data
+const projectHighlights = [
+  {
+    id: 1,
+    title: "Triad Diagnostic Solutions - Redesign",
+    shortDescription: "Complete rebrand and website overhaul with CRM integration",
+    description: "Full website redesign with custom inventory system and customer portal integration. Added automated workflows for inventory management and order processing.",
+    image: "/lovable-uploads/c53f75af-52db-4d19-bc94-5f4f76696d7f.png",
+    category: "Web Development",
+    technologies: ["Go High Level", "WordPress", "WooCommerce", "JavaScript"],
+    relatedService: "workflows"
+  },
+  {
+    id: 2,
+    title: "All Pro - Service Booking System",
+    shortDescription: "HVAC service scheduling system with automated follow-ups",
+    description: "Built an integrated service booking system with customer notifications, technician scheduling, and automated follow-up sequences to improve customer retention.",
+    image: "/lovable-uploads/8298ac25-72ea-45df-8b02-fec826aa557c.png",
+    category: "Automation",
+    technologies: ["Go High Level", "Twilio", "Zapier", "Calendar API"],
+    relatedService: "workflows"
+  },
+  {
+    id: 3,
+    title: "Grey Matters - SEO & Content Strategy",
+    shortDescription: "Complete SEO overhaul for mental health services",
+    description: "Comprehensive SEO audit and implementation for a mental health studio, resulting in 300% increase in organic traffic and first-page rankings for key terms.",
+    image: "/lovable-uploads/fc1fe9d9-754d-4c31-a3fb-7c9d18da2df4.png",
+    category: "SEO",
+    technologies: ["Google Analytics", "SEMrush", "Ahrefs", "Content Strategy"],
+    relatedService: "seo-audits"
+  },
+  {
+    id: 4,
+    title: "Pure Water - E-commerce Sales Funnel",
+    shortDescription: "High-converting funnel for bottleless water coolers",
+    description: "Designed and implemented a multi-step sales funnel for a bottleless water cooler company, increasing lead conversion rate by 45% and reducing customer acquisition cost.",
+    image: "/lovable-uploads/9bcb292a-8bfc-4d7d-b048-fa75e96bec94.png",
+    category: "Funnel Development",
+    technologies: ["Go High Level", "Facebook Ads", "Google Ads", "Email Automation"],
+    relatedService: "funnels"
+  },
+  {
+    id: 5,
+    title: "March On Mission - Email Campaign",
+    shortDescription: "Nonprofit donation email sequence with storytelling",
+    description: "Crafted a compelling email campaign for a nonprofit, featuring personal stories and impact metrics that resulted in a 28% increase in donations from email channels.",
+    image: "/lovable-uploads/c641dd9b-f122-4f6c-989b-d760cfd177a1.png",
+    category: "Email Marketing",
+    technologies: ["Mailchimp", "Copy Writing", "A/B Testing", "Segmentation"],
+    relatedService: "email-marketing"
+  },
+  {
+    id: 6,
+    title: "AI Support Chatbot - Multiple Clients",
+    shortDescription: "Custom AI chatbots for various business types",
+    description: "Developed and deployed intelligent chatbots for multiple businesses, handling customer inquiries, appointment booking, and lead qualification without human intervention.",
+    image: "/lovable-uploads/1f2af988-6cc7-44a9-b183-662c459cb9ef.png",
+    category: "AI Development",
+    technologies: ["Go High Level", "OpenAI", "NLP", "Automation"],
+    relatedService: "ai-chatbot"
+  }
+];
 
 const ProjectHighlightsCarousel = () => {
-  const projects: HighlightProject[] = [
-    {
-      title: "AI-Powered Analytics Dashboard",
-      description: "Real-time data visualization platform for business metrics",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-      longDescription: "A comprehensive analytics solution that processes large datasets and presents actionable insights through interactive visualizations and customizable reporting tools.",
-      technologies: ["React", "TypeScript", "D3.js", "Firebase", "TensorFlow.js"],
-      link: "https://example.com/analytics",
-      serviceId: "ppc-analytics"
-    },
-    {
-      title: "Developer Productivity Platform",
-      description: "Streamline coding workflows with intelligent tools",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-      longDescription: "A suite of developer productivity tools that integrates with popular IDEs to provide code suggestions, automate routine tasks, and optimize development workflows.",
-      technologies: ["React", "Node.js", "Machine Learning", "VS Code API", "GraphQL"],
-      link: "https://example.com/devtools",
-      serviceId: "workflows"
-    },
-    {
-      title: "Enterprise Collaboration Suite",
-      description: "Secure team communication and project management",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-      longDescription: "An end-to-end enterprise solution for remote teams that combines document management, video conferencing, and project tracking in a secure, scalable platform.",
-      technologies: ["React", "WebRTC", "Redux", "Socket.io", "AWS Services"],
-      link: "https://example.com/collab",
-      serviceId: "email-marketing"
-    },
-    {
-      title: "Cloud Infrastructure Management",
-      description: "Automated deployment and scaling of cloud resources",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-      longDescription: "A platform that simplifies cloud resource management with automated provisioning, cost optimization, and performance monitoring across multiple cloud providers.",
-      technologies: ["React", "Terraform", "Kubernetes", "AWS", "Azure", "GCP"],
-      link: "https://example.com/cloud",
-      serviceId: "lovable-projects"
-    },
-    {
-      title: "Smart Energy Monitoring System",
-      description: "IoT-based solution for sustainable energy management",
-      image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-      longDescription: "An innovative energy monitoring system that uses IoT sensors and machine learning to optimize energy consumption in residential and commercial buildings.",
-      technologies: ["React", "IoT", "MQTT", "TensorFlow", "Time-series DB"],
-      link: "https://example.com/energy",
-      serviceId: "seo-audits"
-    },
-    {
-      title: "Urban Planning Visualization",
-      description: "3D modeling and simulation for city development",
-      image: "https://images.unsplash.com/photo-1493397212122-2b85dda8106b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
-      longDescription: "A 3D visualization platform for urban planners that simulates traffic flow, environmental impact, and population growth to support sustainable city development.",
-      technologies: ["React", "Three.js", "WebGL", "GIS", "Data Visualization"],
-      link: "https://example.com/urban",
-      serviceId: "ai-chatbot"
-    }
-  ];
-
-  const [selectedProject, setSelectedProject] = useState<HighlightProject | null>(null);
+  const [selectedProject, setSelectedProject] = useState<typeof projectHighlights[0] | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
 
-  const openProjectModal = (project: HighlightProject) => {
+  const openProjectModal = (project: typeof projectHighlights[0]) => {
     setSelectedProject(project);
     setModalOpen(true);
   };
 
-  // New function to handle navigation to service section
-  const navigateToService = (serviceId: string | undefined, event: React.MouseEvent) => {
-    if (serviceId) {
-      event.stopPropagation(); // Stop event from triggering the card click
-      const element = document.getElementById(serviceId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-        // Add any additional logic to show the section if it's initially hidden
-      }
+  const scrollToServiceSection = (sectionId: string | null) => {
+    if (!sectionId) return;
+    
+    const sectionElement = document.getElementById(sectionId);
+    if (sectionElement) {
+      sectionElement.scrollIntoView({ behavior: "smooth" });
+      
+      // Trigger the section visibility if it's a collapsible section
+      const event = new CustomEvent('show-section', { detail: { sectionId } });
+      document.dispatchEvent(event);
     }
   };
 
@@ -109,35 +108,42 @@ const ProjectHighlightsCarousel = () => {
         className="w-full"
       >
         <CarouselContent>
-          {projects.map((project, index) => (
-            <CarouselItem key={index} className="basis-full md:basis-1/2 lg:basis-1/3 h-full">
+          {projectHighlights.map((project) => (
+            <CarouselItem key={project.id} className="basis-full md:basis-1/2 lg:basis-1/3 h-full">
               <div 
-                className="cursor-pointer h-full rounded-lg overflow-hidden shadow-lg shadow-black/30 transition-all duration-300 hover:shadow-electric/30 hover:scale-[1.02]"
+                className="bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 hover:border-electric/30 transition-all hover:shadow-lg hover:shadow-electric/20 hover:scale-[1.02] cursor-pointer h-full flex flex-col"
                 onClick={() => openProjectModal(project)}
               >
-                <div className="relative h-[220px] overflow-hidden">
+                <div className="h-48 overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title} 
-                    className="w-full h-full object-cover transition-all duration-500 transform hover:scale-110" 
+                    className="w-full h-full object-cover object-center transform hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-70"></div>
                 </div>
-                <div className="p-5 bg-black/50 backdrop-blur-sm">
-                  <h4 className="text-xl font-bold text-white">{project.title}</h4>
-                  <p className="text-white/80 text-sm mt-2">{project.description}</p>
-                  <div className="mt-4 flex justify-between items-center">
-                    <span className="text-electric text-sm">View Project</span>
-                    {project.serviceId && (
-                      <Button 
-                        variant="link" 
-                        size="sm" 
-                        className="text-white/70 hover:text-electric p-0"
-                        onClick={(e) => navigateToService(project.serviceId, e)}
+                <div className="p-6 flex-1 flex flex-col">
+                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                  <p className="text-white/70 mb-4 flex-1">
+                    {project.shortDescription}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech, index) => (
+                      <span 
+                        key={index}
+                        className="text-xs px-2 py-1 rounded-full bg-electric/20 text-electric"
                       >
-                        View Related Service <ArrowRight size={14} className="ml-1" />
-                      </Button>
-                    )}
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex justify-end">
+                    <Button 
+                      variant="ghost" 
+                      size="sm"
+                      className="text-electric hover:text-electric/80 p-0 flex items-center"
+                    >
+                      View Details <ArrowRight className="ml-1 h-4 w-4" />
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -156,69 +162,58 @@ const ProjectHighlightsCarousel = () => {
               <DialogHeader>
                 <DialogTitle className="text-2xl font-bold">{selectedProject.title}</DialogTitle>
                 <DialogDescription className="text-white/80">
-                  {selectedProject.description}
+                  {selectedProject.category}
                 </DialogDescription>
               </DialogHeader>
               
-              <div className="mt-4 bg-black/30 p-2 rounded-lg">
+              <div className="mt-4 bg-black/30 p-4 rounded-lg">
                 <img 
                   src={selectedProject.image} 
                   alt={selectedProject.title} 
-                  className="w-full object-cover rounded-lg h-[300px]"
+                  className="w-full h-auto object-contain rounded-lg mb-6"
                 />
-              </div>
-              
-              <div className="mt-6">
-                <h3 className="text-lg font-semibold text-electric mb-2">Project Details</h3>
-                <p className="text-white/90">{selectedProject.longDescription}</p>
                 
-                {selectedProject.technologies && (
-                  <div className="mt-4">
-                    <h3 className="text-lg font-semibold text-electric mb-2">Technologies</h3>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="text-lg font-semibold text-electric mb-2">Overview</h4>
+                    <p className="text-white/80">{selectedProject.description}</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-lg font-semibold text-electric mb-2">Technologies Used</h4>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.technologies.map((tech, index) => (
                         <span 
-                          key={index} 
-                          className="px-3 py-1 bg-electric/20 text-white rounded-full text-sm"
+                          key={index}
+                          className="text-sm px-3 py-1 rounded-full bg-electric/20 text-electric"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
                   </div>
-                )}
-                
-                <div className="mt-6 flex justify-between items-center">
-                  {selectedProject.link && (
-                    <Button 
-                      asChild
-                      className="bg-electric hover:bg-electric/80"
-                    >
-                      <a 
-                        href={selectedProject.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                      >
-                        Visit Project <ExternalLink size={16} className="ml-2" />
-                      </a>
-                    </Button>
-                  )}
-                  
-                  {selectedProject.serviceId && (
-                    <Button 
-                      variant="outline"
-                      className="border-white/20 hover:bg-white/10"
-                      onClick={(e) => {
-                        setModalOpen(false);
-                        setTimeout(() => {
-                          navigateToService(selectedProject.serviceId, e);
-                        }, 300);
-                      }}
-                    >
-                      View Related Service <ArrowRight size={16} className="ml-2" />
-                    </Button>
-                  )}
                 </div>
+              </div>
+              
+              <div className="mt-6 flex justify-between">
+                <Button 
+                  variant="outline"
+                  className="border-white/20 hover:bg-white/10"
+                  onClick={() => {
+                    setModalOpen(false);
+                    scrollToServiceSection(selectedProject.relatedService);
+                  }}
+                >
+                  View Related Service <ArrowRight className="ml-1 h-4 w-4" />
+                </Button>
+                
+                <Button 
+                  onClick={() => setModalOpen(false)}
+                  variant="ghost"
+                  className="border border-white/20 hover:bg-white/10"
+                >
+                  Close
+                </Button>
               </div>
             </>
           )}

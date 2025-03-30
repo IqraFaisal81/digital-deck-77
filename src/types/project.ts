@@ -9,4 +9,7 @@ export interface ProjectType {
   solution?: string;
   results?: string;
   tools?: string[];
+  shortDescription?: string;
+  technologies?: string[];
+  url?: string;
 }
