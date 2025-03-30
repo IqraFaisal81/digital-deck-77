@@ -41,6 +41,13 @@ const EmailMarketingCarousel = () => {
 
   return (
     <div className="relative w-full max-w-5xl mx-auto px-4 md:px-6">
+      <div className="mb-8 text-center">
+        <h2 className="text-2xl font-bold mb-2">Email Marketing & Automation</h2>
+        <p className="text-gray-600 max-w-3xl mx-auto">
+          I craft email campaigns and automations that engage, convert, and retain your audience without sounding like a robot.
+        </p>
+      </div>
+      
       <Carousel
         opts={{
           align: "start",

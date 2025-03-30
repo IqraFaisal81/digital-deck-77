@@ -6,8 +6,8 @@ import {
   Mail, 
   Search,
   Repeat,
-  Image,
-  BarChart
+  MessageSquare,
+  Mic
 } from "lucide-react";
 
 export const services = [
@@ -48,12 +48,12 @@ export const services = [
   },
   {
     id: 6,
-    title: "Social Media & Graphics",
-    description: "Custom Canva designs and content strategies for strong brand aesthetics and engagement on every scroll.",
-    icon: Image,
-    sectionId: null // No specific section
+    title: "AI Chatbot & Voice Agent",
+    description: "Smart conversations, real-time responses, and zero missed opportunities with AI-powered chat and voice solutions.",
+    icon: MessageSquare,
+    sectionId: "ai-chatbot" // New section ID for AI chatbot and voice agent
   },
 ];
 
 // Array of all section IDs for toggling visibility
-export const sectionIds = ["workflows", "seo-audits", "funnels", "email-marketing", "ppc-analytics"];
+export const sectionIds = ["workflows", "seo-audits", "funnels", "email-marketing", "ppc-analytics", "ai-chatbot"];
