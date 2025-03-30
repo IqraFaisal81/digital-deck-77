@@ -12,4 +12,6 @@ export interface ProjectType {
   shortDescription?: string;
   technologies?: string[];
   url?: string;
+  clientName?: string;
+  relatedService?: string;
 }
