@@ -11,8 +11,9 @@ const CarouselPagination = ({ carouselApi, currentIndex, items }: CarouselPagina
   return (
     <div className="flex items-center space-x-2">
       {items.map((_, idx) => (
-        <span 
-          key={idx} 
+        <button 
+          key={idx}
+          aria-label={`Go to slide ${idx + 1}`}
           className={`block h-2 w-2 rounded-full cursor-pointer transition-all ${
             currentIndex === idx ? 'bg-electric w-4' : 'bg-white/20'
           }`}

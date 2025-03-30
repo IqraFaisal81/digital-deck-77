@@ -10,6 +10,7 @@ import {
   DialogFooter 
 } from "@/components/ui/dialog";
 import ProjectDetailsContent from "./ProjectDetailsContent";
+import { scrollToServiceSection } from "@/utils/ScrollToServiceUtils";
 
 interface ProjectModalProps {
   modalOpen: boolean;

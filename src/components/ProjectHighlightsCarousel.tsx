@@ -1,55 +1,28 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { 
   Carousel, 
   CarouselContent, 
   CarouselItem, 
   CarouselNext, 
-  CarouselPrevious,
-  type CarouselApi
+  CarouselPrevious
 } from "@/components/ui/carousel";
 import ProjectCard from "./project-highlights/ProjectCard";
 import ProjectModal from "./project-highlights/ProjectModal";
 import CarouselPagination from "./project-highlights/CarouselPagination";
 import { projectHighlights } from "./project-highlights/ProjectData";
+import { useCarouselState } from "@/hooks/useCarouselState";
+import { scrollToServiceSection } from "@/utils/ScrollToServiceUtils";
 
 const ProjectHighlightsCarousel = () => {
   const [selectedProject, setSelectedProject] = useState<typeof projectHighlights[0] | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
-  const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const scrollToServiceSection = (sectionId: string | null) => {
-    if (!sectionId) return;
-    
-    const sectionElement = document.getElementById(sectionId);
-    if (sectionElement) {
-      sectionElement.scrollIntoView({ behavior: "smooth" });
-      
-      // Trigger the section visibility if it's a collapsible section
-      const event = new CustomEvent('show-section', { detail: { sectionId } });
-      document.dispatchEvent(event);
-    }
-  };
+  const { carouselApi, setCarouselApi, currentIndex } = useCarouselState();
 
   const openProjectModal = (project: typeof projectHighlights[0]) => {
     setSelectedProject(project);
     setModalOpen(true);
   };
-
-  // Update current index when carousel changes
-  useEffect(() => {
-    if (!carouselApi) return;
-    
-    const onSelect = () => {
-      setCurrentIndex(carouselApi.selectedScrollSnap());
-    };
-    
-    carouselApi.on("select", onSelect);
-    return () => {
-      carouselApi.off("select", onSelect);
-    };
-  }, [carouselApi]);
 
   return (
     <div className="w-full">

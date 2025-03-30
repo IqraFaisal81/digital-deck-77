@@ -2,18 +2,12 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { sectionIds } from "@/data/services";
+import { projectHighlights } from "./ProjectData";
 
 interface ProjectCardProps {
-  project: {
-    id: number;
-    title: string;
-    shortDescription: string;
-    image: string;
-    technologies: string[];
-    relatedService: string;
-  };
+  project: typeof projectHighlights[0];
   scrollToServiceSection: (sectionId: string | null) => void;
-  openProjectModal: (project: any) => void;
+  openProjectModal: (project: typeof projectHighlights[0]) => void;
 }
 
 const ProjectCard = ({ project, scrollToServiceSection, openProjectModal }: ProjectCardProps) => {
