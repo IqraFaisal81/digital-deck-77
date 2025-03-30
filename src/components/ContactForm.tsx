@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { SendIcon, Calendar } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -37,40 +39,40 @@ const ContactForm = () => {
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-2">
           <label htmlFor="name" className="block text-white/70">Name</label>
-          <input
+          <Input
             type="text"
             id="name"
             name="name"
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full p-3 rounded-lg bg-black/30 border border-white/10 text-white focus:outline-none focus:border-electric"
+            className="w-full bg-white border-electric text-gray-900 focus:border-electric"
           />
         </div>
         
         <div className="space-y-2">
           <label htmlFor="email" className="block text-white/70">Email</label>
-          <input
+          <Input
             type="email"
             id="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full p-3 rounded-lg bg-black/30 border border-white/10 text-white focus:outline-none focus:border-electric"
+            className="w-full bg-white border-electric text-gray-900 focus:border-electric"
           />
         </div>
         
         <div className="space-y-2">
           <label htmlFor="message" className="block text-white/70">Message</label>
-          <textarea
+          <Textarea
             id="message"
             name="message"
             value={formData.message}
             onChange={handleChange}
             required
             rows={4}
-            className="w-full p-3 rounded-lg bg-black/30 border border-white/10 text-white focus:outline-none focus:border-electric resize-none"
+            className="w-full bg-white border-electric text-gray-900 focus:border-electric resize-none"
           />
         </div>
         
