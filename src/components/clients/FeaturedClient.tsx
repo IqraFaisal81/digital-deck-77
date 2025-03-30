@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { ExternalLink, Filter } from "lucide-react";
 import { 
@@ -72,7 +73,7 @@ const caseStudies: CaseStudy[] = [
   {
     name: "Finance Management Platform",
     logo: "/lovable-uploads/64c324e0-6cd3-4ea1-84b9-45893813da58.png",
-    website": "#",
+    website: "#",
     category: "Product Development",
     description: "Designed and developed a user-friendly finance management platform for young professionals juggling savings, debt, and daily budgeting using the Lovable framework for UX/UI strategy and product development.",
     testimonial: "By leaning into Lovable's user-centered, emotion-driven development process, we successfully designed a financial tool that didn't just solve problems—it created an emotional connection with users.",
