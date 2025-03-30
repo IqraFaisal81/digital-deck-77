@@ -21,9 +21,9 @@ const BookingSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-7xl mx-auto">
           {/* Booking info */}
-          <div className="space-y-6">
+          <div className="lg:col-span-4 space-y-6">
             <Card className="bg-black/30 backdrop-blur-md border border-white/10 overflow-hidden shadow-xl h-auto">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4 text-electric">Consultation Details</h3>
@@ -94,10 +94,10 @@ const BookingSection = () => {
           </div>
           
           {/* Calendly widget */}
-          <div className="lg:col-span-2 bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/10">
+          <div className="lg:col-span-8 bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/10">
             <CalendlyWidget 
               url="https://calendly.com/iqrafaisal81/30min" 
-              height={600} 
+              height={650} 
             />
           </div>
         </div>
