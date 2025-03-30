@@ -1,7 +1,8 @@
+
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { services } from "@/data/services";
-import { LightBulbIcon, FolderIcon, FileText } from "lucide-react";
+import { Lightbulb, FolderIcon, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useMediaQuery } from "@/hooks/use-mobile";
 
