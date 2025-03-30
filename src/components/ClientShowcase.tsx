@@ -119,22 +119,6 @@ const ClientShowcase: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {/* Client collaboration stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10 text-center">
-          <div className="text-4xl font-bold text-electric mb-2">7+</div>
-          <div className="text-white/80">Industry-Leading Clients</div>
-        </div>
-        <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10 text-center">
-          <div className="text-4xl font-bold text-electric mb-2">30+</div>
-          <div className="text-white/80">Projects Delivered</div>
-        </div>
-        <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10 text-center">
-          <div className="text-4xl font-bold text-electric mb-2">45%</div>
-          <div className="text-white/80">Avg. Conversion Boost</div>
-        </div>
-      </div>
     </div>
   );
 };
