@@ -2,6 +2,7 @@
 import { ArrowRight, Calendar } from "lucide-react";
 import { services } from "@/data/services";
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ServicesSectionProps {
   visibleSection: string | null;
@@ -9,6 +10,8 @@ interface ServicesSectionProps {
 }
 
 const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionProps) => {
+  const isMobile = useIsMobile();
+  
   return (
     <section id="services" className="section-padding bg-gradient-to-b from-white to-blue-50">
       <div className="container mx-auto">
@@ -24,7 +27,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
           {services && services.map((service) => (
             <div 
               key={service.id} 
-              className={`rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-white border border-gray-100 p-6 ${service.sectionId ? 'cursor-pointer hover:bg-blue-50' : ''} ${service.sectionId && visibleSection === service.sectionId ? 'ring-2 ring-blue-500' : ''}`}
+              className={`rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-white border border-gray-100 p-6 ${service.sectionId ? 'cursor-pointer' : ''}`}
               onClick={() => scrollToSection(service.sectionId)}
             >
               <div className="bg-blue-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
@@ -36,7 +39,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
               <div className="flex justify-between items-center">
                 {service.sectionId && (
                   <div className="text-blue-600 text-sm flex items-center">
-                    <span>{visibleSection === service.sectionId ? 'Hide details' : 'View details'}</span>
+                    <span>View details</span>
                     <ArrowRight size={14} className="ml-1" />
                   </div>
                 )}

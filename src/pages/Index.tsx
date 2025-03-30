@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from "react";
 import { ProjectType } from "@/types/project";
 import Navbar from "@/components/Navbar";
@@ -40,9 +41,7 @@ const Index = () => {
   const scrollToSection = (sectionId: string | null) => {
     if (!sectionId) return;
     
-    // Toggle section visibility - if it's already visible, hide it, otherwise show it
-    setVisibleSection(prevSection => prevSection === sectionId ? null : sectionId);
-    
+    // Only scroll, but don't toggle visibility - we want case studies to always be visible
     setTimeout(() => {
       if (sectionId === "workflows" && workflowsRef.current) {
         workflowsRef.current.scrollIntoView({ behavior: "smooth" });
@@ -62,16 +61,14 @@ const Index = () => {
     }, 100);
   };
 
-  const isSectionVisible = (sectionId: string) => {
-    return visibleSection === sectionId;
-  };
+  // Always show all sections by default
+  const isSectionVisible = () => true;
 
   useEffect(() => {
     // Add event listener for showing services sections from project modals
     const handleShowSection = (e: Event) => {
       const customEvent = e as CustomEvent;
       if (customEvent.detail && customEvent.detail.sectionId) {
-        setVisibleSection(customEvent.detail.sectionId);
         scrollToSection(customEvent.detail.sectionId);
       }
     };
