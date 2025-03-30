@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ArrowRight, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -31,8 +30,8 @@ const ProjectHighlightsSection = () => {
             {/* Image Section */}
             <div className="h-full">
               <img 
-                src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" 
-                alt="GreyMatters Studio Case Study" 
+                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
+                alt="GreyMatters Studio Neurofeedback Technology" 
                 className="w-full h-full object-cover"
               />
             </div>
