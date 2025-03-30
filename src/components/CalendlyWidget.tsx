@@ -28,16 +28,18 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({ url, height = 700 }) =>
     };
   }, []);
 
-  // Add a safer rendering approach
+  // Improved rendering to take up full space without scrolling
   return (
     <div 
-      className="calendly-inline-widget w-full" 
+      className="calendly-inline-widget w-full h-full" 
       data-url={url}
       style={{ 
         minWidth: '100%', 
         height: `${height}px`,
+        minHeight: '100%',
+        border: 'none',
         overflow: 'hidden',
-        backgroundColor: 'rgba(0,0,0,0.1)' // Add a slight background to show loading area
+        backgroundColor: 'rgba(0,0,0,0.1)' // Loading area background
       }}
     />
   );

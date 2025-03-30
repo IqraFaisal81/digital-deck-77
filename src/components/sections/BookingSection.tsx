@@ -125,7 +125,7 @@ const BookingSection = () => {
           </div>
           
           {/* Right side - Calendly widget */}
-          <div className="lg:col-span-8 bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/10 min-h-[650px]">
+          <div className="lg:col-span-8 bg-black/20 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/10 h-[650px] flex">
             {isClient && (
               <CalendlyWidget 
                 url="https://calendly.com/iqrafaisal81/30min" 
