@@ -34,7 +34,7 @@ const FeaturedClient: React.FC = () => {
             <CarouselItem key={index} className="basis-full pl-0">
               <div className="flex flex-col md:flex-row gap-6 items-start">
                 <div className="md:w-1/3">
-                  <div className="bg-white p-5 rounded-lg flex items-center justify-center h-48 border border-gray-200">
+                  <div className="bg-gray-200 p-5 rounded-lg flex items-center justify-center h-48 border border-gray-300">
                     <img 
                       src={client.logo} 
                       alt={`${client.name} logo`} 

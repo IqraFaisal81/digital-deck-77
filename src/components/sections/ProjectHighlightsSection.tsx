@@ -64,8 +64,8 @@ const ProjectHighlightsSection = () => {
               ))}
             </CarouselContent>
             
-            <div className="flex justify-center gap-2 mt-6">
-              <CarouselPrevious className="static transform-none bg-blue-100 hover:bg-blue-200 text-blue-600 border-none h-8 w-8 rounded-full" />
+            <div className="flex justify-center gap-4 mt-8">
+              <CarouselPrevious className="relative inline-flex transform-none bg-blue-100 hover:bg-blue-200 text-blue-600 border-none h-10 w-10 rounded-full mr-2" />
               <div className="flex items-center space-x-2">
                 {caseStudies.map((_, idx) => (
                   <span 
@@ -75,7 +75,7 @@ const ProjectHighlightsSection = () => {
                   />
                 ))}
               </div>
-              <CarouselNext className="static transform-none bg-blue-100 hover:bg-blue-200 text-blue-600 border-none h-8 w-8 rounded-full" />
+              <CarouselNext className="relative inline-flex transform-none bg-blue-100 hover:bg-blue-200 text-blue-600 border-none h-10 w-10 rounded-full ml-2" />
             </div>
           </Carousel>
         </div>

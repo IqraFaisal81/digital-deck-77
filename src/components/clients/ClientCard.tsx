@@ -23,7 +23,7 @@ const ClientCard: React.FC<ClientCardProps> = ({ client, index, onOpenTestimonia
           href={client.website} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="bg-blue-50 h-28 w-full rounded-xl shadow-md border border-blue-100 flex items-center justify-center p-4 transition-all duration-300 hover:shadow-lg hover:border-blue-500 group"
+          className="bg-gray-200 h-28 w-full rounded-xl shadow-md border border-gray-300 flex items-center justify-center p-4 transition-all duration-300 hover:shadow-lg hover:border-blue-500 group"
         >
           <div className="relative w-full h-full flex items-center justify-center">
             <img 

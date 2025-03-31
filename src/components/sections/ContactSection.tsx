@@ -1,6 +1,5 @@
 
 import { Mail, Phone, Github, Linkedin, Calendar } from "lucide-react";
-import ContactForm from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
 
 const ContactSection = () => {
@@ -26,8 +25,8 @@ const ContactSection = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          <div className="space-y-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10 flex items-start space-x-4">
               <div className="bg-electric/20 p-3 rounded-full flex-shrink-0">
                 <Mail className="text-electric" size={24} />
@@ -72,11 +71,6 @@ const ContactSection = () => {
                 </Button>
               </div>
             </div>
-          </div>
-          
-          <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-            <h3 className="text-xl font-semibold mb-6">Send Me a Message</h3>
-            <ContactForm />
           </div>
         </div>
       </div>
