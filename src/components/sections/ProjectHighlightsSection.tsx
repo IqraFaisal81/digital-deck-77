@@ -5,9 +5,7 @@ import { CaseStudy } from "@/types/caseStudy";
 import { 
   Carousel, 
   CarouselContent, 
-  CarouselItem, 
-  CarouselNext, 
-  CarouselPrevious
+  CarouselItem
 } from "@/components/ui/carousel";
 import { useCarouselState } from "@/hooks/useCarouselState";
 import CaseStudyModal from "@/components/project-highlights/CaseStudyModal";
@@ -43,7 +41,7 @@ const ProjectHighlightsSection = () => {
           </p>
         </div>
         
-        {/* Case Study Carousel */}
+        {/* Case Study Carousel - now without arrows */}
         <div className="max-w-6xl mx-auto">
           <Carousel
             opts={{
@@ -63,11 +61,6 @@ const ProjectHighlightsSection = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            
-            <div className="flex justify-center gap-4 mt-8">
-              <CarouselPrevious className="relative inline-flex transform-none bg-blue-100 hover:bg-blue-200 text-blue-600 border-none h-10 w-10 rounded-full mr-2" />
-              <CarouselNext className="relative inline-flex transform-none bg-blue-100 hover:bg-blue-200 text-blue-600 border-none h-10 w-10 rounded-full ml-2" />
-            </div>
           </Carousel>
         </div>
         

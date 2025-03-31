@@ -16,10 +16,14 @@ const ClientCard: React.FC<ClientCardProps> = ({
   className,
   imageClassName = "object-contain"
 }) => {
+  // Determine if the logo is predominantly white based on client name
+  const needsDarkerBg = ["BearPlex", "March on Mission", "GetSAID"].includes(client.name);
+  
   return (
     <div 
       className={cn(
-        "bg-gray-200 border border-gray-300 rounded-lg p-4 flex items-center justify-center hover:shadow-md transition-shadow duration-200 cursor-pointer h-28 w-32 md:w-40 md:h-32",
+        "border border-gray-300 rounded-lg p-4 flex items-center justify-center hover:shadow-md transition-shadow duration-200 cursor-pointer h-28 w-32 md:w-40 md:h-32",
+        needsDarkerBg ? "bg-gray-600" : "bg-gray-200",
         className
       )}
       onClick={() => onOpenTestimonial(client)}

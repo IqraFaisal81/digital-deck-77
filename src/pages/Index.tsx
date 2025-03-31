@@ -19,6 +19,7 @@ import AIChatbotSection from "@/components/sections/AIChatbotSection";
 import LovableProjectsSection from "@/components/sections/LovableProjectsSection";
 import BookingSection from "@/components/sections/BookingSection";
 import ProjectHighlightsSection from "@/components/sections/ProjectHighlightsSection";
+import SkillsSection from "@/components/sections/SkillsSection";
 
 const Index = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
@@ -92,6 +93,7 @@ const Index = () => {
       {/* All sections */}
       <HomeSection />
       <AboutSection />
+      <SkillsSection /> {/* Added Skills Section here, after About */}
       <ClientsSection />
       <ServicesSection 
         visibleSection={visibleSection} 
