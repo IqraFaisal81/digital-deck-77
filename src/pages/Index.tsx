@@ -18,6 +18,7 @@ import LovableProjectsSection from "@/components/sections/LovableProjectsSection
 import BookingSection from "@/components/sections/BookingSection";
 import ProjectHighlightsSection from "@/components/sections/ProjectHighlightsSection";
 import SkillsSection from "@/components/sections/SkillsSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
 
 const Index = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
@@ -92,6 +93,7 @@ const Index = () => {
       <HomeSection />
       <AboutSection />
       <SkillsSection />
+      <TestimonialsSection />
       <ServicesSection 
         visibleSection={visibleSection} 
         scrollToSection={scrollToSection} 
