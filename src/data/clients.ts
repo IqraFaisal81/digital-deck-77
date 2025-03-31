@@ -1,6 +1,19 @@
+
 import { ClientType } from "@/types/client";
 
 export const clients: ClientType[] = [
+  {
+    name: "Mike Greene Consulting",
+    logo: "/lovable-uploads/6a6bd5db-ad17-4c87-af52-d22f104570f1.png",
+    website: "#",
+    description: "Strategic business consulting and professional advisory services.",
+    testimonial: {
+      quote: "It has been an absolute pleasure working with Iqra Faisal. From the outset, she took the time to thoroughly understand my needs, asking the right questions and proposing a clear, well-thought-out plan with transparent fees and deliverables.",
+      author: "Mike Greene",
+      position: "CEO",
+      rating: 5
+    }
+  },
   {
     name: "Advanced Dental Care",
     logo: "/lovable-uploads/01ce4945-a7d8-4c51-b0b6-5f3bb018aee9.png",

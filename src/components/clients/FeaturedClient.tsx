@@ -28,6 +28,8 @@ const FeaturedClient: React.FC = () => {
         }}
         className="w-full"
         setApi={setCarouselApi}
+        // Ensure the first client (Mike Greene) is shown first
+        defaultSelected={0}
       >
         <CarouselContent>
           {clients.map((client, index) => (
@@ -35,11 +37,21 @@ const FeaturedClient: React.FC = () => {
               <div className="flex flex-col md:flex-row gap-6 items-start">
                 <div className="md:w-1/3">
                   <div className="bg-gray-200 p-5 rounded-lg flex items-center justify-center h-48 border border-gray-300">
-                    <img 
-                      src={client.logo} 
-                      alt={`${client.name} logo`} 
-                      className="max-w-full max-h-24 object-contain"
-                    />
+                    {client.name === "Mike Greene Consulting" ? (
+                      // Special handling for Mike Greene's photo (headshot)
+                      <img 
+                        src={client.logo} 
+                        alt={`${client.name} photo`} 
+                        className="max-w-full max-h-full object-cover rounded-lg" 
+                      />
+                    ) : (
+                      // Standard logo display for other clients
+                      <img 
+                        src={client.logo} 
+                        alt={`${client.name} logo`} 
+                        className="max-w-full max-h-24 object-contain" 
+                      />
+                    )}
                   </div>
                   
                   {client.testimonial?.rating && (
@@ -63,14 +75,16 @@ const FeaturedClient: React.FC = () => {
                       <h3 className="text-2xl font-bold text-gray-900">{client.name}</h3>
                       <p className="text-blue-600 text-sm">{client.testimonial?.position}</p>
                     </div>
-                    <a 
-                      href={client.website} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="text-blue-600 hover:text-blue-800"
-                    >
-                      <ExternalLink size={18} />
-                    </a>
+                    {client.website !== "#" && (
+                      <a 
+                        href={client.website} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-blue-600 hover:text-blue-800"
+                      >
+                        <ExternalLink size={18} />
+                      </a>
+                    )}
                   </div>
                   
                   {client.testimonial && (
