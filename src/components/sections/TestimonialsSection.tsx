@@ -27,14 +27,14 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section id="testimonials" className="py-24 px-4 md:px-8 bg-gradient-to-br from-purple-50 via-blue-50 to-white overflow-hidden">
+    <section id="testimonials" className="py-24 px-4 md:px-8 bg-gradient-to-br from-blue-50 via-sky-50 to-white overflow-hidden">
       <div className="container mx-auto">
         <div className="flex flex-col items-center mb-14">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center relative">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-500 to-blue-700">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-700">
               Client Testimonials
             </span>
-            <div className="absolute w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-500 left-1/2 -translate-x-1/2 bottom-0 mt-4"></div>
+            <div className="absolute w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 left-1/2 -translate-x-1/2 bottom-0 mt-4"></div>
           </h2>
           <p className="text-gray-700 max-w-2xl mx-auto text-center text-lg mt-6 mb-8">
             Hear directly from our clients about their experience working with us
@@ -58,7 +58,7 @@ const TestimonialsSection = () => {
                       <Card className="shadow-xl border-0 overflow-hidden bg-white hover:shadow-2xl transition-all duration-500 h-full transform hover:-translate-y-1">
                         <CardContent className="p-0 h-full">
                           <div className="flex flex-col md:flex-row h-full">
-                            <div className="md:w-2/5 lg:w-1/3 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 flex flex-col items-center justify-center p-8 text-white relative overflow-hidden">
+                            <div className="md:w-2/5 lg:w-1/3 bg-gradient-to-br from-blue-500 via-blue-600 to-sky-700 flex flex-col items-center justify-center p-8 text-white relative overflow-hidden">
                               <div className="absolute top-0 left-0 w-full h-full opacity-10">
                                 <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                                   <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="white" strokeWidth="0.5"></path>
@@ -96,7 +96,7 @@ const TestimonialsSection = () => {
                               
                               <div className="mt-auto flex items-center border-t border-gray-100 pt-5">
                                 <Avatar className="h-14 w-14 border-2 border-blue-100 mr-4 shadow-sm">
-                                  <AvatarFallback className="bg-gradient-to-br from-blue-100 to-purple-100 text-blue-600 font-semibold">
+                                  <AvatarFallback className="bg-gradient-to-br from-blue-100 to-sky-100 text-blue-600 font-semibold">
                                     {client.testimonial?.author.split(' ').map(n => n[0]).join('')}
                                   </AvatarFallback>
                                 </Avatar>
@@ -125,7 +125,7 @@ const TestimonialsSection = () => {
                     onClick={() => carouselApi?.scrollTo(index)}
                     className={`transition-all duration-300 ${
                       currentIndex === index 
-                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 w-8 h-2.5 rounded-full' 
+                        ? 'bg-gradient-to-r from-blue-400 to-blue-600 w-8 h-2.5 rounded-full' 
                         : 'bg-gray-300 w-2.5 h-2.5 rounded-full hover:bg-gray-400'
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
