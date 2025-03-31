@@ -57,4 +57,37 @@
   .white-blue-gradient {
     @apply bg-gradient-to-br from-white to-blue-50;
   }
+  
+  /* New clean design classes */
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-sm border border-gray-100/80 rounded-xl shadow-sm hover:shadow-md transition-all duration-300;
+  }
+  
+  .animated-border {
+    @apply border border-transparent hover:border-blue-200 transition-all duration-300;
+  }
+  
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+  
+  .subtle-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full;
+  }
+}
+
+/* Add subtle animation for the scroll revealing */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
 }

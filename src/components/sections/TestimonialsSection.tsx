@@ -89,11 +89,11 @@ const TestimonialsSection = () => {
                                 </svg>
                               </div>
                               <div className="mb-6 flex items-center justify-center w-28 h-28 bg-white rounded-full p-1 transform transition-transform duration-500 hover:scale-105 shadow-md">
-                                <div className="flex items-center justify-center w-full h-full bg-white rounded-full overflow-hidden p-2">
+                                <div className="flex items-center justify-center w-full h-full bg-white rounded-full overflow-hidden border border-gray-100">
                                   <img 
                                     src={client.logo} 
                                     alt={client.name} 
-                                    className="max-w-[90px] max-h-[50px] object-contain"
+                                    className="max-w-[80px] max-h-[40px] object-contain"
                                   />
                                 </div>
                               </div>
