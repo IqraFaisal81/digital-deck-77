@@ -52,7 +52,7 @@ export const clients: ClientType[] = [
   },
   {
     name: "BearPlex",
-    logo: "/lovable-uploads/bd245a13-0fd7-4a6b-8e9d-eb3bc2e36fd9.png",
+    logo: "/lovable-uploads/cfff5fd4-2370-420e-891e-11a54ae6a4f0.png",
     website: "https://bearplex.com/",
     description: "Innovative digital solutions and technology services for modern businesses.",
     testimonial: {
@@ -64,7 +64,7 @@ export const clients: ClientType[] = [
   },
   {
     name: "March on Mission",
-    logo: "/lovable-uploads/cfff5fd4-2370-420e-891e-11a54ae6a4f0.png",
+    logo: "/lovable-uploads/bd245a13-0fd7-4a6b-8e9d-eb3bc2e36fd9.png",
     website: "https://www.marchonmission.org/",
     description: "Nonprofit organization dedicated to making positive impacts in communities through targeted initiatives.",
     testimonial: {
