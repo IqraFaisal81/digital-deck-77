@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { ExternalLink, Quote, Star } from "lucide-react";
 import { 
@@ -22,7 +21,7 @@ const FeaturedClient: React.FC = () => {
   }, [carouselApi]);
 
   return (
-    <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 mb-8">
+    <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 pt-8 mb-8">
       <div className="flex flex-col md:flex-row justify-between items-center mb-4">
         <h2 className="text-2xl font-bold text-gray-900 mb-2 md:mb-0">Client Testimonials</h2>
       </div>
