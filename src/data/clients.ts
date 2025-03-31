@@ -15,20 +15,6 @@ export const clients: ClientType[] = [
     }
   },
   {
-    name: "Advanced Dental Care",
-    logo: "/lovable-uploads/01ce4945-a7d8-4c51-b0b6-5f3bb018aee9.png",
-    website: "https://www.advancedindiana.com/",
-    description: "Premier dental care services with advanced technology and patient-focused approach.",
-    testimonial: null
-  },
-  {
-    name: "All Pro Heating & Cooling",
-    logo: "/lovable-uploads/cbda554d-0f5b-483c-99ad-5b285101ffd3.png",
-    website: "https://www.callallproindy.com/",
-    description: "Comprehensive HVAC, plumbing, and drainage solutions for residential and commercial clients.",
-    testimonial: null
-  },
-  {
     name: "Grey Matters",
     logo: "/lovable-uploads/afd512f8-af6f-4adb-bb3e-ed3b41ed3d11.png",
     website: "https://greymatters.studio/",
