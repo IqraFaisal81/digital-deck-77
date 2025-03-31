@@ -19,7 +19,7 @@ const ClientShowcase: React.FC = () => {
 
   return (
     <div className="w-full">
-      <div className="bg-gradient-to-br from-white to-blue-50 rounded-xl p-8 shadow-md border border-blue-100 mb-12">
+      <div>
         <ClientGrid 
           clients={clients} 
           onOpenTestimonial={openTestimonial} 
