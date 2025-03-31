@@ -2,7 +2,6 @@
 import { Calendar, Clock, DollarSign, Mail, Phone, Linkedin } from "lucide-react";
 import CalendlyWidget from "@/components/CalendlyWidget";
 import { Card, CardContent } from "@/components/ui/card";
-import ContactForm from "@/components/ContactForm";
 import { useEffect, useState } from "react";
 
 const BookingSection = () => {
@@ -38,12 +37,12 @@ const BookingSection = () => {
           </h2>
           <div className="w-20 h-1 bg-blue-600 mb-6"></div>
           <p className="text-gray-700 text-center max-w-2xl">
-            Ready to discuss your project? Schedule a free 30-minute consultation or send me a message below.
+            Ready to discuss your project? Schedule a free 30-minute consultation below.
           </p>
         </div>
         
         <div className="grid grid-cols-1 gap-8 max-w-5xl mx-auto">
-          {/* Calendly widget - MOVED THIS ABOVE THE CONTACT FORM */}
+          {/* Calendly widget */}
           <div className="bg-white shadow-md rounded-xl overflow-hidden border border-gray-100 h-[700px]">
             {isClient && (
               <CalendlyWidget 
@@ -53,99 +52,90 @@ const BookingSection = () => {
             )}
           </div>
           
-          {/* Contact form and info - MOVED THIS BELOW THE CALENDAR */}
+          {/* Contact info */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card className="bg-white shadow-md border border-gray-100 overflow-hidden">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-6 text-blue-600">Send Me a Message</h3>
-                <ContactForm />
+                <h3 className="text-xl font-semibold mb-4 text-blue-600">Contact Details</h3>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                      <Mail className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="text-gray-900 font-medium">Email</p>
+                      <p className="text-gray-600">iqrafaisal81@gmail.com</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="text-gray-900 font-medium">Phone</p>
+                      <p className="text-gray-600">+44 7555 859390</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                      <Linkedin className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="text-gray-900 font-medium">LinkedIn</p>
+                      <a 
+                        href="https://www.linkedin.com/in/iqra-faisal-b6687919b/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:underline"
+                      >
+                        linkedin.com/in/iqra-faisal-b6687919b
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </CardContent>
             </Card>
             
-            <div className="space-y-6">
-              <Card className="bg-white shadow-md border border-gray-100 overflow-hidden">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4 text-blue-600">Contact Details</h3>
-                  
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                        <Mail className="w-5 h-5 text-blue-600" />
-                      </div>
-                      <div>
-                        <p className="text-gray-900 font-medium">Email</p>
-                        <p className="text-gray-600">iqrafaisal81@gmail.com</p>
-                      </div>
+            <Card className="bg-white shadow-md border border-gray-100 overflow-hidden">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-4 text-blue-600">Consultation Details</h3>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                      <Calendar className="w-5 h-5 text-blue-600" />
                     </div>
-                    
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                        <Phone className="w-5 h-5 text-blue-600" />
-                      </div>
-                      <div>
-                        <p className="text-gray-900 font-medium">Phone</p>
-                        <p className="text-gray-600">+44 7555 859390</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                        <Linkedin className="w-5 h-5 text-blue-600" />
-                      </div>
-                      <div>
-                        <p className="text-gray-900 font-medium">LinkedIn</p>
-                        <a 
-                          href="https://www.linkedin.com/in/iqra-faisal-b6687919b/" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-blue-600 hover:underline"
-                        >
-                          linkedin.com/in/iqra-faisal-b6687919b
-                        </a>
-                      </div>
+                    <div>
+                      <p className="text-gray-900 font-medium">30-Minute Session</p>
+                      <p className="text-gray-600 text-sm">Discuss your requirements</p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-              
-              <Card className="bg-white shadow-md border border-gray-100 overflow-hidden">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4 text-blue-600">Consultation Details</h3>
                   
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                        <Calendar className="w-5 h-5 text-blue-600" />
-                      </div>
-                      <div>
-                        <p className="text-gray-900 font-medium">30-Minute Session</p>
-                        <p className="text-gray-600 text-sm">Discuss your requirements</p>
-                      </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-5 h-5 text-blue-600" />
                     </div>
-                    
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                        <Clock className="w-5 h-5 text-blue-600" />
-                      </div>
-                      <div>
-                        <p className="text-gray-900 font-medium">Convenient Scheduling</p>
-                        <p className="text-gray-600 text-sm">Pick a time that works for you</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                        <DollarSign className="w-5 h-5 text-blue-600" />
-                      </div>
-                      <div>
-                        <p className="text-gray-900 font-medium">$35 per Hour</p>
-                        <p className="text-gray-600 text-sm">For ongoing projects</p>
-                      </div>
+                    <div>
+                      <p className="text-gray-900 font-medium">Convenient Scheduling</p>
+                      <p className="text-gray-600 text-sm">Pick a time that works for you</p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                      <DollarSign className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="text-gray-900 font-medium">$35 per Hour</p>
+                      <p className="text-gray-600 text-sm">For ongoing projects</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
