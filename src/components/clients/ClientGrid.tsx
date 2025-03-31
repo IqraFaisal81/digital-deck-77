@@ -10,7 +10,7 @@ interface ClientGridProps {
 
 const ClientGrid: React.FC<ClientGridProps> = ({ clients, onOpenTestimonial }) => {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6 mb-8">
+    <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-8">
       {clients.map((client, index) => {
         // Special handling for Mike Greene
         const isMikeGreene = client.name === "Mike Greene Consulting";
@@ -20,7 +20,7 @@ const ClientGrid: React.FC<ClientGridProps> = ({ clients, onOpenTestimonial }) =
             key={index} 
             client={client} 
             onOpenTestimonial={onOpenTestimonial}
-            className={isMikeGreene ? "special-client bg-gray-700" : "bg-gray-700"}
+            className={isMikeGreene ? "special-client bg-gray-200" : "bg-gray-200"}
             imageClassName={isMikeGreene ? "object-cover rounded-lg" : "object-contain"}
           />
         );

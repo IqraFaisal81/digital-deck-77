@@ -16,7 +16,7 @@ import CaseStudyCarouselItem from "@/components/project-highlights/CaseStudyCaro
 const ProjectHighlightsSection = () => {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
-  const { carouselApi, setCarouselApi, currentIndex } = useCarouselState();
+  const { carouselApi, setCarouselApi } = useCarouselState();
   
   const openCaseStudyModal = (caseStudy: CaseStudy) => {
     setSelectedCaseStudy(caseStudy);
@@ -66,15 +66,6 @@ const ProjectHighlightsSection = () => {
             
             <div className="flex justify-center gap-4 mt-8">
               <CarouselPrevious className="relative inline-flex transform-none bg-blue-100 hover:bg-blue-200 text-blue-600 border-none h-10 w-10 rounded-full mr-2" />
-              <div className="flex items-center space-x-2">
-                {caseStudies.map((_, idx) => (
-                  <span 
-                    key={idx} 
-                    className={`block h-2 w-2 rounded-full cursor-pointer transition-all ${currentIndex === idx ? 'bg-blue-600 w-4' : 'bg-blue-200'}`}
-                    onClick={() => carouselApi?.scrollTo(idx)}
-                  />
-                ))}
-              </div>
               <CarouselNext className="relative inline-flex transform-none bg-blue-100 hover:bg-blue-200 text-blue-600 border-none h-10 w-10 rounded-full ml-2" />
             </div>
           </Carousel>
