@@ -2,17 +2,12 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
-  Code, 
-  Briefcase, 
   Globe, 
-  Workflow, 
+  Database, 
+  Mail,
   BarChart, 
   Bot, 
-  Mail,
-  Database,
-  TrendingUp,
-  Pen,
-  Rocket
+  TrendingUp
 } from "lucide-react";
 
 type SkillCategory = {
@@ -29,65 +24,75 @@ const skillCategories: SkillCategory[] = [
     name: "Digital Marketing & Growth",
     icon: <Globe className="h-6 w-6 text-blue-600" />,
     skills: [
-      { name: "Google Ads Pro", proficiency: 5 },
-      { name: "Meta, TikTok & Snapchat Ads", proficiency: 5 },
-      { name: "SEO Domination", proficiency: 4 },
-      { name: "Landing Page Optimization", proficiency: 5 },
+      { name: "Google Ads Pro (Search, Display, Performance Max)", proficiency: 4 },
+      { name: "Meta, TikTok & Snapchat Ads", proficiency: 4 },
+      { name: "SEO Strategies", proficiency: 3 },
+      { name: "Landing Page Optimization", proficiency: 4 },
     ]
   },
   {
     name: "CRM & Automation Mastery",
     icon: <Database className="h-6 w-6 text-blue-600" />,
     skills: [
-      { name: "Go High Level Ninja", proficiency: 5 },
-      { name: "HubSpot & ActiveCampaign", proficiency: 4 },
-      { name: "Funnel Building", proficiency: 5 },
-      { name: "A2P Compliance & Deliverability", proficiency: 4 },
+      { name: "Go High Level Workflows", proficiency: 4 },
+      { name: "HubSpot & ActiveCampaign", proficiency: 3 },
+      { name: "Funnel Building", proficiency: 4 },
+      { name: "A2P Compliance & Deliverability", proficiency: 3 },
     ]
   },
   {
     name: "Email Marketing",
     icon: <Mail className="h-6 w-6 text-blue-600" />,
     skills: [
-      { name: "Email Strategy & Automation", proficiency: 5 },
-      { name: "Klaviyo", proficiency: 5 },
-      { name: "Mailchimp", proficiency: 5 },
-      { name: "Lead Nurture Sequences", proficiency: 5 },
+      { name: "Email Strategy & Automation", proficiency: 4 },
+      { name: "Klaviyo", proficiency: 4 },
+      { name: "Mailchimp", proficiency: 3 },
+      { name: "Lead Nurture Sequences", proficiency: 4 },
     ]
   },
   {
     name: "Data & Analytics",
     icon: <BarChart className="h-6 w-6 text-blue-600" />,
     skills: [
-      { name: "Google Analytics (GA4)", proficiency: 5 },
-      { name: "Looker Studio Dashboards", proficiency: 4 },
-      { name: "R Studio, SQL, Power BI", proficiency: 4 },
-      { name: "Data-Driven Decision Making", proficiency: 5 },
+      { name: "Google Analytics (GA4)", proficiency: 4 },
+      { name: "Looker Studio Dashboards", proficiency: 3 },
+      { name: "R Studio, SQL, Power BI", proficiency: 3 },
+      { name: "Data-Driven Decision Making", proficiency: 4 },
     ]
   },
   {
     name: "SaaS & AI Development",
     icon: <Bot className="h-6 w-6 text-blue-600" />,
     skills: [
-      { name: "SaaS Funnels & Onboarding", proficiency: 5 },
-      { name: "AI Integration & Chatbots", proficiency: 5 },
-      { name: "OpenAI API Implementation", proficiency: 4 },
-      { name: "Custom CRM Add-ons", proficiency: 5 },
+      { name: "SaaS Funnels & Onboarding", proficiency: 4 },
+      { name: "AI Integration & Chatbots", proficiency: 4 },
+      { name: "OpenAI API Implementation", proficiency: 3 },
+      { name: "Custom CRM Add-ons", proficiency: 4 },
     ]
   },
   {
     name: "Strategy & Creative",
     icon: <TrendingUp className="h-6 w-6 text-blue-600" />,
     skills: [
-      { name: "Campaign Strategy", proficiency: 5 },
-      { name: "Brand Playbooks & Systems", proficiency: 5 },
-      { name: "Competitor Analysis", proficiency: 4 },
-      { name: "High-Converting Copywriting", proficiency: 5 },
+      { name: "Campaign Strategy", proficiency: 4 },
+      { name: "Brand Playbooks & Systems", proficiency: 4 },
+      { name: "Competitor Analysis", proficiency: 3 },
+      { name: "High-Converting Copywriting", proficiency: 4 },
     ]
   },
 ];
 
 const SkillsSection = () => {
+  const getProficiencyLabel = (proficiency: number) => {
+    switch (proficiency) {
+      case 5: return "Expert";
+      case 4: return "Advanced";
+      case 3: return "Intermediate";
+      case 2: return "Basic";
+      default: return "Beginner";
+    }
+  };
+
   return (
     <section id="skills" className="py-16 px-4 md:px-8 bg-white relative overflow-hidden">
       <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-30"></div>
@@ -100,7 +105,7 @@ const SkillsSection = () => {
           </h2>
           <div className="w-16 h-1 bg-blue-600 mb-6"></div>
           <p className="text-gray-700 max-w-2xl mx-auto text-center mb-12">
-            I combine technical expertise with marketing know-how to deliver comprehensive solutions that drive growth and engagement.
+            Combining technical expertise with strategic marketing to deliver comprehensive solutions that drive growth and engagement.
           </p>
         </div>
         
@@ -121,10 +126,7 @@ const SkillsSection = () => {
                       <div className="flex justify-between items-center mb-1">
                         <span className="text-gray-700 text-sm">{skill.name}</span>
                         <span className="text-xs text-gray-500">
-                          {skill.proficiency === 5 ? "Expert" : 
-                           skill.proficiency === 4 ? "Advanced" : 
-                           skill.proficiency === 3 ? "Intermediate" : 
-                           skill.proficiency === 2 ? "Basic" : "Beginner"}
+                          {getProficiencyLabel(skill.proficiency)}
                         </span>
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-2">
