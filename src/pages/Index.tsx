@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react";
 import { ProjectType } from "@/types/project";
 import Navbar from "@/components/Navbar";
@@ -8,7 +7,6 @@ import { projects } from "@/data/projects";
 // Import all section components
 import HomeSection from "@/components/sections/HomeSection";
 import AboutSection from "@/components/sections/AboutSection";
-import ClientsSection from "@/components/sections/ClientsSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import WorkflowsSection from "@/components/sections/WorkflowsSection";
 import FunnelsSection from "@/components/sections/FunnelsSection";
@@ -93,8 +91,7 @@ const Index = () => {
       {/* All sections */}
       <HomeSection />
       <AboutSection />
-      <SkillsSection /> {/* Added Skills Section here, after About */}
-      <ClientsSection />
+      <SkillsSection />
       <ServicesSection 
         visibleSection={visibleSection} 
         scrollToSection={scrollToSection} 
