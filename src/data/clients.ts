@@ -28,7 +28,7 @@ export const clients: ClientType[] = [
   },
   {
     name: "MB Collections",
-    logo: "/lovable-uploads/3a39faba-8d75-4638-b552-02c125f678c5.png",
+    logo: "/lovable-uploads/12ee0c47-8e63-443e-bd2b-e80d41a9e587.png",
     website: "https://mbcollections.com.pk/",
     description: "Curated fashion collections bringing premium style and elegance to discerning clients.",
     testimonial: {
