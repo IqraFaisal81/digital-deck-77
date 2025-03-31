@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { 
   Carousel,
   CarouselContent,
@@ -16,6 +16,24 @@ import { Star, Quote } from "lucide-react";
 const TestimonialsSection = () => {
   const testimonials = clients.filter(client => client.testimonial);
   const { carouselApi, setCarouselApi, currentIndex } = useCarouselState();
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  // Animation on scroll
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-8');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    const elements = sectionRef.current?.querySelectorAll('.animate-on-scroll');
+    elements?.forEach(el => observer.observe(el));
+    
+    return () => elements?.forEach(el => observer.unobserve(el));
+  }, []);
   
   const renderStars = (rating: number = 5) => {
     return Array(5).fill(0).map((_, i) => (
@@ -27,21 +45,26 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section id="testimonials" className="py-24 px-4 md:px-8 bg-gradient-to-br from-blue-50 via-sky-50 to-white overflow-hidden">
+    <section 
+      id="testimonials" 
+      ref={sectionRef}
+      className="py-20 md:py-28 px-4 md:px-8 bg-gradient-to-br from-blue-50 via-sky-50 to-white overflow-hidden"
+    >
       <div className="container mx-auto">
-        <div className="flex flex-col items-center mb-14">
+        <div className="flex flex-col items-center mb-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
+          <span className="text-blue-600 text-sm uppercase tracking-wider font-semibold mb-2">Trusted by Businesses</span>
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center relative">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-700">
               Client Testimonials
             </span>
             <div className="absolute w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 left-1/2 -translate-x-1/2 bottom-0 mt-4"></div>
           </h2>
-          <p className="text-gray-700 max-w-2xl mx-auto text-center text-lg mt-6 mb-8">
+          <p className="text-gray-700 max-w-2xl mx-auto text-center text-lg mt-6 mb-2">
             Hear directly from our clients about their experience working with us
           </p>
         </div>
         
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 delay-300">
           {testimonials.length > 0 && (
             <Carousel
               setApi={setCarouselApi}
@@ -55,7 +78,7 @@ const TestimonialsSection = () => {
                 {testimonials.map((client, index) => (
                   <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-4/5 lg:basis-3/4">
                     <div className="h-full">
-                      <Card className="shadow-xl border-0 overflow-hidden bg-white hover:shadow-2xl transition-all duration-500 h-full transform hover:-translate-y-1">
+                      <Card className="shadow-lg border-0 overflow-hidden bg-white hover:shadow-2xl transition-all duration-500 h-full transform hover:-translate-y-1 rounded-xl">
                         <CardContent className="p-0 h-full">
                           <div className="flex flex-col md:flex-row h-full">
                             <div className="md:w-2/5 lg:w-1/3 bg-gradient-to-br from-blue-500 via-blue-600 to-sky-700 flex flex-col items-center justify-center p-8 text-white relative overflow-hidden">
@@ -65,7 +88,7 @@ const TestimonialsSection = () => {
                                   <path d="M0,0 L100,100 M100,0 L0,100" stroke="white" strokeWidth="0.5"></path>
                                 </svg>
                               </div>
-                              <div className="mb-6 flex items-center justify-center w-28 h-28 bg-white/10 rounded-full p-4 backdrop-blur-sm">
+                              <div className="mb-6 flex items-center justify-center w-28 h-28 bg-white/10 rounded-full p-4 backdrop-blur-sm transform transition-transform duration-500 hover:scale-105">
                                 <img 
                                   src={client.logo} 
                                   alt={client.name} 
@@ -125,16 +148,16 @@ const TestimonialsSection = () => {
                     onClick={() => carouselApi?.scrollTo(index)}
                     className={`transition-all duration-300 ${
                       currentIndex === index 
-                        ? 'bg-gradient-to-r from-blue-400 to-blue-600 w-8 h-2.5 rounded-full' 
-                        : 'bg-gray-300 w-2.5 h-2.5 rounded-full hover:bg-gray-400'
+                        ? 'bg-gradient-to-r from-blue-400 to-blue-600 w-8 h-2.5 rounded-full shadow-md' 
+                        : 'bg-gray-300 w-2.5 h-2.5 rounded-full hover:bg-gray-400 hover:scale-110'
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
                 ))}
               </div>
               
-              <CarouselPrevious className="hidden md:flex -left-5 h-10 w-10 border-none bg-white shadow-lg focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-blue-600" />
-              <CarouselNext className="hidden md:flex -right-5 h-10 w-10 border-none bg-white shadow-lg focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-blue-600" />
+              <CarouselPrevious className="hidden md:flex -left-5 h-10 w-10 border-none bg-white shadow-lg focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-blue-600 hover:bg-blue-50 hover:text-blue-700" />
+              <CarouselNext className="hidden md:flex -right-5 h-10 w-10 border-none bg-white shadow-lg focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-blue-600 hover:bg-blue-50 hover:text-blue-700" />
             </Carousel>
           )}
         </div>

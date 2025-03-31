@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from "react";
 import { ProjectType } from "@/types/project";
 import Navbar from "@/components/Navbar";
@@ -80,13 +81,28 @@ const Index = () => {
 
     document.addEventListener('show-section', handleShowSection);
     
+    // Add smooth scrolling behavior
+    const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
+    smoothScrollLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+    
     return () => {
       document.removeEventListener('show-section', handleShowSection);
     };
   }, []);
 
   return (
-    <div className="min-h-screen bg-blue-gradient text-white overflow-x-hidden">
+    <div className="min-h-screen bg-white text-foreground overflow-x-hidden">
       <Navbar />
       
       {/* All sections */}

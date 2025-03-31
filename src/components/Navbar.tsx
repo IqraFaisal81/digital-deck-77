@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { Menu, X, Briefcase, User, Wrench, Phone, Users, Calendar } from "lucide-react";
+import { Menu, X, Briefcase, User, Wrench, Phone, Users, Calendar, Award, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -28,7 +28,8 @@ const Navbar = () => {
 
   const menuItems = [
     { label: "About", icon: <User className="mr-2 h-4 w-4" />, href: "#about" },
-    { label: "Clients", icon: <Users className="mr-2 h-4 w-4" />, href: "#clients" },
+    { label: "Skills", icon: <Award className="mr-2 h-4 w-4" />, href: "#skills" },
+    { label: "Clients", icon: <Users className="mr-2 h-4 w-4" />, href: "#testimonials" },
     { label: "Services", icon: <Wrench className="mr-2 h-4 w-4" />, href: "#services" },
     { label: "Case Studies", icon: <Briefcase className="mr-2 h-4 w-4" />, href: "#case-studies" },
     { label: "Contact Me", icon: <Phone className="mr-2 h-4 w-4" />, href: "#booking" },
