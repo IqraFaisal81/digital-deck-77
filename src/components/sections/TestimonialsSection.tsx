@@ -88,12 +88,14 @@ const TestimonialsSection = () => {
                                   <path d="M0,0 L100,100 M100,0 L0,100" stroke="white" strokeWidth="0.5"></path>
                                 </svg>
                               </div>
-                              <div className="mb-6 flex items-center justify-center w-28 h-28 bg-white/10 rounded-full p-4 backdrop-blur-sm transform transition-transform duration-500 hover:scale-105">
-                                <img 
-                                  src={client.logo} 
-                                  alt={client.name} 
-                                  className="max-w-[100px] max-h-[60px] object-contain"
-                                />
+                              <div className="mb-6 flex items-center justify-center w-28 h-28 bg-white rounded-full p-1 transform transition-transform duration-500 hover:scale-105 shadow-md">
+                                <div className="flex items-center justify-center w-full h-full bg-white rounded-full overflow-hidden p-2">
+                                  <img 
+                                    src={client.logo} 
+                                    alt={client.name} 
+                                    className="max-w-[90px] max-h-[50px] object-contain"
+                                  />
+                                </div>
                               </div>
                               <h4 className="text-xl font-bold text-center mb-2">{client.name}</h4>
                               <p className="text-sm text-blue-100 text-center opacity-90 font-light">{client.description}</p>

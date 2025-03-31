@@ -1,11 +1,10 @@
 
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import SkillProgressBar from "./SkillProgressBar";
+import SkillItem from "./SkillItem";
 
 interface Skill {
   name: string;
-  proficiency: number;
 }
 
 interface SkillCardProps {
@@ -16,22 +15,12 @@ interface SkillCardProps {
 }
 
 const SkillCard = ({ name, icon, skills, index }: SkillCardProps) => {
-  const getProficiencyLabel = (proficiency: number) => {
-    switch (proficiency) {
-      case 5: return "Expert";
-      case 4: return "Advanced";
-      case 3: return "Intermediate";
-      case 2: return "Basic";
-      default: return "Beginner";
-    }
-  };
-
   return (
     <div 
       className={`animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 delay-${(index % 6) * 100}`}
     >
       <Card 
-        className="overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200 rounded-xl transform hover:-translate-y-1"
+        className="overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200 rounded-xl transform hover:-translate-y-1 h-full"
       >
         <CardContent className="p-6">
           <div className="flex items-center gap-3 mb-4">
@@ -41,14 +30,11 @@ const SkillCard = ({ name, icon, skills, index }: SkillCardProps) => {
             <h3 className="text-xl font-semibold text-gray-900">{name}</h3>
           </div>
           
-          <div className="space-y-4">
+          <div className="space-y-2">
             {skills.map((skill, skillIndex) => (
-              <SkillProgressBar
+              <SkillItem
                 key={skillIndex}
                 name={skill.name}
-                proficiency={skill.proficiency}
-                proficiencyLabel={getProficiencyLabel(skill.proficiency)}
-                index={skillIndex}
               />
             ))}
           </div>
