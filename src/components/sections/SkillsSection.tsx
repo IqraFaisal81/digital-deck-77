@@ -1,7 +1,19 @@
 
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Code, Briefcase, Globe, Workflow, BarChart, Bot, Mail } from "lucide-react";
+import { 
+  Code, 
+  Briefcase, 
+  Globe, 
+  Workflow, 
+  BarChart, 
+  Bot, 
+  Mail,
+  Database,
+  TrendingUp,
+  Pen,
+  Rocket
+} from "lucide-react";
 
 type SkillCategory = {
   name: string;
@@ -14,64 +26,63 @@ type SkillCategory = {
 
 const skillCategories: SkillCategory[] = [
   {
-    name: "Technical Skills",
-    icon: <Code className="h-6 w-6 text-blue-600" />,
-    skills: [
-      { name: "CRM Development", proficiency: 5 },
-      { name: "Go High Level", proficiency: 5 },
-      { name: "JavaScript/TypeScript", proficiency: 4 },
-      { name: "React", proficiency: 4 },
-      { name: "API Integration", proficiency: 5 },
-    ]
-  },
-  {
-    name: "Marketing Automation",
-    icon: <Workflow className="h-6 w-6 text-blue-600" />,
-    skills: [
-      { name: "Automated Workflows", proficiency: 5 },
-      { name: "Custom Funnel Design", proficiency: 5 },
-      { name: "Lead Nurturing", proficiency: 4 },
-      { name: "Customer Journey Mapping", proficiency: 5 },
-    ]
-  },
-  {
-    name: "Digital Marketing",
+    name: "Digital Marketing & Growth",
     icon: <Globe className="h-6 w-6 text-blue-600" />,
     skills: [
-      { name: "SEO Optimization", proficiency: 4 },
-      { name: "Google Ads", proficiency: 4 },
+      { name: "Google Ads Pro", proficiency: 5 },
+      { name: "Meta, TikTok & Snapchat Ads", proficiency: 5 },
+      { name: "SEO Domination", proficiency: 4 },
       { name: "Landing Page Optimization", proficiency: 5 },
-      { name: "Conversion Rate Optimization", proficiency: 5 },
     ]
   },
   {
-    name: "Industry Experience",
-    icon: <Briefcase className="h-6 w-6 text-blue-600" />,
+    name: "CRM & Automation Mastery",
+    icon: <Database className="h-6 w-6 text-blue-600" />,
     skills: [
-      { name: "Fitness & Wellness", proficiency: 5 },
-      { name: "E-commerce", proficiency: 4 },
-      { name: "Mental Health Services", proficiency: 5 },
-      { name: "Professional Services", proficiency: 5 },
+      { name: "Go High Level Ninja", proficiency: 5 },
+      { name: "HubSpot & ActiveCampaign", proficiency: 4 },
+      { name: "Funnel Building", proficiency: 5 },
+      { name: "A2P Compliance & Deliverability", proficiency: 4 },
     ]
   },
   {
-    name: "Analytics & Reporting",
+    name: "Email Marketing",
+    icon: <Mail className="h-6 w-6 text-blue-600" />,
+    skills: [
+      { name: "Email Strategy & Automation", proficiency: 5 },
+      { name: "Klaviyo", proficiency: 5 },
+      { name: "Mailchimp", proficiency: 5 },
+      { name: "Lead Nurture Sequences", proficiency: 5 },
+    ]
+  },
+  {
+    name: "Data & Analytics",
     icon: <BarChart className="h-6 w-6 text-blue-600" />,
     skills: [
-      { name: "Google Analytics", proficiency: 4 },
-      { name: "KPI Tracking", proficiency: 5 },
-      { name: "Data Visualization", proficiency: 4 },
-      { name: "Performance Reporting", proficiency: 5 },
+      { name: "Google Analytics (GA4)", proficiency: 5 },
+      { name: "Looker Studio Dashboards", proficiency: 4 },
+      { name: "R Studio, SQL, Power BI", proficiency: 4 },
+      { name: "Data-Driven Decision Making", proficiency: 5 },
     ]
   },
   {
-    name: "Specialized Solutions",
+    name: "SaaS & AI Development",
     icon: <Bot className="h-6 w-6 text-blue-600" />,
     skills: [
-      { name: "AI Chatbot Development", proficiency: 5 },
-      { name: "Email Marketing", proficiency: 5 },
-      { name: "SMS Automation", proficiency: 4 },
-      { name: "Appointment Booking", proficiency: 5 },
+      { name: "SaaS Funnels & Onboarding", proficiency: 5 },
+      { name: "AI Integration & Chatbots", proficiency: 5 },
+      { name: "OpenAI API Implementation", proficiency: 4 },
+      { name: "Custom CRM Add-ons", proficiency: 5 },
+    ]
+  },
+  {
+    name: "Strategy & Creative",
+    icon: <TrendingUp className="h-6 w-6 text-blue-600" />,
+    skills: [
+      { name: "Campaign Strategy", proficiency: 5 },
+      { name: "Brand Playbooks & Systems", proficiency: 5 },
+      { name: "Competitor Analysis", proficiency: 4 },
+      { name: "High-Converting Copywriting", proficiency: 5 },
     ]
   },
 ];
@@ -85,7 +96,7 @@ const SkillsSection = () => {
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col items-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center text-gray-900">
-            My <span className="text-blue-600">Skills</span>
+            Skills & <span className="text-blue-600">Expertise</span>
           </h2>
           <div className="w-16 h-1 bg-blue-600 mb-6"></div>
           <p className="text-gray-700 max-w-2xl mx-auto text-center mb-12">
