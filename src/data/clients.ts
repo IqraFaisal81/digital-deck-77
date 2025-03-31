@@ -64,7 +64,7 @@ export const clients: ClientType[] = [
   },
   {
     name: "Triad Diagnostic Solutions",
-    logo: "/lovable-uploads/33c82f7f-e3d3-4794-bb0f-f6c2db821eb5.png",
+    logo: "/lovable-uploads/888b094f-fbdb-4be2-983c-e5b4a6e77b42.png",
     website: "https://www.triad-ds.com/",
     description: "Cutting-edge diagnostic solutions and equipment for the automotive industry.",
     testimonial: {
