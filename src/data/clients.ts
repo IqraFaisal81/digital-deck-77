@@ -1,4 +1,3 @@
-
 import { ClientType } from "@/types/client";
 
 export const clients: ClientType[] = [
@@ -33,8 +32,8 @@ export const clients: ClientType[] = [
     description: "Innovative brain training studio focused on cognitive health and mental wellness.",
     testimonial: {
       quote: "Iqra transformed our entire digital approach. From clunky systems to smooth automation, we now spend less time on admin and more time with clients.",
-      author: "Michael Chen",
-      position: "Director",
+      author: "Courtney Reimmuth",
+      position: "CEO",
       rating: 5
     }
   },
@@ -45,8 +44,8 @@ export const clients: ClientType[] = [
     description: "Curated fashion collections bringing premium style and elegance to discerning clients.",
     testimonial: {
       quote: "Our online presence has been completely revitalized. Sales have increased by 55% since implementing the automated marketing campaigns.",
-      author: "Maryam Butt",
-      position: "Creative Director",
+      author: "Aqsa Babar",
+      position: "CEO",
       rating: 5
     }
   },
@@ -57,8 +56,8 @@ export const clients: ClientType[] = [
     description: "Innovative digital solutions and technology services for modern businesses.",
     testimonial: {
       quote: "Working with Iqra was transformative for our client onboarding process. The automated workflows have reduced our admin time by 65%.",
-      author: "Alex Johnson",
-      position: "CTO",
+      author: "Hammad Pervaiz",
+      position: "CEO",
       rating: 5
     }
   },
@@ -69,8 +68,8 @@ export const clients: ClientType[] = [
     description: "Nonprofit organization dedicated to making positive impacts in communities through targeted initiatives.",
     testimonial: {
       quote: "Iqra's email marketing expertise helped us increase donor engagement by 70%. Her automation strategies have been invaluable to our small team.",
-      author: "Jennifer Walsh",
-      position: "Executive Director",
+      author: "Courtney Reimmuth",
+      position: "CEO",
       rating: 5
     }
   },
@@ -81,8 +80,8 @@ export const clients: ClientType[] = [
     description: "Cutting-edge diagnostic solutions and equipment for the automotive industry.",
     testimonial: {
       quote: "The chat widget automation Iqra built has revolutionized our lead generation process. It's like having an extra team member working 24/7.",
-      author: "Robert Garcia",
-      position: "Sales Director",
+      author: "Greg Reimmuth",
+      position: "CEO",
       rating: 5
     }
   },
@@ -93,8 +92,8 @@ export const clients: ClientType[] = [
     description: "AI-powered communication platform that helps businesses improve their messaging and customer engagement.",
     testimonial: {
       quote: "Iqra's integration of our AI tools with automated marketing sequences increased our conversion rates by 45%. Her technical expertise is outstanding.",
-      author: "David Chen",
-      position: "Product Manager",
+      author: "Courtney Reimmuth",
+      position: "CEO",
       rating: 5
     }
   },
