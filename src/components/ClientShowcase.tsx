@@ -19,11 +19,12 @@ const ClientShowcase: React.FC = () => {
 
   return (
     <div className="w-full">
-      {/* Main showcase with hover effects */}
-      <ClientGrid 
-        clients={clients} 
-        onOpenTestimonial={openTestimonial} 
-      />
+      <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 mb-12">
+        <ClientGrid 
+          clients={clients} 
+          onOpenTestimonial={openTestimonial} 
+        />
+      </div>
 
       {/* Testimonial modal */}
       <TestimonialModal 
