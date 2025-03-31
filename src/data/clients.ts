@@ -4,7 +4,7 @@ import { ClientType } from "@/types/client";
 export const clients: ClientType[] = [
   {
     name: "Mike Greene Consulting",
-    logo: "/lovable-uploads/6a6bd5db-ad17-4c87-af52-d22f104570f1.png",
+    logo: "/lovable-uploads/0411ee8c-47d5-42fc-a621-61a1d537b484.png",
     website: "#",
     description: "Strategic business consulting and professional advisory services.",
     testimonial: {
@@ -19,24 +19,14 @@ export const clients: ClientType[] = [
     logo: "/lovable-uploads/01ce4945-a7d8-4c51-b0b6-5f3bb018aee9.png",
     website: "https://www.advancedindiana.com/",
     description: "Premier dental care services with advanced technology and patient-focused approach.",
-    testimonial: {
-      quote: "Iqra transformed our online booking system, resulting in a 30% increase in new patient appointments. The automated follow-up system has been a game-changer.",
-      author: "Dr. Sarah Miller",
-      position: "Lead Dentist",
-      rating: 5
-    }
+    testimonial: null
   },
   {
     name: "All Pro Heating & Cooling",
     logo: "/lovable-uploads/cbda554d-0f5b-483c-99ad-5b285101ffd3.png",
     website: "https://www.callallproindy.com/",
     description: "Comprehensive HVAC, plumbing, and drainage solutions for residential and commercial clients.",
-    testimonial: {
-      quote: "The CRM system Iqra implemented helped us track service calls and follow-ups seamlessly. Our response time has improved by 40%.",
-      author: "James Thompson",
-      position: "Operations Manager",
-      rating: 5
-    }
+    testimonial: null
   },
   {
     name: "Grey Matters",

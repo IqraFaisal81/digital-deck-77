@@ -19,7 +19,7 @@ const ClientCard: React.FC<ClientCardProps> = ({
   return (
     <div 
       className={cn(
-        "bg-white border border-gray-200 rounded-lg p-4 flex items-center justify-center hover:shadow-md transition-shadow duration-200 cursor-pointer h-32",
+        "bg-gray-100 border border-gray-200 rounded-lg p-4 flex items-center justify-center hover:shadow-md transition-shadow duration-200 cursor-pointer h-32",
         className
       )}
       onClick={() => onOpenTestimonial(client)}

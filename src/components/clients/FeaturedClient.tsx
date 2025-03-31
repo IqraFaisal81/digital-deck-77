@@ -28,8 +28,6 @@ const FeaturedClient: React.FC = () => {
         }}
         className="w-full"
         setApi={setCarouselApi}
-        // Ensure the first client (Mike Greene) is shown first
-        defaultSelected={0}
       >
         <CarouselContent>
           {clients.map((client, index) => (
