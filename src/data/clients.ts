@@ -1,4 +1,3 @@
-
 import { ClientType } from "@/types/client";
 
 export const clients: ClientType[] = [
@@ -40,7 +39,7 @@ export const clients: ClientType[] = [
   },
   {
     name: "BearPlex",
-    logo: "/lovable-uploads/cfff5fd4-2370-420e-891e-11a54ae6a4f0.png",
+    logo: "/lovable-uploads/369b38b0-4ab2-42d7-a561-31f4e990664c.png",
     website: "https://bearplex.com/",
     description: "Innovative digital solutions and technology services for modern businesses.",
     testimonial: {
