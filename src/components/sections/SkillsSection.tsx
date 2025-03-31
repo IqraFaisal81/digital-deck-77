@@ -130,34 +130,7 @@ const SkillsSection = () => {
           </p>
         </div>
         
-        {/* Category filter */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 delay-100">
-          <button 
-            className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${
-              activeCategory === null 
-                ? 'bg-blue-600 text-white shadow-md' 
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-            }`}
-            onClick={() => setActiveCategory(null)}
-          >
-            All Categories
-          </button>
-          {skillCategories.map((category, index) => (
-            <button 
-              key={index}
-              className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${
-                activeCategory === category.name 
-                  ? 'bg-blue-600 text-white shadow-md' 
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-              onClick={() => setActiveCategory(
-                activeCategory === category.name ? null : category.name
-              )}
-            >
-              {category.name}
-            </button>
-          ))}
-        </div>
+        {/* Category filter div removed */}
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {skillCategories
