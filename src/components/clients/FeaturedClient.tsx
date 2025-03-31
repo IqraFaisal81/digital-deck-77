@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import { ExternalLink, Quote, Star } from "lucide-react";
 import { 
   Carousel, 
@@ -14,6 +14,14 @@ import { clients } from "@/data/clients";
 
 const FeaturedClient: React.FC = () => {
   const { carouselApi, setCarouselApi, currentIndex } = useCarouselState();
+
+  // Use useEffect to scroll to the first slide after the carousel is initialized
+  useEffect(() => {
+    if (carouselApi) {
+      // Scroll to the first slide (Mike Greene)
+      carouselApi.scrollTo(0);
+    }
+  }, [carouselApi]);
 
   return (
     <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 mb-12">
