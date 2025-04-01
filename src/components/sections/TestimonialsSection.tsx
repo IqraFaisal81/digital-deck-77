@@ -67,12 +67,12 @@ const TestimonialsSection = () => {
         {/* Client Logos */}
         <div className="flex flex-wrap justify-center gap-4 mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
           {clients.map((client, index) => (
-            <div key={index} className="p-3 bg-gray-100/50 backdrop-blur-sm rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:bg-white group">
+            <div key={index} className="p-3 bg-gray-50/80 backdrop-blur-sm rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:bg-white group">
               {client.logo ? (
                 <img 
                   src={client.logo} 
                   alt={client.name} 
-                  className="h-14 object-contain grayscale group-hover:grayscale-0 transition-all" 
+                  className="h-14 object-contain transition-all" 
                 />
               ) : (
                 <div className="h-14 flex items-center justify-center px-4 font-medium text-gray-600">
@@ -100,7 +100,7 @@ const TestimonialsSection = () => {
                       <Card className="shadow-lg border-0 overflow-hidden bg-white hover:shadow-2xl transition-all duration-500 h-full transform hover:-translate-y-1 rounded-xl">
                         <CardContent className="p-0 h-full">
                           <div className="flex flex-col md:flex-row h-full">
-                            <div className="md:w-2/5 lg:w-1/3 bg-gradient-to-br from-gray-600 via-gray-700 to-gray-800 flex flex-col items-center justify-center p-8 text-white relative overflow-hidden">
+                            <div className="md:w-2/5 lg:w-1/3 bg-gradient-to-br from-gray-500 via-gray-550 to-gray-600 flex flex-col items-center justify-center p-8 text-white relative overflow-hidden">
                               <div className="absolute top-0 left-0 w-full h-full opacity-10">
                                 <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                                   <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="white" strokeWidth="0.5"></path>
