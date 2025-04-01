@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import { 
   Carousel,
@@ -67,15 +66,18 @@ const TestimonialsSection = () => {
         {/* Client Logos */}
         <div className="flex flex-wrap justify-center gap-4 mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
           {clients.map((client, index) => (
-            <div key={index} className="p-3 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md">
+            <div 
+              key={index} 
+              className="p-3 bg-gray-100/50 backdrop-blur-sm rounded-xl shadow-sm border border-gray-100/30 transition-all hover:shadow-md"
+            >
               {client.logo ? (
                 <img 
                   src={client.logo} 
                   alt={client.name} 
-                  className="h-14 object-contain" 
+                  className="h-14 object-contain grayscale hover:grayscale-0 transition-all duration-300" 
                 />
               ) : (
-                <div className="h-14 flex items-center justify-center px-4 font-medium text-blue-600">
+                <div className="h-14 flex items-center justify-center px-4 font-medium text-gray-600">
                   {client.name}
                 </div>
               )}
