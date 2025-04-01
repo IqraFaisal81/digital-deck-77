@@ -3,7 +3,6 @@ import { ArrowDown, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { IconCloudDemo } from "@/components/IconCloudDemo";
 
 const HomeSection = () => {
   return (
@@ -71,12 +70,6 @@ const HomeSection = () => {
                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                 <span className="text-gray-700 text-sm">UK-Based</span>
               </div>
-            </div>
-            
-            {/* Tech stack icon cloud - added here */}
-            <div className="mt-6 animate-fade-in-up animate-delay-700">
-              <h3 className="text-xl font-semibold mb-3 text-gray-700">Tech Stack</h3>
-              <IconCloudDemo />
             </div>
           </div>
           
