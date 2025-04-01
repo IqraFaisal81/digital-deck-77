@@ -59,9 +59,9 @@ const SkillItem = ({ name }: SkillItemProps) => {
   const Icon = getIconForSkill(name);
 
   return (
-    <div className="group flex items-center p-2.5 hover:bg-white/70 rounded-xl transition-all duration-300">
-      <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-gradient-to-br from-blue-100 to-white shadow-sm border border-gray-100/80 flex items-center justify-center mr-3 group-hover:bg-blue-50 transition-colors">
-        <Icon className="w-4 h-4 text-blue-600" strokeWidth={1.75} />
+    <div className="group flex items-center p-3 hover:bg-white/80 rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md">
+      <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 shadow-sm border border-white/80 flex items-center justify-center mr-3 group-hover:bg-blue-500/30 transition-colors">
+        <Icon className="w-5 h-5 text-blue-600" strokeWidth={1.5} />
       </div>
       <span className="text-gray-700 font-medium group-hover:text-blue-600 transition-colors duration-300">
         {name}
