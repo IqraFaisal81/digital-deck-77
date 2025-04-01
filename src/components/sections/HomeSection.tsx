@@ -67,7 +67,7 @@ const HomeSection = () => {
               
               <div className="flex items-center gap-3 px-4 py-3 bg-white/80 backdrop-blur-sm rounded-xl border border-blue-100 shadow-sm">
                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span className="text-gray-700 text-sm">UK-Based Developer</span>
+                <span className="text-gray-700 text-sm">UK-Based</span>
               </div>
             </div>
           </div>
@@ -87,11 +87,12 @@ const HomeSection = () => {
                 </Avatar>
               </div>
               
-              <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-blue-600 to-blue-500 px-5 py-3 rounded-full shadow-lg border border-white/80 flex items-center gap-2 animate-bounce-slow">
+              {/* Moved badges to the front with z-index */}
+              <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-blue-600 to-blue-500 px-5 py-3 rounded-full shadow-lg border border-white/80 flex items-center gap-2 z-20">
                 <span className="text-white font-medium">CRM Expert</span>
               </div>
               
-              <div className="absolute -top-4 -left-4 bg-gradient-to-r from-blue-600 to-blue-500 px-5 py-3 rounded-full shadow-lg border border-white/80 flex items-center gap-2 animate-bounce-slow animation-delay-1000">
+              <div className="absolute -top-4 -left-4 bg-gradient-to-r from-blue-600 to-blue-500 px-5 py-3 rounded-full shadow-lg border border-white/80 flex items-center gap-2 z-20">
                 <span className="text-white font-medium">Marketing Pro</span>
               </div>
             </div>

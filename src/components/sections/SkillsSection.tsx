@@ -1,18 +1,15 @@
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { 
   Globe, 
   Database, 
-  Mail,
   BarChart, 
   Bot, 
   TrendingUp,
-  Filter,
   ArrowRight
 } from "lucide-react";
 import SectionHeader from "../skills/SectionHeader";
 import SkillCard from "../skills/SkillCard";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -77,7 +74,6 @@ const skillCategories: SkillCategory[] = [
 ];
 
 const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const isMobile = useIsMobile();
 
@@ -110,7 +106,7 @@ const SkillsSection = () => {
     <section 
       id="skills" 
       ref={sectionRef} 
-      className="py-24 md:py-32 px-4 md:px-8 relative overflow-hidden"
+      className="py-16 md:py-24 px-4 md:px-8 relative overflow-hidden"
     >
       {/* Background elements */}
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl opacity-40"></div>
@@ -124,48 +120,21 @@ const SkillsSection = () => {
           description="Combining technical expertise with strategic marketing to deliver comprehensive solutions that drive growth and engagement."
         />
         
-        {/* Category filter */}
-        <div className="flex justify-center mb-12 animate-on-scroll opacity-0 translate-y-8">
-          <div className="bg-white p-2 rounded-2xl shadow-md border border-gray-100">
-            <Tabs defaultValue="all" onValueChange={(value) => setActiveCategory(value === "all" ? null : value)}>
-              <TabsList className="grid grid-cols-2 md:grid-cols-6 gap-1 bg-gray-50/50 p-1 rounded-xl">
-                <TabsTrigger 
-                  value="all" 
-                  className="rounded-lg text-gray-600 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-600 data-[state=active]:to-blue-500 data-[state=active]:text-white data-[state=active]:shadow-sm"
-                >
-                  All
-                </TabsTrigger>
-                {skillCategories.map((category, index) => (
-                  <TabsTrigger 
-                    key={index} 
-                    value={category.name}
-                    className="rounded-lg text-gray-600 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-600 data-[state=active]:to-blue-500 data-[state=active]:text-white data-[state=active]:shadow-sm"
-                  >
-                    {isMobile ? category.name.split(' ')[0] : category.name}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </Tabs>
-          </div>
-        </div>
-
         {/* Skills Masonry Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {skillCategories
-            .filter(category => activeCategory === null || category.name === activeCategory)
-            .map((category, index) => (
-              <SkillCard
-                key={index}
-                name={category.name}
-                icon={category.icon}
-                skills={category.skills}
-                index={index}
-              />
-            ))}
+          {skillCategories.map((category, index) => (
+            <SkillCard
+              key={index}
+              name={category.name}
+              icon={category.icon}
+              skills={category.skills}
+              index={index}
+            />
+          ))}
         </div>
         
         {/* Call to action */}
-        <div className="mt-16 text-center">
+        <div className="mt-12 text-center">
           <Button 
             asChild
             className="bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-full px-8 py-6 shadow-md hover:shadow-lg group transition-all duration-300 hover:-translate-y-1"

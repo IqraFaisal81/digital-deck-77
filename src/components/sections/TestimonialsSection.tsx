@@ -64,6 +64,25 @@ const TestimonialsSection = () => {
           </p>
         </div>
         
+        {/* Client Logos */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
+          {clients.map((client, index) => (
+            <div key={index} className="p-3 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md">
+              {client.logo ? (
+                <img 
+                  src={client.logo} 
+                  alt={client.name} 
+                  className="h-14 object-contain" 
+                />
+              ) : (
+                <div className="h-14 flex items-center justify-center px-4 font-medium text-blue-600">
+                  {client.name}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+        
         <div className="max-w-6xl mx-auto animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 delay-300">
           {testimonials.length > 0 && (
             <Carousel
@@ -88,6 +107,11 @@ const TestimonialsSection = () => {
                                   <path d="M0,0 L100,100 M100,0 L0,100" stroke="white" strokeWidth="0.5"></path>
                                 </svg>
                               </div>
+                              {client.logo && (
+                                <div className="mb-6 bg-white/20 backdrop-blur-sm p-4 rounded-xl shadow-inner">
+                                  <img src={client.logo} alt={client.name} className="h-16 w-auto object-contain" />
+                                </div>
+                              )}
                               <div className="mb-6">
                                 <h4 className="text-xl font-bold text-center mb-2">{client.name}</h4>
                               </div>
