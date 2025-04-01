@@ -48,16 +48,16 @@ const TestimonialsSection = () => {
     <section 
       id="testimonials" 
       ref={sectionRef}
-      className="py-20 md:py-28 px-4 md:px-8 bg-gradient-to-br from-blue-50 via-sky-50 to-white overflow-hidden"
+      className="py-20 md:py-28 px-4 md:px-8 bg-gradient-to-br from-gray-50 via-gray-50 to-white overflow-hidden"
     >
       <div className="container mx-auto">
         <div className="flex flex-col items-center mb-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
-          <span className="text-blue-600 text-sm uppercase tracking-wider font-semibold mb-2">Trusted by Businesses</span>
+          <span className="text-gray-600 text-sm uppercase tracking-wider font-semibold mb-2">Trusted by Businesses</span>
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center relative">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-700">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-700 to-gray-600">
               Client Testimonials
             </span>
-            <div className="absolute w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 left-1/2 -translate-x-1/2 bottom-0 mt-4"></div>
+            <div className="absolute w-24 h-1 bg-gradient-to-r from-gray-400 to-gray-500 left-1/2 -translate-x-1/2 bottom-0 mt-4"></div>
           </h2>
           <p className="text-gray-700 max-w-2xl mx-auto text-center text-lg mt-6 mb-2">
             Hear directly from our clients about their experience working with us
@@ -67,15 +67,15 @@ const TestimonialsSection = () => {
         {/* Client Logos */}
         <div className="flex flex-wrap justify-center gap-4 mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
           {clients.map((client, index) => (
-            <div key={index} className="p-3 bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md">
+            <div key={index} className="p-3 bg-gray-100/50 backdrop-blur-sm rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:bg-white group">
               {client.logo ? (
                 <img 
                   src={client.logo} 
                   alt={client.name} 
-                  className="h-14 object-contain" 
+                  className="h-14 object-contain grayscale group-hover:grayscale-0 transition-all" 
                 />
               ) : (
-                <div className="h-14 flex items-center justify-center px-4 font-medium text-blue-600">
+                <div className="h-14 flex items-center justify-center px-4 font-medium text-gray-600">
                   {client.name}
                 </div>
               )}
@@ -100,7 +100,7 @@ const TestimonialsSection = () => {
                       <Card className="shadow-lg border-0 overflow-hidden bg-white hover:shadow-2xl transition-all duration-500 h-full transform hover:-translate-y-1 rounded-xl">
                         <CardContent className="p-0 h-full">
                           <div className="flex flex-col md:flex-row h-full">
-                            <div className="md:w-2/5 lg:w-1/3 bg-gradient-to-br from-blue-500 via-blue-600 to-sky-700 flex flex-col items-center justify-center p-8 text-white relative overflow-hidden">
+                            <div className="md:w-2/5 lg:w-1/3 bg-gradient-to-br from-gray-600 via-gray-700 to-gray-800 flex flex-col items-center justify-center p-8 text-white relative overflow-hidden">
                               <div className="absolute top-0 left-0 w-full h-full opacity-10">
                                 <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                                   <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="white" strokeWidth="0.5"></path>
@@ -115,8 +115,8 @@ const TestimonialsSection = () => {
                               <div className="mb-6">
                                 <h4 className="text-xl font-bold text-center mb-2">{client.name}</h4>
                               </div>
-                              <p className="text-sm text-blue-100 text-center opacity-90 font-light">{client.description}</p>
-                              <div className="mt-6 text-xs font-light italic text-blue-100 opacity-80 text-center">
+                              <p className="text-sm text-gray-100 text-center opacity-90 font-light">{client.description}</p>
+                              <div className="mt-6 text-xs font-light italic text-gray-200 opacity-80 text-center">
                                 {client.website !== "#" && (
                                   <a href={client.website} target="_blank" rel="noopener noreferrer" className="hover:underline">
                                     Visit Website
@@ -124,9 +124,9 @@ const TestimonialsSection = () => {
                                 )}
                               </div>
                             </div>
-                            <div className="md:w-3/5 lg:w-2/3 p-8 md:p-10 relative flex flex-col justify-center bg-gradient-to-br from-white to-blue-50/50">
+                            <div className="md:w-3/5 lg:w-2/3 p-8 md:p-10 relative flex flex-col justify-center bg-gradient-to-br from-white to-gray-50/50">
                               <div className="absolute top-6 left-6 opacity-10">
-                                <Quote className="h-24 w-24 text-blue-300" />
+                                <Quote className="h-24 w-24 text-gray-300" />
                               </div>
                               <div className="flex items-center mb-4 z-10">
                                 {renderStars(client.testimonial?.rating)}
@@ -137,8 +137,8 @@ const TestimonialsSection = () => {
                               </blockquote>
                               
                               <div className="mt-auto flex items-center border-t border-gray-100 pt-5">
-                                <Avatar className="h-14 w-14 border-2 border-blue-100 mr-4 shadow-sm">
-                                  <AvatarFallback className="bg-gradient-to-br from-blue-100 to-sky-100 text-blue-600 font-semibold">
+                                <Avatar className="h-14 w-14 border-2 border-gray-100 mr-4 shadow-sm">
+                                  <AvatarFallback className="bg-gradient-to-br from-gray-100 to-gray-200 text-gray-600 font-semibold">
                                     {client.testimonial?.author.split(' ').map(n => n[0]).join('')}
                                   </AvatarFallback>
                                 </Avatar>
@@ -167,7 +167,7 @@ const TestimonialsSection = () => {
                     onClick={() => carouselApi?.scrollTo(index)}
                     className={`transition-all duration-300 ${
                       currentIndex === index 
-                        ? 'bg-gradient-to-r from-blue-400 to-blue-600 w-8 h-2.5 rounded-full shadow-md' 
+                        ? 'bg-gradient-to-r from-gray-400 to-gray-600 w-8 h-2.5 rounded-full shadow-md' 
                         : 'bg-gray-300 w-2.5 h-2.5 rounded-full hover:bg-gray-400 hover:scale-110'
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
@@ -175,8 +175,8 @@ const TestimonialsSection = () => {
                 ))}
               </div>
               
-              <CarouselPrevious className="hidden md:flex -left-5 h-10 w-10 border-none bg-white shadow-lg focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-blue-600 hover:bg-blue-50 hover:text-blue-700" />
-              <CarouselNext className="hidden md:flex -right-5 h-10 w-10 border-none bg-white shadow-lg focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-blue-600 hover:bg-blue-50 hover:text-blue-700" />
+              <CarouselPrevious className="hidden md:flex -left-5 h-10 w-10 border-none bg-white shadow-lg focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-gray-600 hover:bg-gray-50 hover:text-gray-700" />
+              <CarouselNext className="hidden md:flex -right-5 h-10 w-10 border-none bg-white shadow-lg focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-gray-600 hover:bg-gray-50 hover:text-gray-700" />
             </Carousel>
           )}
         </div>
