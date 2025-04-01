@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import { 
   Carousel,
@@ -124,62 +123,62 @@ const TestimonialsSection = () => {
                                 )}
                               </div>
                             </div>
-                            <div className="md:w-3/5 lg:w-2/3 p-8 md:p-10 relative flex flex-col justify-center bg-gradient-to-br from-white to-gray-50/50">
-                              <div className="absolute top-6 left-6 opacity-10">
-                                <Quote className="h-24 w-24 text-gray-300" />
-                              </div>
-                              <div className="flex items-center mb-4 z-10">
-                                {renderStars(client.testimonial?.rating)}
-                              </div>
-                              
-                              <blockquote className="text-gray-700 italic mb-6 relative z-10 text-lg md:text-xl leading-relaxed">
-                                "{client.testimonial?.quote}"
-                              </blockquote>
-                              
-                              <div className="mt-auto flex items-center border-t border-gray-100 pt-5">
-                                <Avatar className="h-14 w-14 border-2 border-gray-100 mr-4 shadow-sm">
-                                  <AvatarFallback className="bg-gradient-to-br from-gray-100 to-gray-200 text-gray-600 font-semibold">
-                                    {client.testimonial?.author.split(' ').map(n => n[0]).join('')}
-                                  </AvatarFallback>
-                                </Avatar>
-                                <div>
-                                  <div className="font-bold text-gray-900 text-lg">
-                                    {client.testimonial?.author}
-                                  </div>
-                                  <div className="text-sm text-gray-500">
-                                    {client.testimonial?.position}, {client.name}
-                                  </div>
+                            
+                          <div className="md:w-3/5 lg:w-2/3 p-8 md:p-10 relative flex flex-col justify-center bg-gradient-to-br from-white to-gray-50/50">
+                            <div className="absolute top-6 left-6 opacity-10">
+                              <Quote className="h-24 w-24 text-gray-300" />
+                            </div>
+                            <div className="flex items-center mb-4 z-10">
+                              {renderStars(client.testimonial?.rating)}
+                            </div>
+                            
+                            <blockquote className="text-black italic mb-6 relative z-10 text-lg md:text-xl leading-relaxed">
+                              "{client.testimonial?.quote}"
+                            </blockquote>
+                            
+                            <div className="mt-auto flex items-center border-t border-gray-100 pt-5">
+                              <Avatar className="h-14 w-14 border-2 border-gray-100 mr-4 shadow-sm">
+                                <AvatarFallback className="bg-gradient-to-br from-gray-100 to-gray-200 text-gray-600 font-semibold">
+                                  {client.testimonial?.author.split(' ').map(n => n[0]).join('')}
+                                </AvatarFallback>
+                              </Avatar>
+                              <div>
+                                <div className="font-bold text-black text-lg">
+                                  {client.testimonial?.author}
+                                </div>
+                                <div className="text-sm text-gray-700">
+                                  {client.testimonial?.position}, {client.name}
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              
-              <div className="absolute -bottom-14 left-0 right-0 flex justify-center gap-2 py-4">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => carouselApi?.scrollTo(index)}
-                    className={`transition-all duration-300 ${
-                      currentIndex === index 
-                        ? 'bg-gradient-to-r from-gray-400 to-gray-600 w-8 h-2.5 rounded-full shadow-md' 
-                        : 'bg-gray-300 w-2.5 h-2.5 rounded-full hover:bg-gray-400 hover:scale-110'
-                    }`}
-                    aria-label={`Go to testimonial ${index + 1}`}
-                  />
-                ))}
-              </div>
-              
-              <CarouselPrevious className="hidden md:flex -left-5 h-10 w-10 border-none bg-white shadow-lg focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-gray-600 hover:bg-gray-50 hover:text-gray-700" />
-              <CarouselNext className="hidden md:flex -right-5 h-10 w-10 border-none bg-white shadow-lg focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-gray-600 hover:bg-gray-50 hover:text-gray-700" />
-            </Carousel>
-          )}
-        </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            
+            <div className="absolute -bottom-14 left-0 right-0 flex justify-center gap-2 py-4">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => carouselApi?.scrollTo(index)}
+                  className={`transition-all duration-300 ${
+                    currentIndex === index 
+                      ? 'bg-gradient-to-r from-gray-400 to-gray-600 w-8 h-2.5 rounded-full shadow-md' 
+                      : 'bg-gray-300 w-2.5 h-2.5 rounded-full hover:bg-gray-400 hover:scale-110'
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
+            
+            <CarouselPrevious className="hidden md:flex -left-5 h-10 w-10 border-none bg-white shadow-lg focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-gray-600 hover:bg-gray-50 hover:text-gray-700" />
+            <CarouselNext className="hidden md:flex -right-5 h-10 w-10 border-none bg-white shadow-lg focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-gray-600 hover:bg-gray-50 hover:text-gray-700" />
+          </Carousel>
+        )}
       </div>
     </section>
   );
