@@ -44,22 +44,22 @@ const AIChatbotCarousel = () => {
           {aiImages.map((image, index) => (
             <CarouselItem
               key={index}
-              className="basis-full md:basis-1/2 lg:basis-1/2 h-full"
+              className="basis-full md:basis-1/2 lg:basis-1/2 h-full p-2"
             >
               <div 
-                className="cursor-pointer h-full"
+                className="cursor-pointer h-full bg-white shadow-md rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg"
                 onClick={() => openImageModal(image)}
               >
-                <div className="relative h-[200px] md:h-[220px] overflow-hidden rounded-t-lg">
+                <div className="relative h-[200px] md:h-[220px] overflow-hidden">
                   <img
                     src={image.src}
                     alt={image.alt}
                     className="w-full h-full object-cover object-top transition-all duration-300 transform hover:scale-110"
                   />
                 </div>
-                <div className="p-4 bg-black/30">
-                  <h4 className="text-lg font-semibold text-white">{image.alt.split(" ").slice(0, 3).join(" ")}</h4>
-                  <p className="text-white/70 text-sm mt-1">{image.description.split(" ").slice(0, 10).join(" ")}...</p>
+                <div className="p-4 bg-gray-50">
+                  <h4 className="text-lg font-semibold text-black">{image.alt.split(" ").slice(0, 3).join(" ")}</h4>
+                  <p className="text-gray-800 text-sm mt-1">{image.description.split(" ").slice(0, 10).join(" ")}...</p>
                 </div>
               </div>
             </CarouselItem>
@@ -71,17 +71,17 @@ const AIChatbotCarousel = () => {
 
       {/* Image Modal */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="bg-royal/90 backdrop-blur-xl border border-white/10 text-white max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="bg-white max-w-4xl max-h-[90vh] overflow-y-auto">
           {selectedImage && (
             <>
               <DialogHeader>
-                <DialogTitle className="text-2xl font-bold">{selectedImage.alt}</DialogTitle>
-                <DialogDescription className="text-white/80">
+                <DialogTitle className="text-2xl font-bold text-gray-800">{selectedImage.alt}</DialogTitle>
+                <DialogDescription className="text-gray-600">
                   {selectedImage.description.split(" – ")[0]}
                 </DialogDescription>
               </DialogHeader>
               
-              <div className="mt-4 bg-black/30 p-2 rounded-lg">
+              <div className="mt-4 bg-gray-50 p-2 rounded-lg">
                 <img 
                   src={selectedImage.src} 
                   alt={selectedImage.alt} 
@@ -90,9 +90,9 @@ const AIChatbotCarousel = () => {
               </div>
               
               <div className="mt-4">
-                <h3 className="text-lg font-semibold mb-2">Features</h3>
+                <h3 className="text-lg font-semibold mb-2 text-gray-800">Features</h3>
                 {selectedImage.description.includes("Chat Widget AI") && (
-                  <ul className="list-disc pl-5 mb-2 space-y-1 text-white/80">
+                  <ul className="list-disc pl-5 mb-2 space-y-1 text-gray-600">
                     <li>Custom fields for Name, Phone, Email, & Message</li>
                     <li>Instant response acknowledgment</li>
                     <li>Tag-based lead segmentation</li>
@@ -100,14 +100,14 @@ const AIChatbotCarousel = () => {
                   </ul>
                 )}
                 {selectedImage.description.includes("Voice AI Agent") && (
-                  <ul className="list-disc pl-5 mb-2 space-y-1 text-white/80">
+                  <ul className="list-disc pl-5 mb-2 space-y-1 text-gray-600">
                     <li>Dynamic voice selection with playback testing</li>
                     <li>Inbound call routing based on caller behavior</li>
                     <li>Language selection & timezone configuration</li>
                     <li>Business-specific branding and voice flow</li>
                   </ul>
                 )}
-                <p className="font-medium text-white/80 mt-2">
+                <p className="font-medium text-gray-600 mt-2">
                   {selectedImage.description.includes("Chat Widget AI") ? 
                     "📲 Result: No lead left unseen. Real-time visibility, faster response times, and enhanced UX." :
                     "🎯 Result: Reduced manual call handling. Smarter qualification before human handoff."}

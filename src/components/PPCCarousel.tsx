@@ -85,19 +85,19 @@ const PPCCarousel = () => {
           {ppcAnalytics.map((analytic) => (
             <CarouselItem key={analytic.id} className="basis-full md:basis-1/2 lg:basis-1/3">
               <div 
-                className="cursor-pointer h-full"
+                className="cursor-pointer h-full bg-white shadow-md rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg"
                 onClick={() => openAnalyticModal(analytic)}
               >
-                <div className="relative h-[200px] md:h-[220px] overflow-hidden rounded-t-lg">
+                <div className="relative h-[200px] md:h-[220px] overflow-hidden">
                   <img 
                     src={analytic.image} 
                     alt={analytic.title} 
                     className="w-full h-full object-cover object-top transition-all duration-300 transform hover:scale-110"
                   />
                 </div>
-                <div className="p-4 bg-black/30">
-                  <h4 className="text-lg font-semibold text-white">{analytic.title}</h4>
-                  <p className="text-white/70 text-sm mt-1">{analytic.description}</p>
+                <div className="p-4 bg-gray-50">
+                  <h4 className="text-lg font-semibold text-black">{analytic.title}</h4>
+                  <p className="text-gray-800 text-sm mt-1">{analytic.description}</p>
                 </div>
               </div>
             </CarouselItem>
@@ -109,17 +109,17 @@ const PPCCarousel = () => {
 
       {/* Analytics Modal */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="bg-royal/90 backdrop-blur-xl border border-white/10 text-white max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="bg-white max-w-4xl max-h-[90vh] overflow-y-auto">
           {selectedAnalytic && (
             <>
               <DialogHeader>
-                <DialogTitle className="text-2xl font-bold">{selectedAnalytic.title}</DialogTitle>
-                <DialogDescription className="text-white/80">
+                <DialogTitle className="text-2xl font-bold text-gray-800">{selectedAnalytic.title}</DialogTitle>
+                <DialogDescription className="text-gray-600">
                   {selectedAnalytic.description}
                 </DialogDescription>
               </DialogHeader>
               
-              <div className="mt-4 bg-black/30 p-2 rounded-lg">
+              <div className="mt-4 bg-gray-50 p-2 rounded-lg">
                 <img 
                   src={selectedAnalytic.image} 
                   alt={selectedAnalytic.title} 

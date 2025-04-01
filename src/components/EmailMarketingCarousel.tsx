@@ -86,17 +86,17 @@ const EmailMarketingCarousel = () => {
 
       {/* Image Modal */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="bg-royal/90 backdrop-blur-xl border border-white/10 text-white max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="bg-white max-w-4xl max-h-[90vh] overflow-y-auto">
           {selectedImage && (
             <>
               <DialogHeader>
-                <DialogTitle className="text-2xl font-bold">{selectedImage.alt}</DialogTitle>
-                <DialogDescription className="text-white/80">
+                <DialogTitle className="text-2xl font-bold text-gray-800">{selectedImage.alt}</DialogTitle>
+                <DialogDescription className="text-gray-600">
                   {selectedImage.description}
                 </DialogDescription>
               </DialogHeader>
               
-              <div className="mt-4 bg-black/30 p-2 rounded-lg">
+              <div className="mt-4 bg-gray-50 p-2 rounded-lg">
                 <img 
                   src={selectedImage.src} 
                   alt={selectedImage.alt} 

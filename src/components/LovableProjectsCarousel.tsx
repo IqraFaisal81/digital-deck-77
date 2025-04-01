@@ -55,22 +55,22 @@ const LovableProjectsCarousel = () => {
           {projects.map((project, index) => (
             <CarouselItem
               key={index}
-              className="basis-full md:basis-1/2 lg:basis-1/3 h-full"
+              className="basis-full md:basis-1/2 lg:basis-1/3 h-full p-2"
             >
               <div 
-                className="cursor-pointer h-full"
+                className="cursor-pointer h-full bg-white shadow-md rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg"
                 onClick={() => openProjectModal(project)}
               >
-                <div className="relative h-[200px] md:h-[220px] overflow-hidden rounded-t-lg">
+                <div className="relative h-[200px] md:h-[220px] overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.name}
                     className="w-full h-full object-cover object-top transition-all duration-300 transform hover:scale-110"
                   />
                 </div>
-                <div className="p-4 bg-black/30">
-                  <h4 className="text-lg font-semibold text-white">{project.name}</h4>
-                  <p className="text-white/70 text-sm mt-1">{project.description}</p>
+                <div className="p-4 bg-gray-50">
+                  <h4 className="text-lg font-semibold text-black">{project.name}</h4>
+                  <p className="text-gray-800 text-sm mt-1">{project.description}</p>
                 </div>
               </div>
             </CarouselItem>
@@ -82,17 +82,17 @@ const LovableProjectsCarousel = () => {
 
       {/* Project Modal */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="bg-royal/90 backdrop-blur-xl border border-white/10 text-white max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="bg-white max-w-4xl max-h-[90vh] overflow-y-auto">
           {selectedProject && (
             <>
               <DialogHeader>
-                <DialogTitle className="text-2xl font-bold">{selectedProject.name}</DialogTitle>
-                <DialogDescription className="text-white/80">
+                <DialogTitle className="text-2xl font-bold text-gray-800">{selectedProject.name}</DialogTitle>
+                <DialogDescription className="text-gray-600">
                   {selectedProject.description}
                 </DialogDescription>
               </DialogHeader>
               
-              <div className="mt-4 bg-black/30 p-2 rounded-lg">
+              <div className="mt-4 bg-gray-50 p-2 rounded-lg">
                 <img 
                   src={selectedProject.image} 
                   alt={selectedProject.name} 
@@ -100,11 +100,11 @@ const LovableProjectsCarousel = () => {
                 />
               </div>
               
-              <div className="mt-6 p-4 bg-electric/10 rounded-lg border border-electric/20">
-                <h4 className="text-lg font-semibold text-white mb-2">Need a custom AI-powered solution?</h4>
-                <p className="text-white/80 mb-4">I can create similar or more advanced solutions tailored to your specific business needs.</p>
+              <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100">
+                <h4 className="text-lg font-semibold text-gray-800 mb-2">Need a custom AI-powered solution?</h4>
+                <p className="text-gray-600 mb-4">I can create similar or more advanced solutions tailored to your specific business needs.</p>
                 <Button
-                  className="bg-electric hover:bg-electric/80 w-full text-white"
+                  className="bg-blue-600 hover:bg-blue-700 w-full text-white"
                   asChild
                   onClick={() => {
                     setModalOpen(false);
@@ -123,7 +123,7 @@ const LovableProjectsCarousel = () => {
               <DialogFooter className="mt-6 flex justify-between">
                 <Button 
                   asChild
-                  className="bg-electric hover:bg-electric/80"
+                  className="bg-blue-600 hover:bg-blue-700"
                 >
                   <a 
                     href={selectedProject.url} 
@@ -136,8 +136,8 @@ const LovableProjectsCarousel = () => {
                 
                 <Button 
                   onClick={() => setModalOpen(false)}
-                  variant="ghost"
-                  className="border border-white/20 hover:bg-white/10"
+                  variant="outline"
+                  className="border border-gray-300 hover:bg-gray-100"
                 >
                   Close
                 </Button>
