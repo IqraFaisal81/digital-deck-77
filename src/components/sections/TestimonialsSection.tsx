@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import { 
   Carousel,
@@ -49,7 +48,7 @@ const TestimonialsSection = () => {
     <section 
       id="testimonials" 
       ref={sectionRef}
-      className="py-20 md:py-28 px-4 md:px-8 bg-gradient-to-br from-gray-50 via-gray-50 to-white overflow-hidden"
+      className="py-20 md:py-28 px-4 md:px-8 bg-white overflow-hidden"
     >
       <div className="container mx-auto">
         <SectionHeader 
@@ -95,13 +94,7 @@ const TestimonialsSection = () => {
                       <Card className="shadow-lg border-0 overflow-hidden bg-white hover:shadow-2xl transition-all duration-500 h-full transform hover:-translate-y-1 rounded-xl">
                         <CardContent className="p-0 h-full">
                           <div className="flex flex-col md:flex-row h-full">
-                            <div className="md:w-2/5 lg:w-1/3 bg-white flex flex-col items-center justify-center p-8 text-black relative overflow-hidden">
-                              <div className="absolute top-0 left-0 w-full h-full opacity-10">
-                                <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                  <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="black" strokeWidth="0.5"></path>
-                                  <path d="M0,0 L100,100 M100,0 L0,100" stroke="black" strokeWidth="0.5"></path>
-                                </svg>
-                              </div>
+                            <div className="md:w-2/5 lg:w-1/3 bg-white flex flex-col items-center justify-center p-8 text-black relative">
                               {client.logo && (
                                 <div className="mb-6 bg-white/90 p-4 rounded-xl shadow-sm">
                                   <img src={client.logo} alt={client.name} className="h-16 w-auto object-contain" />
@@ -121,9 +114,6 @@ const TestimonialsSection = () => {
                             </div>
                             
                             <div className="md:w-3/5 lg:w-2/3 p-8 md:p-10 relative flex flex-col justify-center bg-white">
-                              <div className="absolute top-6 left-6 opacity-10">
-                                <Quote className="h-24 w-24 text-gray-300" />
-                              </div>
                               <div className="flex items-center mb-4 z-10">
                                 {renderStars(client.testimonial?.rating)}
                               </div>
