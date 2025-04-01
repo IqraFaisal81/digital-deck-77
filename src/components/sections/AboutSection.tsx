@@ -1,17 +1,16 @@
 
 import { Check, User, Building, Package } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import SectionHeader from "@/components/skills/SectionHeader";
 
 const AboutSection = () => {
   return (
     <section id="about" className="py-16 px-4 md:px-8 bg-gradient-to-b from-white to-blue-50 relative overflow-hidden">
       <div className="container mx-auto relative z-10">
-        <div className="flex flex-col items-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center text-gray-900">
-            About <span className="text-blue-600">Me</span>
-          </h2>
-          <div className="w-16 h-1 bg-blue-600 mb-6"></div>
-        </div>
+        <SectionHeader 
+          title={<>About <span className="text-blue-600">Me</span></>}
+          alignment="center"
+        />
         
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-start max-w-6xl mx-auto">
           <Card className="lg:col-span-3 bg-white shadow-md hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden">

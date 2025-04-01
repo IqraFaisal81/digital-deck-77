@@ -12,6 +12,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { clients } from "@/data/clients";
 import { Star, Quote } from "lucide-react";
+import SectionHeader from "@/components/skills/SectionHeader";
 
 const TestimonialsSection = () => {
   const testimonials = clients.filter(client => client.testimonial);
@@ -51,18 +52,12 @@ const TestimonialsSection = () => {
       className="py-20 md:py-28 px-4 md:px-8 bg-gradient-to-br from-gray-50 via-gray-50 to-white overflow-hidden"
     >
       <div className="container mx-auto">
-        <div className="flex flex-col items-center mb-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
-          <span className="text-gray-600 text-sm uppercase tracking-wider font-semibold mb-2">Trusted by Businesses</span>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center relative">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-700 to-gray-600">
-              Client Testimonials
-            </span>
-            <div className="absolute w-24 h-1 bg-gradient-to-r from-gray-400 to-gray-500 left-1/2 -translate-x-1/2 bottom-0 mt-4"></div>
-          </h2>
-          <p className="text-gray-700 max-w-2xl mx-auto text-center text-lg mt-6 mb-2">
-            Hear directly from our clients about their experience working with us
-          </p>
-        </div>
+        <SectionHeader 
+          subtitle="Trusted by Businesses"
+          title="Client Testimonials"
+          description="Hear directly from our clients about their experience working with us"
+          alignment="center"
+        />
         
         {/* Client Logos */}
         <div className="flex flex-wrap justify-center gap-4 mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">

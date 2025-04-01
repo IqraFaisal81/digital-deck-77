@@ -10,6 +10,7 @@ import {
 import { useCarouselState } from "@/hooks/useCarouselState";
 import CaseStudyModal from "@/components/project-highlights/CaseStudyModal";
 import CaseStudyCarouselItem from "@/components/project-highlights/CaseStudyCarouselItem";
+import SectionHeader from "@/components/skills/SectionHeader";
 
 const ProjectHighlightsSection = () => {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
@@ -28,18 +29,12 @@ const ProjectHighlightsSection = () => {
       <div className="absolute bottom-20 left-10 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-30"></div>
       
       <div className="container mx-auto relative z-10">
-        <div className="max-w-3xl mx-auto text-center mb-10">
-          <div className="inline-block px-4 py-1 bg-blue-100 rounded-full text-blue-600 text-sm font-medium mb-4">
-            Client Success Stories
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-black">
-            Real Results for Real Clients
-          </h2>
-          <p className="text-black/80 text-lg mb-8">
-            See how our strategic approach and technical expertise delivered measurable outcomes
-            for businesses looking to improve their customer engagement and revenue.
-          </p>
-        </div>
+        <SectionHeader 
+          subtitle="Client Success Stories"
+          title="Real Results for Real Clients"
+          description="See how our strategic approach and technical expertise delivered measurable outcomes for businesses looking to improve their customer engagement and revenue."
+          alignment="center"
+        />
         
         {/* Case Study Carousel - now without arrows */}
         <div className="max-w-6xl mx-auto">

@@ -30,6 +30,7 @@ const HomeSection = () => {
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 font-display animate-fade-in-up animate-delay-200">
                 Hello, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-500">Iqra Faisal</span>
               </h1>
+              <div className="w-16 h-1 bg-blue-600 mb-6"></div>
             </div>
             
             <p className="text-lg text-gray-700 leading-relaxed max-w-lg animate-fade-in-up animate-delay-300">
