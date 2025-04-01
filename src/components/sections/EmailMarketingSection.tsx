@@ -26,7 +26,7 @@ const EmailMarketingSection = ({ isSectionVisible, setVisibleSection, emailMarke
       }}
     >
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-gray-900">Email Marketing & Automation</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">Email Marketing & Automation</h2>
         <div className="max-w-3xl mx-auto mb-12">
           <p className="text-gray-700 text-center">
             Inbox strategy that speaks human—not spammy. I craft high-impact email campaigns and automated flows that engage, nurture, and convert—without annoying your audience or clogging their inbox.
@@ -38,7 +38,7 @@ const EmailMarketingSection = ({ isSectionVisible, setVisibleSection, emailMarke
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div className="bg-white shadow-md rounded-xl p-6 border border-gray-200 h-full">
-            <h3 className="text-xl font-semibold mb-4 text-blue-600">Strategic Email Solutions</h3>
+            <h3 className="text-xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">Strategic Email Solutions</h3>
             <ul className="space-y-4">
               <li className="flex items-start">
                 <Check className="text-blue-600 mt-1 mr-2 flex-shrink-0" />
@@ -72,7 +72,7 @@ const EmailMarketingSection = ({ isSectionVisible, setVisibleSection, emailMarke
           </div>
           
           <div className="bg-white shadow-md rounded-xl p-6 border border-gray-200 h-full">
-            <h3 className="text-xl font-semibold mb-4 text-blue-600">What I Deliver</h3>
+            <h3 className="text-xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">What I Deliver</h3>
             <div className="grid grid-cols-1 gap-4">
               <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
                 <h4 className="font-semibold mb-2 text-gray-800">Email Sequences & Automations</h4>
@@ -95,7 +95,7 @@ const EmailMarketingSection = ({ isSectionVisible, setVisibleSection, emailMarke
         </div>
         
         <div className="bg-white shadow-md rounded-xl p-6 border border-gray-200 mb-12">
-          <h3 className="text-xl font-semibold mb-6 text-center text-gray-900">My Email Marketing Process</h3>
+          <h3 className="text-xl font-semibold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">My Email Marketing Process</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center p-4">
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -121,11 +121,11 @@ const EmailMarketingSection = ({ isSectionVisible, setVisibleSection, emailMarke
           </div>
         </div>
         
-        <h3 className="text-xl font-semibold mb-6 text-center text-gray-900">Featured Email Campaigns</h3>
+        <h3 className="text-xl font-semibold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">Featured Email Campaigns</h3>
         <EmailMarketingCarousel />
         
         <div className="mt-8 bg-blue-50 rounded-xl p-6 border border-blue-100">
-          <h3 className="text-xl font-semibold mb-4 text-center text-blue-600">Results I've Delivered</h3>
+          <h3 className="text-xl font-semibold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">Results I've Delivered</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white p-4 rounded-lg shadow-sm">
               <div className="flex items-start space-x-2">

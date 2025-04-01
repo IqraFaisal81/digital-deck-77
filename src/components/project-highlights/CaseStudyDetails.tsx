@@ -44,7 +44,7 @@ const CaseStudyDetails = ({ caseStudy }: CaseStudyDetailsProps) => {
           </div>
           
           <div className="bg-electric/5 p-5 rounded-lg border border-electric/20">
-            <h4 className="text-lg font-semibold text-electric mb-3">The Results</h4>
+            <h4 className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 mb-3">The Results</h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-white p-4 rounded-lg shadow-sm text-center">
                 <div className="text-3xl font-bold text-electric">{caseStudy.results.stat1.value}</div>
