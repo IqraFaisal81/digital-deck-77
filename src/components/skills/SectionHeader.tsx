@@ -14,7 +14,7 @@ const SectionHeader = ({
   title, 
   description, 
   alignment = "center",
-  useGradient = false
+  useGradient = true  // Change default to true
 }: SectionHeaderProps) => {
   return (
     <div className={`flex flex-col ${alignment === "center" ? "items-center" : "items-start"} mb-14 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700`}>
@@ -22,15 +22,9 @@ const SectionHeader = ({
         <span className="text-blue-600 text-sm uppercase tracking-wider font-semibold mb-2">{subtitle}</span>
       )}
       <h2 className={`text-3xl md:text-4xl font-bold mb-3 ${alignment === "center" ? "text-center" : "text-left"} font-display`}>
-        {useGradient ? (
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-500">
-            {title}
-          </span>
-        ) : (
-          <span className="text-gray-900">
-            {title}
-          </span>
-        )}
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">
+          {title}
+        </span>
       </h2>
       <div className={`w-16 h-1 bg-blue-600 mb-6 ${alignment === "center" ? "mx-auto" : ""}`}></div>
       {description && (
