@@ -3,6 +3,7 @@ import { Calendar, Clock, DollarSign, Mail, Phone, Linkedin } from "lucide-react
 import CalendlyWidget from "@/components/CalendlyWidget";
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useState } from "react";
+import SectionHeader from "@/components/skills/SectionHeader";
 
 const BookingSection = () => {
   const [isClient, setIsClient] = useState(false);
@@ -31,15 +32,12 @@ const BookingSection = () => {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl opacity-40"></div>
       
       <div className="container mx-auto relative z-10">
-        <div className="flex flex-col items-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">
-            <span className="text-black">Contact Me</span> & Book a Consultation
-          </h2>
-          <div className="w-20 h-1 bg-blue-600 mb-6"></div>
-          <p className="text-gray-700 text-center max-w-2xl">
-            Ready to discuss your project? Schedule a free 30-minute consultation below.
-          </p>
-        </div>
+        <SectionHeader
+          title={<>Contact Me & Book a Consultation</>}
+          description="Ready to discuss your project? Schedule a free 30-minute consultation below."
+          alignment="center"
+          useGradient={true}
+        />
         
         <div className="grid grid-cols-1 gap-8 max-w-5xl mx-auto">
           {/* Calendly widget */}
