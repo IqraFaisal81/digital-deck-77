@@ -67,9 +67,12 @@ const Navbar = () => {
             <Button
               className="ml-3 bg-blue-600 hover:bg-blue-700 shadow-sm hover:shadow-md transition-all"
               size="sm"
+              asChild
             >
-              <Calendar className="mr-2 h-4 w-4" />
-              <span>Book a Call</span>
+              <a href="#booking" className="flex items-center">
+                <Calendar className="mr-2 h-4 w-4" />
+                <span>Book a Call</span>
+              </a>
             </Button>
           </div>
         )}
