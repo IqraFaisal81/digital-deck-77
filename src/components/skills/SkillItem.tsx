@@ -1,19 +1,19 @@
 
 import React from "react";
 import { 
-  Globe, 
-  Database, 
-  BarChart, 
-  Bot, 
-  TrendingUp,
-  Mail,
   Search,
-  MessageSquare,
-  Code,
+  Globe, 
+  Mail,
+  Database,
   Zap,
+  BarChart,
   PieChart,
+  Code,
+  Bot,
   CheckCircle,
   Calendar,
+  MessageSquare,
+  TrendingUp,
   LucideIcon
 } from "lucide-react";
 
@@ -59,11 +59,11 @@ const SkillItem = ({ name }: SkillItemProps) => {
   const Icon = getIconForSkill(name);
 
   return (
-    <div className="group flex items-center mb-4 hover:translate-x-1 transition-all duration-300">
-      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-purple-100 mr-4">
-        <Icon className="w-5 h-5 text-purple-600" strokeWidth={2} />
+    <div className="group flex items-center p-2 hover:bg-white/50 rounded-lg transition-all duration-300">
+      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center mr-3">
+        <Icon className="w-4 h-4 text-blue-600" strokeWidth={2} />
       </div>
-      <span className="text-gray-700 text-sm font-medium group-hover:text-purple-600 transition-colors duration-300">
+      <span className="text-gray-700 text-sm font-medium group-hover:text-blue-600 transition-colors duration-300">
         {name}
       </span>
     </div>

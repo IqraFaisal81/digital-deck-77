@@ -6,10 +6,14 @@ import {
   Mail,
   BarChart, 
   Bot, 
-  TrendingUp
+  TrendingUp,
+  Filter
 } from "lucide-react";
 import SectionHeader from "../skills/SectionHeader";
 import SkillCard from "../skills/SkillCard";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Separator } from "@/components/ui/separator";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 type SkillCategory = {
   name: string;
@@ -74,6 +78,7 @@ const skillCategories: SkillCategory[] = [
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
 
   // Animation on scroll
   useEffect(() => {
@@ -93,9 +98,15 @@ const SkillsSection = () => {
   }, []);
 
   return (
-    <section id="skills" ref={sectionRef} className="py-20 md:py-28 px-4 md:px-8 bg-white relative overflow-hidden">
-      <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-30"></div>
-      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-30"></div>
+    <section 
+      id="skills" 
+      ref={sectionRef} 
+      className="py-20 md:py-28 px-4 md:px-8 bg-gradient-to-b from-white to-blue-50 relative overflow-hidden"
+    >
+      {/* Background elements */}
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-40"></div>
+      <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-purple-100 rounded-full blur-3xl opacity-30"></div>
+      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-100 rounded-full blur-3xl opacity-30"></div>
       
       <div className="container mx-auto relative z-10">
         <SectionHeader 
@@ -104,6 +115,29 @@ const SkillsSection = () => {
           description="Combining technical expertise with strategic marketing to deliver comprehensive solutions that drive growth and engagement."
         />
         
+        {/* Category filter */}
+        <div className="flex justify-center mb-10 animate-on-scroll opacity-0 translate-y-8">
+          <div className="bg-white p-2 rounded-xl shadow-md border border-gray-100">
+            <Tabs defaultValue="all" onValueChange={(value) => setActiveCategory(value === "all" ? null : value)}>
+              <TabsList className="grid grid-cols-2 md:grid-cols-6 gap-1 bg-gray-50 p-1">
+                <TabsTrigger value="all" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
+                  All
+                </TabsTrigger>
+                {skillCategories.map((category, index) => (
+                  <TabsTrigger 
+                    key={index} 
+                    value={category.name}
+                    className="data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+                  >
+                    {isMobile ? category.name.split(' ')[0] : category.name}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </Tabs>
+          </div>
+        </div>
+
+        {/* Skills Masonry Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {skillCategories
             .filter(category => activeCategory === null || category.name === activeCategory)
