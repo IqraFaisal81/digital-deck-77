@@ -33,7 +33,7 @@ const BookingSection = () => {
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col items-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">
-            <span className="text-blue-600">Contact Me</span> & Book a Consultation
+            <span className="text-black">Contact Me</span> & Book a Consultation
           </h2>
           <div className="w-20 h-1 bg-blue-600 mb-6"></div>
           <p className="text-gray-700 text-center max-w-2xl">
