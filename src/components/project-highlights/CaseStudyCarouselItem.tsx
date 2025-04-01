@@ -31,11 +31,11 @@ const CaseStudyCarouselItem = ({ caseStudy, onClick }: CaseStudyCarouselItemProp
           )}
         </div>
         
-        <p className="text-gray-700 text-sm line-clamp-3">
+        <p className="text-gray-700 text-sm line-clamp-3 mb-4">
           {caseStudy.challenge}
         </p>
         
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-auto flex flex-wrap gap-2">
           <div className="bg-blue-50 rounded-lg p-2 text-center flex-1">
             <div className="text-lg font-bold text-blue-600">{caseStudy.results.stat1.value}</div>
             <p className="text-xs text-gray-600">{caseStudy.results.stat1.label}</p>
