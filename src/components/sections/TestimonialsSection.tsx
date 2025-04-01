@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from "react";
 import { 
   Carousel,
@@ -101,7 +102,7 @@ const TestimonialsSection = () => {
                                 </div>
                               )}
                               <div className="mb-6">
-                                <h4 className="text-xl font-bold text-center mb-2 text-black">{client.name}</h4>
+                                <h4 className="text-xl font-bold text-center mb-2 bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">{client.name}</h4>
                               </div>
                               <p className="text-sm text-gray-700 text-center font-light">{client.description}</p>
                               <div className="mt-6 text-xs font-light italic text-gray-500 text-center">
@@ -129,7 +130,7 @@ const TestimonialsSection = () => {
                                   </AvatarFallback>
                                 </Avatar>
                                 <div>
-                                  <div className="font-bold text-black text-lg">
+                                  <div className="font-bold text-black text-lg bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">
                                     {client.testimonial?.author}
                                   </div>
                                   <div className="text-sm text-gray-700">

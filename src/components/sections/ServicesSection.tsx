@@ -15,7 +15,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
   return (
     <section id="services" className="section-padding bg-gradient-to-b from-white to-blue-50">
       <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-gray-900">Services</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">Services</h2>
         <div className="max-w-3xl mx-auto mb-12">
           <p className="text-gray-700 text-center">
             I offer a comprehensive range of services to help your business grow through strategic digital solutions, 
@@ -33,7 +33,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
               <div className="bg-blue-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
                 <service.icon className="text-blue-600" size={24} />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">{service.title}</h3>
+              <h3 className="text-xl font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">{service.title}</h3>
               <p className="text-gray-600 mb-4">{service.description}</p>
               
               <div className="flex justify-between items-center">

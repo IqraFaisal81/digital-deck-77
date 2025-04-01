@@ -24,7 +24,7 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }: CaseStudyModalProps) => 
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="bg-white max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold">{caseStudy.client}</DialogTitle>
+          <DialogTitle className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">{caseStudy.client}</DialogTitle>
           <DialogDescription>
             {caseStudy.title}
           </DialogDescription>
@@ -40,14 +40,14 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }: CaseStudyModalProps) => 
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold text-gray-900 mb-2">The Challenge</h4>
+            <h4 className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 mb-2">The Challenge</h4>
             <p className="text-gray-700">
               {caseStudy.challenge}
             </p>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold text-gray-900 mb-2">The Strategy</h4>
+            <h4 className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 mb-2">The Strategy</h4>
             <p className="text-gray-700 mb-3">
               I developed a custom solution based on the client's specific needs:
             </p>
@@ -59,7 +59,7 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }: CaseStudyModalProps) => 
           </div>
           
           <div className="bg-blue-50 p-5 rounded-lg border border-blue-100">
-            <h4 className="text-lg font-semibold text-blue-600 mb-3">The Results</h4>
+            <h4 className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 mb-3">The Results</h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-white p-4 rounded-lg shadow-sm text-center">
                 <div className="text-3xl font-bold text-blue-600">{caseStudy.results.stat1.value}</div>

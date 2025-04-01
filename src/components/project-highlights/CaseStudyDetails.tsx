@@ -13,7 +13,7 @@ const CaseStudyDetails = ({ caseStudy }: CaseStudyDetailsProps) => {
       <div className="p-8 md:p-12 flex flex-col h-full">
         <div>
           <h3 className="text-xl font-medium text-electric mb-2">CLIENT SUCCESS STORY</h3>
-          <h2 className="text-3xl font-bold mb-4">{caseStudy.client} – {caseStudy.title}</h2>
+          <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">{caseStudy.client} – {caseStudy.title}</h2>
           <div className="flex flex-wrap gap-2 mb-6">
             {caseStudy.tags.map((tag, idx) => (
               <span key={idx} className="text-xs px-3 py-1 rounded-full bg-electric/10 text-electric">
@@ -25,14 +25,14 @@ const CaseStudyDetails = ({ caseStudy }: CaseStudyDetailsProps) => {
         
         <div className="flex-1 space-y-6">
           <div>
-            <h4 className="text-lg font-semibold text-gray-900 mb-2">The Challenge</h4>
+            <h4 className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 mb-2">The Challenge</h4>
             <p className="text-gray-700">
               {caseStudy.challenge}
             </p>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold text-gray-900 mb-2">The Strategy</h4>
+            <h4 className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 mb-2">The Strategy</h4>
             <p className="text-gray-700 mb-3">
               I developed a custom solution based on the client's specific needs:
             </p>

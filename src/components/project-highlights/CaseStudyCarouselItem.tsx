@@ -13,7 +13,7 @@ const CaseStudyCarouselItem = ({ caseStudy, onClick }: CaseStudyCarouselItemProp
       className="bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all cursor-pointer h-full flex flex-col"
     >
       <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 border-b border-gray-100">
-        <h3 className="font-bold text-xl text-gray-900">{caseStudy.client}</h3>
+        <h3 className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">{caseStudy.client}</h3>
         <p className="text-blue-600 text-sm">{caseStudy.title}</p>
       </div>
       
