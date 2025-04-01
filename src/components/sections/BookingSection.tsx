@@ -129,7 +129,7 @@ const BookingSection = () => {
                       <DollarSign className="w-5 h-5 text-blue-600" />
                     </div>
                     <div>
-                      <p className="text-gray-900 font-medium">$35 per Hour</p>
+                      <p className="text-gray-900 font-medium">$25 per Hour</p>
                       <p className="text-gray-600 text-sm">For ongoing projects</p>
                     </div>
                   </div>
