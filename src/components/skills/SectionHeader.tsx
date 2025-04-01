@@ -21,7 +21,7 @@ const SectionHeader = ({
       {subtitle && (
         <span className="text-blue-600 text-sm uppercase tracking-wider font-semibold mb-2">{subtitle}</span>
       )}
-      <h2 className={`text-3xl md:text-4xl font-bold mb-3 ${alignment === "center" ? "text-center" : "text-left"} font-display ${useGradient ? "bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600" : ""}`}>
+      <h2 className={`text-4xl md:text-5xl font-bold mb-3 ${alignment === "center" ? "text-center" : "text-left"} font-display ${useGradient ? "bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600" : ""}`}>
         {title}
       </h2>
       <div className={`w-16 h-1 bg-blue-600 mb-6 ${alignment === "center" ? "mx-auto" : ""}`}></div>
