@@ -32,7 +32,7 @@ const BookingSection = () => {
       
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col items-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center text-gray-900">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">
             <span className="text-blue-600">Contact Me</span> & Book a Consultation
           </h2>
           <div className="w-20 h-1 bg-blue-600 mb-6"></div>
@@ -56,7 +56,7 @@ const BookingSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card className="bg-white shadow-md border border-gray-100 overflow-hidden">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4 text-blue-600">Contact Details</h3>
+                <h3 className="text-xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">Contact Details</h3>
                 
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
@@ -101,7 +101,7 @@ const BookingSection = () => {
             
             <Card className="bg-white shadow-md border border-gray-100 overflow-hidden">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4 text-blue-600">Consultation Details</h3>
+                <h3 className="text-xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">Consultation Details</h3>
                 
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">

@@ -27,8 +27,8 @@ const HomeSection = () => {
               <p className="text-blue-600 font-medium tracking-wider animate-fade-in-up animate-delay-100">
                 SaaS Developer & Automation Specialist
               </p>
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 font-display animate-fade-in-up animate-delay-200">
-                Hello, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-500">Iqra Faisal</span>
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 font-display animate-fade-in-up animate-delay-200">
+                Hello, I'm Iqra Faisal
               </h1>
               <div className="w-16 h-1 bg-blue-600 mb-6"></div>
             </div>
