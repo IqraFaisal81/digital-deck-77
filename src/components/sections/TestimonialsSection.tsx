@@ -62,7 +62,7 @@ const TestimonialsSection = () => {
         {/* Client Logos */}
         <div className="flex flex-wrap justify-center gap-4 mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
           {clients.map((client, index) => (
-            <div key={index} className="p-3 bg-gray-50/80 backdrop-blur-sm rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:bg-white group">
+            <div key={index} className="p-3 bg-white backdrop-blur-sm rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:bg-white group">
               {client.logo ? (
                 <img 
                   src={client.logo} 
@@ -95,23 +95,23 @@ const TestimonialsSection = () => {
                       <Card className="shadow-lg border-0 overflow-hidden bg-white hover:shadow-2xl transition-all duration-500 h-full transform hover:-translate-y-1 rounded-xl">
                         <CardContent className="p-0 h-full">
                           <div className="flex flex-col md:flex-row h-full">
-                            <div className="md:w-2/5 lg:w-1/3 bg-gradient-to-br from-gray-500 via-gray-550 to-gray-600 flex flex-col items-center justify-center p-8 text-white relative overflow-hidden">
+                            <div className="md:w-2/5 lg:w-1/3 bg-white flex flex-col items-center justify-center p-8 text-black relative overflow-hidden">
                               <div className="absolute top-0 left-0 w-full h-full opacity-10">
                                 <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                  <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="white" strokeWidth="0.5"></path>
-                                  <path d="M0,0 L100,100 M100,0 L0,100" stroke="white" strokeWidth="0.5"></path>
+                                  <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="black" strokeWidth="0.5"></path>
+                                  <path d="M0,0 L100,100 M100,0 L0,100" stroke="black" strokeWidth="0.5"></path>
                                 </svg>
                               </div>
                               {client.logo && (
-                                <div className="mb-6 bg-white/20 backdrop-blur-sm p-4 rounded-xl shadow-inner">
+                                <div className="mb-6 bg-white/90 p-4 rounded-xl shadow-sm">
                                   <img src={client.logo} alt={client.name} className="h-16 w-auto object-contain" />
                                 </div>
                               )}
                               <div className="mb-6">
-                                <h4 className="text-xl font-bold text-center mb-2">{client.name}</h4>
+                                <h4 className="text-xl font-bold text-center mb-2 text-black">{client.name}</h4>
                               </div>
-                              <p className="text-sm text-gray-100 text-center opacity-90 font-light">{client.description}</p>
-                              <div className="mt-6 text-xs font-light italic text-gray-200 opacity-80 text-center">
+                              <p className="text-sm text-gray-700 text-center font-light">{client.description}</p>
+                              <div className="mt-6 text-xs font-light italic text-gray-500 text-center">
                                 {client.website !== "#" && (
                                   <a href={client.website} target="_blank" rel="noopener noreferrer" className="hover:underline">
                                     Visit Website
@@ -120,7 +120,7 @@ const TestimonialsSection = () => {
                               </div>
                             </div>
                             
-                            <div className="md:w-3/5 lg:w-2/3 p-8 md:p-10 relative flex flex-col justify-center bg-gradient-to-br from-white to-gray-50/50">
+                            <div className="md:w-3/5 lg:w-2/3 p-8 md:p-10 relative flex flex-col justify-center bg-white">
                               <div className="absolute top-6 left-6 opacity-10">
                                 <Quote className="h-24 w-24 text-gray-300" />
                               </div>
@@ -134,7 +134,7 @@ const TestimonialsSection = () => {
                               
                               <div className="mt-auto flex items-center border-t border-gray-100 pt-5">
                                 <Avatar className="h-14 w-14 border-2 border-gray-100 mr-4 shadow-sm">
-                                  <AvatarFallback className="bg-gradient-to-br from-gray-100 to-gray-200 text-gray-600 font-semibold">
+                                  <AvatarFallback className="bg-white text-gray-600 font-semibold">
                                     {client.testimonial?.author.split(' ').map(n => n[0]).join('')}
                                   </AvatarFallback>
                                 </Avatar>
