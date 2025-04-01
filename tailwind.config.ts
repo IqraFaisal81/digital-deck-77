@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -20,6 +21,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        display: ['Poppins', 'sans-serif'],
       },
       colors: {
         border: 'hsl(var(--border) / <alpha-value>)',
@@ -65,32 +67,56 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Updated color palette with softer grays
 				royal: '#0a1d69',
 				midnight: '#000000',
 				electric: '#3f8efc',
 				maroon: '#800020',
-				
-				// New gray palette
-				gray: {
-					50: '#f9fafb',    // Lightest gray
-					100: '#f3f4f6',   // Very light gray
-					200: '#e5e7eb',   // Light gray
-					300: '#d1d5db',   // Soft medium gray
-					400: '#9ca3af',   // Medium gray
-					500: '#6b7280',   // Dark medium gray
-					600: '#4b5563',   // Dark gray
-					700: '#374151',   // Darker gray
-					800: '#1f2937',   // Very dark gray
-					900: '#111827',   // Almost black
-				}
       },
       backgroundImage: {
-        'white-blue-gradient': 'linear-gradient(to bottom, #ffffff, #f0f4ff)',
+        'soft-gradient': 'linear-gradient(to right, #f9f9f9, #f0f4ff, #f9f9f9)',
+        'blue-gradient': 'linear-gradient(135deg, #60a5fa, #3b82f6)',
+        'purple-gradient': 'linear-gradient(135deg, #8b5cf6, #6366f1)',
+        'primary-gradient': 'linear-gradient(to right, hsl(var(--primary)), hsl(var(--primary) / 0.8))',
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 0.25rem)',
+        sm: 'calc(var(--radius) - 0.5rem)',
       },
       boxShadow: {
-        'soft': '0 4px 6px -1px rgba(0, 0, 255, 0.1), 0 2px 4px -1px rgba(0, 0, 255, 0.06)',
-      }
+        'soft': '0 4px 20px rgba(0, 0, 255, 0.05)',
+        'card': '0 10px 30px -5px rgba(0, 0, 0, 0.1)',
+        'button': '0 5px 15px rgba(0, 0, 0, 0.1)',
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fadeIn 0.5s ease-out forwards",
+        "slide-in-right": "slideInRight 0.5s ease-out forwards",
+        "slide-in-left": "slideInLeft 0.5s ease-out forwards",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideInRight: {
+          '0%': { opacity: '0', transform: 'translateX(20px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        slideInLeft: {
+          '0%': { opacity: '0', transform: 'translateX(-20px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

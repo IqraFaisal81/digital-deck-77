@@ -14,7 +14,7 @@ import {
   Calendar,
   MessageSquare,
   TrendingUp,
-  LucideIcon
+  type LucideIcon
 } from "lucide-react";
 
 interface SkillItemProps {
@@ -59,11 +59,11 @@ const SkillItem = ({ name }: SkillItemProps) => {
   const Icon = getIconForSkill(name);
 
   return (
-    <div className="group flex items-center p-2 hover:bg-white/50 rounded-lg transition-all duration-300">
-      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center mr-3">
-        <Icon className="w-4 h-4 text-blue-600" strokeWidth={2} />
+    <div className="group flex items-center p-2.5 hover:bg-white/70 rounded-xl transition-all duration-300">
+      <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-gradient-to-br from-blue-100 to-white shadow-sm border border-gray-100/80 flex items-center justify-center mr-3 group-hover:bg-blue-50 transition-colors">
+        <Icon className="w-4 h-4 text-blue-600" strokeWidth={1.75} />
       </div>
-      <span className="text-gray-700 text-sm font-medium group-hover:text-blue-600 transition-colors duration-300">
+      <span className="text-gray-700 font-medium group-hover:text-blue-600 transition-colors duration-300">
         {name}
       </span>
     </div>
