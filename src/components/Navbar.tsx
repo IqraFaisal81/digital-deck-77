@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Menu, X, Briefcase, User, Wrench, Phone, Users, Calendar, Award, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,12 +40,12 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? "py-3 bg-white/90 backdrop-blur-md shadow-sm" 
+          ? "py-3 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm" 
           : "py-5 bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="text-gray-900 font-bold font-display text-xl relative z-10 group">
+        <a href="#home" className="text-gray-900 dark:text-white font-bold font-display text-xl relative z-10 group">
           <span className="relative">
             Iqra Faisal
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
@@ -58,12 +59,13 @@ const Navbar = () => {
               <a
                 key={index}
                 href={item.href}
-                className="px-4 py-2 text-gray-700 hover:text-blue-600 rounded-lg hover:bg-blue-50/50 transition-colors duration-300 flex items-center"
+                className="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors duration-300 flex items-center"
               >
                 {item.icon}
                 <span className="ml-2">{item.label}</span>
               </a>
             ))}
+            <ThemeToggle />
             <Button
               className="ml-3 bg-blue-600 hover:bg-blue-700 shadow-sm hover:shadow-md transition-all"
               size="sm"
@@ -79,20 +81,23 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         {isMobile && (
-          <button 
-            onClick={toggleMenu} 
-            className="text-gray-900 bg-white/80 backdrop-blur-sm p-2 rounded-lg shadow-sm hover:bg-white transition-all"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <button 
+              onClick={toggleMenu} 
+              className="text-gray-900 dark:text-white bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-2 rounded-lg shadow-sm hover:bg-white dark:hover:bg-gray-700 transition-all"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         )}
       </div>
 
       {/* Mobile Menu Dropdown */}
       {isMobile && (
         <div
-          className={`fixed inset-0 bg-white/95 backdrop-blur-xl z-40 transition-transform duration-300 ease-in-out ${
+          className={`fixed inset-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl z-40 transition-transform duration-300 ease-in-out ${
             isOpen ? "translate-x-0" : "translate-x-full"
           } pt-24`}
         >
@@ -102,9 +107,9 @@ const Navbar = () => {
                 key={index}
                 href={item.href}
                 onClick={toggleMenu}
-                className="py-4 px-5 text-gray-800 hover:text-blue-600 hover:bg-blue-50/50 rounded-xl transition-colors duration-300 flex items-center"
+                className="py-4 px-5 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 rounded-xl transition-colors duration-300 flex items-center"
               >
-                <div className="bg-blue-100/80 p-2 rounded-lg mr-4">
+                <div className="bg-blue-100/80 dark:bg-blue-900/30 p-2 rounded-lg mr-4">
                   {item.icon}
                 </div>
                 <span className="font-medium">{item.label}</span>
