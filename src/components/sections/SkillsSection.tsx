@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect } from "react";
 import { 
   Globe, 
@@ -113,7 +114,7 @@ const SkillsSection = () => {
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-100/50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-60"></div>
         <div className="absolute top-1/3 -left-20 w-60 h-60 bg-indigo-100/50 dark:bg-indigo-900/20 rounded-full blur-3xl opacity-60"></div>
-        <div className="absolute -bottom-40 right-1/4 w-80 h-80 bg-purple-100/50 dark:bg-purple-900/20 rounded-full blur-3xl opacity-40"></div>
+        <div className="absolute -bottom-40 right-1/4 w-80 h-80 bg-purple-100/50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-40"></div>
         
         {/* Floating shapes */}
         <div className="absolute top-40 right-10 w-4 h-4 rounded-full bg-blue-400 opacity-70 animate-float"></div>
@@ -130,7 +131,7 @@ const SkillsSection = () => {
         </div>
         
         <SectionHeader 
-          title={<>Skills & <span className="text-blue-600 dark:text-blue-400 relative inline-block bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-electric dark:to-maroon">
+          title={<>Skills & <span className="text-blue-600 dark:text-blue-400 relative inline-block bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-blue-600 dark:to-blue-400">
             Expertise
             <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-400/30 dark:bg-blue-600/30 rounded-full"></span>
           </span></>}
