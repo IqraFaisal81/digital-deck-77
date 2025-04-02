@@ -7,31 +7,18 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink, Calendar } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 const LovableProjectsCarousel = () => {
+  // Assuming this is similar to other carousels with projects/images
   const projects = [
+    // Add your project images/details here
     {
-      name: "ChatGenius Embedify",
-      description: "AI chatbot creation platform with no-code required",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      url: "https://preview--chatgenius-embedify.lovable.app/"
-    },
-    {
-      name: "SupaFriendly Dashboard",
-      description: "Social media analytics with Supabase integration",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      url: "https://preview--friendly-supabase-86.lovable.app/"
-    },
-    {
-      name: "PromptVault Pilot",
-      description: "AI prompt management for teams and organizations",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      url: "https://preview--promptvaultpilot.lovable.app/"
+      src: "/path/to/project-image.png",
+      alt: "Lovable Project Example",
+      description: "An AI-powered web application showcasing modern development techniques"
     }
+    // Add more projects
   ];
 
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
@@ -55,22 +42,22 @@ const LovableProjectsCarousel = () => {
           {projects.map((project, index) => (
             <CarouselItem
               key={index}
-              className="basis-full md:basis-1/2 lg:basis-1/3 h-full p-2"
+              className="basis-full md:basis-1/2 lg:basis-1/2 h-full p-2"
             >
               <div 
-                className="cursor-pointer h-full bg-white shadow-md rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg"
+                className="cursor-pointer h-full bg-white dark:bg-gray-800 shadow-md rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-blue-200 dark:hover:border-blue-700 group"
                 onClick={() => openProjectModal(project)}
               >
                 <div className="relative h-[200px] md:h-[220px] overflow-hidden">
                   <img
-                    src={project.image}
-                    alt={project.name}
-                    className="w-full h-full object-cover object-top transition-all duration-300 transform hover:scale-110"
+                    src={project.src}
+                    alt={project.alt}
+                    className="w-full h-full object-cover object-top transition-all duration-300 transform group-hover:scale-110"
                   />
                 </div>
-                <div className="p-4 bg-gray-50">
-                  <h4 className="text-lg font-semibold text-black">{project.name}</h4>
-                  <p className="text-gray-800 text-sm mt-1">{project.description}</p>
+                <div className="p-4 bg-gray-50 dark:bg-gray-800">
+                  <h4 className="text-lg font-semibold text-black dark:text-white">{project.alt.split(" ").slice(0, 3).join(" ")}</h4>
+                  <p className="text-gray-800 dark:text-gray-300 text-sm mt-1">{project.description.split(" ").slice(0, 10).join(" ")}...</p>
                 </div>
               </div>
             </CarouselItem>
@@ -80,68 +67,25 @@ const LovableProjectsCarousel = () => {
         <CarouselNext className="right-2 bg-black/50 hover:bg-black/80 border-none" />
       </Carousel>
 
-      {/* Project Modal */}
+      {/* Modal for project details */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="bg-white max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="bg-white dark:bg-gray-800 max-w-4xl max-h-[90vh] overflow-y-auto">
           {selectedProject && (
             <>
               <DialogHeader>
-                <DialogTitle className="text-2xl font-bold text-gray-800">{selectedProject.name}</DialogTitle>
-                <DialogDescription className="text-gray-600">
+                <DialogTitle className="text-2xl font-bold text-gray-800 dark:text-gray-100">{selectedProject.alt}</DialogTitle>
+                <DialogDescription className="text-gray-600 dark:text-gray-300">
                   {selectedProject.description}
                 </DialogDescription>
               </DialogHeader>
               
-              <div className="mt-4 bg-gray-50 p-2 rounded-lg">
+              <div className="mt-4 bg-gray-50 dark:bg-gray-700 p-2 rounded-lg">
                 <img 
-                  src={selectedProject.image} 
-                  alt={selectedProject.name} 
+                  src={selectedProject.src} 
+                  alt={selectedProject.alt} 
                   className="w-full object-contain rounded-lg"
                 />
               </div>
-              
-              <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100">
-                <h4 className="text-lg font-semibold text-gray-800 mb-2">Need a custom AI-powered solution?</h4>
-                <p className="text-gray-600 mb-4">I can create similar or more advanced solutions tailored to your specific business needs.</p>
-                <Button
-                  className="bg-blue-600 hover:bg-blue-700 w-full text-white"
-                  asChild
-                  onClick={() => {
-                    setModalOpen(false);
-                    setTimeout(() => {
-                      document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
-                    }, 300);
-                  }}
-                >
-                  <a className="flex items-center justify-center">
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Schedule a Consultation
-                  </a>
-                </Button>
-              </div>
-              
-              <DialogFooter className="mt-6 flex justify-between">
-                <Button 
-                  asChild
-                  className="bg-blue-600 hover:bg-blue-700"
-                >
-                  <a 
-                    href={selectedProject.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    View Demo <ExternalLink size={16} className="ml-2" />
-                  </a>
-                </Button>
-                
-                <Button 
-                  onClick={() => setModalOpen(false)}
-                  variant="outline"
-                  className="border border-gray-300 hover:bg-gray-100"
-                >
-                  Close
-                </Button>
-              </DialogFooter>
             </>
           )}
         </DialogContent>

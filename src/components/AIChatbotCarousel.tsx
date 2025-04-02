@@ -47,14 +47,14 @@ const AIChatbotCarousel = () => {
               className="basis-full md:basis-1/2 lg:basis-1/2 h-full p-2"
             >
               <div 
-                className="cursor-pointer h-full bg-white shadow-md rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg"
+                className="cursor-pointer h-full bg-white dark:bg-gray-800 shadow-md rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-blue-200 dark:hover:border-blue-700 group"
                 onClick={() => openImageModal(image)}
               >
                 <div className="relative h-[200px] md:h-[220px] overflow-hidden">
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-full object-cover object-top transition-all duration-300 transform hover:scale-110"
+                    className="w-full h-full object-cover object-top transition-all duration-300 transform group-hover:scale-110"
                   />
                 </div>
                 <div className="p-4 bg-gray-50 dark:bg-gray-800">
