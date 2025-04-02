@@ -22,7 +22,7 @@ const HomeSection = () => {
     setDisplayText("");
     
     const timer = setTimeout(() => {
-      handleType();
+      // handleType();
     }, 1000); // Initial delay before typing starts
     
     return () => clearTimeout(timer);
@@ -33,34 +33,34 @@ const HomeSection = () => {
     let timer: NodeJS.Timeout;
     
     // Always keep typing until we reach the full text
-    if (!isDeleting && displayText !== texts[loopNum % texts.length]) {
-      timer = setTimeout(() => {
-        handleType();
-      }, typingSpeed);
-    } 
-    // If we need to delete, keep deleting until we reach a certain threshold
-    else if (isDeleting && displayText.length > 3) {
-      timer = setTimeout(() => {
-        handleType();
-      }, typingSpeed);
-    }
-    // If we've reached our deletion threshold (3 characters remaining)
-    else if (isDeleting && displayText.length <= 3) {
-      setIsDeleting(false);
-      setLoopNum(loopNum + 1);
-      // Small pause before typing the next text
-      timer = setTimeout(() => {
-        handleType();
-      }, 500);
-    }
-    // If we've finished typing the full text
-    else if (!isDeleting && displayText === texts[loopNum % texts.length]) {
-      // Pause at end of text before starting to delete
-      timer = setTimeout(() => {
-        setIsDeleting(true);
-        handleType();
-      }, 1500);
-    }
+    // if (!isDeleting && displayText !== texts[loopNum % texts.length]) {
+    //   timer = setTimeout(() => {
+    //     handleType();
+    //   }, typingSpeed);
+    // } 
+    // // If we need to delete, keep deleting until we reach a certain threshold
+    // else if (isDeleting && displayText.length > 3) {
+    //   timer = setTimeout(() => {
+    //     handleType();
+    //   }, typingSpeed);
+    // }
+    // // If we've reached our deletion threshold (3 characters remaining)
+    // else if (isDeleting && displayText.length <= 3) {
+    //   setIsDeleting(false);
+    //   setLoopNum(loopNum + 1);
+    //   // Small pause before typing the next text
+    //   timer = setTimeout(() => {
+    //     handleType();
+    //   }, 500);
+    // }
+    // // If we've finished typing the full text
+    // else if (!isDeleting && displayText === texts[loopNum % texts.length]) {
+    //   // Pause at end of text before starting to delete
+    //   timer = setTimeout(() => {
+    //     setIsDeleting(true);
+    //     handleType();
+    //   }, 1500);
+    // }
     
     return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -108,8 +108,7 @@ const HomeSection = () => {
               </p>
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight animate-fade-in-up animate-delay-200 drop-shadow-sm min-h-[80px] md:min-h-[96px] flex items-center">
                 <span className="typewriter bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400">
-                  {displayText}
-                  <span className="cursor-blink"></span>
+                  Hello, I'm Iqra Faisal
                 </span>
               </h1>
               
