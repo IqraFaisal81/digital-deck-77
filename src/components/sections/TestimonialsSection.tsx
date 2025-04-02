@@ -57,6 +57,7 @@ const TestimonialsSection = () => {
           title="Client Testimonials"
           description="Hear directly from our clients about their experience working with us"
           alignment="center"
+          useGradient={true}
         />
         
         {/* Client Logos */}
@@ -70,7 +71,7 @@ const TestimonialsSection = () => {
                   className="h-14 object-contain transition-all dark:invert dark:brightness-75 dark:filter" 
                 />
               ) : (
-                <div className="h-14 flex items-center justify-center px-4 font-medium text-gray-600 dark:text-gray-300">
+                <div className="h-14 flex items-center justify-center px-4 font-medium text-royal dark:text-electric">
                   {client.name}
                 </div>
               )}
@@ -102,12 +103,12 @@ const TestimonialsSection = () => {
                                 </div>
                               )}
                               <div className="mb-6">
-                                <h4 className="text-xl font-bold text-center mb-2 text-gray-900 dark:text-white">{client.name}</h4>
+                                <h4 className="text-xl font-bold text-center mb-2 text-royal dark:text-electric">{client.name}</h4>
                               </div>
                               <p className="text-sm text-gray-700 dark:text-gray-300 text-center font-light">{client.description}</p>
                               <div className="mt-6 text-xs font-light italic text-gray-500 dark:text-gray-400 text-center">
                                 {client.website !== "#" && (
-                                  <a href={client.website} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                                  <a href={client.website} target="_blank" rel="noopener noreferrer" className="hover:underline text-electric dark:text-royal hover:text-royal/80 dark:hover:text-electric/80 transition-colors">
                                     Visit Website
                                   </a>
                                 )}
@@ -120,17 +121,23 @@ const TestimonialsSection = () => {
                               </div>
                               
                               <blockquote className="text-black dark:text-white italic mb-6 relative z-10 text-lg md:text-xl leading-relaxed">
+                                <span className="absolute -top-4 -left-2 text-royal/10 dark:text-electric/10">
+                                  <Quote size={40} className="rotate-180" />
+                                </span>
                                 "{client.testimonial?.quote}"
+                                <span className="absolute -bottom-4 -right-2 text-royal/10 dark:text-electric/10">
+                                  <Quote size={40} />
+                                </span>
                               </blockquote>
                               
                               <div className="mt-auto flex items-center border-t border-gray-100 dark:border-gray-700 pt-5">
-                                <Avatar className="h-14 w-14 border-2 border-gray-100 dark:border-gray-700 mr-4 shadow-sm">
-                                  <AvatarFallback className="bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 font-semibold">
+                                <Avatar className="h-14 w-14 border-2 border-royal/20 dark:border-electric/20 mr-4 shadow-sm">
+                                  <AvatarFallback className="bg-royal/10 dark:bg-electric/10 text-royal dark:text-electric font-semibold">
                                     {client.testimonial?.author.split(' ').map(n => n[0]).join('')}
                                   </AvatarFallback>
                                 </Avatar>
                                 <div>
-                                  <div className="font-bold text-black dark:text-white text-lg">
+                                  <div className="font-bold text-royal dark:text-electric text-lg">
                                     {client.testimonial?.author}
                                   </div>
                                   <div className="text-sm text-gray-700 dark:text-gray-300">
@@ -154,16 +161,16 @@ const TestimonialsSection = () => {
                     onClick={() => carouselApi?.scrollTo(index)}
                     className={`transition-all duration-300 ${
                       currentIndex === index 
-                        ? 'bg-gradient-to-r from-gray-400 to-gray-600 dark:from-gray-600 dark:to-gray-400 w-8 h-2.5 rounded-full shadow-md' 
-                        : 'bg-gray-300 dark:bg-gray-600 w-2.5 h-2.5 rounded-full hover:bg-gray-400 dark:hover:bg-gray-500 hover:scale-110'
+                        ? 'bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon w-8 h-2.5 rounded-full shadow-md' 
+                        : 'bg-gray-300 dark:bg-gray-600 w-2.5 h-2.5 rounded-full hover:bg-royal/50 dark:hover:bg-electric/50 hover:scale-110'
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
                 ))}
               </div>
               
-              <CarouselPrevious className="hidden md:flex -left-5 h-10 w-10 border-none bg-white dark:bg-gray-800 shadow-lg focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600 focus:ring-offset-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-700 dark:hover:text-gray-200" />
-              <CarouselNext className="hidden md:flex -right-5 h-10 w-10 border-none bg-white dark:bg-gray-800 shadow-lg focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600 focus:ring-offset-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-700 dark:hover:text-gray-200" />
+              <CarouselPrevious className="hidden md:flex -left-5 h-10 w-10 border-none bg-white dark:bg-gray-800 shadow-lg focus:ring-2 focus:ring-royal dark:focus:ring-electric focus:ring-offset-2 text-royal dark:text-electric hover:bg-gray-50 dark:hover:bg-gray-700" />
+              <CarouselNext className="hidden md:flex -right-5 h-10 w-10 border-none bg-white dark:bg-gray-800 shadow-lg focus:ring-2 focus:ring-royal dark:focus:ring-electric focus:ring-offset-2 text-royal dark:text-electric hover:bg-gray-50 dark:hover:bg-gray-700" />
             </Carousel>
           )}
         </div>
