@@ -57,9 +57,9 @@ const AIChatbotCarousel = () => {
                     className="w-full h-full object-cover object-top transition-all duration-300 transform hover:scale-110"
                   />
                 </div>
-                <div className="p-4 bg-gray-50">
-                  <h4 className="text-lg font-semibold text-black">{image.alt.split(" ").slice(0, 3).join(" ")}</h4>
-                  <p className="text-gray-800 text-sm mt-1">{image.description.split(" ").slice(0, 10).join(" ")}...</p>
+                <div className="p-4 bg-gray-50 dark:bg-gray-800">
+                  <h4 className="text-lg font-semibold text-black dark:text-white">{image.alt.split(" ").slice(0, 3).join(" ")}</h4>
+                  <p className="text-gray-800 dark:text-gray-300 text-sm mt-1">{image.description.split(" ").slice(0, 10).join(" ")}...</p>
                 </div>
               </div>
             </CarouselItem>
