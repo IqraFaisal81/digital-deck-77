@@ -63,26 +63,12 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
                   </CardDescription>
                 </CardContent>
                 <CardFooter className="flex justify-between items-center border-t pt-4 bg-gray-50 dark:bg-gray-800/50">
-                  <div className="flex flex-col gap-2">
-                    {service.sectionId && (
-                      <div className="text-royal dark:text-electric text-sm flex items-center">
-                        <span>{visibleSection === service.sectionId ? 'Hide details' : 'Learn more'}</span>
-                        <ArrowRight size={14} className="ml-1" />
-                      </div>
-                    )}
-                    {service.url && (
-                      <a 
-                        href={service.url} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        onClick={(e) => e.stopPropagation()}
-                        className="text-xs text-gray-600 dark:text-gray-400 hover:text-royal dark:hover:text-electric flex items-center"
-                      >
-                        <span>Visit example</span>
-                        <ArrowRight size={10} className="ml-1" />
-                      </a>
-                    )}
-                  </div>
+                  {service.sectionId && (
+                    <div className="text-royal dark:text-electric text-sm flex items-center">
+                      <span>{visibleSection === service.sectionId ? 'Hide details' : 'Learn more'}</span>
+                      <ArrowRight size={14} className="ml-1" />
+                    </div>
+                  )}
                   
                   <Button
                     variant="ghost"

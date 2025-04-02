@@ -17,24 +17,21 @@ export const services = [
     title: "CRM Automations",
     description: "Streamline your operations with powerful Go High Level workflows, lead nurturing, tagging, and customer journeys that practically run themselves.",
     icon: Settings,
-    sectionId: "workflows", // Section ID to link to
-    url: "https://chuck.triad-ds.com/triads-autel-black-friday"
+    sectionId: "workflows" // Section ID to link to
   },
   {
     id: 2,
     title: "Funnel Development",
     description: "Whether it's onboarding, e-commerce, or lead capture—I build high-converting funnels that look great and drive real results.",
     icon: Repeat,
-    sectionId: "funnels", // Updated to link to funnels section
-    url: "https://go.callallproindy.com/all-pro---shts-go-down"
+    sectionId: "funnels" // Updated to link to funnels section
   },
   {
     id: 3,
     title: "Email Marketing",
     description: "I craft email campaigns and automations that engage, convert, and retain your audience without sounding like a robot.",
     icon: Mail,
-    sectionId: "email-marketing", // Updated to link to the new email marketing section
-    url: "https://mikegreenecoaching.co.uk/mentoring-with-mike-greene"
+    sectionId: "email-marketing" // Updated to link to the new email marketing section
   },
   {
     id: 4,
@@ -68,4 +65,3 @@ export const services = [
 
 // Array of all section IDs for toggling visibility
 export const sectionIds = ["workflows", "seo-audits", "funnels", "email-marketing", "ppc-analytics", "ai-chatbot", "lovable-projects"];
-
