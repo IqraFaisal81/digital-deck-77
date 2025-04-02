@@ -33,7 +33,7 @@ const TestimonialsSection = () => {
           </div>
         </div>
         
-        <Separator className="max-w-4xl mx-auto my-16 bg-gray-200 dark:bg-gray-700" />
+        {/* Removed the Separator */}
       </div>
     </section>
   );
