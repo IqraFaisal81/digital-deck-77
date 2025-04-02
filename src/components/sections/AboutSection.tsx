@@ -51,13 +51,7 @@ const AboutSection = () => {
                 ))}
               </div>
               
-              <Button 
-                className="bg-gradient-to-r from-blue-600 to-black hover:from-blue-700 hover:to-gray-900 
-                  text-white rounded-full px-8 py-7 shadow-lg hover:shadow-xl transition-all duration-300 
-                  group bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-400 
-                  hover:from-white hover:to-blue-500"
-                size="lg"
-              >
+              <Button className="bg-gradient-to-r from-blue-600 to-black hover:from-blue-700 hover:to-gray-900 text-white rounded-full px-8 py-7 shadow-lg hover:shadow-xl transition-all duration-300 group" size="lg">
                 <a href="#skills" className="flex items-center">
                   View My Skills
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
