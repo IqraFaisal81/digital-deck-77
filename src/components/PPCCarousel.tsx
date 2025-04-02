@@ -9,7 +9,8 @@ import {
 } from "@/components/ui/carousel";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, ZoomIn, LineChart, BarChart3, PieChart } from "lucide-react";
+import { ExternalLink, ZoomIn, LineChart, BarChart3, PieChart, ChevronLeft, ChevronRight } from "lucide-react";
+import { scrollToServiceSection } from "@/utils/ScrollToServiceUtils";
 
 // Define PPC campaigns data
 const ppcAnalytics = [
@@ -81,7 +82,7 @@ const PPCCarousel = () => {
   };
 
   return (
-    <div className="w-full bg-gradient-to-br from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 p-6 rounded-2xl">
+    <div className="w-full bg-gradient-to-br from-blue-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-6 rounded-2xl border border-blue-100/50 dark:border-blue-900/30 shadow-lg">
       <Carousel
         opts={{
           align: "start",
@@ -93,44 +94,48 @@ const PPCCarousel = () => {
           {ppcAnalytics.map((analytic) => (
             <CarouselItem key={analytic.id} className="basis-full md:basis-1/2 lg:basis-1/3 p-2">
               <div 
-                className="cursor-pointer h-full bg-white dark:bg-gray-800 shadow-lg rounded-xl border border-blue-100 dark:border-blue-900/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group"
+                className="cursor-pointer h-full bg-white dark:bg-gray-800 rounded-xl border border-blue-100 dark:border-blue-900/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group shadow"
                 onClick={() => openAnalyticModal(analytic)}
               >
-                <div className="relative h-[200px] md:h-[220px] overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <ZoomIn className="h-12 w-12 text-white" />
+                <div className="relative h-[180px] md:h-[200px] overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <ZoomIn className="h-10 w-10 text-white bg-blue-600/80 p-2 rounded-full" />
                   </div>
                   <img 
                     src={analytic.image} 
                     alt={analytic.title} 
-                    className="w-full h-full object-cover object-top transition-all duration-500 transform group-hover:scale-110"
+                    className="w-full h-full object-cover object-top transition-all duration-500 transform group-hover:scale-105"
                   />
                 </div>
-                <div className="p-5 bg-white dark:bg-gray-800">
+                <div className="p-4 bg-white dark:bg-gray-800">
                   <div className="flex items-center mb-2">
-                    <div className="bg-blue-100 dark:bg-blue-900/40 p-2 rounded-full mr-3">
+                    <div className="bg-blue-600 dark:bg-blue-500 p-1.5 rounded-md mr-3 text-white">
                       {analytic.icon}
                     </div>
-                    <h4 className="text-lg font-bold text-gray-800 dark:text-gray-200">{analytic.title}</h4>
+                    <h4 className="text-md font-bold text-gray-800 dark:text-gray-200 line-clamp-1">{analytic.title}</h4>
                   </div>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm">{analytic.description}</p>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm line-clamp-2">{analytic.description}</p>
                 </div>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-2 bg-white/80 dark:bg-gray-800/80 hover:bg-blue-600 hover:text-white dark:hover:bg-electric border-none shadow-lg" />
-        <CarouselNext className="right-2 bg-white/80 dark:bg-gray-800/80 hover:bg-blue-600 hover:text-white dark:hover:bg-electric border-none shadow-lg" />
+        <CarouselPrevious className="left-2 bg-white dark:bg-gray-800 hover:bg-blue-600 hover:text-white border-none shadow-lg">
+          <ChevronLeft className="h-4 w-4" />
+        </CarouselPrevious>
+        <CarouselNext className="right-2 bg-white dark:bg-gray-800 hover:bg-blue-600 hover:text-white border-none shadow-lg">
+          <ChevronRight className="h-4 w-4" />
+        </CarouselNext>
       </Carousel>
 
       {/* Analytics Modal */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="bg-white dark:bg-gray-800 max-w-5xl max-h-[90vh] overflow-y-auto rounded-xl border border-blue-100 dark:border-blue-900/50 shadow-2xl">
+        <DialogContent className="bg-white dark:bg-gray-800 max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl border border-blue-100 dark:border-blue-900/50 shadow-2xl p-0">
           {selectedAnalytic && (
             <>
-              <DialogHeader>
+              <DialogHeader className="p-6 border-b border-gray-100 dark:border-gray-700">
                 <div className="flex items-center">
-                  <div className="bg-blue-100 dark:bg-blue-900/40 p-2 rounded-full mr-3">
+                  <div className="bg-blue-600 dark:bg-blue-500 p-2 rounded-md mr-3 text-white">
                     {selectedAnalytic.icon}
                   </div>
                   <DialogTitle className="text-2xl font-bold text-gray-800 dark:text-gray-200">{selectedAnalytic.title}</DialogTitle>
@@ -140,21 +145,35 @@ const PPCCarousel = () => {
                 </DialogDescription>
               </DialogHeader>
               
-              <div className="mt-6 bg-gray-50 dark:bg-gray-900/50 p-3 rounded-lg border border-gray-100 dark:border-gray-700">
-                <img 
-                  src={selectedAnalytic.image} 
-                  alt={selectedAnalytic.title} 
-                  className="w-full object-contain rounded-lg"
-                />
-              </div>
-              
-              <div className="mt-6 flex justify-end">
-                <Button
-                  className="bg-blue-600 hover:bg-blue-700 text-white dark:bg-electric dark:hover:bg-blue-500"
-                  onClick={() => setModalOpen(false)}
-                >
-                  Close
-                </Button>
+              <div className="p-6">
+                <div className="bg-gray-50 dark:bg-gray-900/50 p-4 rounded-lg border border-gray-100 dark:border-gray-700">
+                  <img 
+                    src={selectedAnalytic.image} 
+                    alt={selectedAnalytic.title} 
+                    className="w-full object-contain rounded-lg shadow-inner"
+                  />
+                </div>
+                
+                <div className="mt-6 flex justify-between">
+                  <Button
+                    className="bg-gray-200 hover:bg-gray-300 text-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white"
+                    variant="outline"
+                    onClick={() => setModalOpen(false)}
+                  >
+                    Close
+                  </Button>
+                  
+                  <Button
+                    className="bg-blue-600 hover:bg-blue-700 text-white"
+                    onClick={() => {
+                      setModalOpen(false);
+                      scrollToServiceSection("ppc-analytics");
+                    }}
+                  >
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    View PPC Services
+                  </Button>
+                </div>
               </div>
             </>
           )}
