@@ -32,7 +32,6 @@ const ProjectHighlightsSection = () => {
       
       <div className="container mx-auto relative z-10">
         <SectionHeader 
-          subtitle="Client Success Stories"
           title="Real Results for Real Clients"
           description="See how our strategic approach and technical expertise delivered measurable outcomes for businesses looking to improve their customer engagement and revenue."
           alignment="center"

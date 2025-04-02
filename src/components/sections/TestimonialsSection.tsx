@@ -19,7 +19,6 @@ const TestimonialsSection = () => {
         <div className="absolute bottom-40 left-20 w-32 h-32 rounded-full bg-indigo-300/30 dark:bg-indigo-700/20 blur-xl animate-float"></div>
         
         <SectionHeader 
-          subtitle="Client Testimonials"
           title="Client Testimonials"
           description="Hear from the people who've experienced the transformative impact of digital solutions"
           alignment="center"

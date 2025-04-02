@@ -131,7 +131,6 @@ const SkillsSection = () => {
         </div>
         
         <SectionHeader 
-          subtitle="Professional Capabilities"
           title={<>Skills & <span className="text-blue-600 dark:text-blue-400 relative inline-block">
             Expertise
             <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-400/30 dark:bg-blue-600/30 rounded-full"></span>
