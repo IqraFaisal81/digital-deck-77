@@ -31,7 +31,7 @@ const SkillCard = ({ name, icon, skills, index }: SkillCardProps) => {
           </div>
           
           {/* Title with gradient text */}
-          <h3 className="text-lg font-semibold ml-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-700 dark:from-blue-400 dark:to-indigo-400">
+          <h3 className="text-lg font-semibold ml-4 bg-gradient-to-r from-blue-700 to-indigo-700 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
             {name}
           </h3>
         </div>
