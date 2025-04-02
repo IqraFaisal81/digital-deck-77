@@ -45,7 +45,7 @@ const AboutSection = () => {
                     key={index} 
                     className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 flex items-center space-x-2 h-full hover:shadow-lg transition-all duration-300"
                   >
-                    <Check className="text-purple-600 dark:text-purple-400 flex-shrink-0" />
+                    <Check className="text-blue-600 dark:text-blue-400 flex-shrink-0" />
                     <span className="text-gray-700 dark:text-gray-300">{item}</span>
                   </div>
                 ))}
@@ -70,7 +70,7 @@ const AboutSection = () => {
               <CardContent>
                 <div className="space-y-0 relative">
                   {/* Journey line */}
-                  <div className="absolute left-[9px] top-[22px] bottom-[22px] w-[2px] bg-gradient-to-b from-purple-500 to-blue-500"></div>
+                  <div className="absolute left-[9px] top-[22px] bottom-[22px] w-[2px] bg-gradient-to-b from-blue-500 to-electric"></div>
                   
                   {[
                     {
@@ -99,7 +99,7 @@ const AboutSection = () => {
                       className="relative pl-8 py-4"
                     >
                       {/* Timeline dot */}
-                      <div className="absolute left-0 top-[22px] h-5 w-5 rounded-full bg-gradient-to-r from-purple-600 to-blue-500 shadow-md z-10"></div>
+                      <div className="absolute left-0 top-[22px] h-5 w-5 rounded-full bg-gradient-to-r from-blue-600 to-electric shadow-md z-10"></div>
                       
                       <p className="text-sm bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-electric dark:to-maroon font-medium">
                         {job.period}
