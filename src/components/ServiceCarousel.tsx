@@ -21,7 +21,7 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
   const { carouselApi, setCarouselApi, currentIndex } = useCarouselState();
   
   return (
-    <div className="w-full mt-8">
+    <div className="w-full">
       <Carousel
         opts={{
           align: "start",
@@ -34,41 +34,39 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
           {services && services.map((service) => (
             <CarouselItem 
               key={service.id} 
-              className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/3 p-2"
+              className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/3 p-3"
             >
               <div 
-                className={`rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 p-6 h-full flex flex-col ${
-                  service.sectionId ? 'cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/30' : ''
-                } ${
-                  service.sectionId && visibleSection === service.sectionId ? 'ring-2 ring-royal dark:ring-electric' : ''
-                }`}
+                className={`group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border border-gray-100/80 dark:border-gray-700/80 p-6 h-full flex flex-col 
+                  ${service.sectionId ? 'cursor-pointer hover:translate-y-[-5px]' : ''} 
+                  ${service.sectionId && visibleSection === service.sectionId ? 'ring-2 ring-royal dark:ring-electric translate-y-[-5px]' : ''}`}
                 onClick={() => scrollToSection(service.sectionId)}
               >
-                <div className="bg-blue-100 dark:bg-blue-900/50 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                  <service.icon className="text-royal dark:text-electric" size={24} />
+                <div className="bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/50 dark:to-indigo-900/50 p-3 rounded-xl w-14 h-14 flex items-center justify-center mb-4 transform transition-transform group-hover:scale-110 group-hover:rotate-3">
+                  <service.icon className="text-royal dark:text-electric" size={22} />
                 </div>
-                <h3 className="text-xl font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-black to-royal dark:from-white dark:to-electric">{service.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">{service.description}</p>
+                <h3 className="text-lg font-semibold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon">{service.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow text-sm">{service.description}</p>
                 
                 <div className="flex justify-between items-center mt-auto">
                   {service.sectionId && (
-                    <div className="text-royal dark:text-electric text-sm flex items-center">
+                    <div className="text-royal dark:text-electric text-xs flex items-center group-hover:translate-x-1 transition-transform duration-300">
                       <span>{visibleSection === service.sectionId ? 'Hide details' : 'View details'}</span>
-                      <ArrowRight size={14} className="ml-1" />
+                      <ArrowRight size={12} className="ml-1" />
                     </div>
                   )}
                   
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="text-gray-600 dark:text-gray-300 hover:text-royal dark:hover:text-electric hover:bg-blue-50 dark:hover:bg-blue-900/20 text-xs"
+                    className="text-gray-600 dark:text-gray-300 hover:text-royal dark:hover:text-electric hover:bg-blue-50 dark:hover:bg-blue-900/20 text-xs p-1 h-auto"
                     onClick={(e) => {
                       e.stopPropagation();
                       document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
                     }}
                   >
                     <Calendar className="mr-1 h-3 w-3" />
-                    Book Consultation
+                    Book
                   </Button>
                 </div>
               </div>
