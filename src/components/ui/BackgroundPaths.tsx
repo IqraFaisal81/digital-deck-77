@@ -131,3 +131,5 @@ export function BackgroundPaths({
         </div>
     );
 }
+
+export default BackgroundPaths;

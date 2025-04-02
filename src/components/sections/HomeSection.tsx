@@ -3,13 +3,13 @@ import { ArrowDown, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { BackgroundPaths } from "@/components/ui/BackgroundPaths";
+import BackgroundPaths from "@/components/ui/BackgroundPaths";
 
 const HomeSection = () => {
   return (
     <section id="home" className="min-h-screen relative overflow-hidden">
       {/* Background Component */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10 w-full h-full">
         <BackgroundPaths title="Iqra Faisal" />
       </div>
       
