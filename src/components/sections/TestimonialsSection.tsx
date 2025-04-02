@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { clients } from "@/data/clients";
@@ -92,12 +91,7 @@ const TestimonialsSection = () => {
         <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
           <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
             <div className="p-8 rounded-2xl bg-gradient-to-br from-white/80 to-white/50 dark:from-gray-800/80 dark:to-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-lg">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent mb-6">Trusted by Companies</h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-8">
-                We partner with innovative businesses across industries to deliver exceptional results and drive meaningful growth.
-              </p>
-              
-              <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 mb-6">
                 {clients.slice(0, 4).map((client, index) => (
                   <div 
                     key={index} 
@@ -111,6 +105,10 @@ const TestimonialsSection = () => {
                   </div>
                 ))}
               </div>
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent mb-6">Trusted by Companies</h3>
+              <p className="text-gray-700 dark:text-gray-300 mb-8">
+                We partner with innovative businesses across industries to deliver exceptional results and drive meaningful growth.
+              </p>
             </div>
             
             <div className="p-8 rounded-2xl bg-gradient-to-br from-white/80 to-white/50 dark:from-gray-800/80 dark:to-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-lg">
