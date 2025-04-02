@@ -11,6 +11,8 @@ const testimonialData: Testimonial[] = clients
     name: client.testimonial?.author || "",
     avatar: client.logo, // Using client logo as avatar
     description: client.testimonial?.quote || "",
+    role: client.testimonial?.position || "",
+    rating: client.testimonial?.rating || 5,
   }));
 
 export function TestimonialCarouselDemo() {
