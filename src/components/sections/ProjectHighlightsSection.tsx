@@ -30,7 +30,7 @@ const ProjectHighlightsSection = () => {
       <div className="absolute top-20 right-10 w-64 h-64 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-30"></div>
       <div className="absolute bottom-20 left-10 w-80 h-80 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-30"></div>
       
-      <div className="container mx-auto relative z-10">
+      <div className="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 py-10">
         <SectionHeader 
           title="Real Results for Real Clients"
           description="See how our strategic approach and technical expertise delivered measurable outcomes for businesses looking to improve their customer engagement and revenue."
