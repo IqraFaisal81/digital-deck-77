@@ -1,6 +1,5 @@
 
 import React, { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import { 
   Carousel,
   CarouselContent,
@@ -14,54 +13,6 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { clients } from "@/data/clients";
 import { Star, Quote } from "lucide-react";
 import SectionHeader from "@/components/skills/SectionHeader";
-import { Button } from "@/components/ui/button";
-
-function FloatingPaths({ position }: { position: number }) {
-  const paths = Array.from({ length: 36 }, (_, i) => ({
-      id: i,
-      d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
-          380 - i * 5 * position
-      } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${
-          152 - i * 5 * position
-      } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
-          684 - i * 5 * position
-      } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-      color: `rgba(15,23,42,${0.1 + i * 0.03})`,
-      width: 0.5 + i * 0.03,
-  }));
-
-  return (
-      <div className="absolute inset-0 pointer-events-none opacity-30">
-          <svg
-              className="w-full h-full text-blue-500"
-              viewBox="0 0 696 316"
-              fill="none"
-          >
-              <title>Background Paths</title>
-              {paths.map((path) => (
-                  <motion.path
-                      key={path.id}
-                      d={path.d}
-                      stroke="currentColor"
-                      strokeWidth={path.width}
-                      strokeOpacity={0.1 + path.id * 0.02}
-                      initial={{ pathLength: 0.3, opacity: 0.6 }}
-                      animate={{
-                          pathLength: 1,
-                          opacity: [0.3, 0.6, 0.3],
-                          pathOffset: [0, 1, 0],
-                      }}
-                      transition={{
-                          duration: 20 + Math.random() * 10,
-                          repeat: Number.POSITIVE_INFINITY,
-                          ease: "linear",
-                      }}
-                  />
-              ))}
-          </svg>
-      </div>
-  );
-}
 
 const TestimonialsSection = () => {
   const testimonials = clients.filter(client => client.testimonial);
@@ -98,38 +49,20 @@ const TestimonialsSection = () => {
     <section 
       id="testimonials" 
       ref={sectionRef}
-      className="py-20 md:py-28 px-4 md:px-8 bg-white overflow-hidden relative"
+      className="py-20 md:py-28 px-4 md:px-8 bg-white overflow-hidden"
     >
-      {/* Background Animation */}
-      <div className="absolute inset-0">
-        <FloatingPaths position={1} />
-        <FloatingPaths position={-1} />
-      </div>
-      
-      <div className="container mx-auto relative z-10">
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <SectionHeader 
-            subtitle="Trusted by Businesses"
-            title="Client Testimonials"
-            description="Hear directly from our clients about their experience working with us"
-            alignment="center"
-          />
-        </motion.div>
+      <div className="container mx-auto">
+        <SectionHeader 
+          subtitle="Trusted by Businesses"
+          title="Client Testimonials"
+          description="Hear directly from our clients about their experience working with us"
+          alignment="center"
+        />
         
         {/* Client Logos */}
         <div className="flex flex-wrap justify-center gap-4 mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
           {clients.map((client, index) => (
-            <motion.div 
-              key={index} 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="p-3 bg-white backdrop-blur-sm rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:bg-white group"
-            >
+            <div key={index} className="p-3 bg-white backdrop-blur-sm rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:bg-white group">
               {client.logo ? (
                 <img 
                   src={client.logo} 
@@ -141,7 +74,7 @@ const TestimonialsSection = () => {
                   {client.name}
                 </div>
               )}
-            </motion.div>
+            </div>
           ))}
         </div>
         
@@ -158,12 +91,7 @@ const TestimonialsSection = () => {
               <CarouselContent className="-ml-2 md:-ml-4">
                 {testimonials.map((client, index) => (
                   <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-4/5 lg:basis-3/4">
-                    <motion.div 
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.2, duration: 0.7 }}
-                      className="h-full"
-                    >
+                    <div className="h-full">
                       <Card className="shadow-lg border-0 overflow-hidden bg-white hover:shadow-2xl transition-all duration-500 h-full transform hover:-translate-y-1 rounded-xl">
                         <CardContent className="p-0 h-full">
                           <div className="flex flex-col md:flex-row h-full">
@@ -214,7 +142,7 @@ const TestimonialsSection = () => {
                           </div>
                         </CardContent>
                       </Card>
-                    </motion.div>
+                    </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
