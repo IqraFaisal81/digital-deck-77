@@ -16,8 +16,11 @@ const AboutSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="order-2 md:order-1">
             <div className="space-y-8 max-w-xl mx-auto md:mx-0">
-              <h2 className="text-4xl md:text-5xl font-bold text-gradient font-display">
-                About Me
+              <h2 className="text-4xl md:text-5xl font-bold font-display">
+                <span className="text-black dark:text-gray-100 relative inline-block">
+                  About <span className="text-blue-600 dark:text-blue-400">Me</span>
+                  <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-400/30 dark:bg-blue-600/30 rounded-full"></span>
+                </span>
               </h2>
               
               <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 hover-lift">
