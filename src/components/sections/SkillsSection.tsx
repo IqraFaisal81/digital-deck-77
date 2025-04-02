@@ -131,7 +131,7 @@ const SkillsSection = () => {
         </div>
         
         <SectionHeader 
-          title={<>Skills & <span className="text-blue-600 dark:text-blue-400 relative inline-block">
+          title={<>Skills & <span className="text-blue-600 dark:text-blue-400 relative inline-block bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-electric dark:to-maroon">
             Expertise
             <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-400/30 dark:bg-blue-600/30 rounded-full"></span>
           </span></>}
