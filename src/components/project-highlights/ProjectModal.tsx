@@ -10,6 +10,7 @@ import {
   DialogFooter 
 } from "@/components/ui/dialog";
 import ProjectDetailsContent from "./ProjectDetailsContent";
+import { scrollToServiceSection } from "@/utils/ScrollToServiceUtils";
 
 interface ProjectModalProps {
   modalOpen: boolean;
@@ -28,20 +29,20 @@ const ProjectModal = ({
 
   return (
     <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-      <DialogContent className="bg-gradient-to-br from-royal/95 to-electric/95 backdrop-blur-xl border border-white/20 text-white max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl shadow-[0_10px_40px_-5px_rgba(0,0,0,0.3)] animate-in fade-in-0 zoom-in-95 duration-300">
-        <DialogHeader className="space-y-2">
-          <DialogTitle className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">{selectedProject.title}</DialogTitle>
-          <DialogDescription className="text-white/90 text-base">
+      <DialogContent className="bg-royal/90 backdrop-blur-xl border border-white/10 text-white max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="text-2xl font-bold">{selectedProject.title}</DialogTitle>
+          <DialogDescription className="text-white/80">
             {selectedProject.category} for {selectedProject.clientName}
           </DialogDescription>
         </DialogHeader>
         
         <ProjectDetailsContent project={selectedProject} setModalOpen={setModalOpen} />
         
-        <DialogFooter className="mt-6 flex flex-col sm:flex-row justify-between gap-4">
+        <DialogFooter className="mt-6 flex justify-between">
           <Button 
             variant="ghost"
-            className="bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300 hover:scale-105 group"
+            className="border border-white/20 hover:bg-white/10"
             onClick={() => {
               if (selectedProject.relatedService) {
                 setModalOpen(false);
@@ -51,15 +52,13 @@ const ProjectModal = ({
               }
             }}
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200 group-hover:from-blue-200 group-hover:to-white transition-all duration-300">
-              View Related Service
-            </span>
+            View Related Service
           </Button>
           
           <Button 
             onClick={() => setModalOpen(false)}
             variant="ghost"
-            className="bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300 hover:scale-105"
+            className="border border-white/20 hover:bg-white/10"
           >
             Close
           </Button>
