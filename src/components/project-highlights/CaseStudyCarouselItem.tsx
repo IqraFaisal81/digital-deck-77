@@ -20,14 +20,15 @@ const CaseStudyCarouselItem = ({ caseStudy, onClick }: CaseStudyCarouselItemProp
   return (
     <div 
       onClick={onClick}
-      className="rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all cursor-pointer h-full flex flex-col bg-white dark:bg-gray-800"
+      className="rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all cursor-pointer h-full flex flex-col bg-white dark:bg-gray-800 group hover:scale-[1.02] duration-300"
     >
-      <div className="h-48 overflow-hidden">
+      <div className="h-48 overflow-hidden relative">
         <img 
           src={demoImages[imageIndex]} 
           alt={caseStudy.client} 
-          className="w-full h-full object-cover transition-transform hover:scale-105"
+          className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-300"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
       
       <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-4 border-b border-gray-100 dark:border-gray-700">
@@ -63,8 +64,8 @@ const CaseStudyCarouselItem = ({ caseStudy, onClick }: CaseStudyCarouselItemProp
         </div>
       </div>
       
-      <div className="p-3 bg-gray-50 dark:bg-gray-700 text-center">
-        <span className="text-blue-600 dark:text-blue-400 text-sm font-medium">View Details</span>
+      <div className="p-3 bg-gray-50 dark:bg-gray-700 text-center group-hover:bg-blue-600 dark:group-hover:bg-blue-700 transition-colors duration-300">
+        <span className="text-blue-600 dark:text-blue-400 text-sm font-medium group-hover:text-white dark:group-hover:text-white">View Details</span>
       </div>
     </div>
   );
