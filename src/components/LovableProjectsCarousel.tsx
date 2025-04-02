@@ -8,23 +8,16 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { getProjectsByCategory } from "@/data/projects";
 
 const LovableProjectsCarousel = () => {
-  // Assuming this is similar to other carousels with projects/images
-  const projects = [
-    // Add your project images/details here
-    {
-      src: "/path/to/project-image.png",
-      alt: "Lovable Project Example",
-      description: "An AI-powered web application showcasing modern development techniques"
-    }
-    // Add more projects
-  ];
+  // Get Lovable projects from the projects data
+  const lovableProjects = getProjectsByCategory("Lovable Projects");
 
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [selectedProject, setSelectedProject] = useState<typeof lovableProjects[0] | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
 
-  const openProjectModal = (project: typeof projects[0]) => {
+  const openProjectModal = (project: typeof lovableProjects[0]) => {
     setSelectedProject(project);
     setModalOpen(true);
   };
@@ -39,7 +32,7 @@ const LovableProjectsCarousel = () => {
         className="w-full"
       >
         <CarouselContent>
-          {projects.map((project, index) => (
+          {lovableProjects.map((project, index) => (
             <CarouselItem
               key={index}
               className="basis-full md:basis-1/2 lg:basis-1/2 h-full p-2"
@@ -50,13 +43,13 @@ const LovableProjectsCarousel = () => {
               >
                 <div className="relative h-[200px] md:h-[220px] overflow-hidden">
                   <img
-                    src={project.src}
-                    alt={project.alt}
+                    src={project.image}
+                    alt={project.title}
                     className="w-full h-full object-cover object-top transition-all duration-300 transform group-hover:scale-110"
                   />
                 </div>
                 <div className="p-4 bg-gray-50 dark:bg-gray-800">
-                  <h4 className="text-lg font-semibold text-black dark:text-white">{project.alt.split(" ").slice(0, 3).join(" ")}</h4>
+                  <h4 className="text-lg font-semibold text-black dark:text-white">{project.title}</h4>
                   <p className="text-gray-800 dark:text-gray-300 text-sm mt-1">{project.description.split(" ").slice(0, 10).join(" ")}...</p>
                 </div>
               </div>
@@ -73,7 +66,7 @@ const LovableProjectsCarousel = () => {
           {selectedProject && (
             <>
               <DialogHeader>
-                <DialogTitle className="text-2xl font-bold text-gray-800 dark:text-gray-100">{selectedProject.alt}</DialogTitle>
+                <DialogTitle className="text-2xl font-bold text-gray-800 dark:text-gray-100">{selectedProject.title}</DialogTitle>
                 <DialogDescription className="text-gray-600 dark:text-gray-300">
                   {selectedProject.description}
                 </DialogDescription>
@@ -81,11 +74,46 @@ const LovableProjectsCarousel = () => {
               
               <div className="mt-4 bg-gray-50 dark:bg-gray-700 p-2 rounded-lg">
                 <img 
-                  src={selectedProject.src} 
-                  alt={selectedProject.alt} 
+                  src={selectedProject.image} 
+                  alt={selectedProject.title} 
                   className="w-full object-contain rounded-lg"
                 />
               </div>
+
+              {/* Project details */}
+              {selectedProject.challenge && (
+                <div className="mt-4">
+                  <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">Challenge</h3>
+                  <p className="text-gray-600 dark:text-gray-300">{selectedProject.challenge}</p>
+                </div>
+              )}
+              
+              {selectedProject.solution && (
+                <div className="mt-4">
+                  <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">Solution</h3>
+                  <p className="text-gray-600 dark:text-gray-300">{selectedProject.solution}</p>
+                </div>
+              )}
+              
+              {selectedProject.results && (
+                <div className="mt-4">
+                  <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">Results</h3>
+                  <p className="text-gray-600 dark:text-gray-300">{selectedProject.results}</p>
+                </div>
+              )}
+              
+              {selectedProject.tools && selectedProject.tools.length > 0 && (
+                <div className="mt-4">
+                  <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">Technologies Used</h3>
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {selectedProject.tools.map((tool, index) => (
+                      <span key={index} className="px-3 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300 rounded-full text-sm">
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </>
           )}
         </DialogContent>
