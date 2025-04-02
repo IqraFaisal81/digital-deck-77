@@ -1,4 +1,3 @@
-
 import { Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { 
@@ -20,41 +19,42 @@ interface CaseStudyModalProps {
 const CaseStudyModal = ({ isOpen, onClose, caseStudy }: CaseStudyModalProps) => {
   if (!caseStudy) return null;
 
-  // Select image based on the case study category or specific tags
+  // Select relevant images from Unsplash based on case study category/tags
   let imagePath = '';
-  let imageCredit = 'Image for illustration purposes';
+  let imageCredit = 'Image from Unsplash';
   
+  // Map each category/tag to a relevant Unsplash image
   if (caseStudy.category === "Email Marketing" || caseStudy.tags.includes("Email Marketing")) {
-    imagePath = '/lovable-uploads/e8bacddf-ae58-40e4-ab9a-679e21ec55db.png'; 
-    imageCredit = 'Email marketing campaign visualization';
+    imagePath = 'https://images.unsplash.com/photo-1498050108023-c5249f4df085'; // Code on laptop screen
+    imageCredit = 'Email marketing visualization (Unsplash)';
   } else if (caseStudy.category === "CRM Automation" || caseStudy.tags.includes("CRM Automation")) {
-    imagePath = '/lovable-uploads/a2f6aa66-f631-443c-a7da-7418a3f06fb2.png';
-    imageCredit = 'CRM dashboard and automation workflow';
+    imagePath = 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d'; // Person using laptop
+    imageCredit = 'CRM automation (Unsplash)';
   } else if (caseStudy.category === "Product Development" || caseStudy.tags.includes("Product Development")) {
-    imagePath = '/lovable-uploads/c7722c5c-bb7d-46ae-a69b-9b2d19dfb790.png';
-    imageCredit = 'Product development and design process';
+    imagePath = 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6'; // Java programming
+    imageCredit = 'Product development (Unsplash)';
   } else if (caseStudy.tags.includes("UX/UI Strategy")) {
-    imagePath = '/lovable-uploads/e4378bce-64c8-4f55-b680-35adfd4061c5.png';
-    imageCredit = 'UI/UX design strategy visualization';
+    imagePath = 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b'; // Gray laptop
+    imageCredit = 'UI/UX strategy (Unsplash)';
   } else if (caseStudy.tags.includes("Automation Strategy")) {
-    imagePath = '/lovable-uploads/62db0c38-4d35-41c2-b6db-6dcc3d85ecac.png';
-    imageCredit = 'Automation workflow and process map';
+    imagePath = 'https://images.unsplash.com/photo-1518770660439-4636190af475'; // Circuit board
+    imageCredit = 'Automation workflow (Unsplash)';
   } else if (caseStudy.tags.includes("Lead Nurturing")) {
-    imagePath = '/lovable-uploads/8298ac25-72ea-45df-8b02-fec826aa557c.png';
-    imageCredit = 'Lead nurturing funnel visualization';
+    imagePath = 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158'; // Woman using laptop
+    imageCredit = 'Lead nurturing (Unsplash)';
   } else if (caseStudy.tags.includes("Market Research")) {
-    imagePath = '/lovable-uploads/66fbb743-7c92-4338-9760-c6e38c8e404f.png';
-    imageCredit = 'Market research and analytics dashboard';
+    imagePath = 'https://images.unsplash.com/photo-1498050108023-c5249f4df085'; // Code on laptop
+    imageCredit = 'Market research (Unsplash)';
   } else if (caseStudy.tags.includes("Customer Recovery")) {
-    imagePath = '/lovable-uploads/35f482ac-5ef5-4d4e-bb5b-83bb739c6f81.png';
-    imageCredit = 'Customer recovery workflow strategy';
+    imagePath = 'https://images.unsplash.com/photo-1500673922987-e212871fec22'; // Yellow lights
+    imageCredit = 'Customer recovery (Unsplash)';
   } else if (caseStudy.tags.includes("Go High Level")) {
-    imagePath = '/lovable-uploads/37cac9ff-58d3-4577-aa46-17ca9bc6d57d.png';
-    imageCredit = 'Go High Level platform dashboard';
+    imagePath = 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d'; // Person using laptop
+    imageCredit = 'Marketing platform (Unsplash)';
   } else {
     // Fallback image
-    imagePath = '/lovable-uploads/da16c894-2606-4ce0-ac83-3e381213d0bf.png';
-    imageCredit = 'Digital marketing strategy visualization';
+    imagePath = 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b'; // Gray laptop
+    imageCredit = 'Digital marketing (Unsplash)';
   }
 
   return (
@@ -70,7 +70,7 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }: CaseStudyModalProps) => 
         <div className="mt-4 space-y-6">
           <div className="rounded-lg overflow-hidden shadow-md border border-gray-200 dark:border-gray-700">
             <img 
-              src={imagePath} 
+              src={`${imagePath}?auto=format&fit=crop&w=1200&q=80`}
               alt={`${caseStudy.client} - ${caseStudy.title}`} 
               className="w-full h-full object-cover"
             />
