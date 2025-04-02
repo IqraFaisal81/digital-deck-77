@@ -32,7 +32,7 @@ const FunnelCarousel = () => {
   };
 
   return (
-    <div className="w-full bg-gradient-to-br from-blue-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-6 rounded-2xl border border-blue-100/50 dark:border-blue-900/30 shadow-lg">
+    <div className="w-full bg-gradient-to-br from-blue-100 to-white dark:from-blue-950/50 dark:to-gray-900 p-6 rounded-2xl border border-blue-100/50 dark:border-blue-900/30 shadow-lg">
       <Carousel
         opts={{
           align: "start",
@@ -44,7 +44,7 @@ const FunnelCarousel = () => {
           {funnels.map((funnel, index) => (
             <CarouselItem key={index} className="basis-full md:basis-1/2 lg:basis-1/3 p-2">
               <div 
-                className="cursor-pointer h-full bg-white dark:bg-gray-800 rounded-xl border border-blue-100 dark:border-blue-900/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group shadow"
+                className="cursor-pointer h-full bg-white/80 dark:bg-gray-800/80 rounded-xl border border-blue-100 dark:border-blue-900/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group shadow backdrop-blur-sm"
                 onClick={() => openFunnelModal(funnel)}
               >
                 <div className="relative h-[180px] md:h-[200px] overflow-hidden">
@@ -57,9 +57,9 @@ const FunnelCarousel = () => {
                     className="w-full h-full object-cover object-top transition-all duration-500 transform group-hover:scale-105"
                   />
                 </div>
-                <div className="p-4 bg-white dark:bg-gray-800">
+                <div className="p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
                   <div className="flex items-center mb-2">
-                    <div className="bg-blue-600 dark:bg-blue-500 p-1.5 rounded-md mr-3 text-white">
+                    <div className="bg-gradient-to-br from-blue-600 to-indigo-600 dark:from-electric dark:to-blue-500 p-1.5 rounded-md mr-3 text-white">
                       {renderIcon(index)}
                     </div>
                     <h4 className="text-md font-bold text-gray-800 dark:text-gray-200 line-clamp-1">{funnel.title}</h4>
@@ -85,8 +85,8 @@ const FunnelCarousel = () => {
             <>
               <DialogHeader className="p-6 border-b border-gray-100 dark:border-gray-700">
                 <div className="flex items-center">
-                  <div className="bg-blue-600 dark:bg-blue-500 p-2 rounded-md mr-3 text-white">
-                    <Layers className="h-5 w-5" />
+                  <div className="bg-gradient-to-br from-blue-600 to-indigo-600 dark:from-electric dark:to-blue-500 p-2 rounded-xl shadow-md mr-4">
+                    <Layers className="h-6 w-6 text-white" />
                   </div>
                   <DialogTitle className="text-2xl font-bold text-gray-800 dark:text-gray-200">{selectedFunnel.title}</DialogTitle>
                 </div>
@@ -114,7 +114,7 @@ const FunnelCarousel = () => {
                   </Button>
                   
                   <Button
-                    className="bg-blue-600 hover:bg-blue-700 text-white"
+                    className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
                     onClick={() => {
                       setModalOpen(false);
                       scrollToServiceSection("funnels");
