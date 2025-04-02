@@ -71,17 +71,17 @@ const AIChatbotCarousel = () => {
 
       {/* Image Modal */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="bg-white max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="bg-white dark:bg-gray-800 max-w-4xl max-h-[90vh] overflow-y-auto">
           {selectedImage && (
             <>
               <DialogHeader>
-                <DialogTitle className="text-2xl font-bold text-gray-800">{selectedImage.alt}</DialogTitle>
-                <DialogDescription className="text-gray-600">
+                <DialogTitle className="text-2xl font-bold text-gray-800 dark:text-gray-100">{selectedImage.alt}</DialogTitle>
+                <DialogDescription className="text-gray-600 dark:text-gray-300">
                   {selectedImage.description.split(" – ")[0]}
                 </DialogDescription>
               </DialogHeader>
               
-              <div className="mt-4 bg-gray-50 p-2 rounded-lg">
+              <div className="mt-4 bg-gray-50 dark:bg-gray-700 p-2 rounded-lg">
                 <img 
                   src={selectedImage.src} 
                   alt={selectedImage.alt} 
@@ -90,9 +90,9 @@ const AIChatbotCarousel = () => {
               </div>
               
               <div className="mt-4">
-                <h3 className="text-lg font-semibold mb-2 text-gray-800">Features</h3>
+                <h3 className="text-lg font-semibold mb-2 text-gray-800 dark:text-gray-100">Features</h3>
                 {selectedImage.description.includes("Chat Widget AI") && (
-                  <ul className="list-disc pl-5 mb-2 space-y-1 text-gray-600">
+                  <ul className="list-disc pl-5 mb-2 space-y-1 text-gray-600 dark:text-gray-300">
                     <li>Custom fields for Name, Phone, Email, & Message</li>
                     <li>Instant response acknowledgment</li>
                     <li>Tag-based lead segmentation</li>
@@ -100,14 +100,14 @@ const AIChatbotCarousel = () => {
                   </ul>
                 )}
                 {selectedImage.description.includes("Voice AI Agent") && (
-                  <ul className="list-disc pl-5 mb-2 space-y-1 text-gray-600">
+                  <ul className="list-disc pl-5 mb-2 space-y-1 text-gray-600 dark:text-gray-300">
                     <li>Dynamic voice selection with playback testing</li>
                     <li>Inbound call routing based on caller behavior</li>
                     <li>Language selection & timezone configuration</li>
                     <li>Business-specific branding and voice flow</li>
                   </ul>
                 )}
-                <p className="font-medium text-gray-600 mt-2">
+                <p className="font-medium text-gray-600 dark:text-gray-300 mt-2">
                   {selectedImage.description.includes("Chat Widget AI") ? 
                     "📲 Result: No lead left unseen. Real-time visibility, faster response times, and enhanced UX." :
                     "🎯 Result: Reduced manual call handling. Smarter qualification before human handoff."}
