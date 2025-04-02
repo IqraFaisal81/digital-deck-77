@@ -9,10 +9,15 @@ import {
 } from "lucide-react";
 import { SkillCategory } from "@/types/skills";
 
+// Create a wrapper component for icons with consistent styling
+const StyledIcon = ({ icon: Icon }: { icon: React.ComponentType<{ className?: string }> }) => (
+  <Icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+);
+
 export const skillCategories: SkillCategory[] = [
   {
     name: "Digital Marketing & Growth",
-    icon: <Globe className="h-6 w-6 text-blue-600 dark:text-blue-400" />,
+    icon: <StyledIcon icon={Globe} />,
     skills: [
       { name: "Google Ads Pro (Search, Display, Performance Max)" },
       { name: "Meta, TikTok, & Snapchat Ads Wizardry" },
@@ -22,7 +27,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     name: "CRM & Automation Mastery",
-    icon: <Database className="h-6 w-6 text-blue-600 dark:text-blue-400" />,
+    icon: <StyledIcon icon={Database} />,
     skills: [
       { name: "Go High Level Ninja (Workflows, Pipelines)" },
       { name: "HubSpot & ActiveCampaign Automation" },
@@ -32,7 +37,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     name: "Data & Analytics",
-    icon: <BarChart className="h-6 w-6 text-blue-600 dark:text-blue-400" />,
+    icon: <StyledIcon icon={BarChart} />,
     skills: [
       { name: "Google Analytics (GA4), Looker Studio Dashboards" },
       { name: "R Studio, SQL Queries, Power BI, Tableau" },
@@ -41,7 +46,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     name: "SaaS & AI Development",
-    icon: <Bot className="h-6 w-6 text-blue-600 dark:text-blue-400" />,
+    icon: <StyledIcon icon={Bot} />,
     skills: [
       { name: "SaaS Funnels, Onboarding, and Subscription Logic" },
       { name: "AI Integration (Chatbots, OpenAI API)" },
@@ -51,7 +56,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     name: "Strategy & Creative Direction",
-    icon: <TrendingUp className="h-6 w-6 text-blue-600 dark:text-blue-400" />,
+    icon: <StyledIcon icon={TrendingUp} />,
     skills: [
       { name: "Performance Campaign Strategy & Budget Scaling" },
       { name: "Brand Playbooks & Sales Systems" },
