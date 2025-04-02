@@ -1,17 +1,11 @@
-
 import { ArrowDown, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import BackgroundPaths from "@/components/ui/BackgroundPaths";
 
 const HomeSection = () => {
   return (
     <section id="home" className="min-h-screen relative overflow-hidden">
-      {/* Background Component */}
-      <div className="absolute inset-0 -z-10 w-full h-full">
-        <BackgroundPaths title="Iqra Faisal" />
-      </div>
       
       <div className="container mx-auto px-4 relative z-10 flex items-center min-h-screen py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
