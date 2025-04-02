@@ -1,3 +1,4 @@
+
 import { ArrowDown, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -103,16 +104,16 @@ const HomeSection = () => {
             </div>
             
             <div className="space-y-3">
-              <p className="text-blue-600 dark:text-blue-400 font-medium tracking-wider animate-fade-in-up animate-delay-100 uppercase text-sm">
+              <p className="text-blue-600 dark:text-blue-400 font-medium tracking-wider animate-fade-in-up animate-delay-100 uppercase text-sm bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-electric dark:to-maroon">
                 SaaS Developer & Automation Specialist
               </p>
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight animate-fade-in-up animate-delay-200 drop-shadow-sm min-h-[80px] md:min-h-[96px] flex items-center">
-                <span className="typewriter bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400">
+                <span className="typewriter bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon">
                   Hello, I'm Iqra Faisal
                 </span>
               </h1>
               
-              <div className="w-20 h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-6"></div>
+              <div className="w-20 h-1.5 bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon rounded-full mb-6"></div>
             </div>
             
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-lg animate-fade-in-up animate-delay-300 backdrop-blur-sm bg-white/5 dark:bg-black/5 p-4 rounded-lg border border-blue-100/50 dark:border-blue-900/50">
@@ -121,7 +122,7 @@ const HomeSection = () => {
             
             <div className="flex flex-wrap gap-4 pt-4 animate-fade-in-up animate-delay-400">
               <Button 
-                className="group bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white rounded-full px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-400/20"
+                className="group bg-gradient-to-r from-royal to-electric hover:from-blue-700 hover:to-indigo-600 dark:from-electric dark:to-maroon text-white rounded-full px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-400/20"
                 size="lg"
               >
                 <a href="#services" className="flex items-center">
@@ -143,12 +144,12 @@ const HomeSection = () => {
             </div>
             
             <div className="flex flex-wrap gap-4 pt-6 animate-fade-in-up animate-delay-500">
-              <div className="flex items-center gap-3 px-4 py-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl border border-blue-100 dark:border-blue-900 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-white/80 to-blue-50/80 dark:from-gray-800/80 dark:to-blue-900/30 backdrop-blur-sm rounded-xl border border-blue-100 dark:border-blue-900 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                 <span className="text-gray-700 dark:text-gray-300 text-sm">Expert in CRM Solutions</span>
               </div>
               
-              <div className="flex items-center gap-3 px-4 py-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl border border-blue-100 dark:border-blue-900 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-white/80 to-blue-50/80 dark:from-gray-800/80 dark:to-blue-900/30 backdrop-blur-sm rounded-xl border border-blue-100 dark:border-blue-900 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                 <span className="text-gray-700 dark:text-gray-300 text-sm">UK-Based</span>
               </div>
@@ -170,15 +171,15 @@ const HomeSection = () => {
                 </Avatar>
               </div>
               
-              <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-blue-600 to-blue-500 px-5 py-3 rounded-full shadow-xl border-2 border-white/80 dark:border-gray-800/80 flex items-center gap-2 z-20 animate-float animate-delay-200 hover:scale-105 transition-transform">
+              <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon px-5 py-3 rounded-full shadow-xl border-2 border-white/80 dark:border-gray-800/80 flex items-center gap-2 z-20 animate-float animate-delay-200 hover:scale-105 transition-transform">
                 <span className="text-white font-medium">CRM Expert</span>
               </div>
               
-              <div className="absolute -top-4 -left-4 bg-gradient-to-r from-purple-600 to-blue-500 px-5 py-3 rounded-full shadow-xl border-2 border-white/80 dark:border-gray-800/80 flex items-center gap-2 z-20 animate-float animate-delay-300 hover:scale-105 transition-transform">
+              <div className="absolute -top-4 -left-4 bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon px-5 py-3 rounded-full shadow-xl border-2 border-white/80 dark:border-gray-800/80 flex items-center gap-2 z-20 animate-float animate-delay-300 hover:scale-105 transition-transform">
                 <span className="text-white font-medium">Marketing Pro</span>
               </div>
               
-              <div className="absolute top-1/2 -left-12 transform -translate-y-1/2 bg-gradient-to-r from-indigo-500 to-blue-500 p-3 rounded-full shadow-xl border-2 border-white/80 dark:border-gray-800/80 z-20 animate-float animate-delay-400 hover:scale-105 transition-transform">
+              <div className="absolute top-1/2 -left-12 transform -translate-y-1/2 bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon p-3 rounded-full shadow-xl border-2 border-white/80 dark:border-gray-800/80 z-20 animate-float animate-delay-400 hover:scale-105 transition-transform">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
               </div>
             </div>
