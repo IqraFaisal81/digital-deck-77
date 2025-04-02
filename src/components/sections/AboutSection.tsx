@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
@@ -17,9 +16,8 @@ const AboutSection = () => {
           <div className="order-2 md:order-1">
             <div className="space-y-8 max-w-xl mx-auto md:mx-0">
               <h2 className="text-4xl md:text-5xl font-bold font-display">
-                <span className="text-black dark:text-gray-100 relative inline-block">
-                  About <span className="text-blue-600 dark:text-blue-400">Me</span>
-                  <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-400/30 dark:bg-blue-600/30 rounded-full"></span>
+                <span className="bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-electric dark:to-maroon">
+                  About Me
                 </span>
               </h2>
               
