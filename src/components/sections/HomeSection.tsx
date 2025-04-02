@@ -3,18 +3,10 @@ import { ArrowDown, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { motion } from "framer-motion";
-import { FloatingPaths } from "@/components/ui/FloatingPaths";
 
 const HomeSection = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-16 pb-20 overflow-hidden relative bg-gradient-to-b from-white via-blue-50/30 to-white">
-      {/* Background Paths */}
-      <div className="absolute inset-0 z-0">
-        <FloatingPaths position={1} />
-        <FloatingPaths position={-1} />
-      </div>
-      
       {/* Background Decorations */}
       <div className="absolute top-20 right-20 w-64 h-64 rounded-full bg-blue-200/20 blur-3xl"></div>
       <div className="absolute bottom-20 left-10 w-80 h-80 rounded-full bg-purple-200/20 blur-3xl"></div>
