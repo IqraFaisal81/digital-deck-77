@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -92,7 +93,6 @@ export default {
         'primary-gradient': 'linear-gradient(to right, hsl(var(--primary)), hsl(var(--primary) / 0.8))',
         'blue-indigo-gradient': 'linear-gradient(135deg, #3b82f6, #4f46e5)',
         'glass-gradient': 'linear-gradient(120deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1))',
-        'gradient-conic': 'conic-gradient(var(--conic-position), var(--tw-gradient-stops))',
       },
       borderRadius: {
         lg: 'var(--radius)',
