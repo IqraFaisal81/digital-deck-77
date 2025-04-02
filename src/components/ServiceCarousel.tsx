@@ -11,6 +11,7 @@ import { services } from "@/data/services";
 import { Button } from "@/components/ui/button";
 import { useCarouselState } from "@/hooks/useCarouselState";
 import CarouselPagination from "./project-highlights/CarouselPagination";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
 
 interface ServiceCarouselProps {
   visibleSection: string | null;
@@ -36,24 +37,33 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
               key={service.id} 
               className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/3 p-2"
             >
-              <div 
-                className={`rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 p-6 h-full flex flex-col ${
+              <Card 
+                className={`h-full transition-all duration-300 hover:shadow-xl hover:scale-[1.02] overflow-hidden ${
                   service.sectionId ? 'cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/30' : ''
                 } ${
                   service.sectionId && visibleSection === service.sectionId ? 'ring-2 ring-royal dark:ring-electric' : ''
                 }`}
                 onClick={() => scrollToSection(service.sectionId)}
               >
-                <div className="bg-blue-100 dark:bg-blue-900/50 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                  <service.icon className="text-royal dark:text-electric" size={24} />
-                </div>
-                <h3 className="text-xl font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-black to-royal dark:from-white dark:to-electric">{service.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">{service.description}</p>
-                
-                <div className="flex justify-between items-center mt-auto">
+                <CardHeader className="pb-2">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-gradient-to-br from-royal to-electric dark:from-electric dark:to-royal p-3 rounded-full w-14 h-14 flex items-center justify-center">
+                      <service.icon className="text-white" size={24} />
+                    </div>
+                    <CardTitle className="text-xl bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon">
+                      {service.title}
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="pb-6">
+                  <CardDescription className="text-gray-700 dark:text-gray-300 text-sm">
+                    {service.description}
+                  </CardDescription>
+                </CardContent>
+                <CardFooter className="flex justify-between items-center border-t pt-4 bg-gray-50 dark:bg-gray-800/50">
                   {service.sectionId && (
                     <div className="text-royal dark:text-electric text-sm flex items-center">
-                      <span>{visibleSection === service.sectionId ? 'Hide details' : 'View details'}</span>
+                      <span>{visibleSection === service.sectionId ? 'Hide details' : 'Learn more'}</span>
                       <ArrowRight size={14} className="ml-1" />
                     </div>
                   )}
@@ -70,20 +80,20 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
                     <Calendar className="mr-1 h-3 w-3" />
                     Book Consultation
                   </Button>
-                </div>
-              </div>
+                </CardFooter>
+              </Card>
             </CarouselItem>
           ))}
         </CarouselContent>
         
         <div className="flex justify-center items-center gap-4 mt-6">
-          <CarouselPrevious className="static transform-none bg-royal/50 hover:bg-royal/80 dark:bg-electric/50 dark:hover:bg-electric/80 border-none" />
+          <CarouselPrevious className="static transform-none bg-gradient-to-r from-royal to-electric/80 dark:from-electric dark:to-royal/80 hover:opacity-90 text-white border-none" />
           <CarouselPagination 
             carouselApi={carouselApi}
             currentIndex={currentIndex}
             items={services}
           />
-          <CarouselNext className="static transform-none bg-royal/50 hover:bg-royal/80 dark:bg-electric/50 dark:hover:bg-electric/80 border-none" />
+          <CarouselNext className="static transform-none bg-gradient-to-r from-royal to-electric/80 dark:from-electric dark:to-royal/80 hover:opacity-90 text-white border-none" />
         </div>
       </Carousel>
     </div>
