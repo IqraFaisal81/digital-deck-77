@@ -8,7 +8,7 @@ const AboutSection = () => {
   return (
     <section id="about" className="section-padding relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute top-40 right-10 w-72 h-72 bg-purple-400/20 dark:bg-purple-600/20 rounded-full blur-3xl opacity-40"></div>
+      <div className="absolute top-40 right-10 w-72 h-72 bg-purple-400/20 dark:bg-blue-600/20 rounded-full blur-3xl opacity-40"></div>
       <div className="absolute bottom-40 left-10 w-96 h-96 bg-blue-400/20 dark:bg-blue-600/20 rounded-full blur-3xl opacity-40"></div>
       <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-indigo-400/20 dark:bg-indigo-600/20 rounded-full blur-3xl opacity-30"></div>
       
@@ -17,7 +17,7 @@ const AboutSection = () => {
           <div className="order-2 md:order-1">
             <div className="space-y-8 max-w-xl mx-auto md:mx-0">
               <h2 className="text-4xl md:text-5xl font-bold font-display">
-                <span className="bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-electric dark:to-maroon">
+                <span className="bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-blue-400 dark:to-blue-600">
                   About Me
                 </span>
               </h2>
@@ -63,7 +63,7 @@ const AboutSection = () => {
           <div className="order-1 md:order-2 flex justify-center">
             <Card className="w-full max-w-md bg-white/90 dark:bg-gray-800/90 backdrop-blur-md border border-gray-100 dark:border-gray-700 shadow-xl rounded-2xl hover-lift overflow-hidden">
               <CardHeader className="pb-2">
-                <CardTitle className="bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-electric dark:to-maroon font-display text-2xl">
+                <CardTitle className="bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-blue-400 dark:to-blue-600 font-display text-2xl">
                   My Journey
                 </CardTitle>
               </CardHeader>
@@ -101,7 +101,7 @@ const AboutSection = () => {
                       {/* Timeline dot */}
                       <div className="absolute left-0 top-[22px] h-5 w-5 rounded-full bg-gradient-to-r from-blue-600 to-electric shadow-md z-10"></div>
                       
-                      <p className="text-sm bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-electric dark:to-maroon font-medium">
+                      <p className="text-sm bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-blue-400 dark:to-blue-600 font-medium">
                         {job.period}
                       </p>
                       <h4 className="font-semibold text-gray-900 dark:text-white">{job.title}</h4>

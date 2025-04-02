@@ -22,7 +22,7 @@ const HomeSection = () => {
     setDisplayText("");
     
     const timer = setTimeout(() => {
-      // handleType();
+      handleType();
     }, 1000); // Initial delay before typing starts
     
     return () => clearTimeout(timer);
@@ -33,34 +33,34 @@ const HomeSection = () => {
     let timer: NodeJS.Timeout;
     
     // Always keep typing until we reach the full text
-    // if (!isDeleting && displayText !== texts[loopNum % texts.length]) {
-    //   timer = setTimeout(() => {
-    //     handleType();
-    //   }, typingSpeed);
-    // } 
-    // // If we need to delete, keep deleting until we reach a certain threshold
-    // else if (isDeleting && displayText.length > 3) {
-    //   timer = setTimeout(() => {
-    //     handleType();
-    //   }, typingSpeed);
-    // }
-    // // If we've reached our deletion threshold (3 characters remaining)
-    // else if (isDeleting && displayText.length <= 3) {
-    //   setIsDeleting(false);
-    //   setLoopNum(loopNum + 1);
-    //   // Small pause before typing the next text
-    //   timer = setTimeout(() => {
-    //     handleType();
-    //   }, 500);
-    // }
-    // // If we've finished typing the full text
-    // else if (!isDeleting && displayText === texts[loopNum % texts.length]) {
-    //   // Pause at end of text before starting to delete
-    //   timer = setTimeout(() => {
-    //     setIsDeleting(true);
-    //     handleType();
-    //   }, 1500);
-    // }
+    if (!isDeleting && displayText !== texts[loopNum % texts.length]) {
+      timer = setTimeout(() => {
+        handleType();
+      }, typingSpeed);
+    } 
+    // If we need to delete, keep deleting until we reach a certain threshold
+    else if (isDeleting && displayText.length > 3) {
+      timer = setTimeout(() => {
+        handleType();
+      }, typingSpeed);
+    }
+    // If we've reached our deletion threshold (3 characters remaining)
+    else if (isDeleting && displayText.length <= 3) {
+      setIsDeleting(false);
+      setLoopNum(loopNum + 1);
+      // Small pause before typing the next text
+      timer = setTimeout(() => {
+        handleType();
+      }, 500);
+    }
+    // If we've finished typing the full text
+    else if (!isDeleting && displayText === texts[loopNum % texts.length]) {
+      // Pause at end of text before starting to delete
+      timer = setTimeout(() => {
+        setIsDeleting(true);
+        handleType();
+      }, 1500);
+    }
     
     return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -94,7 +94,7 @@ const HomeSection = () => {
           
           <div className="flex flex-col space-y-6 md:order-1 order-2">
             <div className="flex items-center space-x-3 mb-2 animate-fade-in-up">
-              <Badge className="bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon text-white border-none rounded-full px-4 py-1.5 shadow-md hover:shadow-lg transition-all duration-300">
+              <Badge className="bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 text-white border-none rounded-full px-4 py-1.5 shadow-md hover:shadow-lg transition-all duration-300">
                 <span className="animate-pulse mr-1.5">•</span>
                 Available for Projects
               </Badge>
@@ -103,16 +103,16 @@ const HomeSection = () => {
             </div>
             
             <div className="space-y-3">
-              <p className="text-blue-600 dark:text-blue-400 font-medium tracking-wider animate-fade-in-up animate-delay-100 uppercase text-sm bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-electric dark:to-maroon">
+              <p className="text-blue-600 dark:text-blue-400 font-medium tracking-wider animate-fade-in-up animate-delay-100 uppercase text-sm bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-blue-400 dark:to-blue-600">
                 SaaS Developer & Automation Specialist
               </p>
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight animate-fade-in-up animate-delay-200 drop-shadow-sm min-h-[80px] md:min-h-[96px] flex items-center">
-                <span className="typewriter bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon">
+                <span className="typewriter bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600">
                   Hello, I'm Iqra Faisal
                 </span>
               </h1>
               
-              <div className="w-20 h-1.5 bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon rounded-full mb-6"></div>
+              <div className="w-20 h-1.5 bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 rounded-full mb-6"></div>
             </div>
             
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-lg animate-fade-in-up animate-delay-300 backdrop-blur-sm bg-white/5 dark:bg-black/5 p-4 rounded-lg border border-blue-100/50 dark:border-blue-900/50">
@@ -121,7 +121,7 @@ const HomeSection = () => {
             
             <div className="flex flex-wrap gap-4 pt-4 animate-fade-in-up animate-delay-400">
               <Button 
-                className="group bg-gradient-to-r from-royal to-electric hover:from-blue-700 hover:to-indigo-600 dark:from-electric dark:to-maroon text-white rounded-full px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-400/20"
+                className="group bg-gradient-to-r from-royal to-electric hover:from-blue-700 hover:to-indigo-600 dark:from-blue-400 dark:to-blue-600 text-white rounded-full px-6 py-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-400/20"
                 size="lg"
               >
                 <a href="#services" className="flex items-center">
@@ -170,15 +170,15 @@ const HomeSection = () => {
                 </Avatar>
               </div>
               
-              <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon px-5 py-3 rounded-full shadow-xl border-2 border-white/80 dark:border-gray-800/80 flex items-center gap-2 z-20 animate-float animate-delay-200 hover:scale-105 transition-transform">
+              <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 px-5 py-3 rounded-full shadow-xl border-2 border-white/80 dark:border-gray-800/80 flex items-center gap-2 z-20 animate-float animate-delay-200 hover:scale-105 transition-transform">
                 <span className="text-white font-medium">CRM Expert</span>
               </div>
               
-              <div className="absolute -top-4 -left-4 bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon px-5 py-3 rounded-full shadow-xl border-2 border-white/80 dark:border-gray-800/80 flex items-center gap-2 z-20 animate-float animate-delay-300 hover:scale-105 transition-transform">
+              <div className="absolute -top-4 -left-4 bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 px-5 py-3 rounded-full shadow-xl border-2 border-white/80 dark:border-gray-800/80 flex items-center gap-2 z-20 animate-float animate-delay-300 hover:scale-105 transition-transform">
                 <span className="text-white font-medium">Marketing Pro</span>
               </div>
               
-              <div className="absolute top-1/2 -left-12 transform -translate-y-1/2 bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon p-3 rounded-full shadow-xl border-2 border-white/80 dark:border-gray-800/80 z-20 animate-float animate-delay-400 hover:scale-105 transition-transform">
+              <div className="absolute top-1/2 -left-12 transform -translate-y-1/2 bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 p-3 rounded-full shadow-xl border-2 border-white/80 dark:border-gray-800/80 z-20 animate-float animate-delay-400 hover:scale-105 transition-transform">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
               </div>
             </div>
