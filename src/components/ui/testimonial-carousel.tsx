@@ -11,21 +11,25 @@ import { motion, AnimatePresence } from "framer-motion";
 interface Testimonial {
   company: string;
   avatar?: string;
+  logo?: string;
   name: string;
   role: string;
   review: string;
+  customLogo?: boolean;
 }
 
 interface TestimonialCarouselProps {
   testimonials: Testimonial[];
   companyLogoPath?: string;
   avatarPath?: string;
+  useCustomLogo?: boolean;
 }
 
 export function TestimonialCarousel({
   testimonials,
   companyLogoPath = "",
   avatarPath = "",
+  useCustomLogo = false
 }: TestimonialCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -69,7 +73,7 @@ export function TestimonialCarousel({
     center: {
       x: 0,
       opacity: 1,
-    },
+    }),
     exit: (direction: number) => ({
       x: direction < 0 ? 200 : -200,
       opacity: 0,
@@ -104,7 +108,14 @@ export function TestimonialCarousel({
                     <div className="flex flex-col items-center md:items-start">
                       {testimonials[currentIndex].company && (
                         <div className="mb-6 bg-gray-100 dark:bg-gray-800 rounded-lg p-4 w-auto h-16 flex items-center justify-center">
-                          {companyLogoPath ? (
+                          {useCustomLogo && testimonials[currentIndex].logo ? (
+                            <img
+                              src={testimonials[currentIndex].logo}
+                              alt={`${testimonials[currentIndex].company} logo`}
+                              className="h-10 w-auto object-contain"
+                              loading="lazy"
+                            />
+                          ) : companyLogoPath ? (
                             <img
                               src={`${companyLogoPath}${testimonials[currentIndex].company}.svg`}
                               alt={`${testimonials[currentIndex].company} logo`}
