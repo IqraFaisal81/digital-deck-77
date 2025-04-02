@@ -1,6 +1,8 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
+
 const AboutSection = () => {
   return <section id="about" className="section-padding bg-white dark:bg-gray-900 relative overflow-hidden">
       {/* Background decorative elements */}
@@ -60,24 +62,28 @@ const AboutSection = () => {
                   My Journey
                 </h3>
                 <div className="space-y-6">
-                  
-                  
                   <div className="border-l-2 border-blue-500 pl-4 py-2">
-                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2021 - 2022</p>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketing Specialist at Medusa</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Managed CRM systems and automation workflows</p>
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2022 – Present</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">Freelance CRM & Automation Expert</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Building custom automation systems and CRM workflows for service-based businesses using Go High Level</p>
                   </div>
                   
                   <div className="border-l-2 border-blue-500 pl-4 py-2">
-                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2020 - 2021</p>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">MSc Digital Marketing</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Sheffield Hallam University</p>
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2023 – 2024</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketer at Charley Grey</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Managed 70+ client accounts, created funnels, automated lead systems, and ran high-performing ad campaigns</p>
                   </div>
                   
                   <div className="border-l-2 border-blue-500 pl-4 py-2">
-                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2017 - 2020</p>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">BSc Business & Marketing</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">University of Hertfordshire</p>
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2022 – 2023</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketer at Lumbee Corporate</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Developed competitor analysis and brand strategy to grow B2C partnerships and market positioning</p>
+                  </div>
+                  
+                  <div className="border-l-2 border-blue-500 pl-4 py-2">
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2019 – 2022</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketing Executive at M.B Collections</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Handled SEO, content, and social media strategy to scale brand visibility and sales</p>
                   </div>
                 </div>
               </div>
@@ -87,4 +93,5 @@ const AboutSection = () => {
       </div>
     </section>;
 };
+
 export default AboutSection;
