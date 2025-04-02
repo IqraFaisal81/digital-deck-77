@@ -1,11 +1,13 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
+import SkillItem from "./SkillItem";
+import SkillProgressBar from "./SkillProgressBar";
+import { ReactNode } from "react";
 
 interface SkillCardProps {
   name: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
   skills: {
     name: string;
   }[];
@@ -13,47 +15,51 @@ interface SkillCardProps {
 }
 
 const SkillCard = ({ name, icon, skills, index }: SkillCardProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
-    <div className="h-full">
-      <motion.div 
-        whileHover={{ scale: 1.03, y: -5, boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.2)" }}
-        transition={{ duration: 0.2 }}
-        className="h-full group rounded-xl p-6 bg-white/90 dark:bg-gray-800/90 border border-blue-100/50 dark:border-blue-900/30 
-          shadow-md hover:shadow-xl backdrop-blur-sm transition-all duration-300"
-      >
-        <div className="flex items-center mb-5">
-          {/* Fancy icon wrapper */}
-          <div className="relative">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 opacity-20 blur-sm group-hover:opacity-30 transition-opacity"></div>
-            <div className="relative flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/40 dark:to-indigo-900/40 border border-blue-100/50 dark:border-blue-800/50">
-              {icon}
-            </div>
+    <div 
+      className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300"
+      onClick={() => setIsExpanded(!isExpanded)}
+    >
+      <div className="p-6">
+        <div className="flex items-center mb-4">
+          <div className="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-lg mr-4">
+            {icon}
           </div>
-          
-          {/* Title with gradient text */}
-          <h3 className="text-lg font-semibold ml-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-700 dark:from-blue-400 dark:to-indigo-400">
-            {name}
-          </h3>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100">{name}</h3>
         </div>
         
-        {/* Skills list with animated hover */}
-        <ul className="space-y-3 mt-2">
-          {skills.map((skill, idx) => (
-            <motion.li 
-              key={idx} 
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: idx * 0.1 + 0.2 }}
-              className="flex items-start group/item"
-            >
-              <CheckCircle className="w-5 h-5 text-blue-500/70 dark:text-blue-400/70 mr-3 mt-0.5 flex-shrink-0 group-hover/item:text-blue-600 dark:group-hover/item:text-blue-300 transition-colors" />
-              <span className="text-gray-700 dark:text-gray-300 text-sm group-hover/item:text-blue-700 dark:group-hover/item:text-blue-200 transition-colors duration-200">
-                {skill.name}
-              </span>
-            </motion.li>
-          ))}
-        </ul>
-      </motion.div>
+        <div className={`transition-all duration-300 overflow-hidden ${isExpanded ? 'max-h-96' : 'max-h-24'}`}>
+          <div className="space-y-3">
+            {skills.map((skill, skillIndex) => (
+              <SkillItem key={skillIndex} skill={skill.name} />
+            ))}
+          </div>
+          
+          <div className="mt-5">
+            <SkillProgressBar value={85 + index * 2} />
+          </div>
+        </div>
+        
+        <button
+          className="mt-4 text-sm text-blue-600 dark:text-blue-400 font-medium flex items-center justify-center w-full"
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsExpanded(!isExpanded);
+          }}
+        >
+          {isExpanded ? "Show Less" : "Show More"} 
+          <svg 
+            className={`ml-1 h-4 w-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 };
