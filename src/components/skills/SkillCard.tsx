@@ -47,7 +47,7 @@ const SkillCard = ({ name, icon, skills, index }: SkillCardProps) => {
               className="flex items-start group/item"
             >
               <CheckCircle className="w-5 h-5 text-blue-500/70 dark:text-blue-400/70 mr-3 mt-0.5 flex-shrink-0 group-hover/item:text-blue-600 dark:group-hover/item:text-blue-300 transition-colors" />
-              <span className="text-gray-700 dark:text-gray-300 text-sm group-hover/item:text-blue-700 dark:group-hover/item:text-blue-200 transition-colors duration-200">
+              <span className="text-gray-700 dark:text-gray-300 text-sm group-hover/item:bg-gradient-to-r group-hover/item:from-blue-700 group-hover/item:to-indigo-700 group-hover/item:dark:from-blue-400 group-hover/item:dark:to-indigo-400 group-hover/item:bg-clip-text group-hover/item:text-transparent transition-all duration-200">
                 {skill.name}
               </span>
             </motion.li>
