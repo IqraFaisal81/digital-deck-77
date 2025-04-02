@@ -1,4 +1,3 @@
-
 import { ArrowDown, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -95,7 +94,7 @@ const HomeSection = () => {
           
           <div className="flex flex-col space-y-6 md:order-1 order-2">
             <div className="flex items-center space-x-3 mb-2 animate-fade-in-up">
-              <Badge className="bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white dark:from-blue-500 dark:to-purple-500 border-none rounded-full px-4 py-1.5 shadow-md">
+              <Badge className="bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon text-white border-none rounded-full px-4 py-1.5 shadow-md hover:shadow-lg transition-all duration-300">
                 <span className="animate-pulse mr-1.5">•</span>
                 Available for Projects
               </Badge>
