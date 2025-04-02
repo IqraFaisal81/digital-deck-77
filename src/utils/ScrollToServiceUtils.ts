@@ -6,12 +6,15 @@
 export const scrollToServiceSection = (sectionId: string | null): void => {
   if (!sectionId) return;
   
-  const sectionElement = document.getElementById(sectionId);
-  if (sectionElement) {
-    sectionElement.scrollIntoView({ behavior: "smooth" });
-    
-    // Trigger the section visibility if it's a collapsible section
-    const event = new CustomEvent('show-section', { detail: { sectionId } });
-    document.dispatchEvent(event);
-  }
+  // First, dispatch the event to make the section visible
+  const event = new CustomEvent('show-section', { detail: { sectionId } });
+  document.dispatchEvent(event);
+  
+  // Then scroll to it with a small delay to ensure it's visible first
+  setTimeout(() => {
+    const sectionElement = document.getElementById(sectionId);
+    if (sectionElement) {
+      sectionElement.scrollIntoView({ behavior: "smooth" });
+    }
+  }, 100);
 };
