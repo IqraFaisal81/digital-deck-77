@@ -2,7 +2,6 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
 import { Star } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface TestimonialCardProps {
   handleShuffle: () => void;
@@ -67,43 +66,45 @@ export function TestimonialCard({ handleShuffle, testimonial, position, id, auth
         dragRef.current = 0;
       }}
       transition={{ duration: 0.35 }}
-      className={`absolute left-0 top-0 grid h-[480px] w-[380px] select-none rounded-2xl border bg-gradient-to-b from-white/95 via-white/90 to-white/85 dark:from-gray-800/95 dark:via-gray-800/90 dark:to-gray-800/85 border-gray-200 dark:border-gray-700 p-6 shadow-xl backdrop-blur-lg ${
+      className={`absolute left-0 top-0 grid h-[480px] w-[380px] select-none rounded-2xl border bg-white/90 dark:bg-gray-800/90 border-gray-200 dark:border-gray-700 p-6 shadow-xl backdrop-blur-md ${
         isFront ? "cursor-grab active:cursor-grabbing" : ""
       }`}
     >
-      <div className="flex justify-center mb-4">
+      <div className="flex justify-center mb-2">
         {renderStars()}
       </div>
       
-      <div className="text-center text-lg italic text-gray-700 dark:text-gray-300 mb-6">
+      <div className="text-center text-lg italic text-gray-700 dark:text-gray-300 mb-4">
         "{testimonial}"
       </div>
       
-      <div className="mt-auto flex flex-col border-t border-gray-200 dark:border-gray-700 pt-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="bg-gradient-to-r from-royal to-electric rounded-full p-0.5">
-              <Avatar className="h-12 w-12 border-2 border-white dark:border-gray-800">
-                <AvatarImage src={`https://ui-avatars.com/api/?name=${author.split(',')[0]}&background=random`} alt={author.split(',')[0]} />
-                <AvatarFallback className="bg-royal text-white">{author.split(',')[0].charAt(0)}</AvatarFallback>
-              </Avatar>
+      <div className="mt-auto flex items-center justify-between border-t border-gray-200 dark:border-gray-700 pt-4">
+        <div className="flex flex-col">
+          <div className="flex items-center mb-2">
+            <div className="bg-gradient-to-r from-royal to-electric rounded-full p-0.5 mr-3">
+              <div className="bg-white dark:bg-gray-800 rounded-full">
+                <img
+                  src={`https://i.pravatar.cc/128?img=${id}`}
+                  alt={`Avatar of ${author.split(',')[0]}`}
+                  className="h-12 w-12 rounded-full border-2 border-white dark:border-gray-700 object-cover"
+                />
+              </div>
             </div>
             <div>
               <p className="font-medium text-royal dark:text-electric">{author}</p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">{company}</p>
             </div>
           </div>
-          
-          {logo && (
-            <div className="ml-auto">
-              <img 
-                src={logo} 
-                alt={`${company} logo`} 
-                className="h-12 w-auto object-contain"
-              />
-            </div>
-          )}
         </div>
+        
+        {logo && (
+          <div className="ml-auto">
+            <img 
+              src={logo} 
+              alt={`${company} logo`} 
+              className="h-14 object-contain"
+            />
+          </div>
+        )}
       </div>
     </motion.div>
   );

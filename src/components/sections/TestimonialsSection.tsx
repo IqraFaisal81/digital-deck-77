@@ -36,7 +36,7 @@ const TestimonialsSection = () => {
     <section 
       id="testimonials" 
       ref={sectionRef}
-      className="py-24 md:py-32 px-4 md:px-8 overflow-hidden bg-gradient-to-b from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-800"
+      className="py-24 md:py-32 px-4 md:px-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden"
     >
       <div className="container mx-auto">
         <SectionHeader 
@@ -77,63 +77,30 @@ const TestimonialsSection = () => {
           </div>
         </div>
         
-        <Separator className="max-w-5xl mx-auto my-20 bg-gray-200 dark:bg-gray-700" />
+        <Separator className="max-w-4xl mx-auto my-16 bg-gray-200 dark:bg-gray-700" />
         
-        {/* Trusted By Companies - Two Column Layout */}
+        {/* Client Logos */}
         <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
-          <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-            <div className="p-6 glass-card rounded-2xl">
-              <h3 className="text-2xl font-semibold mb-6 text-royal dark:text-electric">Trusted by Companies</h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-8">
-                We're proud to work with innovative businesses across multiple industries. Our clients trust us to deliver exceptional results.
-              </p>
-              
-              <div className="flex flex-wrap gap-6">
-                {clients.slice(0, 4).map((client, index) => (
-                  <div 
-                    key={index} 
-                    className="p-3 bg-white dark:bg-gray-700 backdrop-blur-sm rounded-xl shadow-sm border border-gray-100 dark:border-gray-600 transition-all hover:shadow-md hover:-translate-y-1"
-                  >
-                    {client.logo ? (
-                      <img 
-                        src={client.logo} 
-                        alt={client.name} 
-                        className="h-10 md:h-12 object-contain" 
-                      />
-                    ) : (
-                      <div className="h-10 md:h-12 flex items-center justify-center px-4 font-medium text-royal dark:text-electric">
-                        {client.name}
-                      </div>
-                    )}
+          <h3 className="text-center text-xl font-medium mb-10 text-gray-700 dark:text-gray-300">Trusted by Companies</h3>
+          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+            {clients.slice(0, 6).map((client, index) => (
+              <div 
+                key={index} 
+                className="p-4 bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 transition-all hover:shadow-md hover:bg-white dark:hover:bg-gray-700 group"
+              >
+                {client.logo ? (
+                  <img 
+                    src={client.logo} 
+                    alt={client.name} 
+                    className="h-10 md:h-12 object-contain" 
+                  />
+                ) : (
+                  <div className="h-10 md:h-12 flex items-center justify-center px-4 font-medium text-royal dark:text-electric">
+                    {client.name}
                   </div>
-                ))}
+                )}
               </div>
-            </div>
-            
-            <div className="p-6 glass-card rounded-2xl">
-              <h3 className="text-2xl font-semibold mb-6 text-royal dark:text-electric">Client Feedback</h3>
-              <div className="space-y-6">
-                {testimonials.slice(3, 5).map((client, index) => (
-                  <div 
-                    key={index}
-                    className="p-4 bg-gradient-to-r from-white/70 to-white/50 dark:from-gray-800/70 dark:to-gray-800/50 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700"
-                  >
-                    <div className="flex justify-between items-start mb-3">
-                      <div>
-                        <p className="font-medium text-royal dark:text-electric">{client.testimonial?.author}</p>
-                        <p className="text-sm text-gray-500">{client.testimonial?.position}</p>
-                      </div>
-                      <img 
-                        src={client.logo} 
-                        alt={`${client.name} logo`} 
-                        className="h-8 w-auto object-contain" 
-                      />
-                    </div>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm italic">"{client.testimonial?.quote}"</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
