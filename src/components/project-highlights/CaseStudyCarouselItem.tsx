@@ -10,11 +10,11 @@ const CaseStudyCarouselItem = ({ caseStudy, onClick }: CaseStudyCarouselItemProp
   // Generate a consistent image based on client name for demo purposes
   const imageIndex = Math.abs(caseStudy.client.length * 3) % 5;
   const demoImages = [
-    '/lovable-uploads/8a0a540e-1ad0-49c3-b21d-cfcce288b27c.png',
-    '/lovable-uploads/84abbd7d-4c45-4186-8442-6b7415f8a35a.png',
-    '/lovable-uploads/459570af-5ccd-4c1d-9cd0-3b4bc8a4a618.png',
-    '/lovable-uploads/5a0ede87-2de2-421a-af7a-5e44aad3886d.png',
-    '/lovable-uploads/2c828478-38e1-490e-b777-76e3f980ee9f.png'
+    '/lovable-uploads/c7722c5c-bb7d-46ae-a69b-9b2d19dfb790.png',
+    '/lovable-uploads/e8bacddf-ae58-40e4-ab9a-679e21ec55db.png',
+    '/lovable-uploads/e4378bce-64c8-4f55-b680-35adfd4061c5.png',
+    '/lovable-uploads/a2f6aa66-f631-443c-a7da-7418a3f06fb2.png',
+    '/lovable-uploads/da16c894-2606-4ce0-ac83-3e381213d0bf.png'
   ];
   
   return (
