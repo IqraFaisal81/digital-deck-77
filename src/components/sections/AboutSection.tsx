@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
@@ -51,7 +50,10 @@ const AboutSection = () => {
                 ))}
               </div>
               
-              <Button className="bg-gradient-to-r from-blue-600 to-black hover:from-blue-700 hover:to-gray-900 text-white rounded-full px-8 py-7 shadow-lg hover:shadow-xl transition-all duration-300 group" size="lg">
+              <Button 
+                className="group bg-gradient-to-r from-royal to-electric hover:from-blue-700 hover:to-indigo-600 dark:from-blue-400 dark:to-blue-600 text-white rounded-full px-8 py-7 shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-400/20" 
+                size="lg"
+              >
                 <a href="#skills" className="flex items-center">
                   View My Skills
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
