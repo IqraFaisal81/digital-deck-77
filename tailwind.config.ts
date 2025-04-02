@@ -114,6 +114,11 @@ export default {
         "slide-in-left": "slideInLeft 0.5s ease-out forwards",
         "scale-in": "scaleIn 0.5s ease-out forwards",
         "float": "floatUp 6s ease-in-out infinite",
+        "first": "first 8s infinite",
+        "second": "second 8s infinite",
+        "third": "third 8s infinite",
+        "fourth": "fourth 8s infinite",
+        "fifth": "fifth 8s infinite",
       },
       keyframes: {
         "accordion-down": {
@@ -143,6 +148,36 @@ export default {
         floatUp: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
+        },
+        first: {
+          "0%": { transform: "translateY(0%) scale(1) rotate(0deg)" },
+          "33%": { transform: "translateY(-5%) scale(1.1) rotate(5deg)" },
+          "66%": { transform: "translateY(5%) scale(0.9) rotate(-5deg)" },
+          "100%": { transform: "translateY(0%) scale(1) rotate(0deg)" }
+        },
+        second: {
+          "0%": { transform: "translateY(0%) scale(1) rotate(0deg)" },
+          "33%": { transform: "translateY(-10%) scale(1.1) rotate(-5deg)" },
+          "66%": { transform: "translateY(10%) scale(0.9) rotate(5deg)" },
+          "100%": { transform: "translateY(0%) scale(1) rotate(0deg)" }
+        },
+        third: {
+          "0%": { transform: "translateY(0%) scale(1) rotate(0deg)" },
+          "33%": { transform: "translateY(10%) scale(1.1) rotate(5deg)" },
+          "66%": { transform: "translateY(-10%) scale(0.9) rotate(-5deg)" },
+          "100%": { transform: "translateY(0%) scale(1) rotate(0deg)" }
+        },
+        fourth: {
+          "0%": { transform: "translateY(0%) scale(1) rotate(0deg)" },
+          "33%": { transform: "translateY(-15%) scale(1.1) rotate(-5deg)" },
+          "66%": { transform: "translateY(15%) scale(0.9) rotate(5deg)" },
+          "100%": { transform: "translateY(0%) scale(1) rotate(0deg)" }
+        },
+        fifth: {
+          "0%": { transform: "translateY(0%) scale(1) rotate(0deg)" },
+          "33%": { transform: "translateY(15%) scale(1.1) rotate(5deg)" },
+          "66%": { transform: "translateY(-15%) scale(0.9) rotate(-5deg)" },
+          "100%": { transform: "translateY(0%) scale(1) rotate(0deg)" }
         },
       },
     },
