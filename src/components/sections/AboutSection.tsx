@@ -66,34 +66,32 @@ const AboutSection = () => {
                   My Journey
                 </h3>
                 <div className="space-y-6">
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                    From running multi-brand campaigns to building automation systems that just slap — my digital marketing path is all about results.
+                  </p>
+                  
                   <div className="border-l-2 border-blue-500 pl-4 py-2">
-                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2024 - Present</p>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Freelance CRM Specialist & Automation Expert</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Building custom CRM and automation systems for service-based businesses</p>
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2022 - Present</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">Freelance CRM & Automation Expert</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Helping service-based businesses automate like pros. From onboarding funnels to lead nurture workflows and chat widget magic — I build custom systems in Go High Level that drive conversions and keep teams organized.</p>
                   </div>
                   
                   <div className="border-l-2 border-blue-500 pl-4 py-2">
                     <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2023 - 2024</p>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketer at Charley Grey</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Managed 70+ client accounts, designed funnels and automation systems</p>
-                  </div>
-                  
-                  <div className="border-l-2 border-blue-500 pl-4 py-2">
-                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2023</p>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketer at DRK Pharma GmbH</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Led SEO and social media strategies for international markets</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketer, Charley Grey</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Handled 70+ client accounts. Delivered high-performing funnels, automated dashboards, and Google Ads strategies for brands like All Pro and Grey Matters Studio. I made the backend sing and the metrics dance.</p>
                   </div>
                   
                   <div className="border-l-2 border-blue-500 pl-4 py-2">
                     <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2022 - 2023</p>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketer at Lumbee Corporate</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Market research and campaign management for B2C partnerships</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketer, Lumbee Corporate</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Worked deep in competitor analysis, market shifts, and brand strategy to grow B2C partnerships and sharpen their digital presence.</p>
                   </div>
                   
                   <div className="border-l-2 border-blue-500 pl-4 py-2">
                     <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2019 - 2022</p>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketing Executive at M.B Collections</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Shaped brand's digital presence through SEO and email marketing</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Executive, M.B Collections</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Helped scale one of Pakistan's top jewelry brands through content, SEO, and full-funnel digital strategy.</p>
                   </div>
                   
                   <div className="border-l-2 border-purple-500 pl-4 py-2 mt-4">
