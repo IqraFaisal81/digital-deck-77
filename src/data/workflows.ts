@@ -56,10 +56,30 @@ export const workflows = [
   }
 ];
 
-// Add the funnels export mapped from workflows
-export const funnels = workflows.map(workflow => ({
-  title: workflow.title,
-  description: workflow.description,
-  imageUrl: workflow.image,
-  url: "#" // Default URL
-}));
+// Separate funnels data with the specific items for Triad, All Pro, and Mike
+export const funnels = [
+  {
+    title: "Triad Diagnostic Solutions",
+    description: "E-Commerce Funnel for Autel products with checkout optimization",
+    imageUrl: "/lovable-uploads/5a0ede87-2de2-421a-af7a-5e44aad3886d.png",
+    url: "#"
+  },
+  {
+    title: "All Pro",
+    description: "Service Funnel for refrigerant readiness checkups with booking integration",
+    imageUrl: "/lovable-uploads/3db53d79-7906-4ee7-b2a9-2a28b2c5212a.png",
+    url: "#"
+  },
+  {
+    title: "Mike Greene Coaching",
+    description: "Mentoring booking funnel with calendar and payment integration",
+    imageUrl: "/lovable-uploads/459570af-5ccd-4c1d-9cd0-3b4bc8a4a618.png",
+    url: "#"
+  },
+  {
+    title: "Charley Grey",
+    description: "Client Onboarding Funnel with auto-tagging system",
+    imageUrl: "/lovable-uploads/2c828478-38e1-490e-b777-76e3f980ee9f.png",
+    url: "#"
+  }
+];
