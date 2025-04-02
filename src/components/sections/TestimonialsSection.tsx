@@ -2,7 +2,6 @@
 import React from "react";
 import { TestimonialCarouselDemo } from "@/components/ui/testimonial-carousel-demo";
 import SectionHeader from "@/components/skills/SectionHeader";
-import { Separator } from "@/components/ui/separator";
 
 const TestimonialsSection = () => {
   return (
@@ -20,9 +19,9 @@ const TestimonialsSection = () => {
         <div className="absolute bottom-40 left-20 w-32 h-32 rounded-full bg-indigo-300/30 dark:bg-indigo-700/20 blur-xl animate-float"></div>
         
         <SectionHeader 
-          subtitle="Client Success Stories"
-          title="What Our Clients Are Saying"
-          description="Hear from the people who've experienced the transformative impact of our digital solutions"
+          subtitle="Client Testimonials"
+          title="Client Testimonials"
+          description="Hear from the people who've experienced the transformative impact of digital solutions"
           alignment="center"
           useGradient={true}
         />
