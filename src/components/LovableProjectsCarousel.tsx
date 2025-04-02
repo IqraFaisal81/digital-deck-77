@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { 
   Carousel, 
@@ -9,7 +8,7 @@ import {
 } from "@/components/ui/carousel";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, ZoomIn, Code, Browser, Bot, ChevronLeft, ChevronRight, Calendar } from "lucide-react";
+import { ExternalLink, ZoomIn, Code, Monitor, Bot, ChevronLeft, ChevronRight, Calendar } from "lucide-react";
 import { scrollToServiceSection } from "@/utils/ScrollToServiceUtils";
 
 // Define Lovable projects data
@@ -28,7 +27,7 @@ const projects = [
     description: "Social media analytics with Supabase integration. Track performance metrics, audience engagement, and content effectiveness across platforms.",
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     url: "https://preview--friendly-supabase-86.lovable.app/",
-    icon: <Browser className="h-5 w-5" />
+    icon: <Monitor className="h-5 w-5" />
   },
   {
     id: 3,
