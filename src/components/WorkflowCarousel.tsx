@@ -8,19 +8,7 @@ import {
   CarouselPrevious 
 } from "@/components/ui/carousel";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { ExternalLink, ZoomIn, Activity, GitBranch, ChevronLeft, ChevronRight } from "lucide-react";
-import { scrollToServiceSection } from "@/utils/ScrollToServiceUtils";
 import { workflows } from "@/data/workflows";
-
-// Helper function to render the icon based on index
-const renderIcon = (index: number) => {
-  if (index % 2 === 0) {
-    return <Activity className="h-5 w-5" />;
-  } else {
-    return <GitBranch className="h-5 w-5" />;
-  }
-};
 
 const WorkflowCarousel = () => {
   const [selectedWorkflow, setSelectedWorkflow] = useState<typeof workflows[0] | null>(null);
@@ -32,7 +20,7 @@ const WorkflowCarousel = () => {
   };
 
   return (
-    <div className="w-full bg-gradient-to-br from-blue-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-6 rounded-2xl border border-blue-100/50 dark:border-blue-900/30 shadow-lg">
+    <div className="w-full">
       <Carousel
         opts={{
           align: "start",
@@ -41,89 +29,49 @@ const WorkflowCarousel = () => {
         className="w-full"
       >
         <CarouselContent>
-          {workflows.map((workflow, index) => (
+          {workflows.map((workflow) => (
             <CarouselItem key={workflow.id} className="basis-full md:basis-1/2 lg:basis-1/3 p-2">
               <div 
-                className="cursor-pointer h-full bg-white dark:bg-gray-800 rounded-xl border border-blue-100 dark:border-blue-900/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group shadow"
+                className="cursor-pointer h-full bg-white shadow-md rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg"
                 onClick={() => openWorkflowModal(workflow)}
               >
-                <div className="relative h-[180px] md:h-[200px] overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <ZoomIn className="h-10 w-10 text-white bg-blue-600/80 p-2 rounded-full" />
-                  </div>
+                <div className="relative h-[200px] md:h-[220px] overflow-hidden">
                   <img 
                     src={workflow.image} 
                     alt={workflow.title} 
-                    className="w-full h-full object-cover object-top transition-all duration-500 transform group-hover:scale-105"
+                    className="w-full h-full object-cover object-top transition-all duration-300 transform hover:scale-110"
                   />
                 </div>
-                <div className="p-4 bg-white dark:bg-gray-800">
-                  <div className="flex items-center mb-2">
-                    <div className="bg-blue-600 dark:bg-blue-500 p-1.5 rounded-md mr-3 text-white">
-                      {renderIcon(index)}
-                    </div>
-                    <h4 className="text-md font-bold text-gray-800 dark:text-gray-200 line-clamp-1">{workflow.title}</h4>
-                  </div>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm line-clamp-2">{workflow.description}</p>
+                <div className="p-4 bg-gray-50">
+                  <h4 className="text-lg font-semibold text-black">{workflow.title}</h4>
+                  <p className="text-gray-800 text-sm mt-1">{workflow.description}</p>
                 </div>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-2 bg-white dark:bg-gray-800 hover:bg-blue-600 hover:text-white border-none shadow-lg">
-          <ChevronLeft className="h-4 w-4" />
-        </CarouselPrevious>
-        <CarouselNext className="right-2 bg-white dark:bg-gray-800 hover:bg-blue-600 hover:text-white border-none shadow-lg">
-          <ChevronRight className="h-4 w-4" />
-        </CarouselNext>
+        <CarouselPrevious className="left-2 bg-black/50 hover:bg-black/80 border-none" />
+        <CarouselNext className="right-2 bg-black/50 hover:bg-black/80 border-none" />
       </Carousel>
 
       {/* Workflow Modal */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="bg-white dark:bg-gray-800 max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl border border-blue-100 dark:border-blue-900/50 shadow-2xl p-0">
+        <DialogContent className="bg-white max-w-4xl max-h-[90vh] overflow-y-auto">
           {selectedWorkflow && (
             <>
-              <DialogHeader className="p-6 border-b border-gray-100 dark:border-gray-700">
-                <div className="flex items-center">
-                  <div className="bg-blue-600 dark:bg-blue-500 p-2 rounded-md mr-3 text-white">
-                    {renderIcon(selectedWorkflow.id % 2)}
-                  </div>
-                  <DialogTitle className="text-2xl font-bold text-gray-800 dark:text-gray-200">{selectedWorkflow.title}</DialogTitle>
-                </div>
-                <DialogDescription className="text-gray-600 dark:text-gray-300 text-base mt-2">
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold text-gray-800">{selectedWorkflow.title}</DialogTitle>
+                <DialogDescription className="text-gray-600">
                   {selectedWorkflow.description}
                 </DialogDescription>
               </DialogHeader>
               
-              <div className="p-6">
-                <div className="bg-gray-50 dark:bg-gray-900/50 p-4 rounded-lg border border-gray-100 dark:border-gray-700">
-                  <img 
-                    src={selectedWorkflow.image} 
-                    alt={selectedWorkflow.title} 
-                    className="w-full object-contain rounded-lg shadow-inner"
-                  />
-                </div>
-                
-                <div className="mt-6 flex justify-between">
-                  <Button
-                    className="bg-gray-200 hover:bg-gray-300 text-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white"
-                    variant="outline"
-                    onClick={() => setModalOpen(false)}
-                  >
-                    Close
-                  </Button>
-                  
-                  <Button
-                    className="bg-blue-600 hover:bg-blue-700 text-white"
-                    onClick={() => {
-                      setModalOpen(false);
-                      scrollToServiceSection("workflows");
-                    }}
-                  >
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    View Workflow Services
-                  </Button>
-                </div>
+              <div className="mt-4 bg-gray-50 p-2 rounded-lg">
+                <img 
+                  src={selectedWorkflow.image} 
+                  alt={selectedWorkflow.title} 
+                  className="w-full object-contain rounded-lg"
+                />
               </div>
             </>
           )}
