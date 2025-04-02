@@ -1,4 +1,3 @@
-
 import { ArrowDown, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -32,22 +31,47 @@ const HomeSection = () => {
   
   useEffect(() => {
     let timer: NodeJS.Timeout;
-    if (displayText !== texts[loopNum % texts.length] || isDeleting) {
+    
+    // Always keep typing until we reach the full text
+    if (!isDeleting && displayText !== texts[loopNum % texts.length]) {
+      timer = setTimeout(() => {
+        handleType();
+      }, typingSpeed);
+    } 
+    // If we need to delete, keep deleting until empty
+    else if (isDeleting && displayText !== '') {
       timer = setTimeout(() => {
         handleType();
       }, typingSpeed);
     }
+    // If we've finished deleting
+    else if (isDeleting && displayText === '') {
+      setIsDeleting(false);
+      setLoopNum(loopNum + 1);
+      // Small pause before typing the next text
+      timer = setTimeout(() => {
+        handleType();
+      }, 500);
+    }
+    // If we've finished typing the full text
+    else if (!isDeleting && displayText === texts[loopNum % texts.length]) {
+      // Pause at end of text before starting to delete
+      timer = setTimeout(() => {
+        setIsDeleting(true);
+        handleType();
+      }, 1500);
+    }
     
     return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [displayText, isDeleting]);
+  }, [displayText, isDeleting, loopNum]);
   
   const handleType = () => {
     // Get current text based on loop number
     const currentIndex = loopNum % texts.length;
     const fullText = texts[currentIndex];
     
-    // Set typing speed based on action
+    // Set typing speed based on action (faster for deleting)
     setTypingSpeed(isDeleting ? 75 : 150);
     
     // Update display text
@@ -55,19 +79,6 @@ const HomeSection = () => {
       setDisplayText(fullText.substring(0, displayText.length - 1));
     } else {
       setDisplayText(fullText.substring(0, displayText.length + 1));
-    }
-    
-    // If completed typing the full text
-    if (!isDeleting && displayText === fullText) {
-      // Pause at the end of typing
-      setTimeout(() => {
-        setIsDeleting(true);
-      }, 1500);
-    } 
-    // If finished deleting
-    else if (isDeleting && displayText === '') {
-      setIsDeleting(false);
-      setLoopNum(loopNum + 1);
     }
   };
   
@@ -93,7 +104,7 @@ const HomeSection = () => {
               <p className="text-blue-600 dark:text-blue-400 font-medium tracking-wider animate-fade-in-up animate-delay-100 uppercase text-sm">
                 SaaS Developer & Automation Specialist
               </p>
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 dark:text-white font-display animate-fade-in-up animate-delay-200 drop-shadow-sm min-h-[80px] md:min-h-[96px] flex items-center">
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gradient bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400 animate-fade-in-up animate-delay-200 drop-shadow-sm min-h-[80px] md:min-h-[96px] flex items-center">
                 <span className="typewriter">
                   {displayText}
                   <span className="cursor-blink"></span>
