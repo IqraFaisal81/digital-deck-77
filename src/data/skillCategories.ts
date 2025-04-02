@@ -5,12 +5,13 @@ import {
   Database, 
   BarChart, 
   Bot, 
-  TrendingUp
+  TrendingUp,
+  LucideIcon
 } from "lucide-react";
 import { SkillCategory } from "@/types/skills";
 
 // Create a wrapper component for icons with consistent styling
-const StyledIcon = ({ icon: Icon }: { icon: React.ComponentType<{ className?: string }> }) => (
+const StyledIcon = ({ icon: Icon }: { icon: LucideIcon }) => (
   <Icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
 );
 
