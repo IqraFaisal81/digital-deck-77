@@ -2,12 +2,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { clients } from "@/data/clients";
 import { motion, AnimatePresence } from "framer-motion";
+import { Testimonial } from "@/components/ui/testimonial";
 
 export function TestimonialCarouselDemo() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -95,66 +95,14 @@ export function TestimonialCarouselDemo() {
                   }}
                   className="absolute w-full"
                 >
-                  <div className="grid md:grid-cols-[1fr,1.5fr] gap-10 items-center">
-                    <div className="flex flex-col items-center md:items-start">
-                      {testimonials[currentIndex].company && (
-                        <div className="mb-6 bg-gray-100 dark:bg-gray-800 rounded-lg p-4 w-auto h-16 flex items-center justify-center">
-                          <span className="font-semibold text-lg capitalize">
-                            {testimonials[currentIndex].company}
-                          </span>
-                        </div>
-                      )}
-                      <div className="relative w-full hidden md:block">
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 dark:from-blue-400/5 dark:to-indigo-400/5 rounded-full blur-3xl"></div>
-                        <div className="relative flex items-center justify-center">
-                          <Avatar className="w-24 h-24 border-4 border-white dark:border-gray-800 shadow-lg">
-                            <AvatarFallback className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white text-2xl">
-                              {testimonials[currentIndex].name.split(" ").map(n => n[0]).join("")}
-                            </AvatarFallback>
-                          </Avatar>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="flex flex-col">
-                      <div className="flex items-center gap-4 mb-6 md:hidden">
-                        <Avatar className="w-14 h-14 border-2 border-white dark:border-gray-800 shadow-md">
-                          <AvatarFallback className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white">
-                            {testimonials[currentIndex].name.split(" ").map(n => n[0]).join("")}
-                          </AvatarFallback>
-                        </Avatar>
-                        <div>
-                          <h3 className="font-semibold">{testimonials[currentIndex].name}</h3>
-                          <p className="text-sm text-gray-500 dark:text-gray-400">{testimonials[currentIndex].role}</p>
-                        </div>
-                      </div>
-                      
-                      {testimonials[currentIndex].rating > 0 && (
-                        <div className="flex gap-1 mb-3">
-                          {Array.from({ length: 5 }).map((_, index) => (
-                            <Star
-                              key={index}
-                              size={16}
-                              className={cn(
-                                index < testimonials[currentIndex].rating
-                                  ? "fill-yellow-400 text-yellow-400"
-                                  : "fill-muted text-muted"
-                              )}
-                            />
-                          ))}
-                        </div>
-                      )}
-                      
-                      <blockquote className="text-2xl font-medium text-gray-900 dark:text-gray-100 mb-6 leading-relaxed">
-                        "{testimonials[currentIndex].review}"
-                      </blockquote>
-                      
-                      <div className="mt-auto hidden md:block">
-                        <h3 className="font-semibold text-lg">{testimonials[currentIndex].name}</h3>
-                        <p className="text-gray-500 dark:text-gray-400">{testimonials[currentIndex].role}</p>
-                      </div>
-                    </div>
-                  </div>
+                  <Testimonial
+                    name={testimonials[currentIndex].name}
+                    role={testimonials[currentIndex].role}
+                    company={testimonials[currentIndex].company}
+                    testimonial={testimonials[currentIndex].review}
+                    rating={testimonials[currentIndex].rating}
+                    className="h-full"
+                  />
                 </motion.div>
               </AnimatePresence>
             </div>
