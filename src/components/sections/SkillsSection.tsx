@@ -108,15 +108,22 @@ const SkillsSection = () => {
     <section 
       id="skills" 
       ref={sectionRef} 
-      className="py-20 md:py-28 px-4 md:px-8 relative overflow-hidden bg-gradient-to-b from-white/90 to-blue-50/60 dark:from-gray-900/90 dark:to-gray-800/60"
+      className="py-20 md:py-28 px-4 md:px-8 relative overflow-hidden bg-white dark:bg-gray-900"
     >
-      {/* Enhanced decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-100/50 dark:bg-blue-900/30 rounded-full blur-3xl opacity-70"></div>
-        <div className="absolute top-1/3 -left-20 w-60 h-60 bg-indigo-100/50 dark:bg-indigo-900/30 rounded-full blur-3xl opacity-70"></div>
-        <div className="absolute -bottom-40 right-1/4 w-80 h-80 bg-purple-100/50 dark:bg-purple-900/30 rounded-full blur-3xl opacity-50"></div>
+      {/* Enhanced decorative elements with aurora-like background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] bg-blue-100/30 dark:bg-blue-900/20 rounded-full blur-3xl opacity-70"></div>
+        <div className="absolute bottom-1/4 -left-1/4 w-[500px] h-[500px] bg-indigo-100/30 dark:bg-indigo-900/20 rounded-full blur-3xl opacity-70"></div>
         
-        {/* Enhanced floating shapes */}
+        {/* Floating gradient overlay */}
+        <div 
+          className="absolute inset-0 opacity-50 dark:opacity-30 pointer-events-none"
+          style={{
+            background: 'linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(99,102,241,0.1) 100%)',
+          }}
+        ></div>
+        
+        {/* Subtle floating particles */}
         <div className="absolute top-40 right-10 w-4 h-4 rounded-full bg-blue-400/70 dark:bg-blue-500/70 animate-float"></div>
         <div className="absolute top-1/2 left-10 w-6 h-6 rounded-full bg-indigo-400/60 dark:bg-indigo-500/60 animate-float" style={{animationDelay: '1s'}}></div>
         <div className="absolute bottom-40 right-1/3 w-5 h-5 rounded-full bg-purple-400/50 dark:bg-purple-500/50 animate-float" style={{animationDelay: '2s'}}></div>
