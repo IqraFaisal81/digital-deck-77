@@ -6,7 +6,7 @@ import {
   CarouselNext, 
   CarouselPrevious 
 } from "@/components/ui/carousel";
-import { ArrowRight, Calendar, ExternalLink } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 import { services } from "@/data/services";
 import { Button } from "@/components/ui/button";
 import { useCarouselState } from "@/hooks/useCarouselState";
@@ -61,27 +61,12 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
                   </CardDescription>
                 </CardContent>
                 <CardFooter className="flex justify-between items-center border-t pt-4 bg-gray-50 dark:bg-gray-800/50">
-                  <div className="flex items-center gap-2">
-                    {service.sectionId && (
-                      <div className="text-royal dark:text-electric text-sm flex items-center">
-                        <span>{visibleSection === service.sectionId ? 'Hide details' : 'Learn more'}</span>
-                        <ArrowRight size={14} className="ml-1" />
-                      </div>
-                    )}
-                    
-                    {service.exampleUrl && (
-                      <a 
-                        href={service.exampleUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="text-royal dark:text-electric text-sm flex items-center ml-3"
-                      >
-                        <span>Visit example</span>
-                        <ExternalLink size={14} className="ml-1" />
-                      </a>
-                    )}
-                  </div>
+                  {service.sectionId && (
+                    <div className="text-royal dark:text-electric text-sm flex items-center">
+                      <span>{visibleSection === service.sectionId ? 'Hide details' : 'Learn more'}</span>
+                      <ArrowRight size={14} className="ml-1" />
+                    </div>
+                  )}
                   
                   <Button
                     variant="ghost"
@@ -116,4 +101,3 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
 };
 
 export default ServiceCarousel;
-
