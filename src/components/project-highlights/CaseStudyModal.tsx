@@ -36,6 +36,21 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }: CaseStudyModalProps) => 
   } else if (caseStudy.tags.includes("UX/UI Strategy")) {
     imagePath = '/lovable-uploads/e4378bce-64c8-4f55-b680-35adfd4061c5.png';
     imageCredit = 'UI/UX design strategy visualization';
+  } else if (caseStudy.tags.includes("Automation Strategy")) {
+    imagePath = '/lovable-uploads/62db0c38-4d35-41c2-b6db-6dcc3d85ecac.png';
+    imageCredit = 'Automation workflow and process map';
+  } else if (caseStudy.tags.includes("Lead Nurturing")) {
+    imagePath = '/lovable-uploads/8298ac25-72ea-45df-8b02-fec826aa557c.png';
+    imageCredit = 'Lead nurturing funnel visualization';
+  } else if (caseStudy.tags.includes("Market Research")) {
+    imagePath = '/lovable-uploads/66fbb743-7c92-4338-9760-c6e38c8e404f.png';
+    imageCredit = 'Market research and analytics dashboard';
+  } else if (caseStudy.tags.includes("Customer Recovery")) {
+    imagePath = '/lovable-uploads/35f482ac-5ef5-4d4e-bb5b-83bb739c6f81.png';
+    imageCredit = 'Customer recovery workflow strategy';
+  } else if (caseStudy.tags.includes("Go High Level")) {
+    imagePath = '/lovable-uploads/37cac9ff-58d3-4577-aa46-17ca9bc6d57d.png';
+    imageCredit = 'Go High Level platform dashboard';
   } else {
     // Fallback image
     imagePath = '/lovable-uploads/da16c894-2606-4ce0-ac83-3e381213d0bf.png';
