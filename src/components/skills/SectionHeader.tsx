@@ -2,7 +2,6 @@
 import React from "react";
 
 interface SectionHeaderProps {
-  subtitle?: string;
   title: React.ReactNode;
   description?: string;
   alignment?: "left" | "center" | "right";
@@ -10,7 +9,6 @@ interface SectionHeaderProps {
 }
 
 const SectionHeader = ({ 
-  subtitle, 
   title, 
   description,
   alignment = "left",
@@ -24,11 +22,6 @@ const SectionHeader = ({
 
   return (
     <div className={`mb-12 max-w-3xl ${alignmentClasses[alignment]}`}>
-      {subtitle && (
-        <p className="text-royal dark:text-electric font-medium tracking-wide mb-2 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
-          {subtitle}
-        </p>
-      )}
       <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${useGradient ? 'bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon' : 'text-royal dark:text-electric'} font-display animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 delay-100`}>
         {title}
       </h2>
