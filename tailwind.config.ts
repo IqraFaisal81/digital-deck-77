@@ -114,6 +114,11 @@ export default {
         "slide-in-left": "slideInLeft 0.5s ease-out forwards",
         "scale-in": "scaleIn 0.5s ease-out forwards",
         "float": "floatUp 6s ease-in-out infinite",
+        "first": "first 8s infinite",
+        "second": "second 8s infinite",
+        "third": "third 8s infinite",
+        "fourth": "fourth 8s infinite",
+        "fifth": "fifth 8s infinite",
       },
       keyframes: {
         "accordion-down": {
@@ -144,6 +149,36 @@ export default {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
         },
+        first: {
+          "0%": { transform: "translate(0px, 0px) scale(1)" },
+          "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+          "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+          "100%": { transform: "translate(0px, 0px) scale(1)" }
+        },
+        second: {
+          "0%": { transform: "translate(0px, 0px) scale(1)" },
+          "33%": { transform: "translate(-20px, -30px) scale(1.1)" },
+          "66%": { transform: "translate(40px, -20px) scale(0.9)" },
+          "100%": { transform: "translate(0px, 0px) scale(1)" }
+        },
+        third: {
+          "0%": { transform: "translate(0px, 0px) scale(1)" },
+          "33%": { transform: "translate(40px, 20px) scale(0.9)" },
+          "66%": { transform: "translate(-30px, 40px) scale(1.1)" },
+          "100%": { transform: "translate(0px, 0px) scale(1)" }
+        },
+        fourth: {
+          "0%": { transform: "translate(0px, 0px) scale(1)" },
+          "33%": { transform: "translate(-30px, 30px) scale(1.1)" },
+          "66%": { transform: "translate(30px, -30px) scale(0.9)" },
+          "100%": { transform: "translate(0px, 0px) scale(1)" }
+        },
+        fifth: {
+          "0%": { transform: "translate(0px, 0px) scale(1)" },
+          "33%": { transform: "translate(-20px, 40px) scale(1.1)" },
+          "66%": { transform: "translate(30px, 20px) scale(0.9)" },
+          "100%": { transform: "translate(0px, 0px) scale(1)" }
+        }
       },
     },
   },
