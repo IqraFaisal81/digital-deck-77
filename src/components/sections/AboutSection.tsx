@@ -34,7 +34,7 @@ const AboutSection = () => {
                 </div>
                 <div className="flex items-start space-x-2">
                   <Check className="text-blue-600 dark:text-blue-400 mt-1" />
-                  <span className="text-gray-700 dark:text-gray-300">MSc Digital Marketing</span>
+                  <span className="text-gray-700 dark:text-gray-300">MBA Graduate</span>
                 </div>
                 <div className="flex items-start space-x-2">
                   <Check className="text-blue-600 dark:text-blue-400 mt-1" />
@@ -67,27 +67,40 @@ const AboutSection = () => {
                 </h3>
                 <div className="space-y-6">
                   <div className="border-l-2 border-blue-500 pl-4 py-2">
-                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2022 - Present</p>
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2024 - Present</p>
                     <h4 className="font-semibold text-gray-900 dark:text-white">Freelance CRM Specialist & Automation Expert</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Building custom solutions for service businesses</p>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Building custom CRM and automation systems for service-based businesses</p>
                   </div>
                   
                   <div className="border-l-2 border-blue-500 pl-4 py-2">
-                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2021 - 2022</p>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketing Specialist at Medusa</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Managed CRM systems and automation workflows</p>
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2023 - 2024</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketer at Charley Grey</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Managed 70+ client accounts, designed funnels and automation systems</p>
                   </div>
                   
                   <div className="border-l-2 border-blue-500 pl-4 py-2">
-                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2020 - 2021</p>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">MSc Digital Marketing</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Sheffield Hallam University</p>
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2023</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketer at DRK Pharma GmbH</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Led SEO and social media strategies for international markets</p>
                   </div>
                   
                   <div className="border-l-2 border-blue-500 pl-4 py-2">
-                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2017 - 2020</p>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">BSc Business & Marketing</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">University of Hertfordshire</p>
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2022 - 2023</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketer at Lumbee Corporate</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Market research and campaign management for B2C partnerships</p>
+                  </div>
+                  
+                  <div className="border-l-2 border-blue-500 pl-4 py-2">
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2019 - 2022</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketing Executive at M.B Collections</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Shaped brand's digital presence through SEO and email marketing</p>
+                  </div>
+                  
+                  <div className="border-l-2 border-purple-500 pl-4 py-2 mt-4">
+                    <p className="text-sm text-purple-600 dark:text-purple-400 font-medium">Education</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">MBA - University of Lincoln UK (2023-2024)</h4>
+                    <h4 className="font-semibold text-gray-900 dark:text-white mt-1">Bachelors in Media & Communication - UCP (2017-2021)</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Certifications: Google Ads, SEO, Google Tag Manager, Go High Level</p>
                   </div>
                 </div>
               </div>
