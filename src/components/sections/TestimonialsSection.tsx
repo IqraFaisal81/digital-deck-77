@@ -1,23 +1,14 @@
 
-import React, { useEffect, useRef } from "react";
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious
-} from "@/components/ui/carousel";
-import { useCarouselState } from "@/hooks/useCarouselState";
-import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { clients } from "@/data/clients";
-import { Star, Quote } from "lucide-react";
 import SectionHeader from "@/components/skills/SectionHeader";
+import { TestimonialCard } from "@/components/testimonials/TestimonialCard";
 
 const TestimonialsSection = () => {
   const testimonials = clients.filter(client => client.testimonial);
-  const { carouselApi, setCarouselApi, currentIndex } = useCarouselState();
   const sectionRef = useRef<HTMLElement>(null);
+  const [positions, setPositions] = useState<string[]>(["front", "middle", "back"]);
   
   // Animation on scroll
   useEffect(() => {
@@ -35,14 +26,9 @@ const TestimonialsSection = () => {
     
     return () => elements?.forEach(el => observer.unobserve(el));
   }, []);
-  
-  const renderStars = (rating: number = 5) => {
-    return Array(5).fill(0).map((_, i) => (
-      <Star 
-        key={i} 
-        className={`h-4 w-4 ${i < rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300 dark:text-gray-600'}`} 
-      />
-    ));
+
+  const handleShuffle = () => {
+    setPositions(prev => [prev[2], prev[0], prev[1]]);
   };
 
   return (
@@ -61,7 +47,7 @@ const TestimonialsSection = () => {
         />
         
         {/* Client Logos */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
+        <div className="flex flex-wrap justify-center gap-4 mb-20 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
           {clients.map((client, index) => (
             <div key={index} className="p-3 bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 transition-all hover:shadow-md hover:bg-white dark:hover:bg-gray-700 group">
               {client.logo ? (
@@ -79,100 +65,28 @@ const TestimonialsSection = () => {
           ))}
         </div>
         
+        {/* Testimonial Cards */}
         <div className="max-w-6xl mx-auto animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 delay-300">
-          {testimonials.length > 0 && (
-            <Carousel
-              setApi={setCarouselApi}
-              className="relative"
-              opts={{
-                loop: true,
-                align: "center",
-              }}
-            >
-              <CarouselContent className="-ml-2 md:-ml-4">
-                {testimonials.map((client, index) => (
-                  <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-4/5 lg:basis-3/4">
-                    <div className="h-full">
-                      <Card className="shadow-lg border-0 overflow-hidden bg-white dark:bg-gray-800 hover:shadow-2xl transition-all duration-500 h-full transform hover:-translate-y-1 rounded-xl">
-                        <CardContent className="p-0 h-full">
-                          <div className="flex flex-col md:flex-row h-full">
-                            <div className="md:w-2/5 lg:w-1/3 bg-white dark:bg-gray-800 flex flex-col items-center justify-center p-8 text-black dark:text-white relative">
-                              {client.logo && (
-                                <div className="mb-6 bg-white/90 dark:bg-gray-700/90 p-4 rounded-xl shadow-sm">
-                                  <img src={client.logo} alt={client.name} className="h-16 w-auto object-contain" />
-                                </div>
-                              )}
-                              <div className="mb-6">
-                                <h4 className="text-xl font-bold text-center mb-2 text-royal dark:text-electric">{client.name}</h4>
-                              </div>
-                              <p className="text-sm text-gray-700 dark:text-gray-300 text-center font-light">{client.description}</p>
-                              <div className="mt-6 text-xs font-light italic text-gray-500 dark:text-gray-400 text-center">
-                                {client.website !== "#" && (
-                                  <a href={client.website} target="_blank" rel="noopener noreferrer" className="hover:underline text-electric dark:text-royal hover:text-royal/80 dark:hover:text-electric/80 transition-colors">
-                                    Visit Website
-                                  </a>
-                                )}
-                              </div>
-                            </div>
-                            
-                            <div className="md:w-3/5 lg:w-2/3 p-8 md:p-10 relative flex flex-col justify-center bg-white dark:bg-gray-800">
-                              <div className="flex items-center mb-4 z-10">
-                                {renderStars(client.testimonial?.rating)}
-                              </div>
-                              
-                              <blockquote className="text-black dark:text-white italic mb-6 relative z-10 text-lg md:text-xl leading-relaxed">
-                                <span className="absolute -top-4 -left-2 text-royal/10 dark:text-electric/10">
-                                  <Quote size={40} className="rotate-180" />
-                                </span>
-                                "{client.testimonial?.quote}"
-                                <span className="absolute -bottom-4 -right-2 text-royal/10 dark:text-electric/10">
-                                  <Quote size={40} />
-                                </span>
-                              </blockquote>
-                              
-                              <div className="mt-auto flex items-center border-t border-gray-100 dark:border-gray-700 pt-5">
-                                <Avatar className="h-14 w-14 border-2 border-royal/20 dark:border-electric/20 mr-4 shadow-sm">
-                                  <AvatarFallback className="bg-royal/10 dark:bg-electric/10 text-royal dark:text-electric font-semibold">
-                                    {client.testimonial?.author.split(' ').map(n => n[0]).join('')}
-                                  </AvatarFallback>
-                                </Avatar>
-                                <div>
-                                  <div className="font-bold text-royal dark:text-electric text-lg">
-                                    {client.testimonial?.author}
-                                  </div>
-                                  <div className="text-sm text-gray-700 dark:text-gray-300">
-                                    {client.testimonial?.position}, {client.name}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              
-              <div className="absolute -bottom-14 left-0 right-0 flex justify-center gap-2 py-4">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => carouselApi?.scrollTo(index)}
-                    className={`transition-all duration-300 ${
-                      currentIndex === index 
-                        ? 'bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon w-8 h-2.5 rounded-full shadow-md' 
-                        : 'bg-gray-300 dark:bg-gray-600 w-2.5 h-2.5 rounded-full hover:bg-royal/50 dark:hover:bg-electric/50 hover:scale-110'
-                    }`}
-                    aria-label={`Go to testimonial ${index + 1}`}
-                  />
-                ))}
-              </div>
-              
-              <CarouselPrevious className="hidden md:flex -left-5 h-10 w-10 border-none bg-white dark:bg-gray-800 shadow-lg focus:ring-2 focus:ring-royal dark:focus:ring-electric focus:ring-offset-2 text-royal dark:text-electric hover:bg-gray-50 dark:hover:bg-gray-700" />
-              <CarouselNext className="hidden md:flex -right-5 h-10 w-10 border-none bg-white dark:bg-gray-800 shadow-lg focus:ring-2 focus:ring-royal dark:focus:ring-electric focus:ring-offset-2 text-royal dark:text-electric hover:bg-gray-50 dark:hover:bg-gray-700" />
-            </Carousel>
-          )}
+          <div className="relative h-[550px] w-full">
+            <div className="mx-auto relative h-[450px] w-[350px] md:w-[80%] lg:w-[70%]">
+              {testimonials.slice(0, 3).map((testimonial, index) => (
+                <TestimonialCard
+                  key={index}
+                  id={index + 1}
+                  position={positions[index]}
+                  handleShuffle={handleShuffle}
+                  testimonial={testimonial.testimonial?.quote || ""}
+                  author={`${testimonial.testimonial?.author}, ${testimonial.testimonial?.position} at ${testimonial.name}`}
+                />
+              ))}
+            </div>
+            
+            <div className="mt-10 text-center">
+              <p className="text-gray-600 dark:text-gray-400 italic">
+                <span className="text-royal dark:text-electric">Swipe left</span> to see more testimonials
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
