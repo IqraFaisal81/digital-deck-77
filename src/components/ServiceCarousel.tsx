@@ -47,10 +47,10 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
               >
                 <CardHeader className="pb-2">
                   <div className="flex items-center gap-4">
-                    <div className="bg-gradient-to-br from-royal to-electric dark:from-electric dark:to-royal p-3 rounded-full w-14 h-14 flex items-center justify-center">
+                    <div className="bg-gradient-to-br from-royal to-electric dark:from-electric dark:to-blue-600 p-3 rounded-full w-14 h-14 flex items-center justify-center">
                       <service.icon className="text-white" size={24} />
                     </div>
-                    <CardTitle className="text-xl bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon">
+                    <CardTitle className="text-xl bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-blue-400">
                       {service.title}
                     </CardTitle>
                   </div>
@@ -87,13 +87,13 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
         </CarouselContent>
         
         <div className="flex justify-center items-center gap-4 mt-6">
-          <CarouselPrevious className="static transform-none bg-gradient-to-r from-royal to-electric/80 dark:from-electric dark:to-royal/80 hover:opacity-90 text-white border-none" />
+          <CarouselPrevious className="static transform-none bg-gradient-to-r from-royal to-electric/80 dark:from-electric dark:to-blue-600/80 hover:opacity-90 text-white border-none" />
           <CarouselPagination 
             carouselApi={carouselApi}
             currentIndex={currentIndex}
             items={services}
           />
-          <CarouselNext className="static transform-none bg-gradient-to-r from-royal to-electric/80 dark:from-electric dark:to-royal/80 hover:opacity-90 text-white border-none" />
+          <CarouselNext className="static transform-none bg-gradient-to-r from-royal to-electric/80 dark:from-electric dark:to-blue-600/80 hover:opacity-90 text-white border-none" />
         </div>
       </Carousel>
     </div>

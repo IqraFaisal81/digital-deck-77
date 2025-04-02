@@ -15,10 +15,10 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
   const isMobile = useIsMobile();
   
   return (
-    <section id="services" className="section-padding py-20 bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-blue-950/30">
+    <section id="services" className="section-padding py-20 bg-gradient-to-b from-white to-blue-50 dark:from-blue-950 dark:to-blue-900/30">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-blue-400">
             My Services
           </h2>
           <div className="max-w-3xl mx-auto">
@@ -49,10 +49,10 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
               >
                 <CardHeader className="pb-2">
                   <div className="flex items-center gap-4">
-                    <div className="bg-gradient-to-br from-royal to-electric dark:from-electric dark:to-royal p-3 rounded-full w-14 h-14 flex items-center justify-center shadow-md transform group-hover:rotate-3 transition-transform">
+                    <div className="bg-gradient-to-br from-royal to-electric dark:from-electric dark:to-blue-600 p-3 rounded-full w-14 h-14 flex items-center justify-center shadow-md transform group-hover:rotate-3 transition-transform">
                       <service.icon className="text-white" size={24} />
                     </div>
-                    <CardTitle className="text-xl bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon">
+                    <CardTitle className="text-xl bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-blue-400">
                       {service.title}
                     </CardTitle>
                   </div>
@@ -86,7 +86,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
             Not sure which service you need? Let's discuss your goals in a personalized consultation.
           </p>
           <Button 
-            className="bg-gradient-to-r from-royal to-electric hover:opacity-90 dark:from-electric dark:to-royal text-white px-6 py-5 h-auto"
+            className="bg-gradient-to-r from-royal to-electric hover:opacity-90 dark:from-electric dark:to-blue-600 text-white px-6 py-5 h-auto"
             asChild
           >
             <a href="#booking" className="flex items-center">

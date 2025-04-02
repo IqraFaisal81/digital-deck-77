@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="section-padding min-h-screen flex items-center bg-gradient-to-b from-gray-900 to-black dark:from-black dark:to-gray-900">
+    <section id="contact" className="section-padding min-h-screen flex items-center bg-gradient-to-b from-gray-900 to-black dark:from-blue-950 dark:to-blue-900">
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-400">Let&apos;s Work Together</h2>
         <div className="max-w-3xl mx-auto mb-12">
