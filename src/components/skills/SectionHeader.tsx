@@ -6,13 +6,15 @@ interface SectionHeaderProps {
   title: React.ReactNode;
   description?: string;
   alignment?: "left" | "center" | "right";
+  useGradient?: boolean;
 }
 
 const SectionHeader = ({ 
   subtitle, 
   title, 
   description,
-  alignment = "left"
+  alignment = "left",
+  useGradient = true
 }: SectionHeaderProps) => {
   const alignmentClasses = {
     left: "text-left",
@@ -27,7 +29,7 @@ const SectionHeader = ({
           {subtitle}
         </p>
       )}
-      <h2 className={`text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 dark:from-white dark:to-blue-400 font-display animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 delay-100`}>
+      <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${useGradient ? 'bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 dark:from-white dark:to-blue-400' : 'text-gray-900 dark:text-white'} font-display animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 delay-100`}>
         {title}
       </h2>
       {description && (
