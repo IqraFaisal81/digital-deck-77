@@ -29,7 +29,7 @@ const SectionHeader = ({
           {subtitle}
         </p>
       )}
-      <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${useGradient ? 'bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon' : 'text-royal dark:text-electric'} font-display animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 delay-100`}>
+      <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${useGradient ? 'bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon' : 'text-royal dark:text-electric'} font-display animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 delay-100`}>
         {title}
       </h2>
       {description && (
