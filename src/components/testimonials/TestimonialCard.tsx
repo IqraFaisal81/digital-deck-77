@@ -24,6 +24,16 @@ export function TestimonialCard({ handleShuffle, testimonial, position, id, auth
     ));
   };
 
+  // Helper function to get clientX from different event types
+  const getClientX = (event: MouseEvent | TouchEvent | PointerEvent): number => {
+    // Check if it's a touch event
+    if ('touches' in event) {
+      return event.touches[0]?.clientX || 0;
+    }
+    // For MouseEvent and PointerEvent
+    return 'clientX' in event ? event.clientX : 0;
+  };
+
   return (
     <motion.div
       style={{
@@ -45,10 +55,10 @@ export function TestimonialCard({ handleShuffle, testimonial, position, id, auth
         bottom: 0
       }}
       onDragStart={(e) => {
-        dragRef.current = e.clientX;
+        dragRef.current = getClientX(e);
       }}
       onDragEnd={(e) => {
-        if (dragRef.current - e.clientX > 150) {
+        if (dragRef.current - getClientX(e) > 150) {
           handleShuffle();
         }
         dragRef.current = 0;
