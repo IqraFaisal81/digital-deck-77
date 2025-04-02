@@ -119,6 +119,7 @@ export default {
         "third": "third 8s infinite",
         "fourth": "fourth 8s infinite",
         "fifth": "fifth 8s infinite",
+        "aurora": "aurora 60s linear infinite",
       },
       keyframes: {
         "accordion-down": {
@@ -178,6 +179,11 @@ export default {
           "33%": { transform: "translateY(15%) scale(1.1) rotate(5deg)" },
           "66%": { transform: "translateY(-15%) scale(0.9) rotate(-5deg)" },
           "100%": { transform: "translateY(0%) scale(1) rotate(0deg)" }
+        },
+        aurora: {
+          "0%": { backgroundPosition: "0% 0%, 0% 0%" },
+          "50%": { backgroundPosition: "100% 0%, 100% 0%" },
+          "100%": { backgroundPosition: "0% 0%, 0% 0%" }
         },
       },
     },
