@@ -79,7 +79,7 @@ export function TestimonialCarouselDemo() {
     >
       <div className="max-w-6xl mx-auto">
         <div className="relative rounded-2xl overflow-hidden">
-          <div className="bg-white dark:bg-gray-900 rounded-xl p-8 md:p-12 overflow-hidden">
+          <div className="bg-gradient-to-br from-white via-white to-blue-50/50 dark:from-gray-900 dark:via-gray-900 dark:to-blue-950/30 rounded-xl p-8 md:p-12 overflow-hidden">
             <div className="relative h-[300px] md:h-[260px]">
               <AnimatePresence custom={direction} initial={false}>
                 <motion.div
@@ -101,14 +101,14 @@ export function TestimonialCarouselDemo() {
                     company={testimonials[currentIndex].company}
                     testimonial={testimonials[currentIndex].review}
                     rating={testimonials[currentIndex].rating}
-                    className="h-full transform transition-all duration-300 hover:scale-[1.01]"
+                    className="h-full transform transition-all duration-500 hover:scale-[1.02] group"
                   />
                 </motion.div>
               </AnimatePresence>
             </div>
             
-            <div className="flex justify-between items-center mt-6">
-              <div className="flex gap-1.5">
+            <div className="flex justify-between items-center mt-8">
+              <div className="flex gap-2">
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
@@ -117,7 +117,7 @@ export function TestimonialCarouselDemo() {
                       setCurrentIndex(index);
                     }}
                     className={cn(
-                      "w-10 h-1.5 rounded-full transition-all duration-300",
+                      "w-10 h-1.5 rounded-full transition-all duration-500",
                       index === currentIndex
                         ? "bg-blue-600 dark:bg-blue-500 scale-110"
                         : "bg-gray-200 dark:bg-gray-700 hover:bg-blue-400 dark:hover:bg-blue-700"
@@ -132,7 +132,7 @@ export function TestimonialCarouselDemo() {
                   variant="outline"
                   size="icon"
                   onClick={prev}
-                  className="h-9 w-9 rounded-full border-gray-200 dark:border-gray-700 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="h-9 w-9 rounded-full border-blue-100 dark:border-blue-900 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft className="h-5 w-5" />
@@ -141,7 +141,7 @@ export function TestimonialCarouselDemo() {
                   variant="outline"
                   size="icon"
                   onClick={next}
-                  className="h-9 w-9 rounded-full border-gray-200 dark:border-gray-700 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="h-9 w-9 rounded-full border-blue-100 dark:border-blue-900 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   aria-label="Next testimonial"
                 >
                   <ChevronRight className="h-5 w-5" />
