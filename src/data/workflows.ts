@@ -55,3 +55,11 @@ export const workflows = [
     image: "/lovable-uploads/a0b4591b-d7e2-4f13-a3fe-710c0f306cbd.png"
   }
 ];
+
+// Add the funnels export mapped from workflows
+export const funnels = workflows.map(workflow => ({
+  title: workflow.title,
+  description: workflow.description,
+  imageUrl: workflow.image,
+  url: "#" // Default URL
+}));

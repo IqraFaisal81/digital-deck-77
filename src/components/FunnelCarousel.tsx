@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useCarouselState } from '@/hooks/useCarouselState';
 import { funnels } from '@/data/workflows';
@@ -12,7 +13,8 @@ import {
 
 const FunnelCarousel: React.FC = () => {
   const { 
-    emblaRef, 
+    carouselApi,
+    setCarouselApi,
     scrollPrev, 
     scrollNext 
   } = useCarouselState();
@@ -22,8 +24,9 @@ const FunnelCarousel: React.FC = () => {
       <Carousel 
         opts={{ align: "start", loop: true }}
         className="w-full"
+        setApi={setCarouselApi}
       >
-        <CarouselContent ref={emblaRef} className="-ml-4">
+        <CarouselContent className="-ml-4">
           {funnels.map((funnel, index) => (
             <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
               <div 
