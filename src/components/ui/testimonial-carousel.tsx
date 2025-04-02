@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -73,7 +72,7 @@ export function TestimonialCarousel({
     center: {
       x: 0,
       opacity: 1,
-    }),
+    },
     exit: (direction: number) => ({
       x: direction < 0 ? 200 : -200,
       opacity: 0,
