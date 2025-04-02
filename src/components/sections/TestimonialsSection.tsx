@@ -68,7 +68,7 @@ const TestimonialsSection = () => {
                 <img 
                   src={client.logo} 
                   alt={client.name} 
-                  className="h-14 object-contain transition-all dark:invert dark:brightness-75 dark:filter" 
+                  className="h-14 object-contain" 
                 />
               ) : (
                 <div className="h-14 flex items-center justify-center px-4 font-medium text-royal dark:text-electric">
@@ -99,7 +99,7 @@ const TestimonialsSection = () => {
                             <div className="md:w-2/5 lg:w-1/3 bg-white dark:bg-gray-800 flex flex-col items-center justify-center p-8 text-black dark:text-white relative">
                               {client.logo && (
                                 <div className="mb-6 bg-white/90 dark:bg-gray-700/90 p-4 rounded-xl shadow-sm">
-                                  <img src={client.logo} alt={client.name} className="h-16 w-auto object-contain dark:invert dark:brightness-75 dark:filter" />
+                                  <img src={client.logo} alt={client.name} className="h-16 w-auto object-contain" />
                                 </div>
                               )}
                               <div className="mb-6">

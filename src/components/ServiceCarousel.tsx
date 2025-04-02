@@ -37,18 +37,22 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
               className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/3 p-2"
             >
               <div 
-                className={`rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-white border border-gray-100 p-6 h-full flex flex-col ${service.sectionId ? 'cursor-pointer hover:bg-blue-50' : ''} ${service.sectionId && visibleSection === service.sectionId ? 'ring-2 ring-blue-500' : ''}`}
+                className={`rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 p-6 h-full flex flex-col ${
+                  service.sectionId ? 'cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/30' : ''
+                } ${
+                  service.sectionId && visibleSection === service.sectionId ? 'ring-2 ring-royal dark:ring-electric' : ''
+                }`}
                 onClick={() => scrollToSection(service.sectionId)}
               >
-                <div className="bg-blue-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                  <service.icon className="text-blue-600" size={24} />
+                <div className="bg-blue-100 dark:bg-blue-900/50 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+                  <service.icon className="text-royal dark:text-electric" size={24} />
                 </div>
-                <h3 className="text-xl font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">{service.title}</h3>
-                <p className="text-gray-600 mb-4 flex-grow">{service.description}</p>
+                <h3 className="text-xl font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-black to-royal dark:from-white dark:to-electric">{service.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">{service.description}</p>
                 
                 <div className="flex justify-between items-center mt-auto">
                   {service.sectionId && (
-                    <div className="text-blue-600 text-sm flex items-center">
+                    <div className="text-royal dark:text-electric text-sm flex items-center">
                       <span>{visibleSection === service.sectionId ? 'Hide details' : 'View details'}</span>
                       <ArrowRight size={14} className="ml-1" />
                     </div>
@@ -57,7 +61,7 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="text-gray-600 hover:text-blue-600 hover:bg-blue-50 text-xs"
+                    className="text-gray-600 dark:text-gray-300 hover:text-royal dark:hover:text-electric hover:bg-blue-50 dark:hover:bg-blue-900/20 text-xs"
                     onClick={(e) => {
                       e.stopPropagation();
                       document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
@@ -73,13 +77,13 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
         </CarouselContent>
         
         <div className="flex justify-center items-center gap-4 mt-6">
-          <CarouselPrevious className="static transform-none bg-black/50 hover:bg-black/80 border-none" />
+          <CarouselPrevious className="static transform-none bg-royal/50 hover:bg-royal/80 dark:bg-electric/50 dark:hover:bg-electric/80 border-none" />
           <CarouselPagination 
             carouselApi={carouselApi}
             currentIndex={currentIndex}
             items={services}
           />
-          <CarouselNext className="static transform-none bg-black/50 hover:bg-black/80 border-none" />
+          <CarouselNext className="static transform-none bg-royal/50 hover:bg-royal/80 dark:bg-electric/50 dark:hover:bg-electric/80 border-none" />
         </div>
       </Carousel>
     </div>

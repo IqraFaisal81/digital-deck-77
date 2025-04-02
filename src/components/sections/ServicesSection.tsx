@@ -16,7 +16,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
   return (
     <section id="services" className="section-padding bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-blue-950/30">
       <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 dark:from-white dark:to-blue-400">Services</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon">Services</h2>
         <div className="max-w-3xl mx-auto mb-12">
           <p className="text-gray-700 dark:text-gray-300 text-center">
             I offer a comprehensive range of services to help your business grow through strategic digital solutions, 
@@ -35,18 +35,18 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
             {services && services.map((service) => (
               <div 
                 key={service.id} 
-                className={`rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 p-6 ${service.sectionId ? 'cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/30' : ''} ${service.sectionId && visibleSection === service.sectionId ? 'ring-2 ring-blue-500' : ''}`}
+                className={`rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 p-6 ${service.sectionId ? 'cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/30' : ''} ${service.sectionId && visibleSection === service.sectionId ? 'ring-2 ring-royal dark:ring-electric' : ''}`}
                 onClick={() => scrollToSection(service.sectionId)}
               >
                 <div className="bg-blue-100 dark:bg-blue-900/50 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                  <service.icon className="text-blue-600 dark:text-blue-400" size={24} />
+                  <service.icon className="text-royal dark:text-electric" size={24} />
                 </div>
-                <h3 className="text-xl font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 dark:from-white dark:to-blue-400">{service.title}</h3>
+                <h3 className="text-xl font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon">{service.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">{service.description}</p>
                 
                 <div className="flex justify-between items-center">
                   {service.sectionId && (
-                    <div className="text-blue-600 dark:text-blue-400 text-sm flex items-center">
+                    <div className="text-royal dark:text-electric text-sm flex items-center">
                       <span>{visibleSection === service.sectionId ? 'Hide details' : 'View details'}</span>
                       <ArrowRight size={14} className="ml-1" />
                     </div>
@@ -55,7 +55,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 text-xs"
+                    className="text-gray-600 dark:text-gray-300 hover:text-royal dark:hover:text-electric hover:bg-blue-50 dark:hover:bg-blue-900/20 text-xs"
                     onClick={(e) => {
                       e.stopPropagation();
                       document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
@@ -75,7 +75,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
             Not sure which service you need? Let's discuss your goals in a personalized consultation.
           </p>
           <Button 
-            className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 text-white px-6 py-5 h-auto"
+            className="bg-royal hover:bg-royal/90 dark:bg-electric dark:hover:bg-electric/90 text-white px-6 py-5 h-auto"
             asChild
           >
             <a href="#booking" className="flex items-center">
