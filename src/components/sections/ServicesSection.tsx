@@ -36,20 +36,20 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
             scrollToSection={scrollToSection} 
           />
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto max-w-7xl">
             {services && services.map((service) => (
               <Card 
                 key={service.id} 
-                className={`h-full transition-all duration-300 hover:shadow-xl hover:scale-[1.02] overflow-hidden ${
-                  service.sectionId ? 'cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/30' : ''
+                className={`group h-full transition-all duration-300 hover:shadow-xl hover:scale-[1.02] overflow-hidden border-t-4 ${
+                  service.sectionId && visibleSection === service.sectionId ? 'border-t-electric' : 'border-t-royal/70'
                 } ${
-                  service.sectionId && visibleSection === service.sectionId ? 'ring-2 ring-royal dark:ring-electric' : ''
-                }`}
+                  service.sectionId ? 'cursor-pointer hover:bg-gradient-to-br hover:from-blue-50 hover:to-white dark:hover:from-blue-900/10 dark:hover:to-gray-900' : ''
+                } rounded-xl backdrop-blur-sm`}
                 onClick={() => scrollToSection(service.sectionId)}
               >
                 <CardHeader className="pb-2">
                   <div className="flex items-center gap-4">
-                    <div className="bg-gradient-to-br from-royal to-electric dark:from-electric dark:to-royal p-3 rounded-full w-14 h-14 flex items-center justify-center">
+                    <div className="bg-gradient-to-br from-royal to-electric dark:from-electric dark:to-royal p-3 rounded-full w-14 h-14 flex items-center justify-center shadow-md transform group-hover:rotate-3 transition-transform">
                       <service.icon className="text-white" size={24} />
                     </div>
                     <CardTitle className="text-xl bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon">
@@ -58,15 +58,15 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
                   </div>
                 </CardHeader>
                 <CardContent className="pb-6">
-                  <CardDescription className="text-gray-700 dark:text-gray-300 text-sm">
+                  <CardDescription className="text-gray-700 dark:text-gray-300 text-sm mt-2">
                     {service.description}
                   </CardDescription>
                 </CardContent>
-                <CardFooter className="flex justify-between items-center border-t pt-4 bg-gray-50 dark:bg-gray-800/50">
+                <CardFooter className="flex justify-between items-center border-t pt-4 bg-gradient-to-r from-gray-50 to-blue-50/50 dark:from-gray-800/50 dark:to-blue-900/20">
                   {service.sectionId && (
-                    <div className="text-royal dark:text-electric text-sm flex items-center">
+                    <div className="text-royal dark:text-electric text-sm flex items-center group-hover:font-medium transition-all">
                       <span>{visibleSection === service.sectionId ? 'Hide details' : 'Learn more'}</span>
-                      <ArrowRight size={14} className="ml-1" />
+                      <ArrowRight size={14} className="ml-1 group-hover:translate-x-1 transition-transform" />
                     </div>
                   )}
                   
