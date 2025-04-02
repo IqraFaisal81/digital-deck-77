@@ -1,123 +1,57 @@
-
-import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import React from 'react';
+import { useCarouselState } from '@/hooks/useCarouselState';
+import { funnels } from '@/data/workflows';
+import { Button } from '@/components/ui/button';
 import { 
   Carousel, 
   CarouselContent, 
   CarouselItem, 
   CarouselNext, 
   CarouselPrevious 
-} from "@/components/ui/carousel";
-import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+} from '@/components/ui/carousel';
 
-// Define funnels data
-const funnels = [
-  {
-    id: 1,
-    title: "All Pro - Refrigerant Change Consultation",
-    description: "Service funnel with clean CTAs and friction-free booking path",
-    image: "/lovable-uploads/2d5f250d-f776-46fd-8830-3db242d4e52d.png",
-    url: "https://go.callallproindy.com/all-pro---pimp-my-ride"
-  },
-  {
-    id: 2,
-    title: "Triad Diagnostic - Autel Black Friday",
-    description: "E-commerce funnel with product listings and checkout flow",
-    image: "/lovable-uploads/bc480130-3453-4ec2-b46d-a946e98fb220.png",
-    url: "https://chuck.triad-ds.com/triads-autel-black-friday"
-  },
-  {
-    id: 3,
-    title: "Mike Greene Coaching",
-    description: "Client mentoring and booking funnel with qualification flow",
-    image: "/lovable-uploads/00166fd4-fe91-46af-afd4-15c78b573a88.png",
-    url: "https://mikegreenecoaching.co.uk/mentoring-with-mike-greene"
-  }
-];
-
-const FunnelCarousel = () => {
-  const [selectedFunnel, setSelectedFunnel] = useState<typeof funnels[0] | null>(null);
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const openFunnelModal = (funnel: typeof funnels[0]) => {
-    setSelectedFunnel(funnel);
-    setModalOpen(true);
-  };
+const FunnelCarousel: React.FC = () => {
+  const { 
+    emblaRef, 
+    scrollPrev, 
+    scrollNext 
+  } = useCarouselState();
 
   return (
-    <div className="w-full">
-      <Carousel
-        opts={{
-          align: "start",
-          loop: true,
-        }}
+    <div className="relative">
+      <Carousel 
+        opts={{ align: "start", loop: true }}
         className="w-full"
       >
-        <CarouselContent>
-          {funnels.map((funnel) => (
-            <CarouselItem key={funnel.id} className="basis-full md:basis-1/2 lg:basis-1/3 p-2">
+        <CarouselContent ref={emblaRef} className="-ml-4">
+          {funnels.map((funnel, index) => (
+            <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
               <div 
-                className="cursor-pointer h-full bg-white shadow-md rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg"
-                onClick={() => openFunnelModal(funnel)}
+                className="cursor-pointer h-full bg-white dark:bg-gray-800 shadow-md dark:shadow-lg rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:shadow-lg dark:hover:shadow-xl"
               >
-                <div className="relative h-[200px] md:h-[220px] overflow-hidden">
-                  <img 
-                    src={funnel.image} 
-                    alt={funnel.title} 
-                    className="w-full h-full object-cover object-top transition-all duration-300 transform hover:scale-110"
-                  />
-                </div>
-                <div className="p-4 bg-gray-50">
-                  <h4 className="text-lg font-semibold text-black">{funnel.title}</h4>
-                  <p className="text-gray-800 text-sm mt-1">{funnel.description}</p>
-                </div>
+                <a href={funnel.url} target="_blank" rel="noopener noreferrer" className="block h-full">
+                  <div className="relative">
+                    <img
+                      src={funnel.imageUrl}
+                      alt={funnel.title}
+                      className="w-full h-48 object-cover rounded-t-lg"
+                    />
+                    <div className="absolute top-0 left-0 w-full h-full bg-black/20"></div>
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">{funnel.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">{funnel.description}</p>
+                  </div>
+                </a>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-2 bg-black/50 hover:bg-black/80 border-none" />
-        <CarouselNext className="right-2 bg-black/50 hover:bg-black/80 border-none" />
+        <div className="absolute -top-12 right-0 flex items-center">
+          <CarouselPrevious onClick={scrollPrev} />
+          <CarouselNext onClick={scrollNext} />
+        </div>
       </Carousel>
-
-      {/* Funnel Modal */}
-      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="bg-white max-w-4xl max-h-[90vh] overflow-y-auto">
-          {selectedFunnel && (
-            <>
-              <DialogHeader>
-                <DialogTitle className="text-2xl font-bold text-gray-800">{selectedFunnel.title}</DialogTitle>
-                <DialogDescription className="text-gray-600">
-                  {selectedFunnel.description}
-                </DialogDescription>
-              </DialogHeader>
-              
-              <div className="mt-4 bg-gray-50 p-2 rounded-lg">
-                <img 
-                  src={selectedFunnel.image} 
-                  alt={selectedFunnel.title} 
-                  className="w-full object-contain rounded-lg"
-                />
-              </div>
-              
-              <div className="mt-4 flex justify-end">
-                <Button 
-                  asChild
-                  className="bg-electric hover:bg-electric/80"
-                >
-                  <a 
-                    href={selectedFunnel.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    View Live Funnel
-                  </a>
-                </Button>
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
     </div>
   );
 };
