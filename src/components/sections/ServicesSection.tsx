@@ -62,21 +62,11 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
                     {service.description}
                   </CardDescription>
                 </CardContent>
-                <CardFooter className="flex justify-between items-center border-t pt-4 bg-gradient-to-r from-gray-50 to-blue-50/50 dark:from-gray-800/50 dark:to-blue-900/20">
-                  {service.sectionId && (
-                    <Button 
-                      variant="ghost" 
-                      className="px-3 py-1 text-royal dark:text-electric rounded-full text-sm transition-all bg-transparent hover:bg-blue-100/80 dark:hover:bg-blue-900/30 group-hover:font-medium"
-                    >
-                      <span>{visibleSection === service.sectionId ? 'Hide details' : 'Learn more'}</span>
-                      <ArrowRight size={14} className="ml-1 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  )}
-                  
+                {service.sectionId && (
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="text-gray-600 dark:text-gray-300 hover:text-royal dark:hover:text-electric hover:bg-blue-50 dark:hover:bg-blue-900/20 text-xs"
+                    className="text-gray-600 dark:text-gray-300 hover:text-royal dark:hover:text-electric hover:bg-blue-50 dark:hover:bg-blue-900/20 text-xs ml-6 mb-4"
                     onClick={(e) => {
                       e.stopPropagation();
                       document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
@@ -85,7 +75,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
                     <Calendar className="mr-1 h-3 w-3" />
                     Book Consultation
                   </Button>
-                </CardFooter>
+                )}
               </Card>
             ))}
           </div>
