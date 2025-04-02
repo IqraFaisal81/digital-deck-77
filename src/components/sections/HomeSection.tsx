@@ -1,3 +1,4 @@
+
 import { ArrowDown, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -13,7 +14,7 @@ const HomeSection = () => {
   
   const texts = [
     "Hello, I'm Iqra Faisal",
-    "I am a product developer",
+    "I am a Product Developer",
     "I am a CRM Expert"
   ];
   
