@@ -1,27 +1,25 @@
 
 "use client";
 
-import { TestimonialCarousel, Testimonial } from "@/components/ui/testimonial-carousel-new";
+import { TestimonialCarousel } from "@/components/ui/testimonial-carousel";
 import { clients } from "@/data/clients";
 
-const testimonialData: Testimonial[] = clients
-  .filter(client => client.testimonial) // Only include clients with testimonials
-  .map((client, index) => ({
-    id: index,
-    name: client.testimonial?.author || "",
-    avatar: client.logo, // Using client logo as avatar
-    description: client.testimonial?.quote || "",
-    role: client.testimonial?.position || "",
-    rating: client.testimonial?.rating || 5,
-  }));
-
 export function TestimonialCarouselDemo() {
+  // Transform client data into the format expected by TestimonialCarousel
+  const testimonials = clients
+    .filter(client => client.testimonial) // Only include clients with testimonials
+    .map((client) => ({
+      company: client.name,
+      avatar: client.testimonial?.author ? client.testimonial.author.charAt(0) : undefined,
+      name: client.testimonial?.author || "",
+      role: client.testimonial?.position || "",
+      review: client.testimonial?.quote || ""
+    }));
+
   return (
-    <TestimonialCarousel
-      testimonials={testimonialData}
-      className="mx-auto max-w-md"
-      showArrows={true}
-      showDots={true}
+    <TestimonialCarousel 
+      testimonials={testimonials}
+      avatarPath=""
     />
   );
 }
