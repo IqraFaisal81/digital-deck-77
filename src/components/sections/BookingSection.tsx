@@ -54,40 +54,40 @@ const BookingSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card className="bg-white dark:bg-gray-800 shadow-md border border-gray-100 dark:border-gray-700 overflow-hidden">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 dark:from-white dark:to-blue-400">Contact Details</h3>
+                <h3 className="text-xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon">Contact Details</h3>
                 
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      <Mail className="w-5 h-5 text-electric dark:text-royal" />
                     </div>
                     <div>
-                      <p className="text-gray-900 dark:text-gray-100 font-medium">Email</p>
+                      <p className="text-royal dark:text-electric font-medium">Email</p>
                       <p className="text-gray-600 dark:text-gray-400">iqrafaisal81@gmail.com</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      <Phone className="w-5 h-5 text-electric dark:text-royal" />
                     </div>
                     <div>
-                      <p className="text-gray-900 dark:text-gray-100 font-medium">Phone</p>
+                      <p className="text-royal dark:text-electric font-medium">Phone</p>
                       <p className="text-gray-600 dark:text-gray-400">+44 7555 859390</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center flex-shrink-0">
-                      <Linkedin className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      <Linkedin className="w-5 h-5 text-electric dark:text-royal" />
                     </div>
                     <div>
-                      <p className="text-gray-900 dark:text-gray-100 font-medium">LinkedIn</p>
+                      <p className="text-royal dark:text-electric font-medium">LinkedIn</p>
                       <a 
                         href="https://www.linkedin.com/in/iqra-faisal-b6687919b/" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-blue-600 dark:text-blue-400 hover:underline"
+                        className="text-electric dark:text-royal hover:underline"
                       >
                         linkedin.com/in/iqra-faisal-b6687919b
                       </a>
@@ -99,35 +99,35 @@ const BookingSection = () => {
             
             <Card className="bg-white dark:bg-gray-800 shadow-md border border-gray-100 dark:border-gray-700 overflow-hidden">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 dark:from-white dark:to-blue-400">Consultation Details</h3>
+                <h3 className="text-xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-maroon">Consultation Details</h3>
                 
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center flex-shrink-0">
-                      <Calendar className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      <Calendar className="w-5 h-5 text-electric dark:text-royal" />
                     </div>
                     <div>
-                      <p className="text-gray-900 dark:text-gray-100 font-medium">30-Minute Session</p>
+                      <p className="text-royal dark:text-electric font-medium">30-Minute Session</p>
                       <p className="text-gray-600 dark:text-gray-400 text-sm">Discuss your requirements</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      <Clock className="w-5 h-5 text-electric dark:text-royal" />
                     </div>
                     <div>
-                      <p className="text-gray-900 dark:text-gray-100 font-medium">Convenient Scheduling</p>
+                      <p className="text-royal dark:text-electric font-medium">Convenient Scheduling</p>
                       <p className="text-gray-600 dark:text-gray-400 text-sm">Pick a time that works for you</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center flex-shrink-0">
-                      <DollarSign className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      <DollarSign className="w-5 h-5 text-electric dark:text-royal" />
                     </div>
                     <div>
-                      <p className="text-gray-900 dark:text-gray-100 font-medium">$25 per Hour</p>
+                      <p className="text-royal dark:text-electric font-medium">$25 per Hour</p>
                       <p className="text-gray-600 dark:text-gray-400 text-sm">For ongoing projects</p>
                     </div>
                   </div>
