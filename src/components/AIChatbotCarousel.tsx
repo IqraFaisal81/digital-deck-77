@@ -19,7 +19,7 @@ const aiChatbots = [
     title: "Chat Widget AI",
     description: "Real-Time Messaging Automation with custom fields for Name, Phone, Email, & Message capture, instant response acknowledgment, tag-based lead segmentation, and automated team notification for faster follow-ups.",
     image: "/lovable-uploads/62db0c38-4d35-41c2-b6db-6dcc3d85ecac.png",
-    icon: <MessageSquare className="h-5 w-5" />,
+    iconName: "messageSquare",
     features: [
       "Custom fields for Name, Phone, Email, & Message",
       "Instant response acknowledgment",
@@ -33,7 +33,7 @@ const aiChatbots = [
     title: "Voice AI Agent",
     description: "Smart Inbound Call Handler with dynamic voice selection, inbound call routing based on caller behavior, language selection & timezone configuration, and business-specific branding and voice flow.",
     image: "/lovable-uploads/9bcb292a-8bfc-4d7d-b048-fa75e96bec94.png",
-    icon: <Mic className="h-5 w-5" />,
+    iconName: "mic",
     features: [
       "Dynamic voice selection with playback testing",
       "Inbound call routing based on caller behavior",
@@ -43,6 +43,18 @@ const aiChatbots = [
     result: "Reduced manual call handling. Smarter qualification before human handoff."
   }
 ];
+
+// Helper function to render the icon based on name
+const renderIcon = (iconName: string) => {
+  switch (iconName) {
+    case "messageSquare":
+      return <MessageSquare className="h-5 w-5" />;
+    case "mic":
+      return <Mic className="h-5 w-5" />;
+    default:
+      return <MessageSquare className="h-5 w-5" />;
+  }
+};
 
 const AIChatbotCarousel = () => {
   const [selectedChatbot, setSelectedChatbot] = useState<typeof aiChatbots[0] | null>(null);
@@ -82,7 +94,7 @@ const AIChatbotCarousel = () => {
                 <div className="p-4 bg-white dark:bg-gray-800">
                   <div className="flex items-center mb-2">
                     <div className="bg-blue-600 dark:bg-blue-500 p-1.5 rounded-md mr-3 text-white">
-                      {chatbot.icon}
+                      {renderIcon(chatbot.iconName)}
                     </div>
                     <h4 className="text-md font-bold text-gray-800 dark:text-gray-200 line-clamp-1">{chatbot.title}</h4>
                   </div>
@@ -108,7 +120,7 @@ const AIChatbotCarousel = () => {
               <DialogHeader className="p-6 border-b border-gray-100 dark:border-gray-700">
                 <div className="flex items-center">
                   <div className="bg-blue-600 dark:bg-blue-500 p-2 rounded-md mr-3 text-white">
-                    {selectedChatbot.icon}
+                    {renderIcon(selectedChatbot.iconName)}
                   </div>
                   <DialogTitle className="text-2xl font-bold text-gray-800 dark:text-gray-200">{selectedChatbot.title}</DialogTitle>
                 </div>

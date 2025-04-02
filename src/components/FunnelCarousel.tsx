@@ -13,6 +13,15 @@ import { ExternalLink, ZoomIn, Layers, MoveUpRight, ChevronLeft, ChevronRight } 
 import { scrollToServiceSection } from "@/utils/ScrollToServiceUtils";
 import { funnels } from '@/data/workflows';
 
+// Helper function to render the icon based on index
+const renderIcon = (index: number) => {
+  if (index % 2 === 0) {
+    return <Layers className="h-5 w-5" />;
+  } else {
+    return <MoveUpRight className="h-5 w-5" />;
+  }
+};
+
 const FunnelCarousel = () => {
   const [selectedFunnel, setSelectedFunnel] = useState<typeof funnels[0] | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
@@ -51,7 +60,7 @@ const FunnelCarousel = () => {
                 <div className="p-4 bg-white dark:bg-gray-800">
                   <div className="flex items-center mb-2">
                     <div className="bg-blue-600 dark:bg-blue-500 p-1.5 rounded-md mr-3 text-white">
-                      {index % 2 === 0 ? <Layers className="h-5 w-5" /> : <MoveUpRight className="h-5 w-5" />}
+                      {renderIcon(index)}
                     </div>
                     <h4 className="text-md font-bold text-gray-800 dark:text-gray-200 line-clamp-1">{funnel.title}</h4>
                   </div>

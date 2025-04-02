@@ -7,9 +7,9 @@ import {
   CarouselNext, 
   CarouselPrevious 
 } from "@/components/ui/carousel";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, ZoomIn, Code, Monitor, Bot, ChevronLeft, ChevronRight, Calendar } from "lucide-react";
+import { ExternalLink, ZoomIn, Bot, Monitor, Code, ChevronLeft, ChevronRight } from "lucide-react";
 import { scrollToServiceSection } from "@/utils/ScrollToServiceUtils";
 
 // Define Lovable projects data
@@ -136,43 +136,26 @@ const LovableProjectsCarousel = () => {
                   />
                 </div>
                 
-                <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg border border-blue-100 dark:border-blue-800/50">
-                  <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Need a custom AI-powered solution?</h4>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">I can create similar or more advanced solutions tailored to your specific business needs.</p>
+                <div className="mt-6 flex justify-between">
                   <Button
-                    className="bg-blue-600 hover:bg-blue-700 w-full text-white"
-                    onClick={() => {
-                      setModalOpen(false);
-                      document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                  >
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Schedule a Consultation
-                  </Button>
-                </div>
-                
-                <DialogFooter className="mt-6 flex justify-between">
-                  <Button 
-                    asChild
-                    className="bg-blue-600 hover:bg-blue-700 text-white"
-                  >
-                    <a 
-                      href={selectedProject.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
-                      View Demo <ExternalLink size={16} className="ml-2" />
-                    </a>
-                  </Button>
-                  
-                  <Button 
-                    onClick={() => setModalOpen(false)}
+                    className="bg-gray-200 hover:bg-gray-300 text-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white"
                     variant="outline"
-                    className="border border-gray-300 hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-700"
+                    onClick={() => setModalOpen(false)}
                   >
                     Close
                   </Button>
-                </DialogFooter>
+                  
+                  <Button
+                    className="bg-blue-600 hover:bg-blue-700 text-white"
+                    onClick={() => {
+                      setModalOpen(false);
+                      scrollToServiceSection("lovable-projects");
+                    }}
+                  >
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    View Project Services
+                  </Button>
+                </div>
               </div>
             </>
           )}

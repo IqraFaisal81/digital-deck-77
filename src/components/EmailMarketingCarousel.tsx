@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, ZoomIn, MailPlus, SendHorizonal, Mail, ChevronLeft, ChevronRight } from "lucide-react";
+import { ExternalLink, ZoomIn, Mail, MailPlus, SendHorizonal, ChevronLeft, ChevronRight } from "lucide-react";
 import { scrollToServiceSection } from "@/utils/ScrollToServiceUtils";
 
 // Define Email campaigns data
@@ -19,37 +19,51 @@ const emailCampaigns = [
     title: "All Pro Heating & Plumbing Newsletter",
     description: "Property management winter heating newsletter with seasonal maintenance tips and service promotions",
     image: "/lovable-uploads/cd62fc60-1d8d-4724-8529-ab9612ca9c41.png",
-    icon: <Mail className="h-5 w-5" />
+    iconName: "mail"
   },
   {
     id: 2,
     title: "Grey Matters Brain Training Newsletter",
     description: "Health & wellness New Year newsletter featuring BOGO promotion and wellness tips for mental clarity",
     image: "/lovable-uploads/37cac9ff-58d3-4577-aa46-17ca9bc6d57d.png",
-    icon: <MailPlus className="h-5 w-5" />
+    iconName: "mailPlus"
   },
   {
     id: 3,
     title: "March On Mission Nonprofit Email",
     description: "Nonprofit support campaign email highlighting community impact stories and donation opportunities",
     image: "/lovable-uploads/c641dd9b-f122-4f6c-989b-d760cfd177a1.png",
-    icon: <Mail className="h-5 w-5" />
+    iconName: "mail"
   },
   {
     id: 4,
     title: "Triad DS Abandoned Cart Email",
     description: "E-commerce cart recovery email with personalized product reminder and limited-time discount offer",
     image: "/lovable-uploads/e99811cd-24a6-40c0-a28c-b85ada26d3b2.png",
-    icon: <SendHorizonal className="h-5 w-5" />
+    iconName: "sendHorizonal"
   },
   {
     id: 5,
     title: "Triad DS Review Request Email",
     description: "Customer feedback request email designed to boost engagement and collect product reviews",
     image: "/lovable-uploads/e8bacddf-ae58-40e4-ab9a-679e21ec55db.png",
-    icon: <Mail className="h-5 w-5" />
+    iconName: "mail"
   }
 ];
+
+// Helper function to render the icon based on name
+const renderIcon = (iconName: string) => {
+  switch (iconName) {
+    case "mail":
+      return <Mail className="h-5 w-5" />;
+    case "mailPlus":
+      return <MailPlus className="h-5 w-5" />;
+    case "sendHorizonal":
+      return <SendHorizonal className="h-5 w-5" />;
+    default:
+      return <Mail className="h-5 w-5" />;
+  }
+};
 
 const EmailMarketingCarousel = () => {
   const [selectedCampaign, setSelectedCampaign] = useState<typeof emailCampaigns[0] | null>(null);
@@ -89,7 +103,7 @@ const EmailMarketingCarousel = () => {
                 <div className="p-4 bg-white dark:bg-gray-800">
                   <div className="flex items-center mb-2">
                     <div className="bg-blue-600 dark:bg-blue-500 p-1.5 rounded-md mr-3 text-white">
-                      {campaign.icon}
+                      {renderIcon(campaign.iconName)}
                     </div>
                     <h4 className="text-md font-bold text-gray-800 dark:text-gray-200 line-clamp-1">{campaign.title}</h4>
                   </div>
@@ -115,7 +129,7 @@ const EmailMarketingCarousel = () => {
               <DialogHeader className="p-6 border-b border-gray-100 dark:border-gray-700">
                 <div className="flex items-center">
                   <div className="bg-blue-600 dark:bg-blue-500 p-2 rounded-md mr-3 text-white">
-                    {selectedCampaign.icon}
+                    {renderIcon(selectedCampaign.iconName)}
                   </div>
                   <DialogTitle className="text-2xl font-bold text-gray-800 dark:text-gray-200">{selectedCampaign.title}</DialogTitle>
                 </div>
