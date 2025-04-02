@@ -39,8 +39,11 @@ const AboutSection = () => {
                   "Certified Go High Level Expert",
                   "Workflow automation specialist"
                 ].map((item, index) => (
-                  <div key={index} className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 flex items-start space-x-2 h-full hover:shadow-lg transition-all duration-300">
-                    <Check className="text-purple-600 dark:text-purple-400 mt-1 flex-shrink-0" />
+                  <div 
+                    key={index} 
+                    className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 flex items-center space-x-2 h-full hover:shadow-lg transition-all duration-300"
+                  >
+                    <Check className="text-purple-600 dark:text-purple-400 flex-shrink-0" />
                     <span className="text-gray-700 dark:text-gray-300">{item}</span>
                   </div>
                 ))}
