@@ -11,10 +11,10 @@ const AboutSection = () => {
       <div className="absolute top-1/3 left-1/4 w-32 h-32 bg-purple-400/10 dark:bg-purple-400/5 rounded-full blur-2xl"></div>
       
       <div className="container mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-stretch">
           {/* Left column - About Me */}
-          <div className="md:col-span-5 order-2 md:order-1">
-            <div className="space-y-6 backdrop-blur-sm bg-white/50 dark:bg-gray-800/50 p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100/80 dark:border-gray-700/80 transform transition-all duration-500 hover:shadow-xl">
+          <div className="md:col-span-5 order-2 md:order-1 flex">
+            <div className="space-y-6 backdrop-blur-sm bg-white/50 dark:bg-gray-800/50 p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100/80 dark:border-gray-700/80 transform transition-all duration-500 hover:shadow-xl h-full flex flex-col">
               <h2 className="text-3xl md:text-4xl font-bold font-display">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
                   About Me
@@ -59,25 +59,27 @@ const AboutSection = () => {
                 </div>
               </div>
               
-              <Button className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white dark:from-blue-500 dark:to-indigo-500 dark:hover:from-blue-600 dark:hover:to-indigo-600 rounded-full px-6 py-6 shadow-md hover:shadow-lg transition-all duration-300" size="lg">
-                <a href="#skills" className="flex items-center">
-                  View My Skills
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
-              </Button>
+              <div className="mt-auto pt-4">
+                <Button className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white dark:from-blue-500 dark:to-indigo-500 dark:hover:from-blue-600 dark:hover:to-indigo-600 rounded-full px-6 py-6 shadow-md hover:shadow-lg transition-all duration-300" size="lg">
+                  <a href="#skills" className="flex items-center">
+                    View My Skills
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
           
           {/* Right column - My Journey */}
-          <div className="md:col-span-7 order-1 md:order-2">
-            <div className="relative">
+          <div className="md:col-span-7 order-1 md:order-2 flex">
+            <div className="relative h-full w-full">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-2xl blur-2xl transform rotate-3 -z-10"></div>
-              <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 transform transition-all duration-500 hover:shadow-2xl">
+              <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 transform transition-all duration-500 hover:shadow-2xl h-full flex flex-col">
                 <h3 className="text-2xl font-semibold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 font-display">
                   My Journey
                 </h3>
-                <div className="space-y-6">
-                  <div className="relative">
+                <div className="space-y-6 flex-grow">
+                  <div className="relative h-full">
                     {/* Timeline line */}
                     <div className="absolute top-0 left-4 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-indigo-500 dark:from-blue-400 dark:to-indigo-400"></div>
                     
