@@ -1,28 +1,27 @@
 
 "use client";
 
-import { TestimonialCarousel } from "@/components/ui/testimonial-carousel";
+import { TestimonialCarousel } from "@/components/ui/testimonial";
 import { clients } from "@/data/clients";
 
-// Transform our client data into the format expected by the carousel
+// Transform our client data into the format expected by the new carousel
 const testimonials = clients
   .filter(client => client.testimonial) // Only include clients with testimonials
-  .map(client => ({
-    company: client.name.toLowerCase().replace(/\s+/g, '-'),
-    logo: client.logo,
+  .map((client, index) => ({
+    id: index + 1,
     name: client.testimonial?.author || "",
     role: client.testimonial?.position || "",
-    review: client.testimonial?.quote || "",
-    customLogo: true // Flag to use our own logos instead of the default ones
+    company: client.name,
+    avatar: "", // The current data doesn't have avatar URLs
+    description: client.testimonial?.quote || "",
+    rating: client.testimonial?.rating || 5
   }));
 
 export function ClientTestimonialCarousel() {
   return (
     <TestimonialCarousel
       testimonials={testimonials}
-      companyLogoPath="" // Not needed since we use our own logos
-      avatarPath="" // Not needed since we don't have avatars
-      useCustomLogo={true}
+      className="max-w-7xl mx-auto"
     />
   );
 }
