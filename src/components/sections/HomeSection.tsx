@@ -1,3 +1,4 @@
+
 import { ArrowDown, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -187,7 +188,7 @@ const HomeSection = () => {
       </div>
       
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
-        <a href="#about" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors bg-white/80 dark:bg-gray-800/80 p-3 rounded-full backdrop-blur-sm shadow-md border border-gray-100/50 dark:border-gray-700/50 hover:shadow-lg">
+        <a href="#about" className="flex items-center justify-center w-12 h-12 text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors bg-white/80 dark:bg-gray-800/80 rounded-full backdrop-blur-sm shadow-md border border-gray-100/50 dark:border-gray-700/50 hover:shadow-lg">
           <ArrowDown size={24} />
         </a>
       </div>
