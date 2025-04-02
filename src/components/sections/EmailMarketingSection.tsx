@@ -1,5 +1,4 @@
-
-import { Check } from "lucide-react";
+import { Check, ArrowRight, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import EmailMarketingCarousel from "@/components/EmailMarketingCarousel";
 

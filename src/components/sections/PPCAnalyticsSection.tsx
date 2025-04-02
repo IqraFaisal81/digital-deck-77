@@ -1,7 +1,6 @@
-
 import { Button } from "@/components/ui/button";
 import PPCCarousel from "@/components/PPCCarousel";
-import { Check } from "lucide-react";
+import { Check, ArrowRight, Calendar } from "lucide-react";
 
 interface PPCAnalyticsSectionProps {
   isSectionVisible: (sectionId: string) => boolean;
