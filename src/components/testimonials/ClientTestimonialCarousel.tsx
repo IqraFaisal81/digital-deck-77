@@ -13,8 +13,7 @@ const testimonials = clients
     name: client.testimonial?.author || "",
     role: client.testimonial?.position || "",
     review: client.testimonial?.quote || "",
-    customLogo: true, // Flag to use our own logos instead of the default ones
-    rating: Math.floor(Math.random() * 2) + 4 // Random rating between 4-5 stars for demo
+    customLogo: true // Flag to use our own logos instead of the default ones
   }));
 
 export function ClientTestimonialCarousel() {
