@@ -1,4 +1,3 @@
-
 import { ArrowDown, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -93,7 +92,7 @@ const HomeSection = () => {
               <p className="text-blue-600 dark:text-blue-400 font-medium tracking-wider animate-fade-in-up animate-delay-100 uppercase text-sm">
                 SaaS Developer & Automation Specialist
               </p>
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 dark:from-white dark:to-purple-400 font-display animate-fade-in-up animate-delay-200 drop-shadow-sm min-h-[80px] md:min-h-[96px] flex items-center">
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 dark:text-white font-display animate-fade-in-up animate-delay-200 drop-shadow-sm min-h-[80px] md:min-h-[96px] flex items-center">
                 <span className="typewriter">
                   {displayText}
                   <span className="cursor-blink"></span>
