@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect } from "react";
 import { 
   Globe, 
@@ -168,7 +167,7 @@ const SkillsSection = () => {
           >
             <Button 
               asChild
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-500 dark:to-indigo-500 
+              className="bg-gradient-to-r from-blue-600 to-black hover:from-blue-700 hover:to-gray-900 
                 text-white rounded-full px-8 py-6 shadow-lg hover:shadow-xl group transition-all duration-300 
                 hover:-translate-y-1 hover:scale-105 border border-blue-400/20"
             >
