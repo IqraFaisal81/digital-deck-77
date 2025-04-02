@@ -8,6 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { useCarouselState } from "@/hooks/useCarouselState";
 
 const EmailMarketingCarousel = () => {
   const emailImages = [
@@ -40,6 +41,7 @@ const EmailMarketingCarousel = () => {
 
   const [selectedImage, setSelectedImage] = useState<typeof emailImages[0] | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const { currentIndex, count, setCarouselApi } = useCarouselState();
 
   const openImageModal = (image: typeof emailImages[0]) => {
     setSelectedImage(image);
@@ -54,6 +56,7 @@ const EmailMarketingCarousel = () => {
           loop: true,
         }}
         className="w-full"
+        onCreated={setCarouselApi}
       >
         <CarouselContent>
           {emailImages.map((image, index) => (
@@ -62,41 +65,57 @@ const EmailMarketingCarousel = () => {
               className="basis-full md:basis-1/2 lg:basis-1/3 p-2"
             >
               <div 
-                className="cursor-pointer h-full bg-white shadow-md rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg"
+                className="cursor-pointer h-full bg-white dark:bg-gray-800 shadow-md rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-blue-200 dark:hover:border-blue-700 group"
                 onClick={() => openImageModal(image)}
               >
                 <div className="relative h-[200px] md:h-[220px] overflow-hidden">
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-full object-cover object-top transition-all duration-300 transform hover:scale-110"
+                    className="w-full h-full object-cover object-top transition-all duration-500 transform group-hover:scale-110"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <div className="p-4 bg-gray-50">
-                  <h4 className="text-lg font-semibold text-black">Email Campaign {index + 1}</h4>
-                  <p className="text-gray-800 text-sm mt-1">{image.description.split(" ").slice(0, 6).join(" ")}...</p>
+                <div className="p-4 bg-gray-50 dark:bg-gray-800">
+                  <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-100 group-hover:text-royal dark:group-hover:text-electric transition-colors">Email Campaign {index + 1}</h4>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm mt-1">{image.description.split(" ").slice(0, 6).join(" ")}...</p>
                 </div>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-2 bg-black/50 hover:bg-black/80 border-none" />
-        <CarouselNext className="right-2 bg-black/50 hover:bg-black/80 border-none" />
+        <CarouselPrevious className="left-2 bg-black/50 hover:bg-black/80 border-none text-white" />
+        <CarouselNext className="right-2 bg-black/50 hover:bg-black/80 border-none text-white" />
       </Carousel>
+
+      {/* Carousel Pagination Indicators */}
+      <div className="flex justify-center mt-4 gap-1.5">
+        {Array.from({ length: count }).map((_, index) => (
+          <button
+            key={index}
+            className={`h-2 rounded-full transition-all ${
+              currentIndex === index 
+                ? "w-6 bg-royal dark:bg-electric" 
+                : "w-2 bg-gray-300 dark:bg-gray-600"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
 
       {/* Image Modal */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="bg-white max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="bg-white dark:bg-gray-800 max-w-4xl max-h-[90vh] overflow-y-auto">
           {selectedImage && (
             <>
               <DialogHeader>
-                <DialogTitle className="text-2xl font-bold text-gray-800">{selectedImage.alt}</DialogTitle>
-                <DialogDescription className="text-gray-600">
+                <DialogTitle className="text-2xl font-bold text-gray-800 dark:text-gray-100">{selectedImage.alt}</DialogTitle>
+                <DialogDescription className="text-gray-600 dark:text-gray-300">
                   {selectedImage.description}
                 </DialogDescription>
               </DialogHeader>
               
-              <div className="mt-4 bg-gray-50 p-2 rounded-lg">
+              <div className="mt-4 bg-gray-50 dark:bg-gray-700 p-2 rounded-lg">
                 <img 
                   src={selectedImage.src} 
                   alt={selectedImage.alt} 

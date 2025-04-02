@@ -8,8 +8,7 @@ import {
   CarouselPrevious 
 } from "@/components/ui/carousel";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { ExternalLink } from "lucide-react";
+import { useCarouselState } from "@/hooks/useCarouselState";
 
 // Define PPC campaigns data
 const ppcAnalytics = [
@@ -66,6 +65,7 @@ const ppcAnalytics = [
 const PPCCarousel = () => {
   const [selectedAnalytic, setSelectedAnalytic] = useState<typeof ppcAnalytics[0] | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const { currentIndex, count, setCarouselApi } = useCarouselState();
 
   const openAnalyticModal = (analytic: typeof ppcAnalytics[0]) => {
     setSelectedAnalytic(analytic);
@@ -80,46 +80,63 @@ const PPCCarousel = () => {
           loop: true,
         }}
         className="w-full"
+        onCreated={setCarouselApi}
       >
         <CarouselContent>
           {ppcAnalytics.map((analytic) => (
-            <CarouselItem key={analytic.id} className="basis-full md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={analytic.id} className="basis-full md:basis-1/2 lg:basis-1/3 p-2">
               <div 
-                className="cursor-pointer h-full bg-white shadow-md rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg"
+                className="cursor-pointer h-full bg-white dark:bg-gray-800 shadow-md rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-blue-200 dark:hover:border-blue-700 group"
                 onClick={() => openAnalyticModal(analytic)}
               >
                 <div className="relative h-[200px] md:h-[220px] overflow-hidden">
                   <img 
                     src={analytic.image} 
                     alt={analytic.title} 
-                    className="w-full h-full object-cover object-top transition-all duration-300 transform hover:scale-110"
+                    className="w-full h-full object-cover object-top transition-all duration-500 transform group-hover:scale-110"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <div className="p-4 bg-gray-50">
-                  <h4 className="text-lg font-semibold text-black">{analytic.title}</h4>
-                  <p className="text-gray-800 text-sm mt-1">{analytic.description}</p>
+                <div className="p-4 bg-gray-50 dark:bg-gray-800">
+                  <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-100 group-hover:text-royal dark:group-hover:text-electric transition-colors">{analytic.title}</h4>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm mt-1">{analytic.description}</p>
                 </div>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-2 bg-black/50 hover:bg-black/80 border-none" />
-        <CarouselNext className="right-2 bg-black/50 hover:bg-black/80 border-none" />
+        <CarouselPrevious className="left-2 bg-black/50 hover:bg-black/80 border-none text-white" />
+        <CarouselNext className="right-2 bg-black/50 hover:bg-black/80 border-none text-white" />
       </Carousel>
+
+      {/* Carousel Pagination Indicators */}
+      <div className="flex justify-center mt-4 gap-1.5">
+        {Array.from({ length: count }).map((_, index) => (
+          <button
+            key={index}
+            className={`h-2 rounded-full transition-all ${
+              currentIndex === index 
+                ? "w-6 bg-royal dark:bg-electric" 
+                : "w-2 bg-gray-300 dark:bg-gray-600"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
 
       {/* Analytics Modal */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="bg-white max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="bg-white dark:bg-gray-800 max-w-4xl max-h-[90vh] overflow-y-auto">
           {selectedAnalytic && (
             <>
               <DialogHeader>
-                <DialogTitle className="text-2xl font-bold text-gray-800">{selectedAnalytic.title}</DialogTitle>
-                <DialogDescription className="text-gray-600">
+                <DialogTitle className="text-2xl font-bold text-gray-800 dark:text-gray-100">{selectedAnalytic.title}</DialogTitle>
+                <DialogDescription className="text-gray-600 dark:text-gray-300">
                   {selectedAnalytic.description}
                 </DialogDescription>
               </DialogHeader>
               
-              <div className="mt-4 bg-gray-50 p-2 rounded-lg">
+              <div className="mt-4 bg-gray-50 dark:bg-gray-700 p-2 rounded-lg">
                 <img 
                   src={selectedAnalytic.image} 
                   alt={selectedAnalytic.title} 
