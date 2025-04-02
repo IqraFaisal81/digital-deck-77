@@ -13,6 +13,7 @@ const testimonials = clients
     name: client.testimonial?.author || "",
     role: client.testimonial?.position || "",
     review: client.testimonial?.quote || "",
+    rating: client.testimonial?.rating || 5,
     customLogo: true // Flag to use our own logos instead of the default ones
   }));
 

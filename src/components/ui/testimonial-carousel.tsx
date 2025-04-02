@@ -1,7 +1,8 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -14,6 +15,7 @@ interface Testimonial {
   name: string;
   role: string;
   review: string;
+  rating?: number;
   customLogo?: boolean;
 }
 
@@ -79,6 +81,21 @@ export function TestimonialCarousel({
     }),
   };
 
+  // Generate star ratings
+  const renderStars = (rating: number = 5) => {
+    return Array.from({ length: 5 }).map((_, i) => (
+      <Star 
+        key={i} 
+        className={cn(
+          "w-4 h-4", 
+          i < rating 
+            ? "text-amber-400 fill-amber-400" 
+            : "text-gray-300 dark:text-gray-600"
+        )}
+      />
+    ));
+  };
+
   return (
     <div 
       className="relative overflow-hidden py-10 px-4"
@@ -86,9 +103,9 @@ export function TestimonialCarousel({
       onMouseLeave={handleMouseLeave}
     >
       <div className="max-w-6xl mx-auto">
-        <div className="relative rounded-2xl bg-gradient-to-b from-blue-50 to-indigo-50 dark:from-blue-950/40 dark:to-indigo-950/40 p-1">
-          <div className="bg-white dark:bg-gray-900 rounded-xl p-8 md:p-12 overflow-hidden">
-            <div className="relative h-[300px] md:h-[260px]">
+        <div className="relative rounded-2xl glass-card p-1">
+          <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-xl p-8 md:p-12 overflow-hidden">
+            <div className="relative h-[340px] md:h-[280px]">
               <AnimatePresence custom={direction} initial={false}>
                 <motion.div
                   key={currentIndex}
@@ -106,7 +123,7 @@ export function TestimonialCarousel({
                   <div className="grid md:grid-cols-[1fr,1.5fr] gap-10 items-center">
                     <div className="flex flex-col items-center md:items-start">
                       {testimonials[currentIndex].company && (
-                        <div className="mb-6 bg-gray-100 dark:bg-gray-800 rounded-lg p-4 w-auto h-16 flex items-center justify-center">
+                        <div className="mb-6 bg-white dark:bg-gray-800 rounded-lg p-4 w-auto h-16 flex items-center justify-center shadow-sm">
                           {useCustomLogo && testimonials[currentIndex].logo ? (
                             <img
                               src={testimonials[currentIndex].logo}
@@ -129,13 +146,13 @@ export function TestimonialCarousel({
                         </div>
                       )}
                       <div className="relative w-full hidden md:block">
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 dark:from-blue-400/5 dark:to-indigo-400/5 rounded-full blur-3xl"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-indigo-500/20 dark:from-blue-400/10 dark:to-indigo-400/10 rounded-full blur-3xl"></div>
                         <div className="relative flex items-center justify-center">
                           <Avatar className="w-24 h-24 border-4 border-white dark:border-gray-800 shadow-lg">
                             {testimonials[currentIndex].avatar && avatarPath ? (
                               <AvatarImage src={`${avatarPath}${testimonials[currentIndex].avatar}`} alt={testimonials[currentIndex].name} />
                             ) : (
-                              <AvatarFallback className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white text-2xl">
+                              <AvatarFallback className="bg-gradient-to-br from-blue-600 to-indigo-600 text-white text-2xl">
                                 {testimonials[currentIndex].name.split(" ").map(n => n[0]).join("")}
                               </AvatarFallback>
                             )}
@@ -145,12 +162,12 @@ export function TestimonialCarousel({
                     </div>
                     
                     <div className="flex flex-col">
-                      <div className="flex items-center gap-4 mb-6 md:hidden">
-                        <Avatar className="w-14 h-14 border-2 border-white dark:border-gray-800 shadow-md">
+                      <div className="flex items-center gap-4 mb-4 md:hidden">
+                        <Avatar className="w-16 h-16 border-2 border-white dark:border-gray-800 shadow-md">
                           {testimonials[currentIndex].avatar && avatarPath ? (
                             <AvatarImage src={`${avatarPath}${testimonials[currentIndex].avatar}`} alt={testimonials[currentIndex].name} />
                           ) : (
-                            <AvatarFallback className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white">
+                            <AvatarFallback className="bg-gradient-to-br from-blue-600 to-indigo-600 text-white">
                               {testimonials[currentIndex].name.split(" ").map(n => n[0]).join("")}
                             </AvatarFallback>
                           )}
@@ -161,7 +178,11 @@ export function TestimonialCarousel({
                         </div>
                       </div>
                       
-                      <blockquote className="text-2xl font-medium text-gray-900 dark:text-gray-100 mb-6 leading-relaxed">
+                      <div className="flex mb-3">
+                        {renderStars(testimonials[currentIndex].rating)}
+                      </div>
+                      
+                      <blockquote className="text-xl md:text-2xl font-medium text-gray-900 dark:text-gray-100 mb-6 leading-relaxed">
                         "{testimonials[currentIndex].review}"
                       </blockquote>
                       
@@ -200,7 +221,7 @@ export function TestimonialCarousel({
                   variant="outline"
                   size="icon"
                   onClick={prev}
-                  className="h-9 w-9 rounded-full border-gray-200 dark:border-gray-700"
+                  className="h-9 w-9 rounded-full bg-white/80 dark:bg-gray-800/80 border-blue-100 dark:border-blue-900/50 backdrop-blur-sm hover:bg-blue-50 dark:hover:bg-blue-900/30"
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft className="h-5 w-5" />
@@ -209,7 +230,7 @@ export function TestimonialCarousel({
                   variant="outline"
                   size="icon"
                   onClick={next}
-                  className="h-9 w-9 rounded-full border-gray-200 dark:border-gray-700"
+                  className="h-9 w-9 rounded-full bg-white/80 dark:bg-gray-800/80 border-blue-100 dark:border-blue-900/50 backdrop-blur-sm hover:bg-blue-50 dark:hover:bg-blue-900/30"
                   aria-label="Next testimonial"
                 >
                   <ChevronRight className="h-5 w-5" />
