@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
@@ -62,7 +63,7 @@ const AboutSection = () => {
           <div className="order-1 md:order-2 flex justify-center">
             <Card className="w-full max-w-md bg-white/90 dark:bg-gray-800/90 backdrop-blur-md border border-gray-100 dark:border-gray-700 shadow-xl rounded-2xl hover-lift overflow-hidden">
               <CardHeader className="pb-2">
-                <CardTitle className="bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent font-display text-2xl">
+                <CardTitle className="bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-electric dark:to-maroon font-display text-2xl">
                   My Journey
                 </CardTitle>
               </CardHeader>
