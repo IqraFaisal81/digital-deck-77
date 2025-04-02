@@ -4,8 +4,62 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { useState, useEffect, useRef } from "react";
 
 const HomeSection = () => {
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+  
+  const texts = [
+    "Hello, I'm Iqra Faisal",
+    "I am a product developer",
+    "I am a CRM Expert"
+  ];
+  
+  const currentTextRef = useRef(0);
+  const currentText = texts[currentTextRef.current];
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      handleType();
+    }, typingSpeed);
+    
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting]);
+  
+  const handleType = () => {
+    // Get current text based on loop number
+    currentTextRef.current = loopNum % texts.length;
+    const fullText = texts[currentTextRef.current];
+    
+    // Set typing speed based on action
+    setTypingSpeed(isDeleting ? 75 : 150);
+    
+    // Update display text
+    setDisplayText(
+      isDeleting 
+        ? fullText.substring(0, displayText.length - 1) 
+        : fullText.substring(0, displayText.length + 1)
+    );
+    
+    // If completed typing the full text
+    if (!isDeleting && displayText === fullText) {
+      // Pause at the end of typing
+      setTimeout(() => {
+        setIsDeleting(true);
+        setTypingSpeed(75);
+      }, 1500);
+    } 
+    // If finished deleting
+    else if (isDeleting && displayText === '') {
+      setIsDeleting(false);
+      setLoopNum(loopNum + 1);
+      setTypingSpeed(150);
+    }
+  };
+  
   return (
     <AuroraBackground 
       className="min-h-screen overflow-hidden dark:bg-gray-900"
@@ -28,8 +82,10 @@ const HomeSection = () => {
               <p className="text-blue-600 dark:text-blue-400 font-medium tracking-wider animate-fade-in-up animate-delay-100 uppercase text-sm">
                 SaaS Developer & Automation Specialist
               </p>
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 dark:from-white dark:to-purple-400 font-display animate-fade-in-up animate-delay-200 drop-shadow-sm">
-                Hello, I'm Iqra Faisal
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 dark:from-white dark:to-purple-400 font-display animate-fade-in-up animate-delay-200 drop-shadow-sm min-h-[80px] md:min-h-[96px] flex items-center">
+                <span className="border-r-4 border-blue-500 dark:border-blue-400 pr-2 animate-pulse">
+                  {displayText}
+                </span>
               </h1>
               <div className="w-20 h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-6"></div>
             </div>
