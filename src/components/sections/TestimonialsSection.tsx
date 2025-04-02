@@ -40,7 +40,7 @@ const TestimonialsSection = () => {
     return Array(5).fill(0).map((_, i) => (
       <Star 
         key={i} 
-        className={`h-4 w-4 ${i < rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`} 
+        className={`h-4 w-4 ${i < rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300 dark:text-gray-600'}`} 
       />
     ));
   };
@@ -49,7 +49,7 @@ const TestimonialsSection = () => {
     <section 
       id="testimonials" 
       ref={sectionRef}
-      className="py-20 md:py-28 px-4 md:px-8 bg-white overflow-hidden"
+      className="py-20 md:py-28 px-4 md:px-8 bg-white dark:bg-gray-900 overflow-hidden"
     >
       <div className="container mx-auto">
         <SectionHeader 
@@ -62,15 +62,15 @@ const TestimonialsSection = () => {
         {/* Client Logos */}
         <div className="flex flex-wrap justify-center gap-4 mb-12 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
           {clients.map((client, index) => (
-            <div key={index} className="p-3 bg-white backdrop-blur-sm rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:bg-white group">
+            <div key={index} className="p-3 bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 transition-all hover:shadow-md hover:bg-white dark:hover:bg-gray-700 group">
               {client.logo ? (
                 <img 
                   src={client.logo} 
                   alt={client.name} 
-                  className="h-14 object-contain transition-all" 
+                  className="h-14 object-contain transition-all dark:invert dark:brightness-75 dark:filter" 
                 />
               ) : (
-                <div className="h-14 flex items-center justify-center px-4 font-medium text-gray-600">
+                <div className="h-14 flex items-center justify-center px-4 font-medium text-gray-600 dark:text-gray-300">
                   {client.name}
                 </div>
               )}
@@ -92,20 +92,20 @@ const TestimonialsSection = () => {
                 {testimonials.map((client, index) => (
                   <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-4/5 lg:basis-3/4">
                     <div className="h-full">
-                      <Card className="shadow-lg border-0 overflow-hidden bg-white hover:shadow-2xl transition-all duration-500 h-full transform hover:-translate-y-1 rounded-xl">
+                      <Card className="shadow-lg border-0 overflow-hidden bg-white dark:bg-gray-800 hover:shadow-2xl transition-all duration-500 h-full transform hover:-translate-y-1 rounded-xl">
                         <CardContent className="p-0 h-full">
                           <div className="flex flex-col md:flex-row h-full">
-                            <div className="md:w-2/5 lg:w-1/3 bg-white flex flex-col items-center justify-center p-8 text-black relative">
+                            <div className="md:w-2/5 lg:w-1/3 bg-white dark:bg-gray-800 flex flex-col items-center justify-center p-8 text-black dark:text-white relative">
                               {client.logo && (
-                                <div className="mb-6 bg-white/90 p-4 rounded-xl shadow-sm">
-                                  <img src={client.logo} alt={client.name} className="h-16 w-auto object-contain" />
+                                <div className="mb-6 bg-white/90 dark:bg-gray-700/90 p-4 rounded-xl shadow-sm">
+                                  <img src={client.logo} alt={client.name} className="h-16 w-auto object-contain dark:invert dark:brightness-75 dark:filter" />
                                 </div>
                               )}
                               <div className="mb-6">
-                                <h4 className="text-xl font-bold text-center mb-2 text-gray-900">{client.name}</h4>
+                                <h4 className="text-xl font-bold text-center mb-2 text-gray-900 dark:text-white">{client.name}</h4>
                               </div>
-                              <p className="text-sm text-gray-700 text-center font-light">{client.description}</p>
-                              <div className="mt-6 text-xs font-light italic text-gray-500 text-center">
+                              <p className="text-sm text-gray-700 dark:text-gray-300 text-center font-light">{client.description}</p>
+                              <div className="mt-6 text-xs font-light italic text-gray-500 dark:text-gray-400 text-center">
                                 {client.website !== "#" && (
                                   <a href={client.website} target="_blank" rel="noopener noreferrer" className="hover:underline">
                                     Visit Website
@@ -114,26 +114,26 @@ const TestimonialsSection = () => {
                               </div>
                             </div>
                             
-                            <div className="md:w-3/5 lg:w-2/3 p-8 md:p-10 relative flex flex-col justify-center bg-white">
+                            <div className="md:w-3/5 lg:w-2/3 p-8 md:p-10 relative flex flex-col justify-center bg-white dark:bg-gray-800">
                               <div className="flex items-center mb-4 z-10">
                                 {renderStars(client.testimonial?.rating)}
                               </div>
                               
-                              <blockquote className="text-black italic mb-6 relative z-10 text-lg md:text-xl leading-relaxed">
+                              <blockquote className="text-black dark:text-white italic mb-6 relative z-10 text-lg md:text-xl leading-relaxed">
                                 "{client.testimonial?.quote}"
                               </blockquote>
                               
-                              <div className="mt-auto flex items-center border-t border-gray-100 pt-5">
-                                <Avatar className="h-14 w-14 border-2 border-gray-100 mr-4 shadow-sm">
-                                  <AvatarFallback className="bg-white text-gray-600 font-semibold">
+                              <div className="mt-auto flex items-center border-t border-gray-100 dark:border-gray-700 pt-5">
+                                <Avatar className="h-14 w-14 border-2 border-gray-100 dark:border-gray-700 mr-4 shadow-sm">
+                                  <AvatarFallback className="bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 font-semibold">
                                     {client.testimonial?.author.split(' ').map(n => n[0]).join('')}
                                   </AvatarFallback>
                                 </Avatar>
                                 <div>
-                                  <div className="font-bold text-black text-lg">
+                                  <div className="font-bold text-black dark:text-white text-lg">
                                     {client.testimonial?.author}
                                   </div>
-                                  <div className="text-sm text-gray-700">
+                                  <div className="text-sm text-gray-700 dark:text-gray-300">
                                     {client.testimonial?.position}, {client.name}
                                   </div>
                                 </div>
@@ -154,16 +154,16 @@ const TestimonialsSection = () => {
                     onClick={() => carouselApi?.scrollTo(index)}
                     className={`transition-all duration-300 ${
                       currentIndex === index 
-                        ? 'bg-gradient-to-r from-gray-400 to-gray-600 w-8 h-2.5 rounded-full shadow-md' 
-                        : 'bg-gray-300 w-2.5 h-2.5 rounded-full hover:bg-gray-400 hover:scale-110'
+                        ? 'bg-gradient-to-r from-gray-400 to-gray-600 dark:from-gray-600 dark:to-gray-400 w-8 h-2.5 rounded-full shadow-md' 
+                        : 'bg-gray-300 dark:bg-gray-600 w-2.5 h-2.5 rounded-full hover:bg-gray-400 dark:hover:bg-gray-500 hover:scale-110'
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
                 ))}
               </div>
               
-              <CarouselPrevious className="hidden md:flex -left-5 h-10 w-10 border-none bg-white shadow-lg focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-gray-600 hover:bg-gray-50 hover:text-gray-700" />
-              <CarouselNext className="hidden md:flex -right-5 h-10 w-10 border-none bg-white shadow-lg focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 text-gray-600 hover:bg-gray-50 hover:text-gray-700" />
+              <CarouselPrevious className="hidden md:flex -left-5 h-10 w-10 border-none bg-white dark:bg-gray-800 shadow-lg focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600 focus:ring-offset-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-700 dark:hover:text-gray-200" />
+              <CarouselNext className="hidden md:flex -right-5 h-10 w-10 border-none bg-white dark:bg-gray-800 shadow-lg focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600 focus:ring-offset-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-700 dark:hover:text-gray-200" />
             </Carousel>
           )}
         </div>

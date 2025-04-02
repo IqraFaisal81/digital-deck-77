@@ -25,10 +25,10 @@ const ProjectHighlightsSection = () => {
   };
 
   return (
-    <section id="case-studies" className="section-padding relative bg-white">
+    <section id="case-studies" className="section-padding relative bg-white dark:bg-gray-900">
       {/* Background decorative elements */}
-      <div className="absolute top-20 right-10 w-64 h-64 bg-blue-50 rounded-full blur-3xl opacity-30"></div>
-      <div className="absolute bottom-20 left-10 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-30"></div>
+      <div className="absolute top-20 right-10 w-64 h-64 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-30"></div>
+      <div className="absolute bottom-20 left-10 w-80 h-80 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-30"></div>
       
       <div className="container mx-auto relative z-10">
         <SectionHeader 
@@ -59,8 +59,8 @@ const ProjectHighlightsSection = () => {
               ))}
             </CarouselContent>
             <div className="flex justify-center items-center gap-4 mt-6">
-              <CarouselPrevious className="static transform-none bg-black/50 hover:bg-black/80 border-none" />
-              <CarouselNext className="static transform-none bg-black/50 hover:bg-black/80 border-none" />
+              <CarouselPrevious className="static transform-none bg-black/50 hover:bg-black/80 dark:bg-white/20 dark:hover:bg-white/30 border-none" />
+              <CarouselNext className="static transform-none bg-black/50 hover:bg-black/80 dark:bg-white/20 dark:hover:bg-white/30 border-none" />
             </div>
           </Carousel>
         </div>

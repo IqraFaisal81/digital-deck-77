@@ -24,7 +24,7 @@ type SkillCategory = {
 const skillCategories: SkillCategory[] = [
   {
     name: "Digital Marketing & Growth",
-    icon: <Globe className="h-6 w-6 text-blue-600" />,
+    icon: <Globe className="h-6 w-6 text-blue-600 dark:text-blue-400" />,
     skills: [
       { name: "Google Ads Pro (Search, Display, Performance Max)" },
       { name: "Meta, TikTok, & Snapchat Ads Wizardry" },
@@ -34,7 +34,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     name: "CRM & Automation Mastery",
-    icon: <Database className="h-6 w-6 text-blue-600" />,
+    icon: <Database className="h-6 w-6 text-blue-600 dark:text-blue-400" />,
     skills: [
       { name: "Go High Level Ninja (Workflows, Pipelines)" },
       { name: "HubSpot & ActiveCampaign Automation" },
@@ -44,7 +44,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     name: "Data & Analytics",
-    icon: <BarChart className="h-6 w-6 text-blue-600" />,
+    icon: <BarChart className="h-6 w-6 text-blue-600 dark:text-blue-400" />,
     skills: [
       { name: "Google Analytics (GA4), Looker Studio Dashboards" },
       { name: "R Studio, SQL Queries, Power BI, Tableau" },
@@ -53,7 +53,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     name: "SaaS & AI Development",
-    icon: <Bot className="h-6 w-6 text-blue-600" />,
+    icon: <Bot className="h-6 w-6 text-blue-600 dark:text-blue-400" />,
     skills: [
       { name: "SaaS Funnels, Onboarding, and Subscription Logic" },
       { name: "AI Integration (Chatbots, OpenAI API)" },
@@ -63,7 +63,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     name: "Strategy & Creative Direction",
-    icon: <TrendingUp className="h-6 w-6 text-blue-600" />,
+    icon: <TrendingUp className="h-6 w-6 text-blue-600 dark:text-blue-400" />,
     skills: [
       { name: "Performance Campaign Strategy & Budget Scaling" },
       { name: "Brand Playbooks & Sales Systems" },
@@ -106,17 +106,17 @@ const SkillsSection = () => {
     <section 
       id="skills" 
       ref={sectionRef} 
-      className="py-16 md:py-24 px-4 md:px-8 relative overflow-hidden"
+      className="py-16 md:py-24 px-4 md:px-8 relative overflow-hidden bg-white dark:bg-gray-900"
     >
       {/* Background elements */}
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl opacity-40"></div>
-      <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-purple-100/50 rounded-full blur-3xl opacity-40"></div>
-      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-100/50 rounded-full blur-3xl opacity-30"></div>
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-100/50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-40"></div>
+      <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-purple-100/50 dark:bg-purple-900/20 rounded-full blur-3xl opacity-40"></div>
+      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-100/50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-30"></div>
       
       <div className="container mx-auto relative z-10">
         <SectionHeader 
           subtitle="Professional Capabilities"
-          title={<>Skills & <span className="text-blue-600">Expertise</span></>}
+          title={<>Skills & <span className="text-blue-600 dark:text-blue-400">Expertise</span></>}
           description="Combining technical expertise with strategic marketing to deliver comprehensive solutions that drive growth and engagement."
         />
         
@@ -137,7 +137,7 @@ const SkillsSection = () => {
         <div className="mt-12 text-center">
           <Button 
             asChild
-            className="bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-full px-8 py-6 shadow-md hover:shadow-lg group transition-all duration-300 hover:-translate-y-1"
+            className="bg-gradient-to-r from-blue-600 to-blue-500 dark:from-blue-500 dark:to-blue-400 text-white rounded-full px-8 py-6 shadow-md hover:shadow-lg group transition-all duration-300 hover:-translate-y-1"
           >
             <a href="#services" className="inline-flex items-center">
               <span className="mr-2">View my services</span>

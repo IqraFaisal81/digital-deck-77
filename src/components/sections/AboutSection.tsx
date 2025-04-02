@@ -1,78 +1,98 @@
 
-import { Check, User, Building, Package } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import SectionHeader from "@/components/skills/SectionHeader";
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { Check, ArrowRight } from "lucide-react";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-16 px-4 md:px-8 bg-gradient-to-b from-white to-blue-50 relative overflow-hidden">
+    <section id="about" className="section-padding bg-white dark:bg-gray-900 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute top-40 right-10 w-64 h-64 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-30"></div>
+      <div className="absolute bottom-40 left-10 w-80 h-80 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-30"></div>
+      
       <div className="container mx-auto relative z-10">
-        <SectionHeader 
-          title={<>About <span className="text-blue-600">Me</span></>}
-          alignment="center"
-        />
-        
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-start max-w-6xl mx-auto">
-          <Card className="lg:col-span-3 bg-white shadow-md hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden">
-            <CardContent className="p-6">
-              <p className="text-gray-800 mb-4 text-lg leading-relaxed">
-                Hey! I&apos;m Iqra Faisal, a SaaS developer and CRM automation expert with 6+ years of experience turning business chaos into smooth digital workflows. I specialize in building custom systems using Go High Level, automation frameworks, and full-funnel strategies that just work.
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div className="order-2 md:order-1">
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 dark:from-white dark:to-blue-400 font-display">
+                About Me
+              </h2>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                I help businesses achieve measurable growth through strategic digital solutions that 
+                automate tedious tasks, streamline operations, and convert more leads into customers.
               </p>
-              <p className="text-gray-800 text-lg leading-relaxed">
-                I&apos;ve worked across industries like fitness, e-commerce, mental health, bottleless water coolers, HVAC, and professional services—delivering results that speak for themselves. From Google Ads and SEO to funnel design and automation—I&apos;m your one-stop tech & marketing solution.
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                With expertise in CRM implementation, marketing automation, and business systems integration, 
+                I create scalable infrastructure that gives you more time to focus on what matters—growing your 
+                business and serving your customers.
               </p>
-            </CardContent>
-          </Card>
-          
-          <Card className="lg:col-span-2 bg-gradient-to-br from-white to-blue-50 shadow-md hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden">
-            <CardContent className="p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                  <Building className="w-5 h-5 text-blue-600" />
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <div className="flex items-start space-x-2">
+                  <Check className="text-blue-600 dark:text-blue-400 mt-1" />
+                  <span className="text-gray-700 dark:text-gray-300">3+ years CRM expertise</span>
                 </div>
-                <h3 className="text-xl font-semibold text-blue-600">Industries I&apos;ve Worked With</h3>
+                <div className="flex items-start space-x-2">
+                  <Check className="text-blue-600 dark:text-blue-400 mt-1" />
+                  <span className="text-gray-700 dark:text-gray-300">MSc Digital Marketing</span>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <Check className="text-blue-600 dark:text-blue-400 mt-1" />
+                  <span className="text-gray-700 dark:text-gray-300">Certified Go High Level Expert</span>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <Check className="text-blue-600 dark:text-blue-400 mt-1" />
+                  <span className="text-gray-700 dark:text-gray-300">Workflow automation specialist</span>
+                </div>
               </div>
               
-              <div className="grid grid-cols-1 gap-2">
-                <div className="flex items-center space-x-3 group p-2 rounded-md hover:bg-blue-50 transition-colors">
-                  <div className="p-1 rounded-full bg-blue-100 group-hover:bg-blue-200 transition-colors">
-                    <Check className="text-blue-600 w-4 h-4" />
+              <Button 
+                className="group bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-700 dark:hover:bg-blue-600 rounded-full px-6 py-6 shadow-md hover:shadow-lg transition-all duration-300"
+                size="lg"
+              >
+                <a href="#skills" className="flex items-center">
+                  View My Skills
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
+              </Button>
+            </div>
+          </div>
+          
+          <div className="order-1 md:order-2 flex justify-center">
+            <div className="relative w-full max-w-md">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400/30 to-purple-400/30 rounded-2xl blur-3xl"></div>
+              <div className="relative bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700">
+                <h3 className="text-xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 dark:from-white dark:to-blue-400">
+                  My Journey
+                </h3>
+                <div className="space-y-6">
+                  <div className="border-l-2 border-blue-500 pl-4 py-2">
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2022 - Present</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">Freelance CRM Specialist & Automation Expert</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Building custom solutions for service businesses</p>
                   </div>
-                  <span className="text-gray-700 group-hover:text-gray-900 transition-colors">Fitness & Wellness</span>
-                </div>
-                <div className="flex items-center space-x-3 group p-2 rounded-md hover:bg-blue-50 transition-colors">
-                  <div className="p-1 rounded-full bg-blue-100 group-hover:bg-blue-200 transition-colors">
-                    <Check className="text-blue-600 w-4 h-4" />
+                  
+                  <div className="border-l-2 border-blue-500 pl-4 py-2">
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2021 - 2022</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketing Specialist at Medusa</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Managed CRM systems and automation workflows</p>
                   </div>
-                  <span className="text-gray-700 group-hover:text-gray-900 transition-colors">E-commerce</span>
-                </div>
-                <div className="flex items-center space-x-3 group p-2 rounded-md hover:bg-blue-50 transition-colors">
-                  <div className="p-1 rounded-full bg-blue-100 group-hover:bg-blue-200 transition-colors">
-                    <Check className="text-blue-600 w-4 h-4" />
+                  
+                  <div className="border-l-2 border-blue-500 pl-4 py-2">
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2020 - 2021</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">MSc Digital Marketing</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Sheffield Hallam University</p>
                   </div>
-                  <span className="text-gray-700 group-hover:text-gray-900 transition-colors">Mental Health Services</span>
-                </div>
-                <div className="flex items-center space-x-3 group p-2 rounded-md hover:bg-blue-50 transition-colors">
-                  <div className="p-1 rounded-full bg-blue-100 group-hover:bg-blue-200 transition-colors">
-                    <Check className="text-blue-600 w-4 h-4" />
+                  
+                  <div className="border-l-2 border-blue-500 pl-4 py-2">
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2017 - 2020</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">BSc Business & Marketing</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">University of Hertfordshire</p>
                   </div>
-                  <span className="text-gray-700 group-hover:text-gray-900 transition-colors">Bottleless Water Coolers</span>
-                </div>
-                <div className="flex items-center space-x-3 group p-2 rounded-md hover:bg-blue-50 transition-colors">
-                  <div className="p-1 rounded-full bg-blue-100 group-hover:bg-blue-200 transition-colors">
-                    <Check className="text-blue-600 w-4 h-4" />
-                  </div>
-                  <span className="text-gray-700 group-hover:text-gray-900 transition-colors">HVAC Services</span>
-                </div>
-                <div className="flex items-center space-x-3 group p-2 rounded-md hover:bg-blue-50 transition-colors">
-                  <div className="p-1 rounded-full bg-blue-100 group-hover:bg-blue-200 transition-colors">
-                    <Check className="text-blue-600 w-4 h-4" />
-                  </div>
-                  <span className="text-gray-700 group-hover:text-gray-900 transition-colors">Professional Services</span>
                 </div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </div>
     </section>

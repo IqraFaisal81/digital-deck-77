@@ -5,28 +5,33 @@ interface SectionHeaderProps {
   subtitle?: string;
   title: React.ReactNode;
   description?: string;
-  alignment?: "center" | "left";
-  useGradient?: boolean;
+  alignment?: "left" | "center" | "right";
 }
 
 const SectionHeader = ({ 
   subtitle, 
   title, 
-  description, 
-  alignment = "center",
-  useGradient = true
+  description,
+  alignment = "left"
 }: SectionHeaderProps) => {
+  const alignmentClasses = {
+    left: "text-left",
+    center: "text-center mx-auto",
+    right: "text-right ml-auto"
+  };
+
   return (
-    <div className={`flex flex-col ${alignment === "center" ? "items-center" : "items-start"} mb-14 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700`}>
+    <div className={`mb-12 max-w-3xl ${alignmentClasses[alignment]}`}>
       {subtitle && (
-        <span className="text-blue-600 text-sm uppercase tracking-wider font-semibold mb-2">{subtitle}</span>
+        <p className="text-blue-600 dark:text-blue-400 font-medium tracking-wide mb-2 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
+          {subtitle}
+        </p>
       )}
-      <h2 className={`text-4xl md:text-5xl font-bold mb-3 ${alignment === "center" ? "text-center" : "text-left"} font-display ${useGradient ? "bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600" : ""}`}>
+      <h2 className={`text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600 dark:from-white dark:to-blue-400 font-display animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 delay-100`}>
         {title}
       </h2>
-      <div className={`w-16 h-1 bg-blue-600 mb-6 ${alignment === "center" ? "mx-auto" : ""}`}></div>
       {description && (
-        <p className={`text-gray-700 max-w-2xl ${alignment === "center" ? "mx-auto text-center" : ""} mb-6`}>
+        <p className="text-gray-700 dark:text-gray-300 leading-relaxed animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 delay-200">
           {description}
         </p>
       )}
