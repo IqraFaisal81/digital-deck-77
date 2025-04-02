@@ -12,14 +12,24 @@ interface TestimonialCardProps {
   author: string;
   logo: string;
   company: string;
+  rating?: number;
 }
 
-export function TestimonialCard({ handleShuffle, testimonial, position, id, author, logo, company }: TestimonialCardProps) {
+export function TestimonialCard({ 
+  handleShuffle, 
+  testimonial, 
+  position, 
+  id, 
+  author, 
+  logo, 
+  company,
+  rating = 5
+}: TestimonialCardProps) {
   const dragRef = React.useRef(0);
   const isFront = position === "front";
   
   const renderStars = () => {
-    return Array(5).fill(0).map((_, i) => (
+    return Array(rating).fill(0).map((_, i) => (
       <Star 
         key={i} 
         className="h-4 w-4 text-yellow-400 fill-yellow-400"
@@ -43,10 +53,10 @@ export function TestimonialCard({ handleShuffle, testimonial, position, id, auth
         zIndex: position === "front" ? "2" : position === "middle" ? "1" : "0"
       }}
       animate={{
-        rotate: position === "front" ? "-6deg" : position === "middle" ? "0deg" : "6deg",
-        x: position === "front" ? "0%" : position === "middle" ? "33%" : "66%",
-        scale: position === "front" ? 1 : position === "middle" ? 0.9 : 0.8,
-        opacity: position === "front" ? 1 : position === "middle" ? 0.9 : 0.7
+        rotate: position === "front" ? "-3deg" : position === "middle" ? "0deg" : "3deg",
+        x: position === "front" ? "0%" : position === "middle" ? "28%" : "56%",
+        scale: position === "front" ? 1 : position === "middle" ? 0.95 : 0.9,
+        opacity: position === "front" ? 1 : position === "middle" ? 0.95 : 0.85
       }}
       drag={true}
       dragElastic={0.35}
@@ -61,48 +71,48 @@ export function TestimonialCard({ handleShuffle, testimonial, position, id, auth
         dragRef.current = getClientX(e);
       }}
       onDragEnd={(e) => {
-        if (dragRef.current - getClientX(e) > 150) {
+        if (dragRef.current - getClientX(e) > 100) {
           handleShuffle();
         }
         dragRef.current = 0;
       }}
-      transition={{ duration: 0.35 }}
-      className={`absolute left-0 top-0 grid h-[480px] w-[380px] select-none rounded-2xl border bg-gradient-to-b from-white/95 via-white/90 to-white/85 dark:from-gray-800/95 dark:via-gray-800/90 dark:to-gray-800/85 border-gray-200 dark:border-gray-700 p-6 shadow-xl backdrop-blur-lg ${
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className={`absolute left-0 top-0 w-full md:w-[480px] select-none rounded-2xl ${
         isFront ? "cursor-grab active:cursor-grabbing" : ""
       }`}
     >
-      <div className="flex justify-center mb-4">
-        {renderStars()}
-      </div>
-      
-      <div className="text-center text-lg italic text-gray-700 dark:text-gray-300 mb-6">
-        "{testimonial}"
-      </div>
-      
-      <div className="mt-auto flex flex-col border-t border-gray-200 dark:border-gray-700 pt-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="bg-gradient-to-r from-royal to-electric rounded-full p-0.5">
-              <Avatar className="h-12 w-12 border-2 border-white dark:border-gray-800">
-                <AvatarImage src={`https://ui-avatars.com/api/?name=${author.split(',')[0]}&background=random`} alt={author.split(',')[0]} />
-                <AvatarFallback className="bg-royal text-white">{author.split(',')[0].charAt(0)}</AvatarFallback>
-              </Avatar>
-            </div>
-            <div>
-              <p className="font-medium text-royal dark:text-electric">{author}</p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">{company}</p>
-            </div>
-          </div>
+      <div className="relative h-full p-8 backdrop-blur-lg bg-gradient-to-b from-white/90 to-white/70 dark:from-gray-800/90 dark:to-gray-800/70 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-xl">
+        <div className="absolute -top-4 -right-4 bg-gradient-to-br from-royal to-electric p-1 rounded-full shadow-lg">
+          <img 
+            src={logo} 
+            alt={`${company} logo`} 
+            className="h-12 w-12 rounded-full object-contain bg-white p-1"
+          />
+        </div>
+        
+        <div className="flex items-center space-x-1 mb-4">
+          {renderStars()}
+        </div>
+        
+        <div className="text-xl font-medium text-gray-800 dark:text-gray-200 mb-4">
+          "{testimonial}"
+        </div>
+        
+        <div className="mt-8 flex items-center space-x-4">
+          <Avatar className="h-12 w-12 border-2 border-royal dark:border-electric">
+            <AvatarImage 
+              src={`https://ui-avatars.com/api/?name=${author.split(',')[0]}&background=random`} 
+              alt={author} 
+            />
+            <AvatarFallback className="bg-royal text-white">
+              {author.split(' ')[0]?.[0]}{author.split(' ')[1]?.[0]}
+            </AvatarFallback>
+          </Avatar>
           
-          {logo && (
-            <div className="ml-auto">
-              <img 
-                src={logo} 
-                alt={`${company} logo`} 
-                className="h-12 w-auto object-contain"
-              />
-            </div>
-          )}
+          <div>
+            <p className="font-semibold text-royal dark:text-electric">{author}</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">{company}</p>
+          </div>
         </div>
       </div>
     </motion.div>
