@@ -64,10 +64,13 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
                 </CardContent>
                 <CardFooter className="flex justify-between items-center border-t pt-4 bg-gradient-to-r from-gray-50 to-blue-50/50 dark:from-gray-800/50 dark:to-blue-900/20">
                   {service.sectionId && (
-                    <div className="text-royal dark:text-electric text-sm flex items-center group-hover:font-medium transition-all">
+                    <Button 
+                      variant="ghost" 
+                      className="px-3 py-1 text-royal dark:text-electric rounded-full text-sm transition-all bg-transparent hover:bg-blue-100/80 dark:hover:bg-blue-900/30 group-hover:font-medium"
+                    >
                       <span>{visibleSection === service.sectionId ? 'Hide details' : 'Learn more'}</span>
                       <ArrowRight size={14} className="ml-1 group-hover:translate-x-1 transition-transform" />
-                    </div>
+                    </Button>
                   )}
                   
                   <Button
