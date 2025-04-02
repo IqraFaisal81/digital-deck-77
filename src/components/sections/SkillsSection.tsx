@@ -168,8 +168,8 @@ const SkillsSection = () => {
           >
             <Button 
               asChild
-              className="bg-gradient-to-r from-blue-600 to-black hover:from-blue-700 hover:to-gray-900 
-                text-white rounded-full px-8 py-6 shadow-lg hover:shadow-xl group transition-all duration-300 
+              className="bg-gradient-to-r from-royal to-electric hover:from-blue-700 hover:to-indigo-600 dark:from-blue-400 dark:to-blue-600 
+                text-white rounded-full px-6 py-6 shadow-lg hover:shadow-xl group transition-all duration-300 
                 hover:-translate-y-1 hover:scale-105 border border-blue-400/20"
             >
               <a href="#services" className="inline-flex items-center">
