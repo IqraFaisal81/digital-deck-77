@@ -5,9 +5,9 @@ import SectionHeader from "@/components/skills/SectionHeader";
 const TestimonialSectionHeader = () => {
   return (
     <SectionHeader 
-      subtitle="Client Success Stories"
-      title="What Our Clients Say"
-      description="Discover how our solutions have helped businesses transform their digital presence"
+      subtitle="What Clients Say"
+      title="Client Testimonials"
+      description="Hear directly from our clients about their experience working with us"
       alignment="center"
       useGradient={true}
     />
