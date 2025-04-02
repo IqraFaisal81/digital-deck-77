@@ -7,18 +7,24 @@ interface CaseStudyCarouselItemProps {
 }
 
 const CaseStudyCarouselItem = ({ caseStudy, onClick }: CaseStudyCarouselItemProps) => {
-  // Generate a consistent image based on client name
-  const imageId = Math.abs(caseStudy.client.length * 3) % 5 + 1;
-  const imagePath = `/lovable-uploads/${['8a0a540e-1ad0-49c3-b21d-cfcce288b27c', '84abbd7d-4c45-4186-8442-6b7415f8a35a', '459570af-5ccd-4c1d-9cd0-3b4bc8a4a618', '5a0ede87-2de2-421a-af7a-5e44aad3886d', '2c828478-38e1-490e-b777-76e3f980ee9f'][imageId - 1]}.png`;
+  // Generate a consistent image based on client name for demo purposes
+  const imageIndex = Math.abs(caseStudy.client.length * 3) % 5;
+  const demoImages = [
+    '/lovable-uploads/8a0a540e-1ad0-49c3-b21d-cfcce288b27c.png',
+    '/lovable-uploads/84abbd7d-4c45-4186-8442-6b7415f8a35a.png',
+    '/lovable-uploads/459570af-5ccd-4c1d-9cd0-3b4bc8a4a618.png',
+    '/lovable-uploads/5a0ede87-2de2-421a-af7a-5e44aad3886d.png',
+    '/lovable-uploads/2c828478-38e1-490e-b777-76e3f980ee9f.png'
+  ];
   
   return (
     <div 
       onClick={onClick}
       className="rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all cursor-pointer h-full flex flex-col bg-white dark:bg-gray-800"
     >
-      <div className="h-40 overflow-hidden">
+      <div className="h-48 overflow-hidden">
         <img 
-          src={imagePath} 
+          src={demoImages[imageIndex]} 
           alt={caseStudy.client} 
           className="w-full h-full object-cover transition-transform hover:scale-105"
         />

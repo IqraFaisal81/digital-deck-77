@@ -20,9 +20,15 @@ interface CaseStudyModalProps {
 const CaseStudyModal = ({ isOpen, onClose, caseStudy }: CaseStudyModalProps) => {
   if (!caseStudy) return null;
 
-  // Generate a consistent image based on client name
-  const imageId = Math.abs(caseStudy.client.length * 3) % 5 + 1;
-  const imagePath = `/lovable-uploads/${['8a0a540e-1ad0-49c3-b21d-cfcce288b27c', '84abbd7d-4c45-4186-8442-6b7415f8a35a', '459570af-5ccd-4c1d-9cd0-3b4bc8a4a618', '5a0ede87-2de2-421a-af7a-5e44aad3886d', '2c828478-38e1-490e-b777-76e3f980ee9f'][imageId - 1]}.png`;
+  // Generate a consistent image based on client name for demo purposes
+  const imageIndex = Math.abs(caseStudy.client.length * 3) % 5;
+  const demoImages = [
+    '/lovable-uploads/8a0a540e-1ad0-49c3-b21d-cfcce288b27c.png',
+    '/lovable-uploads/84abbd7d-4c45-4186-8442-6b7415f8a35a.png',
+    '/lovable-uploads/459570af-5ccd-4c1d-9cd0-3b4bc8a4a618.png',
+    '/lovable-uploads/5a0ede87-2de2-421a-af7a-5e44aad3886d.png',
+    '/lovable-uploads/2c828478-38e1-490e-b777-76e3f980ee9f.png'
+  ];
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -37,7 +43,7 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }: CaseStudyModalProps) => 
         <div className="mt-4 space-y-6">
           <div className="rounded-lg overflow-hidden h-64">
             <img 
-              src={imagePath} 
+              src={demoImages[imageIndex]} 
               alt={caseStudy.client} 
               className="w-full h-full object-cover"
             />
