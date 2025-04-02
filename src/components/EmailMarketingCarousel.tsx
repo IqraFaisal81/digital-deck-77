@@ -56,7 +56,7 @@ const EmailMarketingCarousel = () => {
           loop: true,
         }}
         className="w-full"
-        onCreated={setCarouselApi}
+        setApi={setCarouselApi}
       >
         <CarouselContent>
           {emailImages.map((image, index) => (

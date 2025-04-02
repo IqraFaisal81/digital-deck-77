@@ -31,7 +31,7 @@ const FunnelCarousel = () => {
           loop: true,
         }}
         className="w-full"
-        onCreated={setCarouselApi}
+        setApi={setCarouselApi}
       >
         <CarouselContent>
           {funnels.map((funnel, index) => (

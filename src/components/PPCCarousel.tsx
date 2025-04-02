@@ -80,7 +80,7 @@ const PPCCarousel = () => {
           loop: true,
         }}
         className="w-full"
-        onCreated={setCarouselApi}
+        setApi={setCarouselApi}
       >
         <CarouselContent>
           {ppcAnalytics.map((analytic) => (

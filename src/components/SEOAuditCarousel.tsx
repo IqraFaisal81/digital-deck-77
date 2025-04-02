@@ -57,7 +57,7 @@ const SEOAuditCarousel = () => {
           loop: true,
         }}
         className="w-full"
-        onCreated={setCarouselApi}
+        setApi={setCarouselApi}
       >
         <CarouselContent>
           {seoImages.map((image, index) => (
