@@ -62,41 +62,46 @@ const AboutSection = () => {
                   My Journey
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-0">
-                {[
-                  {
-                    period: "2022 – Present",
-                    title: "Freelance CRM & Automation Expert",
-                    description: "Building custom automation systems and CRM workflows for service-based businesses using Go High Level"
-                  },
-                  {
-                    period: "2023 – 2024",
-                    title: "Digital Marketer at Charley Grey",
-                    description: "Managed 70+ client accounts, created funnels, automated lead systems, and ran high-performing ad campaigns"
-                  },
-                  {
-                    period: "2022 – 2023",
-                    title: "Digital Marketer at Lumbee Corporate",
-                    description: "Developed competitor analysis and brand strategy to grow B2C partnerships and market positioning"
-                  },
-                  {
-                    period: "2019 – 2022",
-                    title: "Digital Marketing Executive at M.B Collections",
-                    description: "Handled SEO, content, and social media strategy to scale brand visibility and sales"
-                  }
-                ].map((job, index) => (
-                  <div 
-                    key={index} 
-                    className={`relative pl-6 pr-2 py-4 border-l-2 border-purple-500 ${
-                      index !== 3 ? "after:content-[''] after:absolute after:left-[-5px] after:bottom-0 after:h-[calc(100%-30px)] after:w-1 after:bg-gradient-to-b after:from-purple-500 after:to-blue-500" : ""
-                    }`}
-                  >
-                    <div className="absolute left-[-9px] top-[22px] h-4 w-4 rounded-full bg-gradient-to-r from-purple-600 to-blue-500 shadow-md"></div>
-                    <p className="text-sm text-purple-600 dark:text-purple-400 font-medium">{job.period}</p>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">{job.title}</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">{job.description}</p>
-                  </div>
-                ))}
+              <CardContent>
+                <div className="space-y-0 relative">
+                  {/* Journey line */}
+                  <div className="absolute left-[9px] top-[22px] bottom-[22px] w-[2px] bg-gradient-to-b from-purple-500 to-blue-500"></div>
+                  
+                  {[
+                    {
+                      period: "2022 – Present",
+                      title: "Freelance CRM & Automation Expert",
+                      description: "Building custom automation systems and CRM workflows for service-based businesses using Go High Level"
+                    },
+                    {
+                      period: "2023 – 2024",
+                      title: "Digital Marketer at Charley Grey",
+                      description: "Managed 70+ client accounts, created funnels, automated lead systems, and ran high-performing ad campaigns"
+                    },
+                    {
+                      period: "2022 – 2023",
+                      title: "Digital Marketer at Lumbee Corporate",
+                      description: "Developed competitor analysis and brand strategy to grow B2C partnerships and market positioning"
+                    },
+                    {
+                      period: "2019 – 2022",
+                      title: "Digital Marketing Executive at M.B Collections",
+                      description: "Handled SEO, content, and social media strategy to scale brand visibility and sales"
+                    }
+                  ].map((job, index, array) => (
+                    <div 
+                      key={index} 
+                      className="relative pl-8 py-4"
+                    >
+                      {/* Timeline dot */}
+                      <div className="absolute left-0 top-[22px] h-5 w-5 rounded-full bg-gradient-to-r from-purple-600 to-blue-500 shadow-md z-10"></div>
+                      
+                      <p className="text-sm text-purple-600 dark:text-purple-400 font-medium">{job.period}</p>
+                      <h4 className="font-semibold text-gray-900 dark:text-white">{job.title}</h4>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm">{job.description}</p>
+                    </div>
+                  ))}
+                </div>
               </CardContent>
             </Card>
           </div>
