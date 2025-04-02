@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { 
   Carousel, 
@@ -19,7 +20,7 @@ const projects = [
     description: "AI chatbot creation platform with no-code required. Build and deploy intelligent conversational interfaces for websites and applications with ease.",
     image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     url: "https://preview--chatgenius-embedify.lovable.app/",
-    icon: <Bot className="h-5 w-5" />
+    iconName: "bot"
   },
   {
     id: 2,
@@ -27,7 +28,7 @@ const projects = [
     description: "Social media analytics with Supabase integration. Track performance metrics, audience engagement, and content effectiveness across platforms.",
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     url: "https://preview--friendly-supabase-86.lovable.app/",
-    icon: <Monitor className="h-5 w-5" />
+    iconName: "monitor"
   },
   {
     id: 3,
@@ -35,9 +36,23 @@ const projects = [
     description: "AI prompt management for teams and organizations. Centralize, organize, and optimize AI prompts to ensure consistent outputs and knowledge sharing.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     url: "https://preview--promptvaultpilot.lovable.app/",
-    icon: <Code className="h-5 w-5" />
+    iconName: "code"
   }
 ];
+
+// Helper function to render the icon based on name
+const renderIcon = (iconName: string) => {
+  switch (iconName) {
+    case "bot":
+      return <Bot className="h-5 w-5" />;
+    case "monitor":
+      return <Monitor className="h-5 w-5" />;
+    case "code":
+      return <Code className="h-5 w-5" />;
+    default:
+      return <Code className="h-5 w-5" />;
+  }
+};
 
 const LovableProjectsCarousel = () => {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
@@ -77,7 +92,7 @@ const LovableProjectsCarousel = () => {
                 <div className="p-4 bg-white dark:bg-gray-800">
                   <div className="flex items-center mb-2">
                     <div className="bg-blue-600 dark:bg-blue-500 p-1.5 rounded-md mr-3 text-white">
-                      {project.icon}
+                      {renderIcon(project.iconName)}
                     </div>
                     <h4 className="text-md font-bold text-gray-800 dark:text-gray-200 line-clamp-1">{project.title}</h4>
                   </div>
@@ -103,7 +118,7 @@ const LovableProjectsCarousel = () => {
               <DialogHeader className="p-6 border-b border-gray-100 dark:border-gray-700">
                 <div className="flex items-center">
                   <div className="bg-blue-600 dark:bg-blue-500 p-2 rounded-md mr-3 text-white">
-                    {selectedProject.icon}
+                    {renderIcon(selectedProject.iconName)}
                   </div>
                   <DialogTitle className="text-2xl font-bold text-gray-800 dark:text-gray-200">{selectedProject.title}</DialogTitle>
                 </div>

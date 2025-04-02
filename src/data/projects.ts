@@ -119,10 +119,11 @@ export const projects: ProjectType[] = [
   {
     id: 12,
     title: "SupaFriendly Dashboard",
-    description: "Social media analytics with Supabase integration. Track performance metrics, audience engagement, and content effectiveness across platforms.",
+    category: "Lovable Projects",
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    description: "Social media analytics with Supabase integration. Track performance metrics, audience engagement, and content effectiveness across platforms.",
     url: "https://preview--friendly-supabase-86.lovable.app/",
-    icon: <Monitor className="h-5 w-5" />
+    shortDescription: "Social media analytics with Supabase integration"
   },
   {
     id: 13,
