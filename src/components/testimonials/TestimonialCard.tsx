@@ -9,9 +9,11 @@ interface TestimonialCardProps {
   position: string;
   id: number;
   author: string;
+  logo: string;
+  company: string;
 }
 
-export function TestimonialCard({ handleShuffle, testimonial, position, id, author }: TestimonialCardProps) {
+export function TestimonialCard({ handleShuffle, testimonial, position, id, author, logo, company }: TestimonialCardProps) {
   const dragRef = React.useRef(0);
   const isFront = position === "front";
   
@@ -64,11 +66,11 @@ export function TestimonialCard({ handleShuffle, testimonial, position, id, auth
         dragRef.current = 0;
       }}
       transition={{ duration: 0.35 }}
-      className={`absolute left-0 top-0 grid h-[450px] w-[350px] select-none place-content-center rounded-2xl border bg-white/90 dark:bg-gray-800/90 border-gray-200 dark:border-gray-700 p-6 shadow-xl backdrop-blur-md ${
+      className={`absolute left-0 top-0 grid h-[480px] w-[380px] select-none rounded-2xl border bg-white/90 dark:bg-gray-800/90 border-gray-200 dark:border-gray-700 p-6 shadow-xl backdrop-blur-md ${
         isFront ? "cursor-grab active:cursor-grabbing" : ""
       }`}
     >
-      <div className="flex justify-center mb-3">
+      <div className="flex justify-center mb-2">
         {renderStars()}
       </div>
       
@@ -76,21 +78,33 @@ export function TestimonialCard({ handleShuffle, testimonial, position, id, auth
         "{testimonial}"
       </div>
       
-      <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-auto">
-        <div className="flex items-center justify-center">
-          <div className="bg-gradient-to-r from-royal to-electric rounded-full p-0.5">
-            <div className="bg-white dark:bg-gray-800 rounded-full">
-              <img
-                src={`https://i.pravatar.cc/128?img=${id}`}
-                alt={`Avatar of ${author.split(',')[0]}`}
-                className="h-16 w-16 rounded-full border-2 border-white dark:border-gray-700 object-cover"
-              />
+      <div className="mt-auto flex items-center justify-between border-t border-gray-200 dark:border-gray-700 pt-4">
+        <div className="flex flex-col">
+          <div className="flex items-center mb-2">
+            <div className="bg-gradient-to-r from-royal to-electric rounded-full p-0.5 mr-3">
+              <div className="bg-white dark:bg-gray-800 rounded-full">
+                <img
+                  src={`https://i.pravatar.cc/128?img=${id}`}
+                  alt={`Avatar of ${author.split(',')[0]}`}
+                  className="h-12 w-12 rounded-full border-2 border-white dark:border-gray-700 object-cover"
+                />
+              </div>
+            </div>
+            <div>
+              <p className="font-medium text-royal dark:text-electric">{author}</p>
             </div>
           </div>
         </div>
-        <div className="text-center mt-2">
-          <span className="font-medium text-royal dark:text-electric">{author}</span>
-        </div>
+        
+        {logo && (
+          <div className="ml-auto">
+            <img 
+              src={logo} 
+              alt={`${company} logo`} 
+              className="h-14 object-contain"
+            />
+          </div>
+        )}
       </div>
     </motion.div>
   );
