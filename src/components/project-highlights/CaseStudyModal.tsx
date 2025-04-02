@@ -20,15 +20,27 @@ interface CaseStudyModalProps {
 const CaseStudyModal = ({ isOpen, onClose, caseStudy }: CaseStudyModalProps) => {
   if (!caseStudy) return null;
 
-  // Generate a consistent image based on client name for demo purposes
-  const imageIndex = Math.abs(caseStudy.client.length * 3) % 5;
-  const demoImages = [
-    '/lovable-uploads/c7722c5c-bb7d-46ae-a69b-9b2d19dfb790.png',
-    '/lovable-uploads/e8bacddf-ae58-40e4-ab9a-679e21ec55db.png',
-    '/lovable-uploads/e4378bce-64c8-4f55-b680-35adfd4061c5.png',
-    '/lovable-uploads/a2f6aa66-f631-443c-a7da-7418a3f06fb2.png',
-    '/lovable-uploads/da16c894-2606-4ce0-ac83-3e381213d0bf.png'
-  ];
+  // Select image based on the case study category or specific tags
+  let imagePath = '';
+  let imageCredit = 'Image for illustration purposes';
+  
+  if (caseStudy.category === "Email Marketing" || caseStudy.tags.includes("Email Marketing")) {
+    imagePath = '/lovable-uploads/e8bacddf-ae58-40e4-ab9a-679e21ec55db.png'; 
+    imageCredit = 'Email marketing campaign visualization';
+  } else if (caseStudy.category === "CRM Automation" || caseStudy.tags.includes("CRM Automation")) {
+    imagePath = '/lovable-uploads/a2f6aa66-f631-443c-a7da-7418a3f06fb2.png';
+    imageCredit = 'CRM dashboard and automation workflow';
+  } else if (caseStudy.category === "Product Development" || caseStudy.tags.includes("Product Development")) {
+    imagePath = '/lovable-uploads/c7722c5c-bb7d-46ae-a69b-9b2d19dfb790.png';
+    imageCredit = 'Product development and design process';
+  } else if (caseStudy.tags.includes("UX/UI Strategy")) {
+    imagePath = '/lovable-uploads/e4378bce-64c8-4f55-b680-35adfd4061c5.png';
+    imageCredit = 'UI/UX design strategy visualization';
+  } else {
+    // Fallback image
+    imagePath = '/lovable-uploads/da16c894-2606-4ce0-ac83-3e381213d0bf.png';
+    imageCredit = 'Digital marketing strategy visualization';
+  }
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -43,12 +55,12 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }: CaseStudyModalProps) => 
         <div className="mt-4 space-y-6">
           <div className="rounded-lg overflow-hidden shadow-md border border-gray-200 dark:border-gray-700">
             <img 
-              src={demoImages[imageIndex]} 
-              alt={caseStudy.client} 
+              src={imagePath} 
+              alt={`${caseStudy.client} - ${caseStudy.title}`} 
               className="w-full h-full object-cover"
             />
             <div className="p-2 bg-gray-50 dark:bg-gray-700 text-xs text-center text-gray-500 dark:text-gray-400">
-              Demo image shown for illustration purposes
+              {imageCredit}
             </div>
           </div>
           

@@ -7,15 +7,22 @@ interface CaseStudyCarouselItemProps {
 }
 
 const CaseStudyCarouselItem = ({ caseStudy, onClick }: CaseStudyCarouselItemProps) => {
-  // Generate a consistent image based on client name for demo purposes
-  const imageIndex = Math.abs(caseStudy.client.length * 3) % 5;
-  const demoImages = [
-    '/lovable-uploads/c7722c5c-bb7d-46ae-a69b-9b2d19dfb790.png',
-    '/lovable-uploads/e8bacddf-ae58-40e4-ab9a-679e21ec55db.png',
-    '/lovable-uploads/e4378bce-64c8-4f55-b680-35adfd4061c5.png',
-    '/lovable-uploads/a2f6aa66-f631-443c-a7da-7418a3f06fb2.png',
-    '/lovable-uploads/da16c894-2606-4ce0-ac83-3e381213d0bf.png'
-  ];
+  // Generate a consistent image based on the case study category/industry
+  let imagePath = '';
+  
+  // Select image based on the case study category or tags to make them more relevant
+  if (caseStudy.category === "Email Marketing" || caseStudy.tags.includes("Email Marketing")) {
+    imagePath = '/lovable-uploads/e8bacddf-ae58-40e4-ab9a-679e21ec55db.png'; // Email marketing image
+  } else if (caseStudy.category === "CRM Automation" || caseStudy.tags.includes("CRM Automation")) {
+    imagePath = '/lovable-uploads/a2f6aa66-f631-443c-a7da-7418a3f06fb2.png'; // CRM dashboard image
+  } else if (caseStudy.category === "Product Development" || caseStudy.tags.includes("Product Development")) {
+    imagePath = '/lovable-uploads/c7722c5c-bb7d-46ae-a69b-9b2d19dfb790.png'; // Product development image
+  } else if (caseStudy.tags.includes("UX/UI Strategy")) {
+    imagePath = '/lovable-uploads/e4378bce-64c8-4f55-b680-35adfd4061c5.png'; // UI/UX design image
+  } else {
+    // Fallback image
+    imagePath = '/lovable-uploads/da16c894-2606-4ce0-ac83-3e381213d0bf.png';
+  }
   
   return (
     <div 
@@ -24,8 +31,8 @@ const CaseStudyCarouselItem = ({ caseStudy, onClick }: CaseStudyCarouselItemProp
     >
       <div className="h-48 overflow-hidden relative">
         <img 
-          src={demoImages[imageIndex]} 
-          alt={caseStudy.client} 
+          src={imagePath} 
+          alt={`${caseStudy.client} - ${caseStudy.title}`} 
           className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-300"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
