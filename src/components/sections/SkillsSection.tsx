@@ -108,36 +108,50 @@ const SkillsSection = () => {
     <section 
       id="skills" 
       ref={sectionRef} 
-      className="py-20 md:py-28 px-4 md:px-8 relative overflow-hidden bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800"
+      className="py-20 md:py-28 px-4 md:px-8 relative overflow-hidden bg-gradient-to-b from-white/90 to-blue-50/60 dark:from-gray-900/90 dark:to-gray-800/60"
     >
-      {/* Decorative elements */}
+      {/* Enhanced decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-100/50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-60"></div>
-        <div className="absolute top-1/3 -left-20 w-60 h-60 bg-indigo-100/50 dark:bg-indigo-900/20 rounded-full blur-3xl opacity-60"></div>
-        <div className="absolute -bottom-40 right-1/4 w-80 h-80 bg-purple-100/50 dark:bg-purple-900/20 rounded-full blur-3xl opacity-40"></div>
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-100/50 dark:bg-blue-900/30 rounded-full blur-3xl opacity-70"></div>
+        <div className="absolute top-1/3 -left-20 w-60 h-60 bg-indigo-100/50 dark:bg-indigo-900/30 rounded-full blur-3xl opacity-70"></div>
+        <div className="absolute -bottom-40 right-1/4 w-80 h-80 bg-purple-100/50 dark:bg-purple-900/30 rounded-full blur-3xl opacity-50"></div>
         
-        {/* Floating shapes */}
-        <div className="absolute top-40 right-10 w-4 h-4 rounded-full bg-blue-400 opacity-70 animate-float"></div>
-        <div className="absolute top-1/2 left-10 w-6 h-6 rounded-full bg-indigo-400 opacity-60 animate-float" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-40 right-1/3 w-5 h-5 rounded-full bg-purple-400 opacity-50 animate-float" style={{animationDelay: '2s'}}></div>
+        {/* Enhanced floating shapes */}
+        <div className="absolute top-40 right-10 w-4 h-4 rounded-full bg-blue-400/70 dark:bg-blue-500/70 animate-float"></div>
+        <div className="absolute top-1/2 left-10 w-6 h-6 rounded-full bg-indigo-400/60 dark:bg-indigo-500/60 animate-float" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-40 right-1/3 w-5 h-5 rounded-full bg-purple-400/50 dark:bg-purple-500/50 animate-float" style={{animationDelay: '2s'}}></div>
       </div>
       
       <div className="container mx-auto relative z-10">
-        <div className="flex flex-col items-center">
+        {/* Label with icon */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center"
+        >
           <div className="inline-flex items-center px-4 py-2 mb-6 rounded-full bg-blue-100/60 dark:bg-blue-900/30 backdrop-blur-sm">
             <Sparkles className="h-4 w-4 mr-2 text-blue-600 dark:text-blue-400" />
             <span className="text-sm font-medium text-blue-800 dark:text-blue-300">Professional Skills</span>
           </div>
-        </div>
+        </motion.div>
         
-        <SectionHeader 
-          subtitle="Professional Capabilities"
-          title={<>Skills & <span className="text-blue-600 dark:text-blue-400 relative inline-block">
-            Expertise
-            <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-400/30 dark:bg-blue-600/30 rounded-full"></span>
-          </span></>}
-          description="Combining technical expertise with strategic marketing to deliver comprehensive solutions that drive growth and engagement."
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <SectionHeader 
+            subtitle="Professional Capabilities"
+            title={<>Skills & <span className="text-blue-600 dark:text-blue-400 relative inline-block">
+              Expertise
+              <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-400/30 dark:bg-blue-600/30 rounded-full"></span>
+            </span></>}
+            description="Combining technical expertise with strategic marketing to deliver comprehensive solutions that drive growth and engagement."
+          />
+        </motion.div>
         
         {/* Skills Masonry Grid with enhanced animations */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12">

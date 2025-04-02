@@ -16,16 +16,16 @@ const SkillCard = ({ name, icon, skills, index }: SkillCardProps) => {
   return (
     <div className="h-full">
       <motion.div 
-        whileHover={{ scale: 1.03, boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.2)" }}
+        whileHover={{ scale: 1.03, y: -5, boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.2)" }}
         transition={{ duration: 0.2 }}
-        className="h-full group rounded-xl p-6 bg-white dark:bg-gray-800/90 border border-blue-100 dark:border-blue-900/30 
+        className="h-full group rounded-xl p-6 bg-white/90 dark:bg-gray-800/90 border border-blue-100/50 dark:border-blue-900/30 
           shadow-md hover:shadow-xl backdrop-blur-sm transition-all duration-300"
       >
         <div className="flex items-center mb-5">
           {/* Fancy icon wrapper */}
           <div className="relative">
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 opacity-20 blur-sm group-hover:opacity-30 transition-opacity"></div>
-            <div className="relative flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/40 dark:to-indigo-900/40 border border-blue-100 dark:border-blue-800/50">
+            <div className="relative flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/40 dark:to-indigo-900/40 border border-blue-100/50 dark:border-blue-800/50">
               {icon}
             </div>
           </div>

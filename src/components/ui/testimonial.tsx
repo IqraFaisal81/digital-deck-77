@@ -13,6 +13,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { motion } from "framer-motion";
 
 interface TestimonialProps {
   id: number;
@@ -38,7 +39,7 @@ export function TestimonialCard({
   rating = 5 
 }: Omit<TestimonialProps, "id">) {
   return (
-    <div className="h-full flex flex-col p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+    <div className="h-full flex flex-col p-6 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-sm border border-gray-100/50 dark:border-gray-700/50 hover:shadow-md transition-all duration-300">
       <div className="flex items-center gap-4 mb-4">
         <Avatar className="h-12 w-12 border-2 border-primary/10">
           {avatar ? (
@@ -50,9 +51,9 @@ export function TestimonialCard({
           )}
         </Avatar>
         <div>
-          <h4 className="font-semibold text-lg">{name}</h4>
+          <h4 className="font-semibold text-lg text-gray-900 dark:text-gray-100">{name}</h4>
           {(role || company) && (
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               {role}{role && company && ", "}{company}
             </p>
           )}
@@ -76,7 +77,7 @@ export function TestimonialCard({
         </div>
       )}
       
-      <blockquote className="text-gray-700 dark:text-gray-300 flex-grow">
+      <blockquote className="text-gray-700 dark:text-gray-300 flex-grow italic">
         "{description}"
       </blockquote>
     </div>
@@ -99,20 +100,25 @@ export function TestimonialCarousel({
         <CarouselContent>
           {testimonials.map((testimonial) => (
             <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3 pl-4">
-              <TestimonialCard
-                name={testimonial.name}
-                avatar={testimonial.avatar}
-                company={testimonial.company}
-                role={testimonial.role}
-                description={testimonial.description}
-                rating={testimonial.rating}
-              />
+              <motion.div
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <TestimonialCard
+                  name={testimonial.name}
+                  avatar={testimonial.avatar}
+                  company={testimonial.company}
+                  role={testimonial.role}
+                  description={testimonial.description}
+                  rating={testimonial.rating}
+                />
+              </motion.div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="flex justify-end gap-2 mt-4 mr-4">
-          <CarouselPrevious className="static transform-none" />
-          <CarouselNext className="static transform-none" />
+        <div className="flex justify-end gap-2 mt-6 mr-4">
+          <CarouselPrevious className="static transform-none bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-700 border-gray-200 dark:border-gray-700" />
+          <CarouselNext className="static transform-none bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-700 border-gray-200 dark:border-gray-700" />
         </div>
       </Carousel>
     </div>
