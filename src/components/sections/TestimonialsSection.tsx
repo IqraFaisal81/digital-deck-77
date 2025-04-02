@@ -9,7 +9,7 @@ import { Separator } from "@/components/ui/separator";
 const TestimonialsSection = () => {
   const testimonials = clients.filter(client => client.testimonial);
   const sectionRef = useRef<HTMLElement>(null);
-  const [positions, setPositions] = useState<string[]>(["front", "middle", "back"]);
+  const [positions, setPositions] = useState<string[]>(["front", "middle", "back", "back", "back"]);
   
   // Animation on scroll
   useEffect(() => {
@@ -29,7 +29,11 @@ const TestimonialsSection = () => {
   }, []);
 
   const handleShuffle = () => {
-    setPositions(prev => [prev[2], prev[0], prev[1]]);
+    setPositions(prev => {
+      const lastItem = prev[prev.length - 1];
+      const restItems = prev.slice(0, prev.length - 1);
+      return [lastItem, ...restItems];
+    });
   };
 
   return (
@@ -50,14 +54,14 @@ const TestimonialsSection = () => {
         <div className="max-w-6xl mx-auto mt-20 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 delay-300">
           <div className="relative h-[550px] w-full">
             <div className="mx-auto relative h-[480px] w-[380px] md:w-[80%] lg:w-[70%]">
-              {testimonials.slice(0, 3).map((testimonial, index) => (
+              {testimonials.slice(0, 5).map((testimonial, index) => (
                 <TestimonialCard
                   key={index}
                   id={index + 1}
                   position={positions[index]}
                   handleShuffle={handleShuffle}
                   testimonial={testimonial.testimonial?.quote || ""}
-                  author={`${testimonial.testimonial?.author}, ${testimonial.testimonial?.position}`}
+                  author={testimonial.testimonial?.author || ""}
                   company={testimonial.name}
                   logo={testimonial.logo}
                 />

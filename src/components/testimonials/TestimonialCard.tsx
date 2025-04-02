@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
 import { Star } from "lucide-react";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 interface TestimonialCardProps {
   handleShuffle: () => void;
@@ -34,6 +35,16 @@ export function TestimonialCard({ handleShuffle, testimonial, position, id, auth
     }
     // For MouseEvent and PointerEvent
     return 'clientX' in event ? event.clientX : 0;
+  };
+
+  // Get initials for avatar fallback
+  const getInitials = (name: string): string => {
+    return name
+      .split(' ')
+      .map(part => part.charAt(0))
+      .join('')
+      .toUpperCase()
+      .substring(0, 2);
   };
 
   return (
@@ -83,11 +94,11 @@ export function TestimonialCard({ handleShuffle, testimonial, position, id, auth
           <div className="flex items-center mb-2">
             <div className="bg-gradient-to-r from-royal to-electric rounded-full p-0.5 mr-3">
               <div className="bg-white dark:bg-gray-800 rounded-full">
-                <img
-                  src={`https://i.pravatar.cc/128?img=${id}`}
-                  alt={`Avatar of ${author.split(',')[0]}`}
-                  className="h-12 w-12 rounded-full border-2 border-white dark:border-gray-700 object-cover"
-                />
+                <Avatar className="h-12 w-12">
+                  <AvatarFallback className="bg-gradient-to-r from-royal to-electric text-white">
+                    {getInitials(author)}
+                  </AvatarFallback>
+                </Avatar>
               </div>
             </div>
             <div>
