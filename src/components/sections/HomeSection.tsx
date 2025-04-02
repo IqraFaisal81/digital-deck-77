@@ -38,14 +38,14 @@ const HomeSection = () => {
         handleType();
       }, typingSpeed);
     } 
-    // If we need to delete, keep deleting until empty
-    else if (isDeleting && displayText !== '') {
+    // If we need to delete, keep deleting until we reach a certain threshold
+    else if (isDeleting && displayText.length > 3) {
       timer = setTimeout(() => {
         handleType();
       }, typingSpeed);
     }
-    // If we've finished deleting
-    else if (isDeleting && displayText === '') {
+    // If we've reached our deletion threshold (3 characters remaining)
+    else if (isDeleting && displayText.length <= 3) {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
       // Small pause before typing the next text
@@ -76,7 +76,9 @@ const HomeSection = () => {
     
     // Update display text
     if (isDeleting) {
-      setDisplayText(fullText.substring(0, displayText.length - 1));
+      // Delete a few characters at a time (3 at most) instead of one
+      const deleteChars = Math.min(3, displayText.length);
+      setDisplayText(fullText.substring(0, displayText.length - deleteChars));
     } else {
       setDisplayText(fullText.substring(0, displayText.length + 1));
     }
