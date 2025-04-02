@@ -1,11 +1,8 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
-
 const AboutSection = () => {
-  return (
-    <section id="about" className="section-padding bg-white dark:bg-gray-900 relative overflow-hidden">
+  return <section id="about" className="section-padding bg-white dark:bg-gray-900 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute top-40 right-10 w-64 h-64 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-30"></div>
       <div className="absolute bottom-40 left-10 w-80 h-80 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-30"></div>
@@ -34,7 +31,7 @@ const AboutSection = () => {
                 </div>
                 <div className="flex items-start space-x-2">
                   <Check className="text-blue-600 dark:text-blue-400 mt-1" />
-                  <span className="text-gray-700 dark:text-gray-300">MBA Graduate</span>
+                  <span className="text-gray-700 dark:text-gray-300">MSc Digital Marketing</span>
                 </div>
                 <div className="flex items-start space-x-2">
                   <Check className="text-blue-600 dark:text-blue-400 mt-1" />
@@ -46,10 +43,7 @@ const AboutSection = () => {
                 </div>
               </div>
               
-              <Button 
-                className="group bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-700 dark:hover:bg-blue-600 rounded-full px-6 py-6 shadow-md hover:shadow-lg transition-all duration-300"
-                size="lg"
-              >
+              <Button className="group bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-700 dark:hover:bg-blue-600 rounded-full px-6 py-6 shadow-md hover:shadow-lg transition-all duration-300" size="lg">
                 <a href="#skills" className="flex items-center">
                   View My Skills
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -66,39 +60,24 @@ const AboutSection = () => {
                   My Journey
                 </h3>
                 <div className="space-y-6">
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-                    From running multi-brand campaigns to building automation systems that just slap — my digital marketing path is all about results.
-                  </p>
+                  
                   
                   <div className="border-l-2 border-blue-500 pl-4 py-2">
-                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2022 - Present</p>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Freelance CRM & Automation Expert</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Helping service-based businesses automate like pros. From onboarding funnels to lead nurture workflows and chat widget magic — I build custom systems in Go High Level that drive conversions and keep teams organized.</p>
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2021 - 2022</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketing Specialist at Medusa</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Managed CRM systems and automation workflows</p>
                   </div>
                   
                   <div className="border-l-2 border-blue-500 pl-4 py-2">
-                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2023 - 2024</p>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketer, Charley Grey</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Handled 70+ client accounts. Delivered high-performing funnels, automated dashboards, and Google Ads strategies for brands like All Pro and Grey Matters Studio. I made the backend sing and the metrics dance.</p>
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2020 - 2021</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">MSc Digital Marketing</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Sheffield Hallam University</p>
                   </div>
                   
                   <div className="border-l-2 border-blue-500 pl-4 py-2">
-                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2022 - 2023</p>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Marketer, Lumbee Corporate</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Worked deep in competitor analysis, market shifts, and brand strategy to grow B2C partnerships and sharpen their digital presence.</p>
-                  </div>
-                  
-                  <div className="border-l-2 border-blue-500 pl-4 py-2">
-                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2019 - 2022</p>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Digital Executive, M.B Collections</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Helped scale one of Pakistan's top jewelry brands through content, SEO, and full-funnel digital strategy.</p>
-                  </div>
-                  
-                  <div className="border-l-2 border-purple-500 pl-4 py-2 mt-4">
-                    <p className="text-sm text-purple-600 dark:text-purple-400 font-medium">Education</p>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">MBA - University of Lincoln UK (2023-2024)</h4>
-                    <h4 className="font-semibold text-gray-900 dark:text-white mt-1">Bachelors in Media & Communication - UCP (2017-2021)</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Certifications: Google Ads, SEO, Google Tag Manager, Go High Level</p>
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">2017 - 2020</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">BSc Business & Marketing</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">University of Hertfordshire</p>
                   </div>
                 </div>
               </div>
@@ -106,8 +85,6 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
