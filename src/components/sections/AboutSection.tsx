@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
@@ -101,7 +100,9 @@ const AboutSection = () => {
                       {/* Timeline dot */}
                       <div className="absolute left-0 top-[22px] h-5 w-5 rounded-full bg-gradient-to-r from-purple-600 to-blue-500 shadow-md z-10"></div>
                       
-                      <p className="text-sm text-purple-600 dark:text-purple-400 font-medium">{job.period}</p>
+                      <p className="text-sm bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-electric dark:to-maroon font-medium">
+                        {job.period}
+                      </p>
                       <h4 className="font-semibold text-gray-900 dark:text-white">{job.title}</h4>
                       <p className="text-gray-600 dark:text-gray-400 text-sm">{job.description}</p>
                     </div>
