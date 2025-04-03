@@ -9,7 +9,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { isDarkMode, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
+  
+  // Check if the theme is dark mode
+  const isDarkMode = theme === "dark";
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
