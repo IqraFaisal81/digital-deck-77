@@ -7,7 +7,6 @@ import SkillsSection from "../components/sections/SkillsSection";
 import ServicesSection from "../components/sections/ServicesSection";
 import ProjectHighlightsSection from "../components/sections/ProjectHighlightsSection";
 import TestimonialsSection from "../components/sections/TestimonialsSection";
-import ContactSection from "../components/sections/ContactSection";
 import FunnelsSection from "../components/sections/FunnelsSection";
 import WorkflowsSection from "../components/sections/WorkflowsSection";
 import SEOAuditSection from "../components/sections/SeoAuditsSection";
@@ -95,7 +94,6 @@ function Index({
           />
         </div>
         <BookingSection />
-        <ContactSection />
       </div>
     </div>
   );

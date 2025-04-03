@@ -6,7 +6,7 @@ import {
   CarouselNext, 
   CarouselPrevious 
 } from "@/components/ui/carousel";
-import { ArrowRight, Calendar } from "lucide-react";
+import { ArrowRight, Calendar, Eye, EyeOff } from "lucide-react";
 import { services } from "@/data/services";
 import { Button } from "@/components/ui/button";
 import { useCarouselState } from "@/hooks/useCarouselState";
@@ -63,7 +63,17 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
                 <CardFooter className="flex justify-between items-center border-t pt-4 bg-gray-50 dark:bg-gray-800/50">
                   {service.sectionId && (
                     <div className="text-royal dark:text-electric text-sm flex items-center">
-                      <span>{visibleSection === service.sectionId ? 'Hide details' : 'Learn more'}</span>
+                      {visibleSection === service.sectionId ? (
+                        <>
+                          <EyeOff size={14} className="mr-1" />
+                          <span>Hide details</span>
+                        </>
+                      ) : (
+                        <>
+                          <Eye size={14} className="mr-1" />
+                          <span>View details</span>
+                        </>
+                      )}
                       <ArrowRight size={14} className="ml-1" />
                     </div>
                   )}

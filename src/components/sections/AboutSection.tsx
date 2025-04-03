@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
@@ -33,7 +34,7 @@ const AboutSection = () => {
                 </p>
               </div>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   "3+ years CRM expertise",
                   "MSc Digital Marketing",
@@ -44,8 +45,8 @@ const AboutSection = () => {
                     key={index} 
                     className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-4 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 flex items-center space-x-2 h-full hover:shadow-lg transition-all duration-300"
                   >
-                    <Check className="text-blue-600 dark:text-blue-400 flex-shrink-0" />
-                    <span className="text-gray-700 dark:text-gray-300">{item}</span>
+                    <Check className="text-blue-600 dark:text-blue-400 flex-shrink-0 min-w-5" />
+                    <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">{item}</span>
                   </div>
                 ))}
               </div>

@@ -52,7 +52,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex md:items-center md:space-x-8">
+          <div className="hidden md:flex md:items-center md:space-x-6 lg:space-x-8">
             <a href="#about" className="text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors">
               About
             </a>
@@ -70,7 +70,7 @@ const Navbar = () => {
             </a>
             
             {/* Theme Toggle */}
-            <Button variant="ghost" size="icon" onClick={toggleTheme} aria-label="Toggle theme">
+            <Button variant="ghost" size="icon" onClick={toggleTheme} aria-label="Toggle theme" className="ml-2">
               {isDarkMode ? (
                 <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
               ) : (
