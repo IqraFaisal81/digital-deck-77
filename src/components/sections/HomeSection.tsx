@@ -1,16 +1,17 @@
-
-import { ArrowDown, Calendar, ArrowRight } from "lucide-react";
+import { Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { useState, useEffect } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const HomeSection = () => {
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
+  const isMobile = useIsMobile();
   
   const texts = [
     "Hello, I'm Iqra Faisal",
@@ -90,11 +91,12 @@ const HomeSection = () => {
       className="min-h-screen overflow-hidden dark:bg-gray-900"
       showRadialGradient={true}
     >
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10 flex items-center min-h-screen py-10 md:py-16">
-        <div className="flex flex-col w-full items-center">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10 flex flex-col justify-center items-center min-h-screen py-20">
+        <div className="flex flex-col md:flex-row w-full items-center justify-between gap-8 md:gap-12 lg:gap-16">
           
-          <div className="flex flex-col space-y-4 md:space-y-6 w-full max-w-3xl mx-auto text-center mb-8 md:mb-12">
-            <div className="flex items-center justify-center space-x-3 mb-2 animate-fade-in-up">
+          {/* Left content - Text and CTAs */}
+          <div className="flex flex-col space-y-6 md:space-y-8 w-full md:w-1/2 text-center md:text-left order-2 md:order-1">
+            <div className="flex items-center justify-center md:justify-start space-x-3 mb-2 animate-fade-in-up">
               <Badge className="bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 text-white border-none rounded-full px-3 py-1 md:px-4 md:py-1.5 shadow-md hover:shadow-lg transition-all duration-300">
                 <span className="animate-pulse mr-1.5">•</span>
                 <span className="text-xs md:text-sm">Available for Projects</span>
@@ -107,52 +109,20 @@ const HomeSection = () => {
               <p className="text-blue-600 dark:text-blue-400 font-medium tracking-wider animate-fade-in-up animate-delay-100 uppercase text-xs md:text-sm bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-blue-400 dark:to-blue-600">
                 SaaS Developer & Automation Specialist
               </p>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight animate-fade-in-up animate-delay-200 drop-shadow-sm min-h-[60px] sm:min-h-[80px] md:min-h-[96px] flex items-center justify-center">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight animate-fade-in-up animate-delay-200 drop-shadow-sm min-h-[60px] sm:min-h-[80px] flex items-center justify-center md:justify-start">
                 <span className="typewriter bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600">
-                  Hello, I'm Iqra Faisal
+                  {displayText}
                 </span>
               </h1>
               
-              <div className="w-16 md:w-20 h-1 md:h-1.5 bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 rounded-full mb-3 md:mb-6 mx-auto"></div>
+              <div className="w-16 md:w-20 h-1 md:h-1.5 bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 rounded-full mb-3 md:mb-6 mx-auto md:mx-0"></div>
             </div>
-          </div>
-          
-          {/* Animation moved below heading */}
-          <div className="flex justify-center items-center mb-8 md:mb-12 animate-fade-in-up z-0">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400/40 to-purple-400/40 rounded-full blur-3xl opacity-70 animate-pulse"></div>
-              
-              <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 bg-gradient-to-b from-white to-blue-50 dark:from-gray-800 dark:to-blue-950 rounded-full flex items-center justify-center border-4 border-white/50 dark:border-blue-700/50 shadow-2xl relative z-10 animate-float">
-                <Avatar className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full border-8 border-white dark:border-gray-800 shadow-xl">
-                  <AvatarImage
-                    src="/lovable-uploads/934937cb-710e-4f8e-aa1e-757407b8a2ab.png"
-                    alt="Iqra Faisal"
-                    className="object-cover"
-                  />
-                  <AvatarFallback>IF</AvatarFallback>
-                </Avatar>
-              </div>
-              
-              <div className="absolute -bottom-2 -right-2 md:-bottom-4 md:-right-4 bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 px-3 py-2 md:px-5 md:py-3 rounded-full shadow-xl border-2 border-white/80 dark:border-gray-800/80 flex items-center gap-2 z-20 animate-float animate-delay-200 hover:scale-105 transition-transform">
-                <span className="text-white text-xs md:text-sm lg:text-base font-medium">CRM Expert</span>
-              </div>
-              
-              <div className="absolute -top-2 -left-2 md:-top-4 md:-left-4 bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 px-3 py-2 md:px-5 md:py-3 rounded-full shadow-xl border-2 border-white/80 dark:border-gray-800/80 flex items-center gap-2 z-20 animate-float animate-delay-300 hover:scale-105 transition-transform">
-                <span className="text-white text-xs md:text-sm lg:text-base font-medium">Marketing Pro</span>
-              </div>
-              
-              <div className="absolute top-1/2 -left-4 sm:-left-8 md:-left-12 transform -translate-y-1/2 bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 p-2 md:p-3 rounded-full shadow-xl border-2 border-white/80 dark:border-gray-800/80 z-20 animate-float animate-delay-400 hover:scale-105 transition-transform">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-6 md:h-6"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-              </div>
-            </div>
-          </div>
-          
-          <div className="flex flex-col space-y-4 md:space-y-6 w-full max-w-3xl mx-auto">
-            <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-lg mx-auto text-center animate-fade-in-up animate-delay-300 backdrop-blur-sm bg-white/5 dark:bg-black/5 p-3 md:p-4 rounded-lg border border-blue-100/50 dark:border-blue-900/50">
+            
+            <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-lg mx-auto md:mx-0 animate-fade-in-up animate-delay-300 backdrop-blur-sm bg-white/5 dark:bg-black/5 p-3 md:p-4 rounded-lg border border-blue-100/50 dark:border-blue-900/50">
               I build intelligent systems that automate processes, optimize workflows, and scale businesses through code and strategic thinking.
             </p>
             
-            <div className="flex flex-wrap gap-3 md:gap-4 pt-3 md:pt-4 animate-fade-in-up animate-delay-400 justify-center">
+            <div className="flex flex-wrap gap-3 md:gap-4 pt-3 md:pt-4 animate-fade-in-up animate-delay-400 justify-center md:justify-start">
               <Button 
                 className="group bg-gradient-to-r from-royal to-electric hover:from-blue-700 hover:to-indigo-600 dark:from-blue-400 dark:to-blue-600 text-white rounded-full px-4 md:px-6 py-2 md:py-6 text-sm md:text-base shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-400/20"
                 size="default"
@@ -177,7 +147,7 @@ const HomeSection = () => {
               </Button>
             </div>
             
-            <div className="flex flex-wrap gap-2 md:gap-4 pt-4 md:pt-6 animate-fade-in-up animate-delay-500 justify-center">
+            <div className="flex flex-wrap gap-2 md:gap-4 pt-4 md:pt-6 animate-fade-in-up animate-delay-500 justify-center md:justify-start">
               <div className="flex items-center gap-2 md:gap-3 px-3 md:px-4 py-2 md:py-3 bg-gradient-to-r from-white/80 to-blue-50/80 dark:from-gray-800/80 dark:to-blue-900/30 backdrop-blur-sm rounded-xl border border-blue-100 dark:border-blue-900 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                 <span className="text-gray-700 dark:text-gray-300 text-xs md:text-sm">Expert in CRM Solutions</span>
@@ -189,14 +159,41 @@ const HomeSection = () => {
               </div>
             </div>
           </div>
+          
+          {/* Right content - Profile image and badges */}
+          <div className="flex justify-center items-center mb-8 md:mb-0 animate-fade-in-up z-0 order-1 md:order-2 w-full md:w-1/2">
+            <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400/40 to-purple-400/40 rounded-full blur-3xl opacity-70 animate-pulse"></div>
+              
+              <div className="w-52 h-52 sm:w-60 sm:h-60 md:w-64 md:h-64 lg:w-72 lg:h-72 bg-gradient-to-b from-white to-blue-50 dark:from-gray-800 dark:to-blue-950 rounded-full flex items-center justify-center border-4 border-white/50 dark:border-blue-700/50 shadow-2xl relative z-10 animate-float mx-auto">
+                <Avatar className="w-44 h-44 sm:w-52 sm:h-52 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full border-8 border-white dark:border-gray-800 shadow-xl">
+                  <AvatarImage
+                    src="/lovable-uploads/934937cb-710e-4f8e-aa1e-757407b8a2ab.png"
+                    alt="Iqra Faisal"
+                    className="object-cover"
+                  />
+                  <AvatarFallback>IF</AvatarFallback>
+                </Avatar>
+              </div>
+              
+              <div className="absolute -bottom-2 -right-2 md:-bottom-4 md:-right-4 bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 px-3 py-2 md:px-5 md:py-3 rounded-full shadow-xl border-2 border-white/80 dark:border-gray-800/80 flex items-center gap-2 z-20 animate-float animate-delay-200 hover:scale-105 transition-transform">
+                <span className="text-white text-xs md:text-sm lg:text-base font-medium">CRM Expert</span>
+              </div>
+              
+              <div className="absolute -top-2 -left-2 md:-top-4 md:-left-4 bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 px-3 py-2 md:px-5 md:py-3 rounded-full shadow-xl border-2 border-white/80 dark:border-gray-800/80 flex items-center gap-2 z-20 animate-float animate-delay-300 hover:scale-105 transition-transform">
+                <span className="text-white text-xs md:text-sm lg:text-base font-medium">Marketing Pro</span>
+              </div>
+              
+              <div className="absolute top-1/2 -left-4 sm:-left-6 transform -translate-y-1/2 bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 p-2 md:p-3 rounded-full shadow-xl border-2 border-white/80 dark:border-gray-800/80 z-20 animate-float animate-delay-400 hover:scale-105 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-5 md:h-5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
       
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
-        <a href="#about" className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors bg-white/80 dark:bg-gray-800/80 rounded-full backdrop-blur-sm shadow-md border border-gray-100/50 dark:border-gray-700/50 hover:shadow-lg">
-          <ArrowDown size={20} className="md:w-6 md:h-6" />
-        </a>
-      </div>
+      {/* Removed the arrow down navigation element as requested */}
     </AuroraBackground>
   );
 };
