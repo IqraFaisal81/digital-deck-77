@@ -158,7 +158,7 @@ const HomeSection = () => {
             </div>
           </div>
           
-          <div className="flex justify-center items-center md:order-2 order-1 animate-fade-in-up">
+          <div className="flex justify-center items-center md:order-2 order-1 animate-fade-in-up z-0">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400/40 to-purple-400/40 rounded-full blur-3xl opacity-70 animate-pulse"></div>
               
