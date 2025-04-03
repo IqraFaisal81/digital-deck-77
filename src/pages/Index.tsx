@@ -1,167 +1,47 @@
 
-import { useState, useRef, useEffect } from "react";
-import { ProjectType } from "@/types/project";
-import Navbar from "@/components/Navbar";
-import ProjectModal from "@/components/ProjectModal";
-import { projects } from "@/data/projects";
+import React from "react";
+import Navbar from "../components/Navbar";
+import HomeSection from "../components/sections/HomeSection";
+import AboutSection from "../components/sections/AboutSection";
+import SkillsSection from "../components/sections/SkillsSection";
+import ServicesSection from "../components/sections/ServicesSection";
+import ProjectHighlightsSection from "../components/sections/ProjectHighlightsSection";
+import TestimonialsSection from "../components/sections/TestimonialsSection";
+import ContactSection from "../components/sections/ContactSection";
+import FunnelsSection from "../components/sections/FunnelsSection";
+import WorkflowsSection from "../components/sections/WorkflowsSection";
+import SEOAuditSection from "../components/sections/SeoAuditsSection";
+import PPCAnalyticsSection from "../components/sections/PPCAnalyticsSection";
+import AIChatbotSection from "../components/sections/AIChatbotSection";
+import EmailMarketingSection from "../components/sections/EmailMarketingSection";
+import BookingSection from "../components/sections/BookingSection";
+import LovableProjectsSection from "../components/sections/LovableProjectsSection";
 
-// Import all section components
-import HomeSection from "@/components/sections/HomeSection";
-import AboutSection from "@/components/sections/AboutSection";
-import ServicesSection from "@/components/sections/ServicesSection";
-import WorkflowsSection from "@/components/sections/WorkflowsSection";
-import FunnelsSection from "@/components/sections/FunnelsSection";
-import SeoAuditsSection from "@/components/sections/SeoAuditsSection";
-import EmailMarketingSection from "@/components/sections/EmailMarketingSection";
-import PPCAnalyticsSection from "@/components/sections/PPCAnalyticsSection";
-import AIChatbotSection from "@/components/sections/AIChatbotSection";
-import LovableProjectsSection from "@/components/sections/LovableProjectsSection";
-import BookingSection from "@/components/sections/BookingSection";
-import ProjectHighlightsSection from "@/components/sections/ProjectHighlightsSection";
-import SkillsSection from "@/components/sections/SkillsSection";
-import TestimonialsSection from "@/components/sections/TestimonialsSection";
-
-const Index = () => {
-  const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [visibleSection, setVisibleSection] = useState<string | null>(null);
-  
-  // Refs for scrolling to sections
-  const workflowsRef = useRef<HTMLElement>(null);
-  const seoAuditsRef = useRef<HTMLElement>(null);
-  const funnelsRef = useRef<HTMLElement>(null);
-  const emailMarketingRef = useRef<HTMLElement>(null);
-  const ppcAnalyticsRef = useRef<HTMLElement>(null);
-  const aiChatbotRef = useRef<HTMLElement>(null);
-  const lovableProjectsRef = useRef<HTMLElement>(null);
-
-  const openProjectModal = (project: ProjectType) => {
-    setSelectedProject(project);
-    setModalOpen(true);
-  };
-
-  const scrollToSection = (sectionId: string | null) => {
-    if (!sectionId) return;
-    
-    // Toggle section visibility - if it's already visible, hide it, otherwise show it
-    setVisibleSection(prevSection => prevSection === sectionId ? null : sectionId);
-    
-    setTimeout(() => {
-      if (sectionId === "workflows" && workflowsRef.current) {
-        workflowsRef.current.scrollIntoView({ behavior: "smooth" });
-      } else if (sectionId === "seo-audits" && seoAuditsRef.current) {
-        seoAuditsRef.current.scrollIntoView({ behavior: "smooth" });
-      } else if (sectionId === "funnels" && funnelsRef.current) {
-        funnelsRef.current.scrollIntoView({ behavior: "smooth" });
-      } else if (sectionId === "email-marketing" && emailMarketingRef.current) {
-        emailMarketingRef.current.scrollIntoView({ behavior: "smooth" });
-      } else if (sectionId === "ppc-analytics" && ppcAnalyticsRef.current) {
-        ppcAnalyticsRef.current.scrollIntoView({ behavior: "smooth" });
-      } else if (sectionId === "ai-chatbot" && aiChatbotRef.current) {
-        aiChatbotRef.current.scrollIntoView({ behavior: "smooth" });
-      } else if (sectionId === "lovable-projects" && lovableProjectsRef.current) {
-        lovableProjectsRef.current.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 100);
-  };
-
-  const isSectionVisible = (sectionId: string) => {
-    return visibleSection === sectionId;
-  };
-
-  useEffect(() => {
-    // Add event listener for showing services sections from project modals
-    const handleShowSection = (e: Event) => {
-      const customEvent = e as CustomEvent;
-      if (customEvent.detail && customEvent.detail.sectionId) {
-        setVisibleSection(customEvent.detail.sectionId);
-        scrollToSection(customEvent.detail.sectionId);
-      }
-    };
-
-    document.addEventListener('show-section', handleShowSection);
-    
-    // Add smooth scrolling behavior
-    const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
-    smoothScrollLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId && targetId !== '#') {
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
-      });
-    });
-    
-    return () => {
-      document.removeEventListener('show-section', handleShowSection);
-    };
-  }, []);
-
+function Index() {
   return (
-    <div className="min-h-screen bg-white text-foreground overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden">
       <Navbar />
-      
-      {/* All sections */}
-      <HomeSection />
-      <AboutSection />
-      <SkillsSection />
-      <TestimonialsSection />
-      <ServicesSection 
-        visibleSection={visibleSection} 
-        scrollToSection={scrollToSection} 
-      />
-      <WorkflowsSection 
-        isSectionVisible={isSectionVisible} 
-        setVisibleSection={setVisibleSection} 
-        workflowsRef={workflowsRef} 
-      />
-      <FunnelsSection 
-        isSectionVisible={isSectionVisible} 
-        setVisibleSection={setVisibleSection} 
-        funnelsRef={funnelsRef} 
-      />
-      <SeoAuditsSection 
-        isSectionVisible={isSectionVisible} 
-        setVisibleSection={setVisibleSection} 
-        seoAuditsRef={seoAuditsRef} 
-      />
-      <EmailMarketingSection 
-        isSectionVisible={isSectionVisible} 
-        setVisibleSection={setVisibleSection} 
-        emailMarketingRef={emailMarketingRef} 
-      />
-      <PPCAnalyticsSection 
-        isSectionVisible={isSectionVisible} 
-        setVisibleSection={setVisibleSection} 
-        ppcAnalyticsRef={ppcAnalyticsRef} 
-      />
-      <AIChatbotSection 
-        isSectionVisible={isSectionVisible} 
-        setVisibleSection={setVisibleSection} 
-        aiChatbotRef={aiChatbotRef} 
-      />
-      <LovableProjectsSection 
-        isSectionVisible={isSectionVisible} 
-        setVisibleSection={setVisibleSection} 
-        lovableProjectsRef={lovableProjectsRef} 
-      />
-      {/* Case Studies section - always visible */}
-      <ProjectHighlightsSection />
-      <BookingSection />
-
-      {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          isOpen={modalOpen}
-          onClose={() => setModalOpen(false)}
-        />
-      )}
+      <div className="max-w-full mx-auto">
+        <HomeSection />
+        <AboutSection />
+        <SkillsSection />
+        <ServicesSection />
+        <ProjectHighlightsSection />
+        <TestimonialsSection />
+        <div id="services-details" className="w-full">
+          <FunnelsSection />
+          <WorkflowsSection />
+          <SEOAuditSection />
+          <PPCAnalyticsSection />
+          <AIChatbotSection />
+          <EmailMarketingSection />
+          <LovableProjectsSection />
+        </div>
+        <BookingSection />
+        <ContactSection />
+      </div>
     </div>
   );
-};
+}
 
 export default Index;
