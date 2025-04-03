@@ -17,7 +17,33 @@ import EmailMarketingSection from "../components/sections/EmailMarketingSection"
 import BookingSection from "../components/sections/BookingSection";
 import LovableProjectsSection from "../components/sections/LovableProjectsSection";
 
-function Index() {
+interface IndexProps {
+  visibleSection: string | null;
+  scrollToSection: (sectionId: string | null) => void;
+  isSectionVisible: (sectionId: string) => boolean;
+  setVisibleSection: (sectionId: string | null) => void;
+  funnelsRef: React.RefObject<HTMLElement>;
+  workflowsRef: React.RefObject<HTMLElement>;
+  seoAuditsRef: React.RefObject<HTMLElement>;
+  ppcAnalyticsRef: React.RefObject<HTMLElement>;
+  aiChatbotRef: React.RefObject<HTMLElement>;
+  emailMarketingRef: React.RefObject<HTMLElement>;
+  lovableProjectsRef: React.RefObject<HTMLElement>;
+}
+
+function Index({
+  visibleSection,
+  scrollToSection,
+  isSectionVisible,
+  setVisibleSection,
+  funnelsRef,
+  workflowsRef,
+  seoAuditsRef,
+  ppcAnalyticsRef,
+  aiChatbotRef,
+  emailMarketingRef,
+  lovableProjectsRef
+}: IndexProps) {
   return (
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />
@@ -25,17 +51,48 @@ function Index() {
         <HomeSection />
         <AboutSection />
         <SkillsSection />
-        <ServicesSection />
+        <ServicesSection 
+          visibleSection={visibleSection} 
+          scrollToSection={scrollToSection}
+        />
         <ProjectHighlightsSection />
         <TestimonialsSection />
         <div id="services-details" className="w-full">
-          <FunnelsSection />
-          <WorkflowsSection />
-          <SEOAuditSection />
-          <PPCAnalyticsSection />
-          <AIChatbotSection />
-          <EmailMarketingSection />
-          <LovableProjectsSection />
+          <FunnelsSection 
+            isSectionVisible={isSectionVisible} 
+            setVisibleSection={setVisibleSection} 
+            funnelsRef={funnelsRef}
+          />
+          <WorkflowsSection 
+            isSectionVisible={isSectionVisible} 
+            setVisibleSection={setVisibleSection} 
+            workflowsRef={workflowsRef}
+          />
+          <SEOAuditSection 
+            isSectionVisible={isSectionVisible} 
+            setVisibleSection={setVisibleSection} 
+            seoAuditsRef={seoAuditsRef}
+          />
+          <PPCAnalyticsSection 
+            isSectionVisible={isSectionVisible} 
+            setVisibleSection={setVisibleSection} 
+            ppcAnalyticsRef={ppcAnalyticsRef}
+          />
+          <AIChatbotSection 
+            isSectionVisible={isSectionVisible} 
+            setVisibleSection={setVisibleSection} 
+            aiChatbotRef={aiChatbotRef}
+          />
+          <EmailMarketingSection 
+            isSectionVisible={isSectionVisible} 
+            setVisibleSection={setVisibleSection} 
+            emailMarketingRef={emailMarketingRef}
+          />
+          <LovableProjectsSection 
+            isSectionVisible={isSectionVisible} 
+            setVisibleSection={setVisibleSection} 
+            lovableProjectsRef={lovableProjectsRef}
+          />
         </div>
         <BookingSection />
         <ContactSection />
