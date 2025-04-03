@@ -2,8 +2,11 @@
 import React from "react";
 import { TestimonialCarouselDemo } from "@/components/ui/testimonial-carousel-demo";
 import SectionHeader from "@/components/skills/SectionHeader";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const TestimonialsSection = () => {
+  const isMobile = useIsMobile();
+  
   return (
     <section 
       id="testimonials" 

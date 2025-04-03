@@ -29,7 +29,7 @@ const Testimonial = React.forwardRef<HTMLDivElement, TestimonialProps>(
         )}
         {...props}
       >
-        <div className="absolute right-4 sm:right-6 top-2 sm:top-4 text-5xl sm:text-8xl font-serif text-blue-200 dark:text-blue-800/20 select-none group-hover:text-blue-300 dark:group-hover:text-blue-700/20 transition-colors duration-500">
+        <div className="absolute right-4 sm:right-6 top-2 sm:top-4 text-4xl sm:text-7xl font-serif text-blue-200 dark:text-blue-800/20 select-none group-hover:text-blue-300 dark:group-hover:text-blue-700/20 transition-colors duration-500">
           "
         </div>
 
@@ -51,21 +51,21 @@ const Testimonial = React.forwardRef<HTMLDivElement, TestimonialProps>(
             </div>
           )}
 
-          <p className="text-pretty text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed relative z-10 transition-all duration-500 group-hover:text-gray-800 dark:group-hover:text-gray-200">
+          <p className="text-pretty text-sm text-gray-600 dark:text-gray-300 leading-relaxed relative z-10 transition-all duration-500 group-hover:text-gray-800 dark:group-hover:text-gray-200">
             {testimonial}
           </p>
 
-          <div className="flex items-center gap-3 sm:gap-4 justify-start mt-2">
-            <div className="flex items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-3 justify-start mt-2">
+            <div className="flex items-center gap-3">
               {image ? (
-                <Avatar className="border-2 border-blue-200 dark:border-blue-800/30 h-10 w-10 sm:h-12 sm:w-12 group-hover:border-blue-300 dark:group-hover:border-blue-700/30 transition-colors duration-500 shadow-sm">
+                <Avatar className="border-2 border-blue-200 dark:border-blue-800/30 h-10 w-10 group-hover:border-blue-300 dark:group-hover:border-blue-700/30 transition-colors duration-500 shadow-sm">
                   <AvatarImage src={image} alt={name} height={48} width={48} />
                   <AvatarFallback className="bg-blue-50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300">
                     {name[0]}
                   </AvatarFallback>
                 </Avatar>
               ) : (
-                <Avatar className="border-2 border-blue-200 dark:border-blue-800/30 h-10 w-10 sm:h-12 sm:w-12 group-hover:border-blue-300 dark:group-hover:border-blue-700/30 transition-colors duration-500 shadow-sm">
+                <Avatar className="border-2 border-blue-200 dark:border-blue-800/30 h-10 w-10 group-hover:border-blue-300 dark:group-hover:border-blue-700/30 transition-colors duration-500 shadow-sm">
                   <AvatarFallback className="bg-blue-50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300">
                     {name[0]}
                   </AvatarFallback>
@@ -73,8 +73,8 @@ const Testimonial = React.forwardRef<HTMLDivElement, TestimonialProps>(
               )}
 
               <div className="flex flex-col">
-                <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-500">{name}</h3>
-                <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+                <h3 className="font-semibold text-sm text-gray-900 dark:text-white group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-500">{name}</h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
                   {role}
                   {company && <span className="font-medium text-blue-600 dark:text-blue-400 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors duration-500"> @ {company}</span>}
                 </p>

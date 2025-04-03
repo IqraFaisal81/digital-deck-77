@@ -5,11 +5,13 @@ import { Button } from '@/components/ui/button';
 import { useTheme } from '@/context/ThemeContext';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const isMobile = useIsMobile();
   
   // Check if the theme is dark mode
   const isDarkMode = theme === "dark";
@@ -36,7 +38,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full transition-all duration-300 z-50 pt-5 sm:pt-3 ${
+      className={`fixed top-0 w-full transition-all duration-300 z-50 pt-4 sm:pt-3 ${
         scrolled
           ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-md"
           : "bg-transparent"
@@ -45,9 +47,13 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link to="/" className="text-lg md:text-xl font-bold text-gray-900 dark:text-white">
-              <span className="bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent">Iqra Faisal</span>
+          <div className="flex-shrink-0 z-20">
+            <Link to="/" className="text-xl md:text-xl font-bold text-gray-900 dark:text-white flex items-center">
+              {isMobile ? (
+                <span className="bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">IF</span>
+              ) : (
+                <span className="bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">Iqra Faisal</span>
+              )}
             </Link>
           </div>
 
@@ -80,7 +86,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Nav Button */}
-          <div className="flex md:hidden items-center space-x-2">
+          <div className="flex md:hidden items-center space-x-2 z-20">
             <Button variant="ghost" size="icon" onClick={toggleTheme} aria-label="Toggle theme" className="mr-1">
               {isDarkMode ? (
                 <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
@@ -112,40 +118,40 @@ const Navbar = () => {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden overflow-hidden bg-white dark:bg-gray-900 shadow-lg rounded-b-lg mt-2"
+              className="md:hidden overflow-hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg rounded-b-lg mt-2 fixed top-[4rem] left-0 right-0 z-50 px-4"
             >
-              <div className="flex flex-col space-y-4 py-6 px-4">
+              <div className="flex flex-col space-y-5 py-8 px-2">
                 <a 
                   href="#about" 
-                  className="text-base font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
+                  className="text-base font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors p-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   About
                 </a>
                 <a 
                   href="#skills" 
-                  className="text-base font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
+                  className="text-base font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors p-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Skills
                 </a>
                 <a 
                   href="#services" 
-                  className="text-base font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
+                  className="text-base font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors p-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Services
                 </a>
                 <a 
                   href="#projects" 
-                  className="text-base font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
+                  className="text-base font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors p-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Projects
                 </a>
                 <a 
                   href="#contact" 
-                  className="text-base font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
+                  className="text-base font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors p-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact

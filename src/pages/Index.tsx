@@ -13,7 +13,6 @@ import SEOAuditSection from "../components/sections/SeoAuditsSection";
 import PPCAnalyticsSection from "../components/sections/PPCAnalyticsSection";
 import AIChatbotSection from "../components/sections/AIChatbotSection";
 import EmailMarketingSection from "../components/sections/EmailMarketingSection";
-import BookingSection from "../components/sections/BookingSection";
 import LovableProjectsSection from "../components/sections/LovableProjectsSection";
 
 interface IndexProps {
@@ -93,7 +92,7 @@ function Index({
             lovableProjectsRef={lovableProjectsRef}
           />
         </div>
-        <BookingSection />
+        {/* BookingSection has been removed as requested */}
       </div>
     </div>
   );
