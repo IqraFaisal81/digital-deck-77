@@ -86,7 +86,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
                     className="text-gray-600 dark:text-gray-300 hover:text-royal dark:hover:text-electric hover:bg-blue-50 dark:hover:bg-blue-900/20 text-xs"
                     onClick={(e) => {
                       e.stopPropagation();
-                      document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+                      window.open("https://calendly.com/iqrafaisal81/discovery-call", "_blank");
                     }}
                   >
                     <Calendar className="mr-1 h-3 w-3" />
@@ -106,7 +106,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
             className="bg-gradient-to-r from-royal to-electric hover:opacity-90 dark:from-electric dark:to-blue-600 text-white px-6 py-5 h-auto"
             asChild
           >
-            <a href="#booking" className="flex items-center">
+            <a href="https://calendly.com/iqrafaisal81/discovery-call" target="_blank" rel="noopener noreferrer" className="flex items-center">
               <Calendar className="mr-2 h-5 w-5" />
               Schedule a Free Strategy Call
             </a>
