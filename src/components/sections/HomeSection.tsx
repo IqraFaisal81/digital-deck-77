@@ -164,7 +164,7 @@ const HomeSection = () => {
           </div>
           
           {/* Right content - Profile image and badges */}
-          <div className="flex justify-center items-center mb-0 md:mb-0 animate-fade-in-up z-0 order-1 md:order-2 w-full md:w-1/2 max-w-[280px] md:max-w-none mx-auto">
+          <div className="flex justify-center items-center mb-0 md:mb-0 animate-fade-in-up z-0 order-1 md:order-2 w-full md:w-1/2 max-w-[280px] md:max-w-none mx-auto mt-16 sm:mt-20 md:mt-0">
             <div className="relative w-full max-w-[240px] sm:max-w-[260px] md:max-w-md">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400/40 to-purple-400/40 rounded-full blur-3xl opacity-70 animate-pulse -z-10"></div>
               
