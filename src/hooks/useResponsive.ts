@@ -56,8 +56,24 @@ export const useResponsive = (): Breakpoints => {
 };
 
 export const useIsMobile = (): boolean => {
-  const { md } = useResponsive();
-  return !md;
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Initial calculation
+    handleResize();
+    
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  return isMobile;
 };
 
 export const useIsTablet = (): boolean => {
