@@ -1,5 +1,5 @@
 
-import { ArrowRight, Calendar } from "lucide-react";
+import { ArrowRight, Calendar, Eye, EyeOff } from "lucide-react";
 import { services } from "@/data/services";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -62,11 +62,28 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
                     {service.description}
                   </CardDescription>
                 </CardContent>
-                {service.sectionId && (
+                <CardFooter className="flex justify-between items-center border-t pt-4 bg-gray-50 dark:bg-gray-800/50">
+                  {service.sectionId && (
+                    <div className="text-royal dark:text-electric text-sm flex items-center">
+                      {visibleSection === service.sectionId ? (
+                        <>
+                          <EyeOff size={14} className="mr-1" />
+                          <span>Hide details</span>
+                        </>
+                      ) : (
+                        <>
+                          <Eye size={14} className="mr-1" />
+                          <span>View details</span>
+                        </>
+                      )}
+                      <ArrowRight size={14} className="ml-1" />
+                    </div>
+                  )}
+                  
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="text-gray-600 dark:text-gray-300 hover:text-royal dark:hover:text-electric hover:bg-blue-50 dark:hover:bg-blue-900/20 text-xs ml-6 mb-4"
+                    className="text-gray-600 dark:text-gray-300 hover:text-royal dark:hover:text-electric hover:bg-blue-50 dark:hover:bg-blue-900/20 text-xs"
                     onClick={(e) => {
                       e.stopPropagation();
                       document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
@@ -75,7 +92,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
                     <Calendar className="mr-1 h-3 w-3" />
                     Book Consultation
                   </Button>
-                )}
+                </CardFooter>
               </Card>
             ))}
           </div>

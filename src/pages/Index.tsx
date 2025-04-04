@@ -14,6 +14,7 @@ import PPCAnalyticsSection from "../components/sections/PPCAnalyticsSection";
 import AIChatbotSection from "../components/sections/AIChatbotSection";
 import EmailMarketingSection from "../components/sections/EmailMarketingSection";
 import LovableProjectsSection from "../components/sections/LovableProjectsSection";
+import ContactSection from "../components/sections/ContactSection";
 
 interface IndexProps {
   visibleSection: string | null;
@@ -92,7 +93,7 @@ function Index({
             lovableProjectsRef={lovableProjectsRef}
           />
         </div>
-        {/* BookingSection has been removed as requested */}
+        <ContactSection />
       </div>
     </div>
   );
