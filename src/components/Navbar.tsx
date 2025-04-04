@@ -59,8 +59,39 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0 z-20">
+            <Link to="/" className="text-xl md:text-xl font-bold text-gray-900 dark:text-white flex items-center">
+              {isMobile ? (
+                <span className="text-lg font-bold bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">IF</span>
+              ) : (
+                <span className="bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">Iqra Faisal</span>
+              )}
+            </Link>
+          </div>
+
+          {/* Desktop Navigation Menu */}
+          {!isMobile && (
+            <div className="hidden md:flex items-center justify-center flex-1">
+              <NavigationMenu className="mx-auto">
+                <NavigationMenuList className="flex space-x-4">
+                  {navigationLinks.map((link) => (
+                    <NavigationMenuItem key={link.href}>
+                      <NavigationMenuLink 
+                        href={link.href} 
+                        className={navigationMenuTriggerStyle() + " text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"}
+                      >
+                        {link.label}
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
+                  ))}
+                </NavigationMenuList>
+              </NavigationMenu>
+            </div>
+          )}
+
           {/* Mobile Hamburger menu button */}
-          {isMobile ? (
+          {isMobile && (
             <Sheet>
               <SheetTrigger asChild>
                 <Button 
@@ -86,35 +117,7 @@ const Navbar = () => {
                 </div>
               </SheetContent>
             </Sheet>
-          ) : (
-            <div className="hidden md:flex">
-              <NavigationMenu>
-                <NavigationMenuList>
-                  {navigationLinks.map((link) => (
-                    <NavigationMenuItem key={link.href}>
-                      <NavigationMenuLink 
-                        href={link.href} 
-                        className={navigationMenuTriggerStyle() + " text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"}
-                      >
-                        {link.label}
-                      </NavigationMenuLink>
-                    </NavigationMenuItem>
-                  ))}
-                </NavigationMenuList>
-              </NavigationMenu>
-            </div>
           )}
-
-          {/* Logo */}
-          <div className="flex-shrink-0 z-20 mx-auto md:mx-0">
-            <Link to="/" className="text-xl md:text-xl font-bold text-gray-900 dark:text-white flex items-center">
-              {isMobile ? (
-                <span className="text-lg font-bold bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">IF</span>
-              ) : (
-                <span className="bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">Iqra Faisal</span>
-              )}
-            </Link>
-          </div>
 
           {/* Theme Toggle */}
           <Button variant="ghost" size="icon" onClick={toggleTheme} aria-label="Toggle theme" className="relative z-20">

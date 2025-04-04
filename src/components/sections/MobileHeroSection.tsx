@@ -82,18 +82,18 @@ const MobileHeroSection: React.FC<MobileHeroProps> = ({ displayText }) => {
           className="border-2 border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-full py-2.5 text-sm backdrop-blur-sm shadow-md hover:shadow-lg w-full justify-center"
           asChild
         >
-          <a href="#booking" className="flex items-center justify-center">
+          <a href="https://calendly.com/iqrafaisal81/discovery-call" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
             <Calendar className="mr-2 h-4 w-4" />
             Book a Consultation
           </a>
         </Button>
       </div>
       
-      {/* Expertise Pills */}
-      <div className="flex flex-wrap gap-2 justify-center mt-6">
+      {/* Expertise Pills - Now in a two-column layout */}
+      <div className="grid grid-cols-2 gap-2 mt-6 w-full">
         <div className="flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-white/80 to-blue-50/80 dark:from-gray-800/80 dark:to-blue-900/30 backdrop-blur-sm rounded-xl border border-blue-100 dark:border-blue-900 shadow-md">
           <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
-          <span className="text-gray-700 dark:text-gray-300 text-xs">Expert in CRM Solutions</span>
+          <span className="text-gray-700 dark:text-gray-300 text-xs">Expert in CRM</span>
         </div>
         
         <div className="flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-white/80 to-blue-50/80 dark:from-gray-800/80 dark:to-blue-900/30 backdrop-blur-sm rounded-xl border border-blue-100 dark:border-blue-900 shadow-md">
