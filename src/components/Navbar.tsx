@@ -49,8 +49,9 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0 z-20">
             <Link to="/" className="text-xl md:text-xl font-bold text-gray-900 dark:text-white flex items-center">
+              {/* Eliminate logo text on mobile to prevent collision */}
               {isMobile ? (
-                <span className="bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">IF</span>
+                <span className="text-lg font-bold bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">IF</span>
               ) : (
                 <span className="bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">Iqra Faisal</span>
               )}
