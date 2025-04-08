@@ -40,7 +40,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
             {services && services.map((service) => (
               <Card 
                 key={service.id} 
-                className={`group h-full transition-all duration-300 hover:shadow-xl hover:scale-[1.02] overflow-hidden border-t-4 ${
+                className={`group flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:scale-[1.02] overflow-hidden border-t-4 ${
                   service.sectionId && visibleSection === service.sectionId ? 'border-t-electric' : 'border-t-royal/70'
                 } ${
                   service.sectionId ? 'cursor-pointer hover:bg-gradient-to-br hover:from-blue-50 hover:to-white dark:hover:from-blue-900/10 dark:hover:to-gray-900' : ''
@@ -57,12 +57,12 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
                     </CardTitle>
                   </div>
                 </CardHeader>
-                <CardContent className="pb-6">
+                <CardContent className="pb-6 flex-grow">
                   <CardDescription className="text-gray-700 dark:text-gray-300 text-sm mt-2">
                     {service.description}
                   </CardDescription>
                 </CardContent>
-                <CardFooter className="flex justify-between items-center border-t pt-4 bg-gray-50 dark:bg-gray-800/50">
+                <CardFooter className="flex justify-between items-center border-t pt-4 bg-gray-50 dark:bg-gray-800/50 mt-auto">
                   {service.sectionId && (
                     <div className="text-royal dark:text-electric text-sm flex items-center">
                       {visibleSection === service.sectionId ? (

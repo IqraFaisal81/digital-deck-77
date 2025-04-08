@@ -38,7 +38,7 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
               className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/3 p-2"
             >
               <Card 
-                className={`h-full transition-all duration-300 hover:shadow-xl hover:scale-[1.02] overflow-hidden ${
+                className={`h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:scale-[1.02] overflow-hidden ${
                   service.sectionId ? 'cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/30' : ''
                 } ${
                   service.sectionId && visibleSection === service.sectionId ? 'ring-2 ring-royal dark:ring-electric' : ''
@@ -55,12 +55,12 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
                     </CardTitle>
                   </div>
                 </CardHeader>
-                <CardContent className="pb-6">
+                <CardContent className="pb-6 flex-grow">
                   <CardDescription className="text-gray-700 dark:text-gray-300 text-sm">
                     {service.description}
                   </CardDescription>
                 </CardContent>
-                <CardFooter className="flex justify-between items-center border-t pt-4 bg-gray-50 dark:bg-gray-800/50">
+                <CardFooter className="flex justify-between items-center border-t pt-4 bg-gray-50 dark:bg-gray-800/50 mt-auto">
                   {service.sectionId && (
                     <div className="text-royal dark:text-electric text-sm flex items-center">
                       {visibleSection === service.sectionId ? (
