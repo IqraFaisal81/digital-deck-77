@@ -59,6 +59,35 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16">
+          {/* Mobile Hamburger menu button - Moved to leftmost position */}
+          {isMobile && (
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="relative z-20 order-first"
+                  aria-label="Navigation Menu"
+                >
+                  <Menu className="h-6 w-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-[250px] sm:w-[300px] pt-16">
+                <div className="flex flex-col space-y-6 py-4">
+                  {navigationLinks.map((link) => (
+                    <a 
+                      key={link.href}
+                      href={link.href} 
+                      className="text-base font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors p-2"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              </SheetContent>
+            </Sheet>
+          )}
+          
           {/* Logo */}
           <div className="flex-shrink-0 z-20">
             <Link to="/" className="text-xl md:text-xl font-bold text-gray-900 dark:text-white flex items-center">
@@ -88,35 +117,6 @@ const Navbar = () => {
                 </NavigationMenuList>
               </NavigationMenu>
             </div>
-          )}
-
-          {/* Mobile Hamburger menu button */}
-          {isMobile && (
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  className="relative z-20"
-                  aria-label="Navigation Menu"
-                >
-                  <Menu className="h-6 w-6" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="left" className="w-[250px] sm:w-[300px] pt-16">
-                <div className="flex flex-col space-y-6 py-4">
-                  {navigationLinks.map((link) => (
-                    <a 
-                      key={link.href}
-                      href={link.href} 
-                      className="text-base font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors p-2"
-                    >
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
-              </SheetContent>
-            </Sheet>
           )}
 
           {/* Theme Toggle */}
