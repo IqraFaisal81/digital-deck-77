@@ -50,7 +50,7 @@ const ContactSection = () => {
             <div className="bg-white/80 dark:bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-white/10 shadow-sm">
               <h3 className="font-semibold mb-4 text-gray-900 dark:text-white">Connect With Me</h3>
               <div className="flex gap-4">
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="bg-gray-100 dark:bg-black/30 p-3 rounded-full hover:bg-blue-100 dark:hover:bg-blue-500/20 transition-colors">
+                <a href="https://github.com/IqraFaisal81" target="_blank" rel="noopener noreferrer" className="bg-gray-100 dark:bg-black/30 p-3 rounded-full hover:bg-blue-100 dark:hover:bg-blue-500/20 transition-colors">
                   <Github size={20} className="text-gray-700 dark:text-white" />
                 </a>
                 <a href="https://www.linkedin.com/in/iqra-faisal-b6687919b/" target="_blank" rel="noopener noreferrer" className="bg-gray-100 dark:bg-black/30 p-3 rounded-full hover:bg-blue-100 dark:hover:bg-blue-500/20 transition-colors">
