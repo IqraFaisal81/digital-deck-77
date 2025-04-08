@@ -1,45 +1,64 @@
 
-import React from "react";
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import { ThemeProvider } from "@/context/ThemeContext";
+import { useEffect, useState, useRef } from "react";
+import { ScrollToServiceUtils } from "./utils/ScrollToServiceUtils";
 
-// Create a client
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-      retry: false,
-    },
-  },
-});
+function App() {
+  const [visibleSection, setVisibleSection] = useState<string | null>(null);
+  
+  // Create refs for each section
+  const funnelsRef = useRef<HTMLElement>(null);
+  const workflowsRef = useRef<HTMLElement>(null);
+  const seoAuditsRef = useRef<HTMLElement>(null);
+  const ppcAnalyticsRef = useRef<HTMLElement>(null);
+  const aiChatbotRef = useRef<HTMLElement>(null);
+  const emailMarketingRef = useRef<HTMLElement>(null);
+  const lovableProjectsRef = useRef<HTMLElement>(null);
+  
+  const isSectionVisible = (sectionId: string): boolean => {
+    return visibleSection === sectionId;
+  };
+  
+  useEffect(() => {
+    ScrollToServiceUtils.setupScrollHandlers();
+    
+    // Setup event listener for showing sections
+    const handleShowSection = (event: CustomEvent) => {
+      const { sectionId } = event.detail;
+      setVisibleSection(sectionId);
+    };
+    
+    document.addEventListener('show-section', handleShowSection as EventListener);
+    
+    return () => {
+      document.removeEventListener('show-section', handleShowSection as EventListener);
+    };
+  }, []);
 
-const App: React.FC = () => {
   return (
-    <React.StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/booking" element={<Index />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </BrowserRouter>
-          </TooltipProvider>
-        </ThemeProvider>
-      </QueryClientProvider>
-    </React.StrictMode>
+    <div className="mobile-overflow-fix">
+      <Routes>
+        <Route path="/" element={
+          <Index 
+            visibleSection={visibleSection}
+            scrollToSection={ScrollToServiceUtils.scrollToServiceSection}
+            isSectionVisible={isSectionVisible}
+            setVisibleSection={setVisibleSection}
+            funnelsRef={funnelsRef}
+            workflowsRef={workflowsRef}
+            seoAuditsRef={seoAuditsRef}
+            ppcAnalyticsRef={ppcAnalyticsRef}
+            aiChatbotRef={aiChatbotRef}
+            emailMarketingRef={emailMarketingRef}
+            lovableProjectsRef={lovableProjectsRef}
+          />
+        } />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
   );
-};
+}
 
 export default App;

@@ -131,9 +131,9 @@ const SkillsSection = () => {
         </div>
         
         <SectionHeader 
-          title={<>Skills & <span className="text-blue-600 dark:text-blue-400 relative inline-block bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-blue-600 dark:to-blue-400">
+          title={<>Skills & <span className="text-blue-600 dark:text-blue-300 relative inline-block bg-gradient-to-r from-royal to-electric bg-clip-text text-transparent dark:from-blue-300 dark:to-blue-100">
             Expertise
-            <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-400/30 dark:bg-blue-600/30 rounded-full"></span>
+            <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-400/30 dark:bg-blue-500/30 rounded-full"></span>
           </span></>}
           description="Combining technical expertise with strategic marketing to deliver comprehensive solutions that drive growth and engagement."
         />
@@ -168,7 +168,7 @@ const SkillsSection = () => {
           >
             <Button 
               asChild
-              className="bg-gradient-to-r from-royal to-electric hover:from-blue-700 hover:to-indigo-600 dark:from-blue-400 dark:to-blue-600 
+              className="bg-gradient-to-r from-royal to-electric hover:from-blue-700 hover:to-indigo-600 dark:from-blue-400 dark:to-blue-500 
                 text-white rounded-full px-6 py-6 shadow-lg hover:shadow-xl group transition-all duration-300 
                 hover:-translate-y-1 hover:scale-105 border border-blue-400/20"
             >
