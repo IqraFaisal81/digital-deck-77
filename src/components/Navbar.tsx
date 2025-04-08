@@ -1,57 +1,60 @@
 
 import React, { useState, useEffect } from 'react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useTheme } from '@/context/ThemeContext';
 import { Link } from 'react-router-dom';
-import { useTheme } from '../context/ThemeContext';
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-import { Button } from './ui/button';
-import { ThemeToggle } from './ThemeToggle';
-import { Menu, Moon, Sun } from 'lucide-react';
-import { useMobile } from '../hooks/use-mobile';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { 
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
 
-interface NavigationLink {
-  href: string;
-  label: string;
-  external?: boolean;
-}
-
-const navigationLinks: NavigationLink[] = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#services", label: "Services" },
-  { href: "#projects", label: "Work" },
-  { href: "#testimonials", label: "Testimonials" },
-  { href: "#contact", label: "Contact" },
-];
-
-export const Navbar: React.FC = () => {
-  const { isDarkMode, toggleTheme } = useTheme();
-  const isMobile = useMobile();
-  
+const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const isMobile = useIsMobile();
   
+  // Check if the theme is dark mode
+  const isDarkMode = theme === "dark";
+
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      const offset = window.scrollY;
+      if (offset > 50) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
     };
-    
-    window.addEventListener('scroll', handleScroll);
-    
+
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  
+
+  const navigationLinks = [
+    { href: "#about", label: "About" },
+    { href: "#skills", label: "Skills" },
+    { href: "#services", label: "Services" },
+    { href: "#projects", label: "Projects" },
+    { href: "#contact", label: "Contact" },
+  ];
+
   return (
-    <nav 
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        scrolled 
-          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-sm' 
-          : 'bg-white dark:bg-gray-900'
+    <nav
+      className={`fixed top-0 w-full transition-all duration-300 z-50 ${
+        scrolled
+          ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-md"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
@@ -88,47 +91,42 @@ export const Navbar: React.FC = () => {
           {/* Logo */}
           <div className="flex-shrink-0 z-20">
             <Link to="/" className="text-xl md:text-xl font-bold text-gray-900 dark:text-white flex items-center">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-500">Iqra Faisal</span>
+              {isMobile ? (
+                <span className="text-lg font-bold bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">IF</span>
+              ) : (
+                <span className="bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">Iqra Faisal</span>
+              )}
             </Link>
           </div>
-          
-          {/* Desktop Navigation */}
+
+          {/* Desktop Navigation Menu */}
           {!isMobile && (
-            <div className="hidden md:block">
-              <div className="flex space-x-4">
-                {navigationLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors px-2 py-1"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
+            <div className="hidden md:flex items-center justify-center flex-1">
+              <NavigationMenu className="mx-auto">
+                <NavigationMenuList className="flex space-x-4">
+                  {navigationLinks.map((link) => (
+                    <NavigationMenuItem key={link.href}>
+                      <a 
+                        href={link.href} 
+                        className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    </NavigationMenuItem>
+                  ))}
+                </NavigationMenuList>
+              </NavigationMenu>
             </div>
           )}
 
           {/* Theme Toggle */}
           <Button variant="ghost" size="icon" onClick={toggleTheme} aria-label="Toggle theme" className="relative z-20">
             {isDarkMode ? (
-              <Sun className="h-5 w-5 text-yellow-400" />
+              <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
             ) : (
-              <Moon className="h-5 w-5 text-gray-700" />
+              <Moon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
             )}
           </Button>
-          
-          {/* Call to action button */}
-          <a 
-            href="https://calendly.com/iqrafaisal81/discovery-call?month=2025-04" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="hidden md:inline-flex ml-4"
-          >
-            <Button variant="default" className="bg-purple-600 hover:bg-purple-700 text-white">
-              Book a Consultation
-            </Button>
-          </a>
         </div>
       </div>
     </nav>
