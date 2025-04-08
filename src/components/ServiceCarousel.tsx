@@ -6,7 +6,7 @@ import {
   CarouselNext, 
   CarouselPrevious 
 } from "@/components/ui/carousel";
-import { ArrowRight, Calendar, Eye, EyeOff } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 import { services } from "@/data/services";
 import { Button } from "@/components/ui/button";
 import { useCarouselState } from "@/hooks/useCarouselState";
@@ -38,7 +38,7 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
               className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/3 p-2"
             >
               <Card 
-                className={`h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:scale-[1.02] overflow-hidden ${
+                className={`h-full transition-all duration-300 hover:shadow-xl hover:scale-[1.02] overflow-hidden ${
                   service.sectionId ? 'cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/30' : ''
                 } ${
                   service.sectionId && visibleSection === service.sectionId ? 'ring-2 ring-royal dark:ring-electric' : ''
@@ -55,25 +55,15 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
                     </CardTitle>
                   </div>
                 </CardHeader>
-                <CardContent className="pb-6 flex-grow">
+                <CardContent className="pb-6">
                   <CardDescription className="text-gray-700 dark:text-gray-300 text-sm">
                     {service.description}
                   </CardDescription>
                 </CardContent>
-                <CardFooter className="flex justify-between items-center border-t pt-4 bg-gray-50 dark:bg-gray-800/50 mt-auto">
+                <CardFooter className="flex justify-between items-center border-t pt-4 bg-gray-50 dark:bg-gray-800/50">
                   {service.sectionId && (
                     <div className="text-royal dark:text-electric text-sm flex items-center">
-                      {visibleSection === service.sectionId ? (
-                        <>
-                          <EyeOff size={14} className="mr-1" />
-                          <span>Hide details</span>
-                        </>
-                      ) : (
-                        <>
-                          <Eye size={14} className="mr-1" />
-                          <span>View details</span>
-                        </>
-                      )}
+                      <span>{visibleSection === service.sectionId ? 'Hide details' : 'Learn more'}</span>
                       <ArrowRight size={14} className="ml-1" />
                     </div>
                   )}

@@ -1,35 +1,19 @@
 
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useTheme } from '../context/ThemeContext';
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-import { Button } from './ui/button';
-import { ThemeToggle } from './ThemeToggle';
-import { Menu, Moon, Sun } from 'lucide-react';
-import { useMobile } from '../hooks/use-mobile';
+import React, { useState, useEffect } from "react";
+import { Menu, X, Briefcase, User, Wrench, Phone, Users, Calendar, Award, MessageSquare } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
+import ThemeToggle from "@/components/ThemeToggle";
 
-interface NavigationLink {
-  href: string;
-  label: string;
-  external?: boolean;
-}
-
-const navigationLinks: NavigationLink[] = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#services", label: "Services" },
-  { href: "#projects", label: "Work" },
-  { href: "#testimonials", label: "Testimonials" },
-  { href: "#contact", label: "Contact" },
-];
-
-export const Navbar: React.FC = () => {
-  const { isDarkMode, toggleTheme } = useTheme();
-  const isMobile = useMobile();
-  
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  
+  const isMobile = useIsMobile();
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -38,99 +22,114 @@ export const Navbar: React.FC = () => {
         setScrolled(false);
       }
     };
-    
-    window.addEventListener('scroll', handleScroll);
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
+
+  const menuItems = [
+    { label: "About", icon: <User className="h-4 w-4" />, href: "#about" },
+    { label: "Skills", icon: <Award className="h-4 w-4" />, href: "#skills" },
+    { label: "Clients", icon: <Users className="h-4 w-4" />, href: "#testimonials" },
+    { label: "Services", icon: <Wrench className="h-4 w-4" />, href: "#services" },
+    { label: "Case Studies", icon: <Briefcase className="h-4 w-4" />, href: "#case-studies" },
+    { label: "Contact", icon: <Phone className="h-4 w-4" />, href: "#booking" },
+  ];
+
   return (
-    <nav 
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-sm' 
-          : 'bg-white dark:bg-gray-900'
+          ? "py-3 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm" 
+          : "py-5 bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Mobile Hamburger menu button - Moved to leftmost position */}
-          {isMobile && (
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  className="relative z-20 order-first"
-                  aria-label="Navigation Menu"
-                >
-                  <Menu className="h-6 w-6" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="left" className="w-[250px] sm:w-[300px] pt-16">
-                <div className="flex flex-col space-y-6 py-4">
-                  {navigationLinks.map((link) => (
-                    <a 
-                      key={link.href}
-                      href={link.href} 
-                      className="text-base font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors p-2"
-                    >
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
-              </SheetContent>
-            </Sheet>
-          )}
-          
-          {/* Logo */}
-          <div className="flex-shrink-0 z-20">
-            <Link to="/" className="text-xl md:text-xl font-bold text-gray-900 dark:text-white flex items-center">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-500">Iqra Faisal</span>
-            </Link>
-          </div>
-          
-          {/* Desktop Navigation */}
-          {!isMobile && (
-            <div className="hidden md:block">
-              <div className="flex space-x-4">
-                {navigationLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors px-2 py-1"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          )}
+      <div className="container mx-auto px-4 flex justify-between items-center">
+        <a href="#home" className="text-gray-900 dark:text-white font-bold font-display text-xl relative z-10 group">
+          <span className="relative">
+            Iqra Faisal
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+          </span>
+        </a>
 
-          {/* Theme Toggle */}
-          <Button variant="ghost" size="icon" onClick={toggleTheme} aria-label="Toggle theme" className="relative z-20">
-            {isDarkMode ? (
-              <Sun className="h-5 w-5 text-yellow-400" />
-            ) : (
-              <Moon className="h-5 w-5 text-gray-700" />
-            )}
-          </Button>
-          
-          {/* Call to action button */}
-          <a 
-            href="https://calendly.com/iqrafaisal81/discovery-call?month=2025-04" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="hidden md:inline-flex ml-4"
-          >
-            <Button variant="default" className="bg-purple-600 hover:bg-purple-700 text-white">
-              Book a Consultation
+        {/* Desktop Menu */}
+        {!isMobile && (
+          <div className="hidden md:flex space-x-1">
+            {menuItems.map((item, index) => (
+              <a
+                key={index}
+                href={item.href}
+                className="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors duration-300 flex items-center"
+              >
+                {item.icon}
+                <span className="ml-2">{item.label}</span>
+              </a>
+            ))}
+            <ThemeToggle />
+            <Button
+              className="ml-3 bg-blue-600 hover:bg-blue-700 shadow-sm hover:shadow-md transition-all"
+              size="sm"
+              asChild
+            >
+              <a href="#booking" className="flex items-center">
+                <Calendar className="mr-2 h-4 w-4" />
+                <span>Book a Call</span>
+              </a>
             </Button>
-          </a>
-        </div>
+          </div>
+        )}
+
+        {/* Mobile Menu Button */}
+        {isMobile && (
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <button 
+              onClick={toggleMenu} 
+              className="text-gray-900 dark:text-white bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-2 rounded-lg shadow-sm hover:bg-white dark:hover:bg-gray-700 transition-all"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        )}
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMobile && (
+        <div
+          className={`fixed inset-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl z-40 transition-transform duration-300 ease-in-out ${
+            isOpen ? "translate-x-0" : "translate-x-full"
+          } pt-24`}
+        >
+          <div className="container mx-auto px-6 flex flex-col space-y-2">
+            {menuItems.map((item, index) => (
+              <a
+                key={index}
+                href={item.href}
+                onClick={toggleMenu}
+                className="py-4 px-5 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 rounded-xl transition-colors duration-300 flex items-center"
+              >
+                <div className="bg-blue-100/80 dark:bg-blue-900/30 p-2 rounded-lg mr-4">
+                  {item.icon}
+                </div>
+                <span className="font-medium">{item.label}</span>
+              </a>
+            ))}
+            <div className="pt-4">
+              <Button
+                className="w-full mt-4 bg-blue-600 hover:bg-blue-700 py-6 rounded-xl shadow-sm"
+                onClick={toggleMenu}
+                asChild
+              >
+                <a href="#booking" className="flex items-center justify-center">
+                  <Calendar className="mr-2 h-5 w-5" />
+                  <span className="font-medium">Book a Consultation</span>
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
