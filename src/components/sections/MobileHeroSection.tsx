@@ -82,7 +82,7 @@ const MobileHeroSection: React.FC<MobileHeroProps> = ({ displayText }) => {
           className="border-2 border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-full py-2.5 text-sm backdrop-blur-sm shadow-md hover:shadow-lg w-full justify-center"
           asChild
         >
-          <a href="https://calendly.com/iqrafaisal81/discovery-call" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+          <a href="https://calendly.com/iqrafaisal81/discovery-call?month=2025-04" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
             <Calendar className="mr-2 h-4 w-4" />
             Book a Consultation
           </a>

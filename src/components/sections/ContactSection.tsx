@@ -17,7 +17,7 @@ const ContactSection = () => {
               asChild
               size="lg"
             >
-              <a href="https://calendly.com/iqrafaisal81/discovery-call" target="_blank" rel="noopener noreferrer" className="flex items-center">
+              <a href="https://calendly.com/iqrafaisal81/discovery-call?month=2025-04" target="_blank" rel="noopener noreferrer" className="flex items-center">
                 <Calendar className="mr-2 h-5 w-5" />
                 Book a Free Consultation
               </a>
@@ -67,7 +67,7 @@ const ContactSection = () => {
                 <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">Schedule a Meeting</h3>
                 <p className="text-gray-700 dark:text-white/70 mb-3">Book a 30-minute consultation</p>
                 <Button className="w-full bg-blue-600 hover:bg-blue-500" asChild size="sm">
-                  <a href="https://calendly.com/iqrafaisal81/discovery-call" target="_blank" rel="noopener noreferrer">Book Now</a>
+                  <a href="https://calendly.com/iqrafaisal81/discovery-call?month=2025-04" target="_blank" rel="noopener noreferrer">Book Now</a>
                 </Button>
               </div>
             </div>

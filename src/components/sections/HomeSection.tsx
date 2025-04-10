@@ -146,7 +146,7 @@ const HomeSection = () => {
                   className="border-2 border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-full px-4 md:px-6 py-2 md:py-6 text-sm md:text-base backdrop-blur-sm shadow-md hover:shadow-lg"
                   asChild
                 >
-                  <a href="#booking" className="flex items-center">
+                  <a href="https://calendly.com/iqrafaisal81/discovery-call?month=2025-04" className="flex items-center">
                     <Calendar className="mr-2 h-4 w-4 md:h-5 md:w-5" />
                     Book a Consultation
                   </a>

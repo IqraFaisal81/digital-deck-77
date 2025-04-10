@@ -14,7 +14,7 @@ const CallToAction = () => {
           className="bg-electric hover:bg-electric/80 text-white px-8 py-6 h-auto text-lg font-medium rounded-lg"
           asChild
         >
-          <a href="#booking" className="flex items-center">
+          <a href="https://calendly.com/iqrafaisal81/discovery-call?month=2025-04" target="_blank" rel="noopener noreferrer" className="flex items-center">
             <Calendar className="mr-2 h-5 w-5" />
             Book Your Strategy Call
           </a>
