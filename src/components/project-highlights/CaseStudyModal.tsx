@@ -1,4 +1,3 @@
-
 import { Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { 
@@ -122,7 +121,7 @@ const CaseStudyModal = ({ isOpen, onClose, caseStudy }: CaseStudyModalProps) => 
             className="bg-blue-600 hover:bg-blue-700 text-white"
             asChild
           >
-            <a href="#booking" onClick={onClose}>
+            <a href="https://calendly.com/iqrafaisal81/discovery-call?month=2025-04" target="_blank" rel="noopener noreferrer">
               <Calendar className="mr-2 h-5 w-5" />
               Schedule a Consultation
             </a>
