@@ -1,4 +1,5 @@
 
+
 import React from "react";
 import { ArrowRight, ExternalLink, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -91,7 +92,7 @@ const PortfolioPreviewSection = () => {
                     }}
                   >
                     <div className="bg-white/90 dark:bg-gray-800/90 rounded-full p-3">
-                      {/* SVG icon removed */}
+                      <ExternalLink className="text-blue-600 dark:text-blue-400 h-6 w-6" />
                     </div>
                   </div>
                 </div>
@@ -129,7 +130,7 @@ const PortfolioPreviewSection = () => {
                     <span className="text-sm text-blue-600 dark:text-blue-400 font-medium">
                       Visit Website →
                     </span>
-                    {/* SVG icon removed from here too */}
+                    <ExternalLink size={16} className="text-gray-400 group-hover:text-blue-500 transition-colors" />
                   </div>
                 </CardContent>
               </Card>
@@ -172,3 +173,4 @@ const PortfolioPreviewSection = () => {
 };
 
 export default PortfolioPreviewSection;
+
