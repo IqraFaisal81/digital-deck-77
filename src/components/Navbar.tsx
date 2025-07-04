@@ -52,7 +52,7 @@ const Navbar = () => {
     { href: "#about", label: "About" },
     { href: "#skills", label: "Skills" },
     { href: "#services", label: "Services" },
-    { href: "#portfolio", label: "Portfolio" },
+    { href: "#portfolio-preview", label: "Portfolio" },
     { href: "#contact", label: "Contact" },
   ];
 
