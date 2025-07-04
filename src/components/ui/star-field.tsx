@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { Star } from 'lucide-react';
 import { useTheme } from '@/context/ThemeContext';
@@ -26,11 +27,6 @@ export const StarField: React.FC<StarFieldProps> = ({ className = "" }) => {
   const [stars, setStars] = useState<StarData[]>([]);
   const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 });
   const animationRef = useRef<number>();
-
-  // Only show in dark mode
-  if (theme !== 'dark') {
-    return null;
-  }
 
   useEffect(() => {
     const initStars = () => {
@@ -151,6 +147,11 @@ export const StarField: React.FC<StarFieldProps> = ({ className = "" }) => {
       }
     };
   }, [mousePos]);
+
+  // Only show in dark mode - moved after all hooks
+  if (theme !== 'dark') {
+    return null;
+  }
 
   return (
     <div 
