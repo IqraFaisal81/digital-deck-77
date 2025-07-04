@@ -1,4 +1,5 @@
 
+
 import { ProjectType } from "@/types/project";
 
 export const projects: ProjectType[] = [
@@ -104,19 +105,20 @@ export const projects: ProjectType[] = [
   // Email Marketing Projects
   {
     id: 5,
-    title: "Grey Matters – BOGO Campaign",
-    category: "Email Marketing",
-    image: "/lovable-uploads/459570af-5ccd-4c1d-9cd0-3b4bc8a4a618.png",
+    title: "Morgan Jones – Infinite Scroll Funnel & Lead Nurture",
+    category: "Funnel Builds",
+    image: "/lovable-uploads/9d3dfaba-05d8-409b-a6d9-d49e74c3e92c.png",
     images: [
-      "/lovable-uploads/459570af-5ccd-4c1d-9cd0-3b4bc8a4a618.png",
-      "/lovable-uploads/491f73f1-1501-4479-9a02-f57f1d22b855.png"
+      "/lovable-uploads/9d3dfaba-05d8-409b-a6d9-d49e74c3e92c.png"
     ],
-    description: "Designed branded emails with emotional appeal and strong CTAs to promote mental health services and offers.",
-    challenge: "Needed to promote mental health services sensitively while driving conversions during a BOGO promotion.",
-    solution: "Crafted empathetic email sequences with personal stories, social proof, and clear value propositions.",
-    results: "Achieved 42% open rate, 8.5% click-through rate, and 28% increase in service bookings during the campaign period.",
-    tools: ["Email Marketing", "Canva", "A/B Testing", "Conversion Tracking"],
-    clientName: "Grey Matters Studio"
+    description: "Built an innovative infinite scroll funnel and comprehensive lead nurture automation system in Go High Level for transforming athletes into visionaries.",
+    challenge: "Morgan Jones needed a unique funnel design that would engage athletes and guide them through their transformation journey from sports to business visionaries, requiring innovative user experience and strategic automation.",
+    solution: "Created an engaging infinite scroll funnel that captures attention and maintains user engagement throughout the journey. Implemented sophisticated lead nurture campaigns with personalized automation sequences designed specifically for athlete transformation. Built comprehensive workflows that guide prospects through mindset shifts and business development processes.",
+    results: "Successfully launched an innovative funnel system that stands out in the market, improved lead engagement through the unique infinite scroll design, and created effective nurture sequences that support athlete transformation journeys.",
+    tools: ["Go High Level", "Infinite Scroll Funnel", "Lead Nurture Automation", "Custom Workflows", "Athlete Transformation"],
+    clientName: "Morgan Jones",
+    url: "https://morganmjones.com/",
+    relatedService: "funnels"
   },
   {
     id: 6,
@@ -272,3 +274,4 @@ export const getProjectCategories = () => {
   const categories = new Set(projects.map(project => project.category));
   return Array.from(categories);
 };
+
