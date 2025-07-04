@@ -6,12 +6,13 @@ import {
   CarouselNext, 
   CarouselPrevious 
 } from "@/components/ui/carousel";
-import { ArrowRight, Calendar, Eye, EyeOff } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 import { services } from "@/data/services";
 import { Button } from "@/components/ui/button";
 import { useCarouselState } from "@/hooks/useCarouselState";
 import CarouselPagination from "./project-highlights/CarouselPagination";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import { useNavigate } from "react-router-dom";
 
 interface ServiceCarouselProps {
   visibleSection: string | null;
@@ -20,6 +21,25 @@ interface ServiceCarouselProps {
 
 const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselProps) => {
   const { carouselApi, setCarouselApi, currentIndex } = useCarouselState();
+  const navigate = useNavigate();
+
+  const handleServiceClick = (service: any) => {
+    if (service.sectionId) {
+      // Map section IDs to route paths
+      const routeMap: { [key: string]: string } = {
+        'workflows': '/services/workflows',
+        'funnels': '/services/funnels',
+        'email-marketing': '/services/email-marketing',
+        'seo-audits': '/services/seo-audits',
+        'ai-chatbot': '/services/ai-chatbot'
+      };
+      
+      const route = routeMap[service.sectionId];
+      if (route) {
+        navigate(route);
+      }
+    }
+  };
   
   return (
     <div className="w-full mt-8">
@@ -40,10 +60,8 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
               <Card 
                 className={`h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:scale-[1.02] overflow-hidden ${
                   service.sectionId ? 'cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/30' : ''
-                } ${
-                  service.sectionId && visibleSection === service.sectionId ? 'ring-2 ring-royal dark:ring-electric' : ''
                 }`}
-                onClick={() => scrollToSection(service.sectionId)}
+                onClick={() => handleServiceClick(service)}
               >
                 <CardHeader className="pb-2">
                   <div className="flex items-center gap-4">
@@ -63,17 +81,7 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
                 <CardFooter className="flex justify-between items-center border-t pt-4 bg-gray-50 dark:bg-gray-800/50 mt-auto">
                   {service.sectionId && (
                     <div className="text-royal dark:text-electric text-sm flex items-center">
-                      {visibleSection === service.sectionId ? (
-                        <>
-                          <EyeOff size={14} className="mr-1" />
-                          <span>Hide details</span>
-                        </>
-                      ) : (
-                        <>
-                          <Eye size={14} className="mr-1" />
-                          <span>View details</span>
-                        </>
-                      )}
+                      <span>Learn more</span>
                       <ArrowRight size={14} className="ml-1" />
                     </div>
                   )}
@@ -84,7 +92,7 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
                     className="text-gray-600 dark:text-gray-300 hover:text-royal dark:hover:text-electric hover:bg-blue-50 dark:hover:bg-blue-900/20 text-xs"
                     onClick={(e) => {
                       e.stopPropagation();
-                      document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+                      window.open("https://calendly.com/iqrafaisal81/discovery-call?month=2025-04", "_blank");
                     }}
                   >
                     <Calendar className="mr-1 h-3 w-3" />

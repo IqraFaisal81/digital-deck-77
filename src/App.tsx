@@ -2,6 +2,11 @@
 import { Route, Routes } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import WorkflowsPage from "./pages/services/WorkflowsPage";
+import FunnelsPage from "./pages/services/FunnelsPage";
+import EmailMarketingPage from "./pages/services/EmailMarketingPage";
+import SEOAuditsPage from "./pages/services/SEOAuditsPage";
+import AIChatbotPage from "./pages/services/AIChatbotPage";
 import { useEffect, useState, useRef } from "react";
 import { ScrollToServiceUtils } from "./utils/ScrollToServiceUtils";
 
@@ -53,6 +58,11 @@ function App() {
             emailMarketingRef={emailMarketingRef}
           />
         } />
+        <Route path="/services/workflows" element={<WorkflowsPage />} />
+        <Route path="/services/funnels" element={<FunnelsPage />} />
+        <Route path="/services/email-marketing" element={<EmailMarketingPage />} />
+        <Route path="/services/seo-audits" element={<SEOAuditsPage />} />
+        <Route path="/services/ai-chatbot" element={<AIChatbotPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

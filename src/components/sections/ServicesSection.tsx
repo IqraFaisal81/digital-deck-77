@@ -1,10 +1,11 @@
 
-import { ArrowRight, Calendar, Eye, EyeOff, Sparkles } from "lucide-react";
+import { ArrowRight, Calendar, Sparkles } from "lucide-react";
 import { services } from "@/data/services";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import ServiceCarousel from "@/components/ServiceCarousel";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 interface ServicesSectionProps {
   visibleSection: string | null;
@@ -13,6 +14,7 @@ interface ServicesSectionProps {
 
 const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionProps) => {
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
   
   // Colorful gradient combinations for each service card
   const cardGradients = [
@@ -40,6 +42,24 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
     "from-violet-500 to-purple-500", // Lovable Development
     "from-emerald-500 to-green-500", // Shopify Solutions
   ];
+
+  const handleServiceClick = (service: any) => {
+    if (service.sectionId) {
+      // Map section IDs to route paths
+      const routeMap: { [key: string]: string } = {
+        'workflows': '/services/workflows',
+        'funnels': '/services/funnels',
+        'email-marketing': '/services/email-marketing',
+        'seo-audits': '/services/seo-audits',
+        'ai-chatbot': '/services/ai-chatbot'
+      };
+      
+      const route = routeMap[service.sectionId];
+      if (route) {
+        navigate(route);
+      }
+    }
+  };
   
   return (
     <section id="services" className="py-24 lg:py-32 relative overflow-hidden bg-gradient-to-br from-white via-blue-50/50 to-purple-50/50 dark:from-gray-900 dark:via-blue-950/30 dark:to-purple-950/30">
@@ -89,21 +109,15 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
                 key={service.id} 
                 className={`group relative overflow-hidden transition-all duration-500 hover:scale-105 hover:-translate-y-3 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:shadow-blue-500/20 ${
                   service.sectionId ? 'cursor-pointer' : ''
-                } ${
-                  service.sectionId && visibleSection === service.sectionId 
-                    ? 'ring-2 ring-blue-500 shadow-2xl shadow-blue-500/30 scale-105' 
-                    : ''
                 }`}
-                onClick={() => scrollToSection(service.sectionId)}
+                onClick={() => handleServiceClick(service)}
               >
                 {/* Colorful gradient overlay */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${cardGradients[index % cardGradients.length]} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
                 
                 <CardHeader className="relative z-10 pb-4">
                   <div className="flex flex-col items-center text-center gap-4">
-                    <div className={`p-4 rounded-2xl bg-gradient-to-br ${iconGradients[index % iconGradients.length]} shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300 ${
-                      service.sectionId && visibleSection === service.sectionId ? 'animate-bounce' : ''
-                    }`}>
+                    <div className={`p-4 rounded-2xl bg-gradient-to-br ${iconGradients[index % iconGradients.length]} shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300`}>
                       <service.icon className="text-white h-7 w-7" />
                     </div>
                     <CardTitle className="text-lg font-bold bg-gradient-to-r from-gray-900 to-blue-800 dark:from-white dark:to-blue-200 bg-clip-text text-transparent group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
@@ -121,17 +135,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
                 <CardFooter className="relative z-10 flex flex-col gap-3 border-t border-gray-100 dark:border-gray-700 pt-4 bg-gray-50/80 dark:bg-gray-800/80">
                   {service.sectionId && (
                     <div className="flex items-center justify-center text-sm text-blue-600 dark:text-blue-400 font-medium">
-                      {visibleSection === service.sectionId ? (
-                        <>
-                          <EyeOff size={16} className="mr-2" />
-                          <span>Hide Details</span>
-                        </>
-                      ) : (
-                        <>
-                          <Eye size={16} className="mr-2" />
-                          <span>View Details</span>
-                        </>
-                      )}
+                      <span>Learn More</span>
                       <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   )}
