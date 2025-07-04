@@ -7,6 +7,7 @@ import FunnelsPage from "./pages/services/FunnelsPage";
 import EmailMarketingPage from "./pages/services/EmailMarketingPage";
 import SEOAuditsPage from "./pages/services/SEOAuditsPage";
 import AIChatbotPage from "./pages/services/AIChatbotPage";
+import WebflowPage from "./pages/services/WebflowPage";
 import ShopifyPage from "./pages/services/ShopifyPage";
 import TrackingAttributionPage from "./pages/services/TrackingAttributionPage";
 import ZapierPage from "./pages/services/ZapierPage";
