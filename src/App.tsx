@@ -15,7 +15,6 @@ function App() {
   const ppcAnalyticsRef = useRef<HTMLElement>(null);
   const aiChatbotRef = useRef<HTMLElement>(null);
   const emailMarketingRef = useRef<HTMLElement>(null);
-  const lovableProjectsRef = useRef<HTMLElement>(null);
   
   const isSectionVisible = (sectionId: string): boolean => {
     return visibleSection === sectionId;
@@ -52,7 +51,6 @@ function App() {
             ppcAnalyticsRef={ppcAnalyticsRef}
             aiChatbotRef={aiChatbotRef}
             emailMarketingRef={emailMarketingRef}
-            lovableProjectsRef={lovableProjectsRef}
           />
         } />
         <Route path="*" element={<NotFound />} />
