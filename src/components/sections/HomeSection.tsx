@@ -1,4 +1,3 @@
-
 import { Calendar, ArrowRight, Sparkles, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -104,7 +103,7 @@ const HomeSection = () => {
         <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-pink-500/10 rounded-full blur-lg animate-pulse delay-2000"></div>
       </div>
 
-      <div className="container mx-auto relative z-10 flex flex-col justify-center items-center min-h-screen">
+      <div className="container mx-auto relative z-10 flex flex-col justify-center items-center">
         {isMobile ? (
           <MobileHeroSection displayText={displayText} />
         ) : (
