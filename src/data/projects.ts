@@ -1,5 +1,3 @@
-
-
 import { ProjectType } from "@/types/project";
 
 export const projects: ProjectType[] = [
@@ -274,4 +272,3 @@ export const getProjectCategories = () => {
   const categories = new Set(projects.map(project => project.category));
   return Array.from(categories);
 };
-
