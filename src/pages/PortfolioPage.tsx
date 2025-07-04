@@ -1,6 +1,7 @@
 
+
 import React, { useState } from "react";
-import { ArrowLeft, ExternalLink, Github, Calendar, Sparkles, Filter } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Calendar, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,15 +11,8 @@ import { projects, getProjectCategories } from "@/data/projects";
 import ImageGallery from "@/components/portfolio/ImageGallery";
 
 const PortfolioPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
-  
-  const categories = ["All", ...getProjectCategories()];
-  
-  const filteredProjects = selectedCategory === "All" 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory);
 
   const openProjectModal = (project: typeof projects[0]) => {
     setSelectedProject(project);
@@ -80,34 +74,11 @@ const PortfolioPage = () => {
         </div>
       </section>
 
-      {/* Filter Section */}
-      <section className="py-8 border-b border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <Filter className="h-4 w-4 text-gray-500 mr-2" />
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedCategory(category)}
-                className={selectedCategory === category 
-                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white" 
-                  : "hover:bg-blue-50 dark:hover:bg-blue-900/20"
-                }
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Projects Grid */}
       <section className="py-16 bg-gray-50 dark:bg-gradient-to-br dark:from-purple-950/50 dark:via-blue-950/30 dark:to-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
+            {projects.map((project, index) => (
               <Card 
                 key={project.id}
                 className="group cursor-pointer transition-all duration-500 hover:scale-105 hover:-translate-y-2 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:shadow-blue-500/20 overflow-hidden"
@@ -177,14 +148,6 @@ const PortfolioPage = () => {
               </Card>
             ))}
           </div>
-          
-          {filteredProjects.length === 0 && (
-            <div className="text-center py-16">
-              <p className="text-gray-500 dark:text-gray-400 text-lg">
-                No projects found in this category.
-              </p>
-            </div>
-          )}
         </div>
       </section>
 
@@ -328,3 +291,4 @@ const PortfolioPage = () => {
 };
 
 export default PortfolioPage;
+
