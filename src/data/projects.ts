@@ -1,4 +1,3 @@
-
 import { ProjectType } from "@/types/project";
 
 export const projects: ProjectType[] = [
@@ -69,8 +68,7 @@ export const projects: ProjectType[] = [
     category: "CRM Automation",
     image: "/lovable-uploads/4489e234-fe63-4c06-b474-0ff2ae09f6a4.png",
     images: [
-      "/lovable-uploads/4489e234-fe63-4c06-b474-0ff2ae09f6a4.png",
-      "/lovable-uploads/3f352506-2af3-4f2c-ad84-db6e5eabdf5b.png"
+      "/lovable-uploads/4489e234-fe63-4c06-b474-0ff2ae09f6a4.png"
     ],
     description: "Complete marketing operations management for a full-service agency including 70+ website SEO management, Go High Level automation, high-converting funnels, AI chatbot integration, voice chat agents, email marketing, and client communications systems.",
     challenge: "Charley Grey needed to scale their marketing agency operations while maintaining high-quality service delivery across multiple client accounts. They required integrated systems for SEO management, lead generation, client communication, and automated sales processes to handle their growing client base efficiently.",
