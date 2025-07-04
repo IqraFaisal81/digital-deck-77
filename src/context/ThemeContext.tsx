@@ -19,8 +19,8 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     const savedTheme = localStorage.getItem("theme") as Theme;
     // Check for system preference
     const systemPreference = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    // Default to dark mode
-    return savedTheme || systemPreference || "dark";
+    // Default to light mode instead of dark
+    return savedTheme || "light";
   });
 
   useEffect(() => {
