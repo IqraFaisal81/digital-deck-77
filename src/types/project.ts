@@ -4,6 +4,7 @@ export interface ProjectType {
   title: string;
   category: string;
   image: string;
+  images?: string[]; // Support for multiple images
   description: string;
   challenge?: string;
   solution?: string;
@@ -14,4 +15,6 @@ export interface ProjectType {
   url?: string;
   clientName?: string;
   relatedService?: string;
+  beforeImage?: string; // For before/after comparisons
+  afterImage?: string;
 }

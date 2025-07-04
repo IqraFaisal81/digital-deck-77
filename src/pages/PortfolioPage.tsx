@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { ArrowLeft, ExternalLink, Github, Calendar, Sparkles, Filter } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -8,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { projects, getProjectCategories } from "@/data/projects";
 import Navbar from "@/components/Navbar";
+import ImageGallery from "@/components/portfolio/ImageGallery";
 
 const PortfolioPage = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -129,6 +129,15 @@ const PortfolioPage = () => {
                       {project.category}
                     </Badge>
                   </div>
+
+                  {/* Image Count Badge */}
+                  {project.images && project.images.length > 1 && (
+                    <div className="absolute top-3 right-3">
+                      <Badge variant="secondary" className="bg-black/70 text-white border-none">
+                        +{project.images.length - 1} more
+                      </Badge>
+                    </div>
+                  )}
                 </div>
 
                 <CardHeader className="pb-3">
@@ -202,9 +211,9 @@ const PortfolioPage = () => {
         </div>
       </section>
 
-      {/* Project Details Modal */}
+      {/* Enhanced Project Details Modal */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="bg-white dark:bg-gray-800 max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="bg-white dark:bg-gray-800 max-w-5xl max-h-[90vh] overflow-y-auto">
           {selectedProject && (
             <>
               <DialogHeader>
@@ -223,13 +232,23 @@ const PortfolioPage = () => {
                 </DialogDescription>
               </DialogHeader>
               
-              <div className="mt-4 bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                <img 
-                  src={selectedProject.image} 
-                  alt={selectedProject.title} 
-                  className="w-full object-cover rounded-lg max-h-80"
-                />
-              </div>
+              {/* Enhanced Image Gallery */}
+              {selectedProject.images && selectedProject.images.length > 0 ? (
+                <div className="mt-4">
+                  <ImageGallery 
+                    images={selectedProject.images} 
+                    title={selectedProject.title}
+                  />
+                </div>
+              ) : (
+                <div className="mt-4 bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                  <img 
+                    src={selectedProject.image} 
+                    alt={selectedProject.title} 
+                    className="w-full object-cover rounded-lg max-h-80"
+                  />
+                </div>
+              )}
 
               {selectedProject.challenge && (
                 <div className="mt-6">
