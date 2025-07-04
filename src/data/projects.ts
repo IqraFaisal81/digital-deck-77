@@ -1,4 +1,3 @@
-
 import { ProjectType } from "@/types/project";
 
 export const projects: ProjectType[] = [
@@ -123,11 +122,7 @@ export const projects: ProjectType[] = [
     id: 6,
     title: "Triad Diagnostic Solutions – Comprehensive Email Marketing & Automation",
     category: "Email Marketing",
-    image: "/lovable-uploads/7d00cf3d-849f-41fb-8529-dccab25726c1.png",
-    images: [
-      "/lovable-uploads/7d00cf3d-849f-41fb-8529-dccab25726c1.png",
-      "/lovable-uploads/8298ac25-72ea-45df-8b02-fec826aa557c.png"
-    ],
+    image: "/lovable-uploads/92281473-a086-4fb6-a3c1-5be4d311d042.png",
     description: "Delivered comprehensive email marketing campaigns to 100,000+ customer database with exceptional open rates, plus complete Go High Level automation, funnel building, AI chatbot integration, and Sales AI voice call agent services.",
     challenge: "Triad Diagnostic Solutions needed to effectively communicate with their massive customer base of 100,000+ automotive professionals while automating lead nurturing processes and providing advanced customer support through AI-powered solutions.",
     solution: "Built and executed large-scale email newsletter campaigns reaching 100,000+ customers with exceptional open rates. Developed comprehensive automation workflows and funnel systems in Go High Level for lead nurturing and customer journey optimization. Integrated AI chatbot agents for instant customer support and Sales AI voice call agents for qualified lead handling and customer service automation.",
