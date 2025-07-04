@@ -1,41 +1,98 @@
 
-import React from "react";
-import { TestimonialCarouselDemo } from "@/components/ui/testimonial-carousel-demo";
-import SectionHeader from "@/components/skills/SectionHeader";
-import { useIsMobile } from "@/hooks/use-mobile";
+import React from 'react';
+import { Star, Quote } from 'lucide-react';
+
+const testimonials = [
+  {
+    name: "Sarah Johnson",
+    role: "CEO, TechStart",
+    content: "Iqra transformed our entire sales funnel and increased our conversion rate by 300%. Her expertise in automation saved us countless hours.",
+    rating: 5,
+    avatar: "SJ"
+  },
+  {
+    name: "Michael Chen",
+    role: "Marketing Director, GrowthCo",
+    content: "The email marketing campaigns Iqra built for us generated over $2M in revenue within 6 months. Absolutely phenomenal results.",
+    rating: 5,
+    avatar: "MC"
+  },
+  {
+    name: "Emily Rodriguez",
+    role: "Founder, EcoShop",
+    content: "Working with Iqra was a game-changer. She implemented systems that run our business on autopilot while we focus on growth.",
+    rating: 5,
+    avatar: "ER"
+  }
+];
 
 const TestimonialsSection = () => {
-  const isMobile = useIsMobile();
-  
   return (
-    <section 
-      id="testimonials" 
-      className="py-16 sm:py-24 md:py-32 px-4 md:px-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden relative"
-    >
-      {/* Large decorative elements */}
-      <div className="absolute top-0 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-blue-200/20 dark:bg-blue-900/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 right-0 w-72 sm:w-96 h-72 sm:h-96 bg-indigo-200/20 dark:bg-indigo-900/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
-      
-      <div className="container mx-auto relative z-10">
-        {/* Floating decorative elements */}
-        <div className="absolute top-32 right-32 w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-blue-300/30 dark:bg-blue-700/20 blur-xl animate-float"></div>
-        <div className="absolute bottom-40 left-20 w-24 sm:w-32 h-24 sm:h-32 rounded-full bg-indigo-300/30 dark:bg-indigo-700/20 blur-xl animate-float"></div>
-        
-        <SectionHeader 
-          title="Client Testimonials"
-          description="Hear from the people who've experienced the transformative impact of digital solutions"
-          alignment="center"
-          useGradient={true}
-        />
-        
-        <div className="max-w-6xl mx-auto mt-10 sm:mt-16 relative">
-          {/* Subtle accent shapes */}
-          <div className="absolute -top-4 -left-12 w-16 sm:w-20 h-16 sm:h-20 bg-blue-50 dark:bg-blue-900/20 rounded-full opacity-70 blur-lg"></div>
-          <div className="absolute -bottom-4 -right-12 w-16 sm:w-20 h-16 sm:h-20 bg-indigo-50 dark:bg-indigo-900/20 rounded-full opacity-70 blur-lg"></div>
-          
-          <div className="relative z-10 border border-blue-100/50 dark:border-blue-800/30 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg rounded-2xl p-1 sm:p-2 shadow-lg ring-1 ring-blue-100/20 dark:ring-blue-900/20 transition-all duration-500 hover:shadow-blue-200/30 dark:hover:shadow-blue-900/20">
-            <TestimonialCarouselDemo />
-          </div>
+    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900/20">
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+            What Clients Say
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Real results from real businesses that trusted me with their growth
+          </p>
+        </div>
+
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {testimonials.map((testimonial, index) => (
+            <div 
+              key={index}
+              className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 hover:scale-105"
+            >
+              {/* Quote Icon */}
+              <div className="mb-6">
+                <Quote className="w-8 h-8 text-blue-500 opacity-60" />
+              </div>
+
+              {/* Content */}
+              <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                "{testimonial.content}"
+              </p>
+
+              {/* Rating */}
+              <div className="flex mb-4">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                ))}
+              </div>
+
+              {/* Author */}
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-semibold mr-4">
+                  {testimonial.avatar}
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900 dark:text-white">
+                    {testimonial.name}
+                  </div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                    {testimonial.role}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-16">
+          <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+            Ready to join these success stories?
+          </p>
+          <a 
+            href="#contact" 
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            Let's Work Together
+          </a>
         </div>
       </div>
     </section>

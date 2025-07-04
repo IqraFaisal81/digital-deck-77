@@ -1,77 +1,158 @@
 
-import { Mail, Phone, Github, Linkedin, Calendar } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Calendar, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ContactSection = () => {
+  const contactMethods = [
+    {
+      icon: Mail,
+      title: "Email Me",
+      info: "iqrafaisal81@gmail.com",
+      description: "Drop me a line anytime",
+      href: "mailto:iqrafaisal81@gmail.com"
+    },
+    {
+      icon: Phone,
+      title: "Call Me",
+      info: "+44 7555 859390",
+      description: "Available Mon-Fri, 9AM-6PM GMT",
+      href: "tel:+447555859390"
+    },
+    {
+      icon: Calendar,
+      title: "Book a Call",
+      info: "30-min consultation",
+      description: "Free discovery call to discuss your needs",
+      href: "https://calendly.com/iqrafaisal81/discovery-call?month=2025-04"
+    }
+  ];
+
+  const socialLinks = [
+    {
+      icon: Github,
+      href: "https://github.com/IqraFaisal81",
+      label: "GitHub"
+    },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/in/iqra-faisal-b6687919b/",
+      label: "LinkedIn"
+    }
+  ];
+
   return (
-    <section id="contact" className="section-padding min-h-screen flex items-center bg-gradient-to-b from-gray-50 to-blue-50 dark:from-gray-900 dark:to-black">
-      <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-white dark:to-blue-400">Let&apos;s Work Together</h2>
-        <div className="max-w-3xl mx-auto mb-12">
-          <p className="text-gray-700 dark:text-white/80 text-center">
-            Ready to transform your business with smart systems, automation, and marketing that works? Let&apos;s chat about how I can help you scale with less stress.
+    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="4"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            Let's Work Together
+          </h2>
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            Ready to transform your business with smart systems, automation, and marketing that works? 
+            Let's chat about how I can help you scale with less stress.
           </p>
-          <div className="flex justify-center mt-6">
-            <Button 
-              className="bg-blue-600 hover:bg-blue-500 text-white"
-              asChild
-              size="lg"
-            >
-              <a href="https://calendly.com/iqrafaisal81/discovery-call?month=2025-04" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                <Calendar className="mr-2 h-5 w-5" />
-                Book a Free Consultation
-              </a>
-            </Button>
-          </div>
+        </div>
+
+        {/* Main CTA */}
+        <div className="text-center mb-16">
+          <Button 
+            className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold px-8 py-4 rounded-full text-lg shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
+            asChild
+            size="lg"
+          >
+            <a href="https://calendly.com/iqrafaisal81/discovery-call?month=2025-04" target="_blank" rel="noopener noreferrer" className="flex items-center">
+              <Calendar className="mr-3 h-6 w-6" />
+              Book Your Free Consultation
+            </a>
+          </Button>
         </div>
         
+        {/* Contact Methods */}
+        <div className="max-w-6xl mx-auto mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {contactMethods.map((method, index) => (
+              <a
+                key={index}
+                href={method.href}
+                target={method.href.startsWith('http') ? '_blank' : undefined}
+                rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="group bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <div className="bg-gradient-to-r from-blue-400 to-purple-400 p-4 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <method.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-2">{method.title}</h3>
+                  <p className="text-blue-100 font-medium mb-2">{method.info}</p>
+                  <p className="text-blue-200 text-sm">{method.description}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Additional Info & Social */}
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white/80 dark:bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-white/10 shadow-sm flex items-start space-x-4">
-              <div className="bg-blue-100 dark:bg-blue-500/20 p-3 rounded-full flex-shrink-0">
-                <Mail className="text-blue-600 dark:text-blue-400" size={24} />
-              </div>
-              <div>
-                <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">Email Me</h3>
-                <p className="text-gray-700 dark:text-white/70">iqrafaisal81@gmail.com</p>
+            {/* Quick Info */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <h3 className="text-2xl font-semibold text-white mb-6">Quick Info</h3>
+              <div className="space-y-4">
+                <div className="flex items-center text-blue-100">
+                  <MapPin className="w-5 h-5 mr-3 text-blue-400" />
+                  <span>Based in London, UK</span>
+                </div>
+                <div className="flex items-center text-blue-100">
+                  <Clock className="w-5 h-5 mr-3 text-blue-400" />
+                  <span>GMT Timezone</span>
+                </div>
+                <div className="flex items-center text-blue-100">
+                  <Calendar className="w-5 h-5 mr-3 text-blue-400" />
+                  <span>Usually responds within 24 hours</span>
+                </div>
               </div>
             </div>
-            
-            <div className="bg-white/80 dark:bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-white/10 shadow-sm flex items-start space-x-4">
-              <div className="bg-blue-100 dark:bg-blue-500/20 p-3 rounded-full flex-shrink-0">
-                <Phone className="text-blue-600 dark:text-blue-400" size={24} />
-              </div>
-              <div>
-                <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">Call Me</h3>
-                <p className="text-gray-700 dark:text-white/70">+44 7555 859390</p>
-              </div>
-            </div>
-            
-            <div className="bg-white/80 dark:bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-white/10 shadow-sm">
-              <h3 className="font-semibold mb-4 text-gray-900 dark:text-white">Connect With Me</h3>
+
+            {/* Social Links */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <h3 className="text-2xl font-semibold text-white mb-6">Connect With Me</h3>
               <div className="flex gap-4">
-                <a href="https://github.com/IqraFaisal81" target="_blank" rel="noopener noreferrer" className="bg-gray-100 dark:bg-black/30 p-3 rounded-full hover:bg-blue-100 dark:hover:bg-blue-500/20 transition-colors">
-                  <Github size={20} className="text-gray-700 dark:text-white" />
-                </a>
-                <a href="https://www.linkedin.com/in/iqra-faisal-b6687919b/" target="_blank" rel="noopener noreferrer" className="bg-gray-100 dark:bg-black/30 p-3 rounded-full hover:bg-blue-100 dark:hover:bg-blue-500/20 transition-colors">
-                  <Linkedin size={20} className="text-gray-700 dark:text-white" />
-                </a>
+                {socialLinks.map((social, index) => (
+                  <a 
+                    key={index}
+                    href={social.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="bg-white/20 p-4 rounded-xl hover:bg-white/30 transition-all duration-300 transform hover:scale-110 group"
+                  >
+                    <social.icon className="w-6 h-6 text-white group-hover:text-blue-300 transition-colors" />
+                  </a>
+                ))}
               </div>
-            </div>
-            
-            <div className="bg-white/80 dark:bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-white/10 shadow-sm flex items-center space-x-4">
-              <div className="bg-blue-100 dark:bg-blue-500/20 p-3 rounded-full flex-shrink-0">
-                <Calendar className="text-blue-600 dark:text-blue-400" size={24} />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">Schedule a Meeting</h3>
-                <p className="text-gray-700 dark:text-white/70 mb-3">Book a 30-minute consultation</p>
-                <Button className="w-full bg-blue-600 hover:bg-blue-500" asChild size="sm">
-                  <a href="https://calendly.com/iqrafaisal81/discovery-call?month=2025-04" target="_blank" rel="noopener noreferrer">Book Now</a>
-                </Button>
-              </div>
+              <p className="text-blue-200 text-sm mt-4">
+                Follow my work and connect professionally
+              </p>
             </div>
           </div>
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="text-center mt-16 pt-8 border-t border-white/20">
+          <p className="text-blue-100 mb-4">
+            Ready to get started? Let's make it happen!
+          </p>
+          <Button 
+            className="bg-white/20 hover:bg-white/30 text-white border border-white/30 hover:border-white/40 px-6 py-3 rounded-full transition-all duration-300"
+            asChild
+          >
+            <a href="mailto:iqrafaisal81@gmail.com">
+              Send Me an Email
+            </a>
+          </Button>
         </div>
       </div>
     </section>
