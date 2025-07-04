@@ -66,6 +66,7 @@ function App() {
         <Route path="/services/email-marketing" element={<EmailMarketingPage />} />
         <Route path="/services/seo-audits" element={<SEOAuditsPage />} />
         <Route path="/services/ai-chatbot" element={<AIChatbotPage />} />
+        <Route path="/services/webflow" element={<WebflowPage />} />
         <Route path="/services/shopify" element={<ShopifyPage />} />
         <Route path="/services/tracking-attribution" element={<TrackingAttributionPage />} />
         <Route path="/services/zapier" element={<ZapierPage />} />

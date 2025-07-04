@@ -32,6 +32,7 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
         'email-marketing': '/services/email-marketing',
         'seo-audits': '/services/seo-audits',
         'ai-chatbot': '/services/ai-chatbot',
+        'webflow-projects': '/services/webflow',
         'shopify-projects': '/services/shopify',
         'tracking-attribution': '/services/tracking-attribution',
         'zapier-automations': '/services/zapier'
