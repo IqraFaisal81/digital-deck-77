@@ -7,6 +7,9 @@ import FunnelsPage from "./pages/services/FunnelsPage";
 import EmailMarketingPage from "./pages/services/EmailMarketingPage";
 import SEOAuditsPage from "./pages/services/SEOAuditsPage";
 import AIChatbotPage from "./pages/services/AIChatbotPage";
+import ShopifyPage from "./pages/services/ShopifyPage";
+import TrackingAttributionPage from "./pages/services/TrackingAttributionPage";
+import ZapierPage from "./pages/services/ZapierPage";
 import { useEffect, useState, useRef } from "react";
 import { ScrollToServiceUtils } from "./utils/ScrollToServiceUtils";
 
@@ -63,6 +66,9 @@ function App() {
         <Route path="/services/email-marketing" element={<EmailMarketingPage />} />
         <Route path="/services/seo-audits" element={<SEOAuditsPage />} />
         <Route path="/services/ai-chatbot" element={<AIChatbotPage />} />
+        <Route path="/services/shopify" element={<ShopifyPage />} />
+        <Route path="/services/tracking-attribution" element={<TrackingAttributionPage />} />
+        <Route path="/services/zapier" element={<ZapierPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

@@ -51,7 +51,10 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
         'funnels': '/services/funnels',
         'email-marketing': '/services/email-marketing',
         'seo-audits': '/services/seo-audits',
-        'ai-chatbot': '/services/ai-chatbot'
+        'ai-chatbot': '/services/ai-chatbot',
+        'shopify-projects': '/services/shopify',
+        'tracking-attribution': '/services/tracking-attribution',
+        'zapier-automations': '/services/zapier'
       };
       
       const route = routeMap[service.sectionId];
