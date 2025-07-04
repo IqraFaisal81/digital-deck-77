@@ -1,3 +1,4 @@
+
 import { ProjectType } from "@/types/project";
 
 export const projects: ProjectType[] = [
@@ -66,9 +67,9 @@ export const projects: ProjectType[] = [
     id: 4,
     title: "Charley Grey – Full-Service Marketing Agency Management",
     category: "CRM Automation",
-    image: "/lovable-uploads/4489e234-fe63-4c06-b474-0ff2ae09f6a4.png",
+    image: "/lovable-uploads/523a1d65-2263-44f9-93e7-13486eeaa1e1.png",
     images: [
-      "/lovable-uploads/4489e234-fe63-4c06-b474-0ff2ae09f6a4.png"
+      "/lovable-uploads/523a1d65-2263-44f9-93e7-13486eeaa1e1.png"
     ],
     description: "Complete marketing operations management for a full-service agency including 70+ website SEO management, Go High Level automation, high-converting funnels, AI chatbot integration, voice chat agents, email marketing, and client communications systems.",
     challenge: "Charley Grey needed to scale their marketing agency operations while maintaining high-quality service delivery across multiple client accounts. They required integrated systems for SEO management, lead generation, client communication, and automated sales processes to handle their growing client base efficiently.",
