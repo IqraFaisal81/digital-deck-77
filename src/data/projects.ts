@@ -25,23 +25,25 @@ export const projects: ProjectType[] = [
     id: 1,
     title: "Yield School – Multi-Platform Automation Suite",
     category: "CRM Automation", 
-    image: "https://image.shutterstock.com/image-photo/bitcoin-cryptocurrency-coins-on-laptop-600nw-1918060366.jpg",
+    image: "/lovable-uploads/f4847ee2-e028-438a-bcf7-3e672f98c581.png",
     images: [
-      "https://image.shutterstock.com/image-photo/bitcoin-cryptocurrency-coins-on-laptop-600nw-1918060366.jpg",
+      "/lovable-uploads/f4847ee2-e028-438a-bcf7-3e672f98c581.png",
       "/lovable-uploads/1d1d435c-ac9d-41d5-b68e-9391ae60e258.png",
       "/lovable-uploads/1dfe7fa3-ac44-4615-819e-9a14141d19aa.png",
       "/lovable-uploads/ac2d3376-7739-4d39-8441-5adb03b977a7.png",
       "/lovable-uploads/26a59007-44f8-4e72-8953-fafd4da7a28a.png"
     ],
-    description: "Comprehensive automation ecosystem for a crypto education company using Zapier, Go High Level, Make.com, and Close CRM integration with advanced tracking and attribution systems.",
+    description: "Comprehensive automation ecosystem for a crypto education company using Zapier, Go High Level, Make.com, and Close CRM integration with advanced tracking and attribution systems. Also handled their complete Webflow website development and optimization.",
     challenge: "Yield School needed a sophisticated multi-platform automation system to handle their crypto education business. They required seamless integration between their CRM, lead tracking, course delivery, and attribution systems while managing high-volume leads from multiple sources.",
-    solution: "Built an integrated automation suite connecting Zapier, Go High Level, Make.com, and Close CRM. Created complex workflow automations for lead routing, course enrollment, progress tracking, and revenue attribution. Implemented advanced tracking systems to monitor student engagement and conversion paths across their crypto education funnels.",
+    solution: "Built an integrated automation suite connecting Zapier, Go High Level, Make.com, and Close CRM. Created complex workflow automations for lead routing, course enrollment, progress tracking, and revenue attribution. Implemented advanced tracking systems to monitor student engagement and conversion paths across their crypto education funnels. Additionally, developed and optimized their complete Webflow website for better user experience and conversion.",
     results: "Streamlined lead processing by 85%, improved course completion rates by 60%, and enhanced attribution tracking accuracy by 90%, resulting in better ROI measurement and optimized marketing spend.",
-    tools: ["Zapier", "Go High Level", "Make.com", "Close CRM", "Tracking & Attribution", "Webhook Integration"],
+    tools: ["Zapier", "Go High Level", "Make.com", "Close CRM", "Tracking & Attribution", "Webhook Integration", "Webflow"],
     clientName: "Yield School",
     url: "https://www.yieldschool.com/",
     relatedService: "workflows"
   },
+  
+  // CRM Automation Projects
   {
     id: 2,
     title: "Grey Matters – Lead Nurture Workflow",
