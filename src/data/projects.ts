@@ -4,14 +4,11 @@ export const projects: ProjectType[] = [
   // New Rewild Body Project
   {
     id: 14,
-    title: "Rewild Body – Lead Nurture Automation",
+    title: "Rewild Body – Lead Nurture Automation", 
     category: "CRM Automation",
-    image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800&h=600&fit=crop", // Green forest with sunlight
+    image: "/lovable-uploads/4ceb1757-b045-4838-b548-d9e69f71299e.png",
     images: [
-      "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800&h=600&fit=crop", // Main forest image
-      "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&h=600&fit=crop", // Pine trees
-      "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=800&h=600&fit=crop", // Trees from low angle
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&h=600&fit=crop" // Water surrounded by trees
+      "/lovable-uploads/4ceb1757-b045-4838-b548-d9e69f71299e.png"
     ],
     description: "Comprehensive lead nurturing automation system in Go High Level for a wellness brand focused on natural body rhythms, plus complete Etsy store setup and management with Printify integration.",
     challenge: "Rewild Body needed to automate their lead nurturing process to guide prospects through their wellness journey while maintaining a personal, nature-focused brand experience. They also wanted to expand into e-commerce with minimal manual overhead.",
@@ -27,7 +24,7 @@ export const projects: ProjectType[] = [
   {
     id: 1,
     title: "Triad DS – Chat Widget Automation",
-    category: "CRM Automation",
+    category: "CRM Automation", 
     image: "/lovable-uploads/12ee0c47-8e63-443e-bd2b-e80d41a9e587.png",
     images: [
       "/lovable-uploads/12ee0c47-8e63-443e-bd2b-e80d41a9e587.png",
