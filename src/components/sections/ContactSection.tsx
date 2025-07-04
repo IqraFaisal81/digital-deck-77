@@ -1,5 +1,5 @@
 
-import { Mail, Phone, Github, Linkedin, Calendar, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Calendar, MapPin, Clock, Link } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ContactSection = () => {
@@ -24,6 +24,13 @@ const ContactSection = () => {
       info: "30-min consultation",
       description: "Free discovery call to discuss your needs",
       href: "https://calendly.com/iqrafaisal81/discovery-call?month=2025-04"
+    },
+    {
+      icon: Link,
+      title: "Upwork Profile",
+      info: "Hire me on Upwork",
+      description: "View my professional profile and reviews",
+      href: "https://www.upwork.com/freelancers/~01c63cb8053c39c93a?mp_source=share"
     }
   ];
 
@@ -77,7 +84,7 @@ const ContactSection = () => {
         
         {/* Contact Methods */}
         <div className="max-w-6xl mx-auto mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {contactMethods.map((method, index) => (
               <a
                 key={index}
