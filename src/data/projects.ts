@@ -1,3 +1,4 @@
+
 import { ProjectType } from "@/types/project";
 
 export const projects: ProjectType[] = [
@@ -46,19 +47,20 @@ export const projects: ProjectType[] = [
   // CRM Automation Projects
   {
     id: 2,
-    title: "Grey Matters – Lead Nurture Workflow",
+    title: "The Growth Syndicate – Lead Generation & Email Marketing",
     category: "CRM Automation",
-    image: "/lovable-uploads/369b38b0-4ab2-42d7-a561-31f4e990664c.png",
+    image: "/lovable-uploads/01746ead-6e88-4955-9d67-dec237201e9d.png",
     images: [
-      "/lovable-uploads/369b38b0-4ab2-42d7-a561-31f4e990664c.png",
-      "/lovable-uploads/42916a80-9856-4ead-b0e9-cde8f4d44292.png"
+      "/lovable-uploads/01746ead-6e88-4955-9d67-dec237201e9d.png"
     ],
-    description: "Automated lead follow-up across channels using conditional logic, improving engagement and conversions.",
-    challenge: "Grey Matters had leads dropping off due to inconsistent follow-up and lack of personalized communication.",
-    solution: "Created multi-channel nurture sequences with conditional logic based on engagement levels and client needs.",
-    results: "Increased lead engagement by 65%, improved conversion rates by 40%, and reduced manual follow-up work by 80%.",
-    tools: ["Go High Level", "Email Automation", "SMS Marketing", "Conditional Logic"],
-    clientName: "Grey Matters Studio"
+    description: "Comprehensive lead generation and email marketing system built in Go High Level with multi-step automations, delivering exceptional ROI through strategic email campaigns and funnel optimization.",
+    challenge: "The Growth Syndicate by Mike Greene needed a robust lead generation system that could capture, nurture, and convert prospects effectively while maintaining high engagement rates across their email marketing campaigns.",
+    solution: "Built a sophisticated lead generation funnel inside Go High Level with integrated email marketing campaigns that achieved excellent open rates. Implemented multi-step automation workflows that guided prospects through a strategic nurturing process, optimizing each touchpoint for maximum conversion potential.",
+    results: "Delivered valuable ROI through strategic lead generation and email campaigns, achieving exceptional open rates and conversion metrics that significantly improved their business growth and customer acquisition.",
+    tools: ["Go High Level", "Email Marketing", "Lead Generation Funnels", "Multi-Step Automations", "Conversion Optimization"],
+    clientName: "The Growth Syndicate",
+    url: "https://thegrowthsyndicate.co.uk/home-page",
+    relatedService: "workflows"
   },
 
   // Marketing Agency - Charley Grey
