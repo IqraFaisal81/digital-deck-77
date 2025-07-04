@@ -1,4 +1,3 @@
-
 import React from "react";
 import { ArrowRight, ExternalLink, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -81,7 +80,15 @@ const PortfolioPreviewSection = () => {
                   </div>
 
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div 
+                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    onClick={(e) => {
+                      if (project.id === 14) { // Rewild Body project
+                        e.preventDefault();
+                        window.open(project.url, '_blank');
+                      }
+                    }}
+                  >
                     <div className="bg-white/90 dark:bg-gray-800/90 rounded-full p-3">
                       <ExternalLink className="text-blue-600 dark:text-blue-400 h-6 w-6" />
                     </div>
