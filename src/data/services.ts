@@ -61,6 +61,14 @@ export const services = [
     icon: Code,
     sectionId: "lovable-projects", // New section ID for Lovable projects
   }
+
+  {
+    id: 8,
+    title: "Shopify",
+    description: "Creating exceptional AI-powered web applications with the innovative Lovable platform. From chatbots to dashboards, I build modern apps that delight users.",
+    icon: Code,
+    sectionId: "lovable-projects", // New section ID for Lovable projects
+  }
 ];
 
 // Array of all section IDs for toggling visibility
