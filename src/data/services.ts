@@ -8,68 +8,76 @@ import {
   Repeat,
   MessageSquare,
   Mic,
-  Code
+  Code,
+  ShoppingCart
 } from "lucide-react";
 
 export const services = [
   {
     id: 1,
-    title: "CRM Automationss",
-    description: "Streamline your operations with powerful Go High Level workflows, lead nurturing, tagging, and customer journeys that practically run themselves.",
+    title: "CRM Automation",
+    description: "Transform your business operations with intelligent Go High Level workflows, advanced lead nurturing systems, smart tagging strategies, and seamless customer journey automation that works 24/7.",
     icon: Settings,
-    sectionId: "workflows", // Section ID to link to
+    sectionId: "workflows",
   },
   {
     id: 2,
     title: "Funnel Development",
-    description: "Whether it's onboarding, e-commerce, or lead capture—I build high-converting funnels that look great and drive real results.",
+    description: "Design and build high-converting sales funnels for onboarding, e-commerce, and lead capture that not only look stunning but drive measurable results and maximize conversion rates.",
     icon: Repeat,
-    sectionId: "funnels", // Updated to link to funnels section
+    sectionId: "funnels",
   },
   {
     id: 3,
     title: "Email Marketing",
-    description: "I craft email campaigns and automations that engage, convert, and retain your audience without sounding like a robot.",
+    description: "Create sophisticated email campaigns and automation sequences that engage your audience, drive conversions, and build lasting customer relationships with personalized messaging.",
     icon: Mail,
-    sectionId: "email-marketing", // Updated to link to the new email marketing section
+    sectionId: "email-marketing",
   },
   {
     id: 4,
-    title: "PPC, Analytics & Tracking",
-    description: "I don't just launch campaigns—I measure everything. With expert-level setups in Google Tag Manager, Google Search Console, and Looker Studio, I track the full customer journey.",
+    title: "PPC & Analytics",
+    description: "Launch and optimize data-driven advertising campaigns across Google, Meta, and other platforms with comprehensive tracking through Google Tag Manager and custom Looker Studio dashboards.",
     icon: Megaphone,
-    sectionId: "ppc-analytics", // Added section ID for PPC campaigns
+    sectionId: "ppc-analytics",
   },
   {
     id: 5,
     title: "SEO & Analytics",
-    description: "From keyword strategy to Google Analytics and Looker dashboards, I make sure your brand gets seen—and tracked—with precision.",
+    description: "Boost your online visibility with strategic keyword optimization, technical SEO improvements, and comprehensive analytics tracking through Google Analytics and custom reporting dashboards.",
     icon: Search,
-    sectionId: "seo-audits", // Link to SEO audits section
+    sectionId: "seo-audits",
   },
   {
     id: 6,
-    title: "AI Chatbot & Voice Agent",
-    description: "Smart conversations, real-time responses, and zero missed opportunities with AI-powered chat and voice solutions.",
+    title: "AI Chatbot & Voice Solutions",
+    description: "Deploy intelligent conversational AI systems that provide instant customer support, qualify leads, and handle inquiries with natural language processing and voice capabilities.",
     icon: MessageSquare,
-    sectionId: "ai-chatbot", // New section ID for AI chatbot and voice agent
+    sectionId: "ai-chatbot",
   },
   {
     id: 7,
-    title: "Lovable Projects",
-    description: "Creating exceptional AI-powered web applications with the innovative Lovable platform. From chatbots to dashboards, I build modern apps that delight users.",
+    title: "Lovable Development",
+    description: "Build cutting-edge AI-powered web applications using the innovative Lovable platform, from interactive dashboards to custom business tools that streamline operations.",
     icon: Code,
-    sectionId: "shopify-projects", // New section ID for Lovable projects
-  }
-
+    sectionId: "lovable-projects",
+  },
   {
     id: 8,
-    title: "Shopify",
-    description: "Creating exceptional AI-powered web applications with the innovative Lovable platform. From chatbots to dashboards, I build modern apps that delight users.",
-    icon: Code,
-    sectionId: "lovable-projects", // New section ID for Lovable projects
+    title: "Shopify Solutions",
+    description: "Create powerful e-commerce experiences with custom Shopify development, theme customization, app integration, and conversion optimization strategies that drive sales.",
+    icon: ShoppingCart,
+    sectionId: "shopify-projects",
   }
 ];
 
-// Array of all section IDs for toggling visibility
-export const sectionIds = ["workflows", "seo-audits", "funnels", "email-marketing", "ppc-analytics", "ai-chatbot", "lovable-projects","shopify-projects"];
+export const sectionIds = [
+  "workflows", 
+  "seo-audits", 
+  "funnels", 
+  "email-marketing", 
+  "ppc-analytics", 
+  "ai-chatbot", 
+  "lovable-projects",
+  "shopify-projects"
+];
