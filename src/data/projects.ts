@@ -1,3 +1,4 @@
+
 import { ProjectType } from "@/types/project";
 
 export const projects: ProjectType[] = [
@@ -120,19 +121,21 @@ export const projects: ProjectType[] = [
   },
   {
     id: 6,
-    title: "March on Mission – Awareness Newsletter",
+    title: "Triad Diagnostic Solutions – Comprehensive Email Marketing & Automation",
     category: "Email Marketing",
-    image: "/lovable-uploads/52a10990-781e-4a58-ac1f-1e2a028c40f0.png",
+    image: "/lovable-uploads/7d00cf3d-849f-41fb-8529-dccab25726c1.png",
     images: [
-      "/lovable-uploads/52a10990-781e-4a58-ac1f-1e2a028c40f0.png",
-      "/lovable-uploads/5a0ede87-2de2-421a-af7a-5e44aad3886d.png"
+      "/lovable-uploads/7d00cf3d-849f-41fb-8529-dccab25726c1.png",
+      "/lovable-uploads/8298ac25-72ea-45df-8b02-fec826aa557c.png"
     ],
-    description: "Built a heartwarming mental health campaign with compassionate design and engaging copy.",
-    challenge: "Raising awareness for mental health issues while maintaining sensitivity and encouraging action.",
-    solution: "Developed a newsletter series with personal stories, resources, and gentle calls-to-action for support.",
-    results: "Increased newsletter subscribers by 120%, improved engagement rates by 65%, and raised $15K in donations.",
-    tools: ["Email Marketing", "Content Writing", "Canva", "Newsletter Design"],
-    clientName: "March on Mission"
+    description: "Delivered comprehensive email marketing campaigns to 100,000+ customer database with exceptional open rates, plus complete Go High Level automation, funnel building, AI chatbot integration, and Sales AI voice call agent services.",
+    challenge: "Triad Diagnostic Solutions needed to effectively communicate with their massive customer base of 100,000+ automotive professionals while automating lead nurturing processes and providing advanced customer support through AI-powered solutions.",
+    solution: "Built and executed large-scale email newsletter campaigns reaching 100,000+ customers with exceptional open rates. Developed comprehensive automation workflows and funnel systems in Go High Level for lead nurturing and customer journey optimization. Integrated AI chatbot agents for instant customer support and Sales AI voice call agents for qualified lead handling and customer service automation.",
+    results: "Achieved exceptional open rates across 100,000+ customer email campaigns, significantly above industry standards. Streamlined lead nurturing through automated GHL workflows, improved customer support response times by 85% with AI chatbot integration, and enhanced sales conversion through intelligent voice call agent services.",
+    tools: ["Go High Level", "Email Marketing", "Newsletter Campaigns", "Lead Nurture Automation", "AI Chatbot Integration", "Sales AI Voice Agents", "Funnel Building"],
+    clientName: "Triad Diagnostic Solutions",
+    url: "https://www.triad-ds.com/",
+    relatedService: "email-marketing"
   },
 
   // SEO & Analytics Projects
