@@ -151,20 +151,20 @@ export const projects: ProjectType[] = [
   },
   {
     id: 8,
-    title: "Office H2O – Looker Studio Dashboard",
-    category: "SEO & Analytics",
-    image: "/lovable-uploads/66fbb743-7c92-4338-9760-c6e38c8e404f.png",
+    title: "Total Softwashing – 1-Year Lead Nurture Campaign & Email Templates",
+    category: "CRM Automation",
+    image: "/lovable-uploads/72503c9a-bee5-4aea-ab2e-92ad48c6c6d9.png",
     images: [
-      "/lovable-uploads/66fbb743-7c92-4338-9760-c6e38c8e404f.png",
-      "/lovable-uploads/6a6bd5db-ad17-4c87-af52-d22f104570f1.png",
-      "/lovable-uploads/6b770626-7323-433a-a528-c01779fec63a.png"
+      "/lovable-uploads/72503c9a-bee5-4aea-ab2e-92ad48c6c6d9.png"
     ],
-    description: "Crafted a complete performance dashboard showing ad ROI, search data, and audience engagement trends.",
-    challenge: "Client needed a unified view of all marketing performance across multiple channels and campaigns.",
-    solution: "Built comprehensive Looker Studio dashboard integrating Google Ads, Analytics, and Search Console data.",
-    results: "Improved decision-making speed by 60%, identified $12K in wasted ad spend, and increased ROI by 40%.",
-    tools: ["Looker Studio", "Google Analytics", "Data Visualization", "Performance Tracking"],
-    clientName: "Office H2O"
+    description: "Created comprehensive 1-year lead nurturing automation campaigns and custom email templates for a professional soft washing service company.",
+    challenge: "Total Softwashing needed a systematic approach to nurture leads over an extended period while maintaining consistent communication with prospects in the competitive exterior cleaning industry.",
+    solution: "Developed a comprehensive 12-month lead nurturing campaign with strategically timed touchpoints and seasonal messaging. Created custom email templates tailored to different customer segments and service offerings. Implemented automated workflows that guide prospects from initial interest to conversion while maintaining engagement throughout the extended sales cycle.",
+    results: "Successfully implemented a year-long nurturing system that maintains consistent lead engagement, improves conversion rates through strategic timing, and provides systematic follow-up for all prospects in their pipeline.",
+    tools: ["Go High Level", "Email Marketing", "Lead Nurture Automation", "Custom Email Templates", "Seasonal Campaigns"],
+    clientName: "Total Softwashing",
+    url: "https://totalsoftwashing.com/",
+    relatedService: "workflows"
   }
 ];
 
