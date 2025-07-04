@@ -64,7 +64,7 @@ const ContactSection = () => {
         {/* Main CTA */}
         <div className="text-center mb-16">
           <Button 
-            className="bg-gradient-to-r from-royal to-electric hover:from-purple-700 hover:to-indigo-700 text-white font-semibold px-8 py-4 rounded-full text-lg shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105"
+            className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold px-8 py-4 rounded-full text-lg shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105"
             asChild
             size="lg"
           >
@@ -87,7 +87,7 @@ const ContactSection = () => {
                 className="group bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="bg-gradient-to-r from-royal to-electric p-4 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <div className="bg-gradient-to-r from-purple-600 to-indigo-600 p-4 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <method.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-2">{method.title}</h3>

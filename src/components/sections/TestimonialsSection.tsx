@@ -32,7 +32,7 @@ const TestimonialsSection = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-royal via-purple-600 to-electric dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-800 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">
             What Clients Say
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -49,7 +49,7 @@ const TestimonialsSection = () => {
             >
               {/* Quote Icon */}
               <div className="mb-6">
-                <Quote className="w-8 h-8 text-royal dark:text-electric opacity-60" />
+                <Quote className="w-8 h-8 text-purple-600 dark:text-purple-400 opacity-60" />
               </div>
 
               {/* Content */}
@@ -66,7 +66,7 @@ const TestimonialsSection = () => {
 
               {/* Author */}
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-royal to-electric rounded-full flex items-center justify-center text-white font-semibold mr-4 shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold mr-4 shadow-lg">
                   {testimonial.avatar}
                 </div>
                 <div>
@@ -89,7 +89,7 @@ const TestimonialsSection = () => {
           </p>
           <a 
             href="#contact" 
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-royal to-electric text-white font-semibold rounded-full hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
           >
             Let's Work Together
           </a>
