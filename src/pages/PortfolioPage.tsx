@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { projects, getProjectCategories } from "@/data/projects";
 import Navbar from "@/components/Navbar";
 import ImageGallery from "@/components/portfolio/ImageGallery";
@@ -299,6 +299,28 @@ const PortfolioPage = () => {
                   <p className="text-blue-700 dark:text-blue-200">{selectedProject.clientName}</p>
                 </div>
               )}
+
+              {/* Footer with URL Button */}
+              <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                {selectedProject.url && (
+                  <Button 
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
+                    asChild
+                  >
+                    <a href={selectedProject.url} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                      View Live Project
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                )}
+                <Button 
+                  onClick={() => setModalOpen(false)}
+                  variant="outline"
+                  className="ml-auto"
+                >
+                  Close
+                </Button>
+              </div>
             </>
           )}
         </DialogContent>
