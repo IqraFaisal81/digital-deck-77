@@ -5,7 +5,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 1,
     title: "Re-engagementttt Workflow for Abandoned Cart Users",
-    client: "Triad Diagnostic Solutions",
+    client: "Triaddd Diagnostic Solutions",
     category: "Email Marketing",
     challenge: "Triad wanted to recover high-value customers who abandoned carts—specifically those considering ADAS kits and full diagnostic packages. The lack of SKU tracking in their system made automation complex, requiring manual segmentation.",
     strategy: [
