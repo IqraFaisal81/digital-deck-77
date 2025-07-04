@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { CrystallineInteractive } from "@/components/ui/crystalline-interactive";
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import MobileHeroSection from "./MobileHeroSection";
@@ -92,6 +93,9 @@ const HomeSection = () => {
       className="min-h-screen overflow-hidden relative"
       showRadialGradient={true}
     >
+      {/* Interactive Crystalline Shapes */}
+      <CrystallineInteractive className="z-5" />
+
       {/* Floating Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/10 rounded-full blur-xl animate-pulse"></div>
