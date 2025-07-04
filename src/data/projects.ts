@@ -1,3 +1,4 @@
+
 import { ProjectType } from "@/types/project";
 
 export const projects: ProjectType[] = [
@@ -164,98 +165,6 @@ export const projects: ProjectType[] = [
     results: "Improved decision-making speed by 60%, identified $12K in wasted ad spend, and increased ROI by 40%.",
     tools: ["Looker Studio", "Google Analytics", "Data Visualization", "Performance Tracking"],
     clientName: "Office H2O"
-  },
-
-  // Enhanced Email Marketing Case Study
-  {
-    id: 9,
-    title: "Triad DS – Abandoned Cart Recovery",
-    category: "Email Marketing",
-    image: "/lovable-uploads/7d00cf3d-849f-41fb-8529-dccab25726c1.png",
-    images: [
-      "/lovable-uploads/7d00cf3d-849f-41fb-8529-dccab25726c1.png",
-      "/lovable-uploads/8298ac25-72ea-45df-8b02-fec826aa557c.png"
-    ],
-    description: "Developed a segmented email automation workflow to recover high-value abandoned carts for automotive diagnostic products.",
-    challenge: "Triad wanted to recover high-value customers who abandoned carts—specifically those considering ADAS kits and full diagnostic packages. The lack of SKU tracking in their system made automation complex, requiring manual segmentation.",
-    solution: "Developed a segmented email automation workflow based on manual tagging. Tags were applied post-abandonment to identify Full Kit vs. ADAS Kit interest. Custom emails were triggered at 10, 15, and 30-day intervals, encouraging return visits and offering help from support. Built-in review request automation post-purchase to drive testimonials.",
-    results: "22% recovery rate on abandoned cart emails (above the B2B average). 60% increase in review submissions within 30 days of purchase. Reduced friction for sales and support team by delivering more qualified leads.",
-    tools: ["Go High Level", "Email Automation", "Customer Segmentation", "Tagging System"],
-    clientName: "Triad Diagnostic Solutions",
-    relatedService: "email-marketing"
-  },
-  
-  // Product Development Case Study
-  {
-    id: 10,
-    title: "Finance Management Software Development",
-    category: "Product Development",
-    image: "/lovable-uploads/84abbd7d-4c45-4186-8442-6b7415f8a35a.png",
-    images: [
-      "/lovable-uploads/84abbd7d-4c45-4186-8442-6b7415f8a35a.png",
-      "/lovable-uploads/8828cb0a-7283-4c93-bf3e-a7751087c960.png",
-      "/lovable-uploads/888b094f-fbdb-4be2-983c-e5b4a6e77b42.png"
-    ],
-    description: "Designed and developed a user-friendly finance management platform for young professionals using the Lovable framework.",
-    challenge: "The client, a fintech startup, aimed to launch a user-friendly finance management platform tailored to young professionals juggling savings, debt, and daily budgeting. Existing tools in the market were either overly complex or lacked emotional connection with users.",
-    solution: "Developed user personas from interviews, mapped emotional triggers to features, used Lovable's prioritization matrix for MVP features, and created interactive wireframes tested with 20+ early users before development.",
-    results: "86% of test users said they would recommend the platform after just one session. Time-on-task for key actions was reduced by 40% compared to leading competitors. Helped secure pre-seed funding based on user traction and prototype validation.",
-    tools: ["Lovable Framework", "UX/UI Design", "Market Research", "Prototype Testing"],
-    clientName: "Confidential (Under NDA)",
-    relatedService: "product-development"
-  },
-
-  // Lovable Projects
-  {
-    id: 11,
-    title: "ChatGenius Embedify",
-    category: "Lovable Projects",
-    image: "/lovable-uploads/8a0a540e-1ad0-49c3-b21d-cfcce288b27c.png",
-    images: [
-      "/lovable-uploads/8a0a540e-1ad0-49c3-b21d-cfcce288b27c.png",
-      "/lovable-uploads/8b183f32-fe44-4926-a6fe-d81abb48bae1.png",
-      "/lovable-uploads/934937cb-710e-4f8e-aa1e-757407b8a2ab.png"
-    ],
-    description: "AI chatbot creation platform that lets anyone build and deploy custom chat interfaces for websites with no-code required.",
-    challenge: "Create a user-friendly platform for non-technical users to build and deploy AI chatbots with customizable interfaces and knowledge bases.",
-    solution: "Developed an intuitive no-code editor with live preview, embedding options, and powerful AI integration using the Lovable platform.",
-    results: "Successfully launched with multiple enterprise clients, reducing customer support time by 45% and increasing user engagement by 60%.",
-    tools: ["React", "Typescript", "Tailwind CSS", "Shadcn UI", "AI APIs", "Lovable"],
-    url: "https://chatgenius.lovable.app"
-  },
-  {
-    id: 12,
-    title: "SupaFriendly Dashboard",
-    category: "Lovable Projects",
-    image: "/lovable-uploads/9bcb292a-8bfc-4d7d-b048-fa75e96bec94.png",
-    images: [
-      "/lovable-uploads/9bcb292a-8bfc-4d7d-b048-fa75e96bec94.png",
-      "/lovable-uploads/9fef311f-0699-4e7c-b2d1-918ce9e8e960.png",
-      "/lovable-uploads/a0b4591b-d7e2-4f13-a3fe-710c0f306cbd.png"
-    ],
-    description: "Complete social media analytics dashboard with Supabase authentication, real-time data tracking, and customizable reports.",
-    challenge: "Build a full-stack application with secure user authentication and real-time analytics tracking for social media campaigns.",
-    solution: "Implemented Supabase for authentication and database management, with a beautiful Shadcn UI frontend that visualizes complex data simply.",
-    results: "Platform now used by 20+ marketing agencies to track over 500 social campaigns, with 98% user satisfaction rating.",
-    tools: ["React", "Typescript", "Supabase", "Tailwind CSS", "Recharts", "Lovable"],
-    url: "https://supafriendly.lovable.app"
-  },
-  {
-    id: 13,
-    title: "PromptVault Pilot",
-    category: "Lovable Projects",
-    image: "/lovable-uploads/a2f6aa66-f631-443c-a7da-7418a3f06fb2.png",
-    images: [
-      "/lovable-uploads/a2f6aa66-f631-443c-a7da-7418a3f06fb2.png",
-      "/lovable-uploads/a4cb880c-6522-440b-844c-c9a7dc627fd1.png",
-      "/lovable-uploads/acbbdabf-610c-42f7-b37e-8c4ad7686f03.png"
-    ],
-    description: "AI prompt management platform for teams to create, organize, and optimize prompts across different AI tools and models.",
-    challenge: "Design a collaborative platform for teams to manage, version, and share their AI prompts while tracking performance metrics.",
-    solution: "Created a secure vault system with prompt templates, variables, sharing options, and performance analytics using the Lovable framework.",
-    results: "Adopted by content teams and AI researchers, improving prompt efficiency by 35% and reducing time spent writing prompts by 65%.",
-    tools: ["React", "Typescript", "Tailwind CSS", "Shadcn UI", "AI Integration", "Lovable"],
-    url: "https://promptvault.lovable.app"
   }
 ];
 
