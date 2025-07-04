@@ -2,6 +2,7 @@
 import { Route, Routes } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import PortfolioPage from "./pages/PortfolioPage";
 import WorkflowsPage from "./pages/services/WorkflowsPage";
 import FunnelsPage from "./pages/services/FunnelsPage";
 import EmailMarketingPage from "./pages/services/EmailMarketingPage";
@@ -62,6 +63,7 @@ function App() {
             emailMarketingRef={emailMarketingRef}
           />
         } />
+        <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/services/workflows" element={<WorkflowsPage />} />
         <Route path="/services/funnels" element={<FunnelsPage />} />
         <Route path="/services/email-marketing" element={<EmailMarketingPage />} />

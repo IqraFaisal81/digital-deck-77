@@ -5,6 +5,7 @@ import HomeSection from "../components/sections/HomeSection";
 import AboutSection from "../components/sections/AboutSection";
 import SkillsSection from "../components/sections/SkillsSection";
 import ServicesSection from "../components/sections/ServicesSection";
+import PortfolioPreviewSection from "../components/sections/PortfolioPreviewSection";
 import TestimonialsSection from "../components/sections/TestimonialsSection";
 import FunnelsSection from "../components/sections/FunnelsSection";
 import WorkflowsSection from "../components/sections/WorkflowsSection";
@@ -50,6 +51,7 @@ function Index({
           visibleSection={visibleSection} 
           scrollToSection={scrollToSection}
         />
+        <PortfolioPreviewSection />
         <TestimonialsSection />
         <div id="services-details" className="w-full">
           <FunnelsSection 
