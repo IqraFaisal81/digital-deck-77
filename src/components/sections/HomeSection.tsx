@@ -90,7 +90,7 @@ const HomeSection = () => {
   
   return (
     <AuroraBackground 
-      className="min-h-screen overflow-hidden relative"
+      className="overflow-hidden relative"
       showRadialGradient={true}
     >
       {/* Interactive Stars - Dark Mode Only */}
