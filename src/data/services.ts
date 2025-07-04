@@ -59,7 +59,7 @@ export const services = [
     title: "Lovable Projects",
     description: "Creating exceptional AI-powered web applications with the innovative Lovable platform. From chatbots to dashboards, I build modern apps that delight users.",
     icon: Code,
-    sectionId: "lovable-projects", // New section ID for Lovable projects
+    sectionId: "shopify-projects", // New section ID for Lovable projects
   }
 
   {
@@ -72,4 +72,4 @@ export const services = [
 ];
 
 // Array of all section IDs for toggling visibility
-export const sectionIds = ["workflows", "seo-audits", "funnels", "email-marketing", "ppc-analytics", "ai-chatbot", "lovable-projects"];
+export const sectionIds = ["workflows", "seo-audits", "funnels", "email-marketing", "ppc-analytics", "ai-chatbot", "lovable-projects","shopify-projects"];
