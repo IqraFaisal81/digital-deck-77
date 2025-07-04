@@ -57,61 +57,75 @@ const PortfolioPreviewSection = () => {
         {/* Featured Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {featuredProjects.map((project, index) => (
-            <Card 
+            <a
               key={project.id}
-              className="group transition-all duration-500 hover:scale-105 hover:-translate-y-3 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:shadow-blue-500/20 overflow-hidden"
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
             >
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                {/* Category Badge */}
-                <div className="absolute top-3 left-3">
-                  <Badge className={`bg-gradient-to-r ${categoryColors[project.category] || 'from-gray-500 to-gray-600'} text-white border-none`}>
-                    {project.category}
-                  </Badge>
-                </div>
-
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ExternalLink className="text-white h-8 w-8" />
-                </div>
-              </div>
-
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  {project.title}
-                </CardTitle>
-              </CardHeader>
-
-              <CardContent className="pt-0">
-                <CardDescription className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
-                  {project.description.slice(0, 100)}...
-                </CardDescription>
-                
-                {project.tools && (
-                  <div className="flex flex-wrap gap-1">
-                    {project.tools.slice(0, 2).map((tool, toolIndex) => (
-                      <span 
-                        key={toolIndex} 
-                        className="px-2 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300 rounded text-xs"
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                    {project.tools.length > 2 && (
-                      <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded text-xs">
-                        +{project.tools.length - 2}
-                      </span>
-                    )}
+              <Card className="group transition-all duration-500 hover:scale-105 hover:-translate-y-3 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:shadow-blue-500/20 overflow-hidden h-full">
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  {/* Category Badge */}
+                  <div className="absolute top-3 left-3">
+                    <Badge className={`bg-gradient-to-r ${categoryColors[project.category] || 'from-gray-500 to-gray-600'} text-white border-none`}>
+                      {project.category}
+                    </Badge>
                   </div>
-                )}
-              </CardContent>
-            </Card>
+
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-white/90 dark:bg-gray-800/90 rounded-full p-3">
+                      <ExternalLink className="text-blue-600 dark:text-blue-400 h-6 w-6" />
+                    </div>
+                  </div>
+                </div>
+
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    {project.title}
+                  </CardTitle>
+                </CardHeader>
+
+                <CardContent className="pt-0">
+                  <CardDescription className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
+                    {project.description.slice(0, 100)}...
+                  </CardDescription>
+                  
+                  {project.tools && (
+                    <div className="flex flex-wrap gap-1 mb-3">
+                      {project.tools.slice(0, 2).map((tool, toolIndex) => (
+                        <span 
+                          key={toolIndex} 
+                          className="px-2 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300 rounded text-xs"
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                      {project.tools.length > 2 && (
+                        <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded text-xs">
+                          +{project.tools.length - 2}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                  
+                  <div className="flex items-center justify-between pt-3 border-t border-gray-100 dark:border-gray-700">
+                    <span className="text-sm text-blue-600 dark:text-blue-400 font-medium">
+                      Visit Website →
+                    </span>
+                    <ExternalLink size={16} className="text-gray-400 group-hover:text-blue-500 transition-colors" />
+                  </div>
+                </CardContent>
+              </Card>
+            </a>
           ))}
         </div>
 
