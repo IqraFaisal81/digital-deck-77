@@ -14,7 +14,7 @@ import {
 export const services = [
   {
     id: 1,
-    title: "CRM Automations",
+    title: "CRM Automationss",
     description: "Streamline your operations with powerful Go High Level workflows, lead nurturing, tagging, and customer journeys that practically run themselves.",
     icon: Settings,
     sectionId: "workflows", // Section ID to link to
