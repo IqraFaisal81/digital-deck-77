@@ -1,4 +1,3 @@
-
 import { ProjectType } from "@/types/project";
 
 export const projects: ProjectType[] = [
@@ -26,9 +25,9 @@ export const projects: ProjectType[] = [
     id: 1,
     title: "Yield School – Multi-Platform Automation Suite",
     category: "CRM Automation", 
-    image: "/lovable-uploads/027e752c-8602-4069-99a8-4fe3e718b6db.png",
+    image: "/lovable-uploads/483815b9-bd29-4945-9df1-e8612b0459a4.png",
     images: [
-      "/lovable-uploads/027e752c-8602-4069-99a8-4fe3e718b6db.png",
+      "/lovable-uploads/483815b9-bd29-4945-9df1-e8612b0459a4.png",
       "/lovable-uploads/1d1d435c-ac9d-41d5-b68e-9391ae60e258.png",
       "/lovable-uploads/1dfe7fa3-ac44-4615-819e-9a14141d19aa.png",
       "/lovable-uploads/ac2d3376-7739-4d39-8441-5adb03b977a7.png",
