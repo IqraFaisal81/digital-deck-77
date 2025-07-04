@@ -108,7 +108,7 @@ const HomeSection = () => {
         {isMobile ? (
           <MobileHeroSection displayText={displayText} />
         ) : (
-          <div className="flex flex-col lg:flex-row w-full items-center justify-between gap-12 px-4 sm:px-6 md:px-8 py-20 max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row w-full items-center justify-between gap-12 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto">
             {/* Left Content */}
             <div className="flex flex-col space-y-8 w-full lg:w-1/2 text-center lg:text-left order-2 lg:order-1">
               {/* Status Bar */}
