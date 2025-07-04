@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { ArrowRight, ExternalLink, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -20,6 +18,11 @@ const PortfolioPreviewSection = () => {
     "SEO & Analytics": "from-orange-500 to-red-500",
     "Product Development": "from-indigo-500 to-purple-500",
     "Lovable Projects": "from-violet-500 to-purple-500",
+  };
+
+  const handlePortfolioClick = () => {
+    // Scroll to top when navigating to portfolio
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -159,7 +162,7 @@ const PortfolioPreviewSection = () => {
                 className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white rounded-full px-8 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
                 asChild
               >
-                <Link to="/portfolio" className="flex items-center">
+                <Link to="/portfolio" onClick={handlePortfolioClick} className="flex items-center">
                   View Full Portfolio
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
@@ -173,4 +176,3 @@ const PortfolioPreviewSection = () => {
 };
 
 export default PortfolioPreviewSection;
-
