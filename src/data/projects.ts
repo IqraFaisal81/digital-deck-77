@@ -1,3 +1,4 @@
+
 import { ProjectType } from "@/types/project";
 
 export const projects: ProjectType[] = [
@@ -61,6 +62,26 @@ export const projects: ProjectType[] = [
     clientName: "Grey Matters Studio"
   },
 
+  // Marketing Agency - Charley Grey
+  {
+    id: 4,
+    title: "Charley Grey – Full-Service Marketing Agency Management",
+    category: "CRM Automation",
+    image: "/lovable-uploads/4489e234-fe63-4c06-b474-0ff2ae09f6a4.png",
+    images: [
+      "/lovable-uploads/4489e234-fe63-4c06-b474-0ff2ae09f6a4.png",
+      "/lovable-uploads/3f352506-2af3-4f2c-ad84-db6e5eabdf5b.png"
+    ],
+    description: "Complete marketing operations management for a full-service agency including 70+ website SEO management, Go High Level automation, high-converting funnels, AI chatbot integration, voice chat agents, email marketing, and client communications systems.",
+    challenge: "Charley Grey needed to scale their marketing agency operations while maintaining high-quality service delivery across multiple client accounts. They required integrated systems for SEO management, lead generation, client communication, and automated sales processes to handle their growing client base efficiently.",
+    solution: "Implemented a comprehensive marketing operations system managing 70+ websites with advanced SEO strategies and Go High Level automation. Built high-converting sales funnels tailored to different client industries. Integrated AI chatbot systems with Sales AI Voice Chat Agents for 24/7 lead qualification and client support. Developed sophisticated email marketing campaigns and streamlined client communication workflows to ensure consistent service delivery across all accounts.",
+    results: "Successfully managed and optimized 70+ client websites with an average 150% increase in organic traffic. Improved lead conversion rates by 85% through automated funnel systems. Reduced client response time by 90% with AI chatbot integration. Increased client retention rate by 60% through improved communication systems and consistent results delivery.",
+    tools: ["SEO Management", "Go High Level", "AI Chatbot Integration", "Sales AI Voice Chat Agent", "Email Marketing", "Funnel Building", "Client Communication Systems", "Multi-Website Management"],
+    clientName: "Charley Grey Marketing Agency",
+    url: "http://www.charleygrey.com/",
+    relatedService: "workflows"
+  },
+
   // Funnel Projects
   {
     id: 3,
@@ -78,22 +99,6 @@ export const projects: ProjectType[] = [
     results: "Generated 245% ROI during Black Friday weekend, increased average order value by 58%, and achieved 32% cart recovery rate.",
     tools: ["Go High Level", "E-commerce", "Payment Processing", "Upsell Automation"],
     clientName: "Triad Diagnostic Solutions"
-  },
-  {
-    id: 4,
-    title: "Charley Grey – Onboarding Funnel",
-    category: "Funnel Builds",
-    image: "/lovable-uploads/3a39faba-8d75-4638-b552-02c125f678c5.png",
-    images: [
-      "/lovable-uploads/3a39faba-8d75-4638-b552-02c125f678c5.png",
-      "/lovable-uploads/3f352506-2af3-4f2c-ad84-db6e5eabdf5b.png"
-    ],
-    description: "Streamlined onboarding with auto-responses, meeting schedulers, and lead qualification logic.",
-    challenge: "High-value prospects were getting lost in a complex onboarding process with too many manual steps.",
-    solution: "Created an automated onboarding sequence with smart qualification, automatic meeting scheduling, and personalized follow-up.",
-    results: "Reduced onboarding time by 70%, increased qualified bookings by 85%, and improved client satisfaction scores by 45%.",
-    tools: ["Go High Level", "Calendly", "Zapier", "Automated Workflows"],
-    clientName: "Charley Grey Consulting"
   },
 
   // Email Marketing Projects
