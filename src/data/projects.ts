@@ -1,4 +1,3 @@
-
 import { ProjectType } from "@/types/project";
 
 export const projects: ProjectType[] = [
@@ -17,7 +16,7 @@ export const projects: ProjectType[] = [
     results: "Increased lead engagement by 75%, improved conversion rates by 40%, and successfully launched their e-commerce presence with automated order fulfillment, generating consistent passive income.",
     tools: ["Go High Level", "Email Automation", "Etsy Store Management", "Printify Integration", "Lead Segmentation"],
     clientName: "Rewild Body",
-    url: "https://rewildreset.org/find-your-rythm",
+    url: "https://rewildreset.org/",
     relatedService: "workflows"
   },
   
