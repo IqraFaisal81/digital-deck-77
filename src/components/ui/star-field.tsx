@@ -12,6 +12,8 @@ interface StarData {
   baseX: number;
   baseY: number;
   rotation: number;
+  twinkleOffset: number;
+  color: string;
 }
 
 interface StarFieldProps {
@@ -33,7 +35,9 @@ export const StarField: React.FC<StarFieldProps> = ({ className = "" }) => {
   useEffect(() => {
     const initStars = () => {
       const newStars: StarData[] = [];
-      for (let i = 0; i < 20; i++) {
+      const starColors = ['text-white', 'text-blue-100', 'text-blue-200', 'text-slate-100'];
+      
+      for (let i = 0; i < 25; i++) {
         const baseX = Math.random() * 100;
         const baseY = Math.random() * 100;
         newStars.push({
@@ -42,10 +46,12 @@ export const StarField: React.FC<StarFieldProps> = ({ className = "" }) => {
           y: baseY,
           baseX,
           baseY,
-          size: Math.random() * 16 + 12,
-          opacity: Math.random() * 0.6 + 0.3,
-          speed: Math.random() * 2 + 1,
-          rotation: Math.random() * 360
+          size: Math.random() * 12 + 8,
+          opacity: Math.random() * 0.8 + 0.2,
+          speed: Math.random() * 1 + 0.5,
+          rotation: Math.random() * 360,
+          twinkleOffset: Math.random() * Math.PI * 2,
+          color: starColors[Math.floor(Math.random() * starColors.length)]
         });
       }
       setStars(newStars);
@@ -90,43 +96,47 @@ export const StarField: React.FC<StarFieldProps> = ({ className = "" }) => {
           const distance = Math.sqrt(dx * dx + dy * dy);
           
           // Calculate attraction force (stars move towards mouse)
-          const attractionRadius = 30;
-          const maxForce = 2;
+          const attractionRadius = 25;
+          const maxForce = 1.5;
           
           let newX = star.x;
           let newY = star.y;
           let newOpacity = star.opacity;
           let newSize = star.size;
           
+          // Twinkling effect
+          const time = Date.now() * 0.001;
+          const twinkle = Math.sin(time * star.speed + star.twinkleOffset) * 0.3 + 0.7;
+          
           if (distance < attractionRadius && mousePos.x > -100) {
             // Apply attraction force
             const force = (attractionRadius - distance) / attractionRadius * maxForce;
             const angle = Math.atan2(mousePos.y - star.y, mousePos.x - star.x);
             
-            newX = star.x + Math.cos(angle) * force * 0.5;
-            newY = star.y + Math.sin(angle) * force * 0.5;
-            newOpacity = Math.min(1, star.opacity + 0.4);
-            newSize = star.size * 1.2; // Grow when mouse is near
+            newX = star.x + Math.cos(angle) * force * 0.3;
+            newY = star.y + Math.sin(angle) * force * 0.3;
+            newOpacity = Math.min(1, (star.opacity + 0.5) * twinkle);
+            newSize = star.size * 1.3; // Grow when mouse is near
             
             // Keep stars within bounds
             newX = Math.max(0, Math.min(100, newX));
             newY = Math.max(0, Math.min(100, newY));
           } else {
             // Gradually return to base position when mouse is away
-            const returnSpeed = 0.03;
+            const returnSpeed = 0.02;
             newX = star.x + (star.baseX - star.x) * returnSpeed;
             newY = star.y + (star.baseY - star.y) * returnSpeed;
-            newOpacity = Math.max(0.3, star.opacity - 0.01);
-            newSize = star.size > 12 ? star.size * 0.98 : star.size; // Shrink back to normal
+            newOpacity = star.opacity * twinkle;
+            newSize = star.size > 8 ? star.size * 0.99 : star.size; // Shrink back to normal
           }
           
           return {
             ...star,
             x: newX,
             y: newY,
-            opacity: newOpacity,
+            opacity: Math.max(0.1, Math.min(1, newOpacity)),
             size: newSize,
-            rotation: star.rotation + star.speed
+            rotation: star.rotation + star.speed * 0.5
           };
         })
       );
@@ -151,7 +161,7 @@ export const StarField: React.FC<StarFieldProps> = ({ className = "" }) => {
       {stars.map((star) => (
         <div
           key={star.id}
-          className="absolute transition-all duration-200 ease-out"
+          className="absolute transition-all duration-300 ease-out"
           style={{
             left: `${star.x}%`,
             top: `${star.y}%`,
@@ -161,7 +171,7 @@ export const StarField: React.FC<StarFieldProps> = ({ className = "" }) => {
         >
           <Star
             size={star.size}
-            className="text-yellow-400 drop-shadow-lg filter"
+            className={`${star.color} drop-shadow-sm filter`}
             fill="currentColor"
           />
         </div>
