@@ -19,7 +19,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-blue-400">
-            My Services
+            My Services are following
           </h2>
           <div className="max-w-3xl mx-auto">
             <p className="text-gray-700 dark:text-gray-300 text-lg">
