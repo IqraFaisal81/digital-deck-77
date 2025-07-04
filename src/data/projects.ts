@@ -133,23 +133,20 @@ export const projects: ProjectType[] = [
     relatedService: "email-marketing"
   },
 
-  // SEO & Analytics Projects
+  // SEO & Analytics Projects - Updated M.B Collections
   {
     id: 7,
-    title: "Cojali USA – Organic Growth",
+    title: "M.B Collections – E-commerce Shopify Website & SEO Growth",
     category: "SEO & Analytics",
-    image: "/lovable-uploads/5d7ee011-c3bc-4db4-ac81-51e49738ad1a.png",
-    images: [
-      "/lovable-uploads/5d7ee011-c3bc-4db4-ac81-51e49738ad1a.png",
-      "/lovable-uploads/62db0c38-4d35-41c2-b6db-6dcc3d85ecac.png",
-      "/lovable-uploads/64c324e0-6cd3-4ea1-84b9-45893813da58.png"
-    ],
-    description: "Boosted clicks to 2.4K+ and impressions to 67K through smart content, keyword targeting, and technical SEO.",
-    challenge: "Cojali USA needed to increase organic visibility in a competitive automotive parts market.",
-    solution: "Implemented comprehensive SEO strategy with technical optimizations, content marketing, and local SEO tactics.",
-    results: "Achieved 2.4K+ monthly clicks, 67K+ impressions, and 185% increase in organic traffic within 6 months.",
-    tools: ["SEO", "Google Search Console", "Content Strategy", "Keyword Research"],
-    clientName: "Cojali USA"
+    image: "/lovable-uploads/c08c6828-3a2c-41e7-a11b-0d601d17aab4.png",
+    description: "Complete e-commerce website management on Shopify with funnel page builds and comprehensive SEO growth strategy that significantly increased online sales.",
+    challenge: "M.B Collections needed a comprehensive e-commerce solution with effective funnel pages and strong SEO presence to compete in the online retail market and increase their sales performance.",
+    solution: "Managed their complete Shopify e-commerce website, built high-converting funnel pages, and implemented a comprehensive SEO strategy throughout the site. Optimized product pages, category structures, and implemented technical SEO best practices to improve search visibility and user experience.",
+    results: "Successfully increased e-commerce sales through strategic SEO growth and optimized funnel pages. Improved organic search visibility and enhanced the overall online shopping experience for customers.",
+    tools: ["Shopify", "SEO", "Funnel Building", "E-commerce Optimization", "Conversion Optimization"],
+    clientName: "M.B Collections",
+    url: "https://mbcollections.com.pk/",
+    relatedService: "seo-audits"
   },
   {
     id: 8,
