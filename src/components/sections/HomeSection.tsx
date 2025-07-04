@@ -1,9 +1,10 @@
+
 import { Calendar, ArrowRight, Sparkles, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { AuroraBackground } from "@/components/ui/aurora-background";
-import { CrystallineInteractive } from "@/components/ui/crystalline-interactive";
+import { StarField } from "@/components/ui/star-field";
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import MobileHeroSection from "./MobileHeroSection";
@@ -93,8 +94,8 @@ const HomeSection = () => {
       className="min-h-screen overflow-hidden relative"
       showRadialGradient={true}
     >
-      {/* Interactive Crystalline Shapes */}
-      <CrystallineInteractive className="z-5" />
+      {/* Interactive Stars - Dark Mode Only */}
+      <StarField className="z-5" />
 
       {/* Floating Elements */}
       <div className="absolute inset-0 overflow-hidden">
