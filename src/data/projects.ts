@@ -105,9 +105,9 @@ export const projects: ProjectType[] = [
     id: 5,
     title: "Morgan Jones – Infinite Scroll Funnel & Lead Nurture",
     category: "Funnel Builds",
-    image: "/lovable-uploads/9d3dfaba-05d8-409b-a6d9-d49e74c3e92c.png",
+    image: "/lovable-uploads/fbf3a9af-dc6a-480b-add4-e4e0229e053c.png",
     images: [
-      "/lovable-uploads/9d3dfaba-05d8-409b-a6d9-d49e74c3e92c.png"
+      "/lovable-uploads/fbf3a9af-dc6a-480b-add4-e4e0229e053c.png"
     ],
     description: "Built an innovative infinite scroll funnel and comprehensive lead nurture automation system in Go High Level for transforming athletes into visionaries.",
     challenge: "Morgan Jones needed a unique funnel design that would engage athletes and guide them through their transformation journey from sports to business visionaries, requiring innovative user experience and strategic automation.",
