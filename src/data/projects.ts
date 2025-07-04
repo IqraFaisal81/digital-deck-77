@@ -1,4 +1,3 @@
-
 import { ProjectType } from "@/types/project";
 
 export const projects: ProjectType[] = [
@@ -84,20 +83,20 @@ export const projects: ProjectType[] = [
   // Funnel Projects
   {
     id: 3,
-    title: "Triad DS – Black Friday Sales Funnel",
+    title: "Swiss Art & Design Life – Comprehensive Funnel Suite",
     category: "Funnel Builds",
-    image: "/lovable-uploads/33c82f7f-e3d3-4794-bb0f-f6c2db821eb5.png",
+    image: "/lovable-uploads/105795db-3225-4012-9cdd-ebc02ac73f14.png",
     images: [
-      "/lovable-uploads/33c82f7f-e3d3-4794-bb0f-f6c2db821eb5.png",
-      "/lovable-uploads/35f482ac-5ef5-4d4e-bb5b-83bb739c6f81.png",
-      "/lovable-uploads/37cac9ff-58d3-4577-aa46-17ca9bc6d57d.png"
+      "/lovable-uploads/105795db-3225-4012-9cdd-ebc02ac73f14.png"
     ],
-    description: "Developed an e-commerce funnel for Autel products with product pages, cart integration, and a killer thank-you experience.",
-    challenge: "Needed to maximize Black Friday sales with a high-converting funnel that could handle traffic spikes and complex product configurations.",
-    solution: "Built a streamlined funnel with product showcases, social proof, cart abandonment recovery, and post-purchase upsells.",
-    results: "Generated 245% ROI during Black Friday weekend, increased average order value by 58%, and achieved 32% cart recovery rate.",
-    tools: ["Go High Level", "E-commerce", "Payment Processing", "Upsell Automation"],
-    clientName: "Triad Diagnostic Solutions"
+    description: "Built 30+ high-converting funnels with integrated calendars and comprehensive automation systems in Go High Level for a premium beauty and wellness brand specializing in HydraFacial and aesthetic services.",
+    challenge: "Swiss Art & Design Life needed a comprehensive funnel ecosystem to capture, nurture, and convert leads for their premium beauty services. They required seamless appointment booking, automated follow-ups, and multiple conversion paths for different service offerings while maintaining their luxury brand positioning.",
+    solution: "Developed an extensive suite of 30+ custom funnels targeting different service categories and customer segments. Integrated advanced calendar systems for automated appointment booking and management. Built sophisticated automation workflows including lead scoring, service-specific nurture sequences, and post-appointment follow-ups. Created conversion-optimized landing pages for HydraFacial treatments and other premium services.",
+    results: "Increased online bookings by 180%, improved lead-to-appointment conversion rate by 95%, and boosted average customer lifetime value by 65%. Automated appointment scheduling reduced no-shows by 40% and streamlined operations for the entire team.",
+    tools: ["Go High Level", "Funnel Building", "Calendar Integration", "Booking Automation", "Lead Scoring", "Multi-Step Workflows"],
+    clientName: "Swiss Art & Design Life",
+    url: "https://botox.botanicabeautystudio.com/hydrofacial",
+    relatedService: "funnels"
   },
 
   // Email Marketing Projects
