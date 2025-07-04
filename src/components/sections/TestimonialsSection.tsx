@@ -28,11 +28,11 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900/20">
+    <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-blue-950/20">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-royal via-electric to-blue-600 dark:from-electric dark:to-blue-400 bg-clip-text text-transparent">
             What Clients Say
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -45,11 +45,11 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 hover:scale-105"
+              className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:scale-105 group"
             >
               {/* Quote Icon */}
               <div className="mb-6">
-                <Quote className="w-8 h-8 text-blue-500 opacity-60" />
+                <Quote className="w-8 h-8 text-electric dark:text-blue-400 opacity-60" />
               </div>
 
               {/* Content */}
@@ -66,7 +66,7 @@ const TestimonialsSection = () => {
 
               {/* Author */}
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-semibold mr-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-royal to-electric rounded-full flex items-center justify-center text-white font-semibold mr-4 shadow-lg">
                   {testimonial.avatar}
                 </div>
                 <div>
@@ -89,7 +89,7 @@ const TestimonialsSection = () => {
           </p>
           <a 
             href="#contact" 
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-royal to-electric text-white font-semibold rounded-full hover:from-royal/90 hover:to-electric/90 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
           >
             Let's Work Together
           </a>

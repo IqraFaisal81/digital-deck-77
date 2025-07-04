@@ -41,10 +41,12 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 relative overflow-hidden">
+    <section id="contact" className="py-20 bg-gradient-to-br from-royal via-blue-900 to-indigo-900 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-electric/10 to-blue-500/10"></div>
+        <div className="absolute top-20 left-20 w-96 h-96 bg-electric/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -62,7 +64,7 @@ const ContactSection = () => {
         {/* Main CTA */}
         <div className="text-center mb-16">
           <Button 
-            className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold px-8 py-4 rounded-full text-lg shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
+            className="bg-gradient-to-r from-electric to-blue-500 hover:from-electric/90 hover:to-blue-500/90 text-white font-semibold px-8 py-4 rounded-full text-lg shadow-2xl hover:shadow-electric/25 transition-all duration-300 transform hover:scale-105"
             asChild
             size="lg"
           >
@@ -85,7 +87,7 @@ const ContactSection = () => {
                 className="group bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="bg-gradient-to-r from-blue-400 to-purple-400 p-4 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="bg-gradient-to-r from-electric to-blue-500 p-4 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <method.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-2">{method.title}</h3>
@@ -105,15 +107,15 @@ const ContactSection = () => {
               <h3 className="text-2xl font-semibold text-white mb-6">Quick Info</h3>
               <div className="space-y-4">
                 <div className="flex items-center text-blue-100">
-                  <MapPin className="w-5 h-5 mr-3 text-blue-400" />
+                  <MapPin className="w-5 h-5 mr-3 text-electric" />
                   <span>Based in London, UK</span>
                 </div>
                 <div className="flex items-center text-blue-100">
-                  <Clock className="w-5 h-5 mr-3 text-blue-400" />
+                  <Clock className="w-5 h-5 mr-3 text-electric" />
                   <span>GMT Timezone</span>
                 </div>
                 <div className="flex items-center text-blue-100">
-                  <Calendar className="w-5 h-5 mr-3 text-blue-400" />
+                  <Calendar className="w-5 h-5 mr-3 text-electric" />
                   <span>Usually responds within 24 hours</span>
                 </div>
               </div>
@@ -131,7 +133,7 @@ const ContactSection = () => {
                     rel="noopener noreferrer" 
                     className="bg-white/20 p-4 rounded-xl hover:bg-white/30 transition-all duration-300 transform hover:scale-110 group"
                   >
-                    <social.icon className="w-6 h-6 text-white group-hover:text-blue-300 transition-colors" />
+                    <social.icon className="w-6 h-6 text-white group-hover:text-electric transition-colors" />
                   </a>
                 ))}
               </div>
