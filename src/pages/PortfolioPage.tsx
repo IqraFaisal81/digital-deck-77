@@ -6,7 +6,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { projects, getProjectCategories } from "@/data/projects";
-import Navbar from "@/components/Navbar";
 import ImageGallery from "@/components/portfolio/ImageGallery";
 
 const PortfolioPage = () => {
@@ -37,10 +36,8 @@ const PortfolioPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <Navbar />
-      
       {/* Hero Section */}
-      <section className="pt-24 pb-16 relative overflow-hidden">
+      <section className="pt-16 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30"></div>
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>

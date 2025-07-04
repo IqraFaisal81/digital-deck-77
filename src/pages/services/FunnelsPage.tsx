@@ -1,15 +1,12 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Calendar, ArrowLeft, Repeat } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Navbar from '@/components/Navbar';
 
 const FunnelsPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50/50 to-purple-50/50 dark:from-gray-900 dark:via-blue-950/30 dark:to-purple-950/30">
-      <Navbar />
-      <div className="pt-20 pb-16">
+      <div className="pt-16 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <Link to="/" className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-8">
