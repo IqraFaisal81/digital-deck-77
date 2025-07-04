@@ -74,13 +74,6 @@ export const services = [
   },
   {
     id: 9,
-    title: "Lovable Development",
-    description: "Build cutting-edge AI-powered web applications using the innovative Lovable platform, from interactive dashboards to custom business tools that streamline operations.",
-    icon: Code,
-    sectionId: "lovable-projects",
-  },
-  {
-    id: 10,
     title: "Shopify Solutions",
     description: "Create powerful e-commerce experiences with custom Shopify development, theme customization, app integration, and conversion optimization strategies that drive sales.",
     icon: ShoppingCart,
@@ -97,6 +90,5 @@ export const sectionIds = [
   "zapier-automations",
   "tracking-attribution",
   "ai-chatbot", 
-  "lovable-projects",
   "shopify-projects"
 ];

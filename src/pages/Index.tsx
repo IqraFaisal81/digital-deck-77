@@ -13,7 +13,6 @@ import SEOAuditSection from "../components/sections/SeoAuditsSection";
 import PPCAnalyticsSection from "../components/sections/PPCAnalyticsSection";
 import AIChatbotSection from "../components/sections/AIChatbotSection";
 import EmailMarketingSection from "../components/sections/EmailMarketingSection";
-import LovableProjectsSection from "../components/sections/LovableProjectsSection";
 import ContactSection from "../components/sections/ContactSection";
 
 interface IndexProps {
@@ -27,7 +26,6 @@ interface IndexProps {
   ppcAnalyticsRef: React.RefObject<HTMLElement>;
   aiChatbotRef: React.RefObject<HTMLElement>;
   emailMarketingRef: React.RefObject<HTMLElement>;
-  lovableProjectsRef: React.RefObject<HTMLElement>;
 }
 
 function Index({
@@ -40,8 +38,7 @@ function Index({
   seoAuditsRef,
   ppcAnalyticsRef,
   aiChatbotRef,
-  emailMarketingRef,
-  lovableProjectsRef
+  emailMarketingRef
 }: IndexProps) {
   return (
     <div className="min-h-screen overflow-x-hidden">
@@ -86,11 +83,6 @@ function Index({
             isSectionVisible={isSectionVisible} 
             setVisibleSection={setVisibleSection} 
             emailMarketingRef={emailMarketingRef}
-          />
-          <LovableProjectsSection 
-            isSectionVisible={isSectionVisible} 
-            setVisibleSection={setVisibleSection} 
-            lovableProjectsRef={lovableProjectsRef}
           />
         </div>
         <ContactSection />
