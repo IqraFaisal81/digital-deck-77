@@ -1,7 +1,28 @@
-
 import { ProjectType } from "@/types/project";
 
 export const projects: ProjectType[] = [
+  // New Rewild Body Project
+  {
+    id: 14,
+    title: "Rewild Body – Lead Nurture Automation",
+    category: "CRM Automation",
+    image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800&h=600&fit=crop", // Green forest with sunlight
+    images: [
+      "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800&h=600&fit=crop", // Main forest image
+      "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&h=600&fit=crop", // Pine trees
+      "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=800&h=600&fit=crop", // Trees from low angle
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&h=600&fit=crop" // Water surrounded by trees
+    ],
+    description: "Comprehensive lead nurturing automation system in Go High Level for a wellness brand focused on natural body rhythms, plus complete Etsy store setup and management with Printify integration.",
+    challenge: "Rewild Body needed to automate their lead nurturing process to guide prospects through their wellness journey while maintaining a personal, nature-focused brand experience. They also wanted to expand into e-commerce with minimal manual overhead.",
+    solution: "Built a sophisticated lead nurture sequence in Go High Level that segments users based on their wellness goals and interests. Created automated email workflows that deliver personalized content about natural body rhythms and wellness practices. Additionally, set up and managed their Etsy store with Printify integration for seamless product fulfillment.",
+    results: "Increased lead engagement by 75%, improved conversion rates by 40%, and successfully launched their e-commerce presence with automated order fulfillment, generating consistent passive income.",
+    tools: ["Go High Level", "Email Automation", "Etsy Store Management", "Printify Integration", "Lead Segmentation"],
+    clientName: "Rewild Body",
+    url: "https://rewildreset.org/find-your-rythm",
+    relatedService: "workflows"
+  },
+  
   // CRM Automation Projects
   {
     id: 1,
