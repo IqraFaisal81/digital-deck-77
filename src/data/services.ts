@@ -9,7 +9,10 @@ import {
   MessageSquare,
   Mic,
   Code,
-  ShoppingCart
+  ShoppingCart,
+  Workflow,
+  Zap,
+  Target
 } from "lucide-react";
 
 export const services = [
@@ -36,10 +39,10 @@ export const services = [
   },
   {
     id: 4,
-    title: "PPC & Analytics",
-    description: "Launch and optimize data-driven advertising campaigns across Google, Meta, and other platforms with comprehensive tracking through Google Tag Manager and custom Looker Studio dashboards.",
-    icon: Megaphone,
-    sectionId: "ppc-analytics",
+    title: "Webflow Development",
+    description: "Build stunning, responsive websites and web applications using Webflow's powerful visual development platform with custom interactions, animations, and CMS integration.",
+    icon: Workflow,
+    sectionId: "webflow-projects",
   },
   {
     id: 5,
@@ -50,20 +53,34 @@ export const services = [
   },
   {
     id: 6,
+    title: "Zapier Automations",
+    description: "Connect and automate your favorite apps with powerful Zapier workflows that eliminate manual tasks, sync data seamlessly, and create intelligent business process automation.",
+    icon: Zap,
+    sectionId: "zapier-automations",
+  },
+  {
+    id: 7,
+    title: "Tracking & Attribution",
+    description: "Implement comprehensive tracking systems with Google Tag Manager, Facebook Pixel, and custom attribution models to measure campaign performance and optimize ROI.",
+    icon: Target,
+    sectionId: "tracking-attribution",
+  },
+  {
+    id: 8,
     title: "AI Chatbot & Voice Solutions",
     description: "Deploy intelligent conversational AI systems that provide instant customer support, qualify leads, and handle inquiries with natural language processing and voice capabilities.",
     icon: MessageSquare,
     sectionId: "ai-chatbot",
   },
   {
-    id: 7,
+    id: 9,
     title: "Lovable Development",
     description: "Build cutting-edge AI-powered web applications using the innovative Lovable platform, from interactive dashboards to custom business tools that streamline operations.",
     icon: Code,
     sectionId: "lovable-projects",
   },
   {
-    id: 8,
+    id: 10,
     title: "Shopify Solutions",
     description: "Create powerful e-commerce experiences with custom Shopify development, theme customization, app integration, and conversion optimization strategies that drive sales.",
     icon: ShoppingCart,
@@ -76,7 +93,9 @@ export const sectionIds = [
   "seo-audits", 
   "funnels", 
   "email-marketing", 
-  "ppc-analytics", 
+  "webflow-projects",
+  "zapier-automations",
+  "tracking-attribution",
   "ai-chatbot", 
   "lovable-projects",
   "shopify-projects"
