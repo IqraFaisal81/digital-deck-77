@@ -74,7 +74,7 @@ const PortfolioPage = () => {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-16 bg-gray-50 dark:bg-gradient-to-br dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30">
+      <section className="py-16 bg-gray-50 dark:bg-gradient-to-br dark:from-blue-950/80 dark:via-purple-950/90 dark:to-purple-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
