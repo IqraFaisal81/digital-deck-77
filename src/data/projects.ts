@@ -1,3 +1,4 @@
+
 import { ProjectType } from "@/types/project";
 
 export const projects: ProjectType[] = [
@@ -6,9 +7,9 @@ export const projects: ProjectType[] = [
     id: 14,
     title: "Rewild Body – Lead Nurture Automation", 
     category: "CRM Automation",
-    image: "/lovable-uploads/4ceb1757-b045-4838-b548-d9e69f71299e.png",
+    image: "/lovable-uploads/31306609-f6b1-43d3-a089-ef09d458957c.png",
     images: [
-      "/lovable-uploads/4ceb1757-b045-4838-b548-d9e69f71299e.png"
+      "/lovable-uploads/31306609-f6b1-43d3-a089-ef09d458957c.png"
     ],
     description: "Comprehensive lead nurturing automation system in Go High Level for a wellness brand focused on natural body rhythms, plus complete Etsy store setup and management with Printify integration.",
     challenge: "Rewild Body needed to automate their lead nurturing process to guide prospects through their wellness journey while maintaining a personal, nature-focused brand experience. They also wanted to expand into e-commerce with minimal manual overhead.",
