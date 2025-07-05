@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect } from "react";
 import { 
   Globe, 
@@ -119,7 +120,7 @@ const SkillsSection = () => {
     <section 
       id="skills" 
       ref={sectionRef} 
-      className="py-24 lg:py-32 relative overflow-hidden bg-gradient-to-br from-white via-blue-50/50 to-purple-50/50 dark:from-purple-900 dark:via-gray-900 dark:to-blue-950"
+      className="py-24 lg:py-32 relative overflow-hidden bg-gradient-to-b from-purple-50/50 via-blue-50/50 to-white dark:from-purple-900/80 dark:via-gray-900 dark:to-blue-950"
     >
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
