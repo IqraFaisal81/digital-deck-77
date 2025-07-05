@@ -1,118 +1,220 @@
 
-import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import React, { useRef, useEffect } from "react";
 import { 
-  Code2, 
+  Globe, 
   Database, 
-  Palette, 
-  Zap, 
-  Brain, 
-  MessageSquare,
-  BarChart3,
-  Mail,
-  Settings,
-  Smartphone
+  BarChart, 
+  Bot, 
+  TrendingUp,
+  ArrowRight,
+  Sparkles,
+  Zap,
+  Target
 } from "lucide-react";
+import SectionHeader from "../skills/SectionHeader";
+import SkillCard from "../skills/SkillCard";
+import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { motion } from "framer-motion";
 
-const skills = [
+type SkillCategory = {
+  name: string;
+  icon: React.ReactNode;
+  skills: {
+    name: string;
+  }[];
+};
+
+const skillCategories: SkillCategory[] = [
   {
-    category: "CRM & Automation",
-    icon: Zap,
-    color: "from-blue-500 to-cyan-500",
-    skills: ["Go High Level", "HubSpot", "Zapier", "Make.com", "ActiveCampaign"]
+    name: "Digital Marketing & Growth",
+    icon: <Globe className="h-6 w-6 text-blue-600 dark:text-blue-400" />,
+    skills: [
+      { name: "Google Ads Pro (Search, Display, Performance Max)" },
+      { name: "Meta, TikTok, & Snapchat Ads Wizardry" },
+      { name: "SEO Domination (Technical, On-Page, Off-Page)" },
+      { name: "Email Marketing Strategy & Automation" },
+    ]
   },
   {
-    category: "Marketing Tools",
-    icon: BarChart3,
-    color: "from-purple-500 to-pink-500",
-    skills: ["Google Ads", "Facebook Ads", "Google Analytics", "Tag Manager", "Hotjar"]
+    name: "CRM & Automation Mastery",
+    icon: <Database className="h-6 w-6 text-purple-600 dark:text-purple-400" />,
+    skills: [
+      { name: "Go High Level Ninja (Workflows, Pipelines)" },
+      { name: "HubSpot & ActiveCampaign Automation" },
+      { name: "Funnel Building + Lead Nurture Sequences" },
+      { name: "A2P Compliance & Deliverability Optimization" },
+    ]
   },
   {
-    category: "Design & Development",
-    icon: Code2,
-    color: "from-green-500 to-emerald-500",
-    skills: ["HTML/CSS", "JavaScript", "React", "Figma", "Canva", "Photoshop"]
+    name: "Automation Expert",
+    icon: <Zap className="h-6 w-6 text-yellow-600 dark:text-yellow-400" />,
+    skills: [
+      { name: "Zapier Advanced Workflows & Multi-Step Automation" },
+      { name: "Make.com Complex Scenarios & Data Processing" },
+      { name: "API Integration & Custom Webhook Solutions" },
+      { name: "Business Process Automation & Optimization" },
+    ]
   },
   {
-    category: "AI & Chatbots",
-    icon: Brain,
-    color: "from-orange-500 to-red-500",
-    skills: ["ChatGPT Integration", "Voiceflow", "Manychat", "Custom AI Solutions"]
+    name: "Tracking & Attribution",
+    icon: <Target className="h-6 w-6 text-red-600 dark:text-red-400" />,
+    skills: [
+      { name: "Google Tag Manager & Advanced Tracking Setup" },
+      { name: "Facebook Pixel & Conversion API Implementation" },
+      { name: "Multi-Touch Attribution Modeling" },
+      { name: "Custom Analytics Dashboards & Reporting" },
+    ]
   },
   {
-    category: "Email Marketing",
-    icon: Mail,
-    color: "from-indigo-500 to-purple-500",
-    skills: ["Mailchimp", "ConvertKit", "Email Sequences", "A/B Testing"]
+    name: "Data & Analytics",
+    icon: <BarChart className="h-6 w-6 text-green-600 dark:text-green-400" />,
+    skills: [
+      { name: "Google Analytics (GA4), Looker Studio Dashboards" },
+      { name: "R Studio, SQL Queries, Power BI, Tableau" },
+      { name: "Data-Driven Decision Making & ROI Reporting" },
+    ]
   },
   {
-    category: "Analytics & Optimization",
-    icon: Settings,
-    color: "from-teal-500 to-blue-500",
-    skills: ["Conversion Tracking", "Heat Maps", "Split Testing", "Performance Optimization"]
-  }
+    name: "SaaS & AI Development",
+    icon: <Bot className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />,
+    skills: [
+      { name: "SaaS Funnels, Onboarding, and Subscription Logic" },
+      { name: "AI Integration (Chatbots, OpenAI API)" },
+      { name: "Conversational AI Systems for Multiple Niches" },
+      { name: "Custom CRM Add-ons & Feature Workflows" },
+    ]
+  },
 ];
 
 const SkillsSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
+
+  // Enhanced animation on scroll
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const element = entry.target as HTMLElement;
+          const delay = parseInt(element.dataset.delay || '0');
+          
+          setTimeout(() => {
+            element.classList.add('opacity-100', 'translate-y-0');
+            element.classList.remove('opacity-0', 'translate-y-8');
+          }, delay);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -100px 0px" });
+    
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach((el, index) => {
+      (el as HTMLElement).dataset.delay = (index * 100).toString();
+      observer.observe(el);
+    });
+    
+    return () => elements.forEach(el => observer.unobserve(el));
+  }, []);
+
   return (
-    <section id="skills" className="py-16 lg:py-20 relative overflow-hidden bg-gradient-to-br from-white via-blue-50 to-slate-50 dark:from-gray-850 dark:to-gray-900">
-      {/* Background decoration */}
+    <section 
+      id="skills" 
+      ref={sectionRef} 
+      className="py-24 lg:py-32 relative overflow-hidden bg-gradient-to-br from-white via-blue-50/50 to-purple-50/50 dark:from-gray-900 dark:via-blue-950/30 dark:to-purple-950/30"
+    >
+      {/* Enhanced Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-full blur-2xl animate-pulse delay-2000"></div>
+        <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-full blur-2xl animate-pulse delay-500"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-56 h-56 bg-gradient-to-br from-violet-500/10 to-purple-500/10 rounded-full blur-2xl animate-pulse delay-1500"></div>
+        
+        {/* Floating shapes */}
+        <div className="absolute top-40 right-10 w-4 h-4 rounded-full bg-blue-400 opacity-70 animate-float"></div>
+        <div className="absolute top-1/2 left-10 w-6 h-6 rounded-full bg-indigo-400 opacity-60 animate-float" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-40 right-1/3 w-5 h-5 rounded-full bg-purple-400 opacity-50 animate-float" style={{animationDelay: '2s'}}></div>
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 mb-6 rounded-full bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800">
-              <Code2 className="h-4 w-4 mr-2 text-blue-600 dark:text-blue-400" />
-              <span className="text-sm font-medium text-blue-800 dark:text-blue-300">Skills & Expertise</span>
-            </div>
-            <h2 className="text-4xl lg:text-6xl font-bold mb-6">
+        <div className="flex flex-col items-center">
+          <div className="inline-flex items-center px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 border border-blue-200 dark:border-blue-800">
+            <Sparkles className="h-4 w-4 mr-2 text-blue-600 dark:text-blue-400" />
+            <span className="text-sm font-medium text-blue-800 dark:text-blue-300">Professional Skills</span>
+          </div>
+        </div>
+        
+        <SectionHeader 
+          title={
+            <span className="text-4xl lg:text-6xl font-bold">
               <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
-                Tools & Technologies
+                Skills &
               </span>
               <br />
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                I Master
+                Expertise
               </span>
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              From automation platforms to AI integration, I work with cutting-edge tools to deliver exceptional results
-            </p>
-          </div>
-
-          {/* Skills Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skills.map((skillGroup, index) => (
-              <Card key={index} className="group hover:shadow-2xl transition-all duration-300 hover:scale-105 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border border-gray-100 dark:border-gray-700">
-                <CardHeader className="pb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className={`p-3 rounded-2xl bg-gradient-to-r ${skillGroup.color} shadow-lg group-hover:shadow-xl transition-shadow duration-300`}>
-                      <skillGroup.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <CardTitle className="text-xl font-semibold text-gray-900 dark:text-white">
-                      {skillGroup.category}
-                    </CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {skillGroup.skills.map((skill, skillIndex) => (
-                      <Badge 
-                        key={skillIndex} 
-                        className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+            </span>
+          }
+          description="Combining technical expertise with strategic marketing to deliver comprehensive solutions that drive growth and engagement."
+          alignment="center"
+          useGradient={false}
+        />
+        
+        {/* Skills Grid with enhanced animations */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mt-12">
+          {skillCategories.map((category, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <SkillCard
+                name={category.name}
+                icon={category.icon}
+                skills={category.skills}
+                index={index}
+              />
+            </motion.div>
+          ))}
+        </div>
+        
+        {/* Enhanced call to action */}
+        <div className="mt-20 text-center">
+          <div className="relative bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/50 dark:via-purple-950/50 dark:to-pink-950/50 rounded-3xl p-8 lg:p-12 border border-blue-200 dark:border-blue-800 backdrop-blur-sm overflow-hidden">
+            {/* Animated background elements */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-cyan-400/20 rounded-full blur-2xl animate-pulse"></div>
+              <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-2xl animate-pulse delay-1000"></div>
+            </div>
+            
+            <div className="max-w-3xl mx-auto relative z-10">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                <h3 className="text-2xl lg:text-3xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
+                  Ready to Transform Your Business?
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg leading-relaxed">
+                  Let's discuss your unique challenges and explore how my expertise can drive your business forward. 
+                  Book a free strategy session to get started.
+                </p>
+                <Button 
+                  asChild
+                  className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white rounded-full px-8 py-6 shadow-lg hover:shadow-xl group transition-all duration-300 hover:-translate-y-1 hover:scale-105 border border-blue-400/20"
+                >
+                  <a href="#services" className="inline-flex items-center">
+                    <span className="mr-2 font-medium">View my services</span>
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </a>
+                </Button>
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>

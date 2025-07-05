@@ -26,10 +26,10 @@ const ProjectHighlightsSection = () => {
   };
 
   return (
-    <section id="case-studies" className="section-padding relative bg-gradient-to-br from-white via-slate-50 to-blue-50 dark:from-gray-850 dark:to-gray-900">
+    <section id="case-studies" className="section-padding relative bg-gradient-to-br from-white via-white to-blue-50 dark:from-gray-900 dark:via-gray-900 dark:to-blue-950/30">
       {/* Background decorative elements */}
-      <div className="absolute top-20 right-10 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-80 h-80 bg-indigo-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-20 right-10 w-64 h-64 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-40"></div>
+      <div className="absolute bottom-20 left-10 w-80 h-80 bg-indigo-100 dark:bg-indigo-900/20 rounded-full blur-3xl opacity-40"></div>
       
       <div className="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 py-12">
         <SectionHeader 
