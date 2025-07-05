@@ -1,4 +1,5 @@
 
+
 import { ArrowRight, Calendar, Sparkles } from "lucide-react";
 import { services } from "@/data/services";
 import { Button } from "@/components/ui/button";
@@ -66,14 +67,14 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
   };
   
   return (
-    <section id="services" className="py-24 lg:py-32 relative overflow-hidden bg-gradient-to-br from-white via-blue-50/50 to-purple-50/50 dark:from-blue-950 dark:via-blue-950/30 dark:to-purple-950/30">
+    <section id="services" className="py-24 lg:py-32 relative overflow-hidden bg-gradient-to-b from-white via-blue-50/30 to-purple-50/40 dark:from-blue-950 dark:via-purple-950/40 dark:to-blue-950/60">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-full blur-2xl animate-pulse delay-2000"></div>
-        <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-full blur-2xl animate-pulse delay-500"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-56 h-56 bg-gradient-to-br from-violet-500/10 to-purple-500/10 rounded-full blur-2xl animate-pulse delay-1500"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-500/8 to-cyan-500/8 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-br from-purple-500/8 to-pink-500/8 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-emerald-500/8 to-teal-500/8 rounded-full blur-2xl animate-pulse delay-2000"></div>
+        <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-gradient-to-br from-orange-500/8 to-red-500/8 rounded-full blur-2xl animate-pulse delay-500"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-56 h-56 bg-gradient-to-br from-violet-500/8 to-purple-500/8 rounded-full blur-2xl animate-pulse delay-1500"></div>
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -200,3 +201,4 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
 };
 
 export default ServicesSection;
+
