@@ -28,7 +28,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-purple-50 dark:from-gray-900 dark:to-purple-950/20">
+    <section className="py-20 bg-gradient-to-b from-purple-50/60 via-slate-50 to-purple-50 dark:from-blue-950/70 dark:via-gray-900 dark:to-purple-950/20">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
