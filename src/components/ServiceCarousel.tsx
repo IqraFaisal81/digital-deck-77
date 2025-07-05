@@ -23,6 +23,33 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
   const { carouselApi, setCarouselApi, currentIndex } = useCarouselState();
   const navigate = useNavigate();
 
+  // Colorful gradient combinations for each service card
+  const cardGradients = [
+    "from-blue-500/20 via-cyan-500/20 to-teal-500/20", // CRM Automation
+    "from-purple-500/20 via-pink-500/20 to-rose-500/20", // Funnel Development
+    "from-green-500/20 via-emerald-500/20 to-cyan-500/20", // Email Marketing
+    "from-orange-500/20 via-red-500/20 to-pink-500/20", // Webflow Development
+    "from-indigo-500/20 via-purple-500/20 to-blue-500/20", // SEO & Analytics
+    "from-yellow-500/20 via-orange-500/20 to-red-500/20", // Zapier Automations
+    "from-pink-500/20 via-rose-500/20 to-red-500/20", // Tracking & Attribution
+    "from-cyan-500/20 via-blue-500/20 to-indigo-500/20", // AI Chatbot
+    "from-violet-500/20 via-purple-500/20 to-pink-500/20", // Lovable Development
+    "from-emerald-500/20 via-green-500/20 to-teal-500/20", // Shopify Solutions
+  ];
+
+  const iconGradients = [
+    "from-blue-500 to-cyan-500", // CRM Automation
+    "from-purple-500 to-pink-500", // Funnel Development
+    "from-green-500 to-emerald-500", // Email Marketing
+    "from-orange-500 to-red-500", // Webflow Development
+    "from-indigo-500 to-purple-500", // SEO & Analytics
+    "from-yellow-500 to-orange-500", // Zapier Automations
+    "from-pink-500 to-rose-500", // Tracking & Attribution
+    "from-cyan-500 to-blue-500", // AI Chatbot
+    "from-violet-500 to-purple-500", // Lovable Development
+    "from-emerald-500 to-green-500", // Shopify Solutions
+  ];
+
   const handleServiceClick = (service: any) => {
     if (service.sectionId) {
       // Map section IDs to route paths
@@ -56,51 +83,56 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
         setApi={setCarouselApi}
       >
         <CarouselContent>
-          {services && services.map((service) => (
+          {services && services.map((service, index) => (
             <CarouselItem 
               key={service.id} 
               className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/3 p-2"
             >
               <Card 
-                className={`h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:scale-[1.02] overflow-hidden ${
-                  service.sectionId ? 'cursor-pointer hover:bg-blue-50 dark:hover:bg-blue-900/30' : ''
+                className={`group relative overflow-hidden h-full flex flex-col transition-all duration-500 hover:scale-105 hover:-translate-y-3 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:shadow-blue-500/20 ${
+                  service.sectionId ? 'cursor-pointer' : ''
                 }`}
                 onClick={() => handleServiceClick(service)}
               >
-                <CardHeader className="pb-2">
+                {/* Colorful gradient overlay */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${cardGradients[index % cardGradients.length]} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                
+                <CardHeader className="relative z-10 pb-2">
                   <div className="flex items-center gap-4">
-                    <div className="bg-gradient-to-br from-royal to-electric dark:from-electric dark:to-blue-600 p-3 rounded-full w-14 h-14 flex items-center justify-center">
+                    <div className={`p-3 rounded-2xl bg-gradient-to-br ${iconGradients[index % iconGradients.length]} shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300 w-14 h-14 flex items-center justify-center`}>
                       <service.icon className="text-white" size={24} />
                     </div>
-                    <CardTitle className="text-xl bg-clip-text text-transparent bg-gradient-to-r from-royal to-electric dark:from-electric dark:to-blue-400">
+                    <CardTitle className="text-xl bg-gradient-to-r from-gray-900 to-blue-800 dark:from-white dark:to-blue-200 bg-clip-text text-transparent group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
                       {service.title}
                     </CardTitle>
                   </div>
                 </CardHeader>
-                <CardContent className="pb-6 flex-grow">
-                  <CardDescription className="text-gray-700 dark:text-gray-300 text-sm">
+                
+                <CardContent className="relative z-10 pb-6 flex-grow">
+                  <CardDescription className="text-gray-600 dark:text-gray-300 text-sm">
                     {service.description}
                   </CardDescription>
                 </CardContent>
-                <CardFooter className="flex justify-between items-center border-t pt-4 bg-gray-50 dark:bg-gray-800/50 mt-auto">
+                
+                <CardFooter className="relative z-10 flex justify-between items-center border-t pt-4 bg-gray-50/80 dark:bg-gray-800/80 mt-auto">
                   {service.sectionId && (
-                    <div className="text-royal dark:text-electric text-sm flex items-center">
-                      <span>Learn more</span>
-                      <ArrowRight size={14} className="ml-1" />
+                    <div className="flex items-center text-sm text-blue-600 dark:text-blue-400 font-medium">
+                      <span>Learn More</span>
+                      <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   )}
                   
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="text-gray-600 dark:text-gray-300 hover:text-royal dark:hover:text-electric hover:bg-blue-50 dark:hover:bg-blue-900/20 text-xs"
+                    className="text-gray-500 hover:text-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 dark:hover:text-white transition-all duration-300 text-xs"
                     onClick={(e) => {
                       e.stopPropagation();
                       window.open("https://calendly.com/iqrafaisal81/discovery-call?month=2025-04", "_blank");
                     }}
                   >
                     <Calendar className="mr-1 h-3 w-3" />
-                    Book Consultation
+                    Book Call
                   </Button>
                 </CardFooter>
               </Card>
