@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { StarField } from "@/components/ui/star-field";
 import { InteractiveGrid } from "@/components/ui/interactive-grid";
-import { Galaxy3DShapes } from "@/components/ui/galaxy-3d-shapes";
+import NightSky from "@/components/ui/night-sky";
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import MobileHeroSection from "./MobileHeroSection";
@@ -95,8 +95,8 @@ const HomeSection = () => {
       className="overflow-hidden relative"
       showRadialGradient={true}
     >
-      {/* Galaxy 3D Shapes - New cosmic background layer */}
-      <Galaxy3DShapes className="z-5" />
+      {/* Night Sky Canvas - Dark Mode Only */}
+      <NightSky />
       
       {/* Interactive Stars - Dark Mode Only */}
       <StarField className="z-10" />
