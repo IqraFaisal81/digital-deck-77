@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import { ArrowLeft, ExternalLink, Github, Calendar, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -22,7 +20,7 @@ const PortfolioPage = () => {
   // Color schemes for different categories
   const categoryColors: { [key: string]: string } = {
     "CRM Automation": "from-blue-500 to-cyan-500",
-    "Funnel Builds": "from-purple-500 to-pink-500",
+    "Funnel Builds": "from-purple-500 to-pink-500", 
     "Email Marketing": "from-green-500 to-emerald-500",
     "SEO & Analytics": "from-orange-500 to-red-500",
     "Product Development": "from-indigo-500 to-purple-500",
@@ -32,26 +30,25 @@ const PortfolioPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
-      <section className="pt-16 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-purple-50/60 to-pink-50/50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30"></div>
+      <section className="pt-16 pb-16 relative overflow-hidden bg-gradient-to-b from-purple-50/80 via-indigo-50/60 to-blue-50/40 dark:from-purple-950/40 dark:via-indigo-950/30 dark:to-blue-950/20">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-br from-indigo-500/10 to-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 border border-blue-200 dark:border-blue-800">
-              <Sparkles className="h-4 w-4 mr-2 text-blue-600 dark:text-blue-400" />
-              <span className="text-sm font-medium text-blue-800 dark:text-blue-300">My Work</span>
+            <div className="inline-flex items-center px-4 py-2 mb-6 rounded-full bg-gradient-to-r from-purple-100 to-indigo-100 dark:from-purple-900/30 dark:to-indigo-900/30 border border-purple-200 dark:border-purple-800">
+              <Sparkles className="h-4 w-4 mr-2 text-purple-600 dark:text-purple-400" />
+              <span className="text-sm font-medium text-purple-800 dark:text-purple-300">My Work</span>
             </div>
             
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-gray-900 via-purple-800 to-indigo-800 dark:from-white dark:via-purple-200 dark:to-indigo-200 bg-clip-text text-transparent">
                 Portfolio &
               </span>
               <br />
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 bg-clip-text text-transparent">
                 Case Studies
               </span>
             </h1>
@@ -75,13 +72,13 @@ const PortfolioPage = () => {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-16 bg-gradient-to-b from-blue-50/50 via-purple-50/60 to-pink-50/50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30">
+      <section className="py-16 bg-gradient-to-b from-blue-50/40 via-indigo-50/60 to-purple-50/80 dark:from-blue-950/20 dark:via-indigo-950/30 dark:to-purple-950/40">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <Card 
                 key={project.id}
-                className="group cursor-pointer transition-all duration-500 hover:scale-105 hover:-translate-y-2 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:shadow-blue-500/20 overflow-hidden"
+                className="group cursor-pointer transition-all duration-500 hover:scale-105 hover:-translate-y-2 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:shadow-purple-500/20 overflow-hidden"
                 onClick={() => openProjectModal(project)}
               >
                 <div className="relative h-48 overflow-hidden">
@@ -110,7 +107,7 @@ const PortfolioPage = () => {
                 </div>
 
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <CardTitle className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                     {project.title}
                   </CardTitle>
                 </CardHeader>
@@ -125,7 +122,7 @@ const PortfolioPage = () => {
                       {project.tools.slice(0, 3).map((tool, toolIndex) => (
                         <span 
                           key={toolIndex} 
-                          className="px-2 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300 rounded text-xs"
+                          className="px-2 py-1 bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-300 rounded text-xs"
                         >
                           {tool}
                         </span>
@@ -139,10 +136,10 @@ const PortfolioPage = () => {
                   )}
                   
                   <div className="flex items-center justify-between pt-3 border-t border-gray-100 dark:border-gray-700">
-                    <span className="text-sm text-blue-600 dark:text-blue-400 font-medium">
+                    <span className="text-sm text-purple-600 dark:text-purple-400 font-medium">
                       View Details →
                     </span>
-                    <ExternalLink size={16} className="text-gray-400 group-hover:text-blue-500 transition-colors" />
+                    <ExternalLink size={16} className="text-gray-400 group-hover:text-purple-500 transition-colors" />
                   </div>
                 </CardContent>
               </Card>
@@ -152,16 +149,16 @@ const PortfolioPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-b from-pink-50/50 via-purple-50/60 to-blue-50/50 dark:from-pink-950/30 dark:via-purple-950/30 dark:to-blue-950/30">
+      <section className="py-16 bg-gradient-to-b from-purple-50/80 via-indigo-100/60 to-royal dark:from-purple-950/40 dark:via-indigo-950/40 dark:to-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-2xl lg:text-3xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
+          <h3 className="text-2xl lg:text-3xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-purple-800 to-indigo-800 dark:from-white dark:via-purple-200 dark:to-indigo-200 bg-clip-text text-transparent">
             Ready to Start Your Project?
           </h3>
           <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg max-w-2xl mx-auto">
             Let's discuss how we can bring your vision to life with strategic automation and cutting-edge solutions.
           </p>
           <Button 
-            className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white rounded-full px-8 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+            className="bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 hover:from-purple-700 hover:via-indigo-700 hover:to-blue-700 text-white rounded-full px-8 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
             asChild
           >
             <a href="https://calendly.com/iqrafaisal81/discovery-call?month=2025-04" target="_blank" rel="noopener noreferrer" className="flex items-center">
@@ -291,4 +288,3 @@ const PortfolioPage = () => {
 };
 
 export default PortfolioPage;
-
