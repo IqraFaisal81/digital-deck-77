@@ -1,28 +1,22 @@
-
 import React from "react";
 import { ArrowRight, Calendar, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
 interface MobileHeroProps {
   displayText: string;
 }
-
-const MobileHeroSection: React.FC<MobileHeroProps> = ({ displayText }) => {
-  return (
-    <div className="flex flex-col items-center px-4 pt-12 pb-6">
+const MobileHeroSection: React.FC<MobileHeroProps> = ({
+  displayText
+}) => {
+  return <div className="flex flex-col items-center px-4 pt-12 pb-6">
       {/* Avatar at the top */}
       <div className="relative mb-4">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-pink-500/30 rounded-full blur-3xl opacity-70 animate-pulse -z-10"></div>
         
         <div className="w-40 h-40 bg-gradient-to-b from-white to-blue-50 dark:from-gray-800 dark:to-blue-950 rounded-full flex items-center justify-center border-4 border-white/50 dark:border-blue-700/50 shadow-2xl relative z-10 animate-float">
           <Avatar className="w-36 h-36 rounded-full border-4 border-white dark:border-gray-800 shadow-xl">
-            <AvatarImage
-              src="/lovable-uploads/934937cb-710e-4f8e-aa1e-757407b8a2ab.png"
-              alt="Iqra Faisal"
-              className="object-cover"
-            />
+            <AvatarImage src="/lovable-uploads/934937cb-710e-4f8e-aa1e-757407b8a2ab.png" alt="Iqra Faisal" className="object-cover" />
             <AvatarFallback>IF</AvatarFallback>
           </Avatar>
         </div>
@@ -48,9 +42,7 @@ const MobileHeroSection: React.FC<MobileHeroProps> = ({ displayText }) => {
       
       {/* Text content */}
       <div className="text-center space-y-3 mb-4">
-        <p className="text-blue-600 dark:text-blue-400 font-medium text-sm uppercase bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400">
-          SaaS Developer & Automation Specialist
-        </p>
+        <p className="text-blue-600 dark:text-blue-400 font-medium text-sm uppercase bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400">CRM EXPERT &amp; AUTOMATION SPECIALIST</p>
         
         <h1 className="text-3xl font-bold tracking-tight min-h-[4rem] flex items-center justify-center">
           <span className="typewriter bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-800 to-blue-900 dark:from-white dark:via-blue-100 dark:to-purple-200">
@@ -68,21 +60,14 @@ const MobileHeroSection: React.FC<MobileHeroProps> = ({ displayText }) => {
       
       {/* CTA Buttons */}
       <div className="flex flex-col gap-3 w-full mb-4">
-        <Button 
-          className="group bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white rounded-full py-3 text-base shadow-lg hover:shadow-xl transition-all duration-300 w-full justify-center"
-          asChild
-        >
+        <Button className="group bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white rounded-full py-3 text-base shadow-lg hover:shadow-xl transition-all duration-300 w-full justify-center" asChild>
           <a href="#services" className="flex items-center justify-center">
             View My Work
             <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </Button>
   
-        <Button 
-          variant="outline" 
-          className="border-2 border-gray-300 text-gray-800 hover:bg-gray-50 dark:border-white/30 dark:text-white dark:hover:bg-white/10 backdrop-blur-sm rounded-full py-3 text-base shadow-md hover:shadow-lg w-full justify-center"
-          asChild
-        >
+        <Button variant="outline" className="border-2 border-gray-300 text-gray-800 hover:bg-gray-50 dark:border-white/30 dark:text-white dark:hover:bg-white/10 backdrop-blur-sm rounded-full py-3 text-base shadow-md hover:shadow-lg w-full justify-center" asChild>
           <a href="https://calendly.com/iqrafaisal81/discovery-call?month=2025-04" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
             <Calendar className="mr-2 h-5 w-5" />
             Book a Consultation
@@ -102,8 +87,6 @@ const MobileHeroSection: React.FC<MobileHeroProps> = ({ displayText }) => {
           <span className="text-gray-700 dark:text-gray-300 text-sm">UK-Based</span>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default MobileHeroSection;
