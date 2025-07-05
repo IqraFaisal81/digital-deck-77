@@ -59,10 +59,10 @@ const ContactSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
             Let's Work Together
           </h2>
-          <p className="text-xl text-purple-100 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-700 dark:text-purple-100 max-w-3xl mx-auto leading-relaxed">
             Ready to transform your business with smart systems, automation, and marketing that works? 
             Let's chat about how I can help you scale with less stress.
           </p>
@@ -91,15 +91,15 @@ const ContactSection = () => {
                 href={method.href}
                 target={method.href.startsWith('http') ? '_blank' : undefined}
                 rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="group bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+                className="group bg-white/80 dark:bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 dark:border-white/20 hover:bg-white/90 dark:hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
               >
                 <div className="flex flex-col items-center text-center">
                   <div className="bg-gradient-to-r from-purple-600 to-indigo-600 p-4 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <method.icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{method.title}</h3>
-                  <p className="text-purple-100 font-medium mb-2">{method.info}</p>
-                  <p className="text-purple-200 text-sm">{method.description}</p>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{method.title}</h3>
+                  <p className="text-gray-700 dark:text-purple-100 font-medium mb-2">{method.info}</p>
+                  <p className="text-gray-600 dark:text-purple-200 text-sm">{method.description}</p>
                 </div>
               </a>
             ))}
@@ -110,27 +110,27 @@ const ContactSection = () => {
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Quick Info */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <h3 className="text-2xl font-semibold text-white mb-6">Quick Info</h3>
+            <div className="bg-white/80 dark:bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 dark:border-white/20">
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Quick Info</h3>
               <div className="space-y-4">
-                <div className="flex items-center text-purple-100">
-                  <MapPin className="w-5 h-5 mr-3 text-purple-400" />
+                <div className="flex items-center text-gray-700 dark:text-purple-100">
+                  <MapPin className="w-5 h-5 mr-3 text-purple-600 dark:text-purple-400" />
                   <span>Based in London, UK</span>
                 </div>
-                <div className="flex items-center text-purple-100">
-                  <Clock className="w-5 h-5 mr-3 text-purple-400" />
+                <div className="flex items-center text-gray-700 dark:text-purple-100">
+                  <Clock className="w-5 h-5 mr-3 text-purple-600 dark:text-purple-400" />
                   <span>GMT Timezone</span>
                 </div>
-                <div className="flex items-center text-purple-100">
-                  <Calendar className="w-5 h-5 mr-3 text-purple-400" />
+                <div className="flex items-center text-gray-700 dark:text-purple-100">
+                  <Calendar className="w-5 h-5 mr-3 text-purple-600 dark:text-purple-400" />
                   <span>Usually responds within 24 hours</span>
                 </div>
               </div>
             </div>
 
             {/* Social Links */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <h3 className="text-2xl font-semibold text-white mb-6">Connect With Me</h3>
+            <div className="bg-white/80 dark:bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 dark:border-white/20">
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Connect With Me</h3>
               <div className="flex gap-4">
                 {socialLinks.map((social, index) => (
                   <a 
@@ -138,13 +138,13 @@ const ContactSection = () => {
                     href={social.href} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="bg-white/20 p-4 rounded-xl hover:bg-white/30 transition-all duration-300 transform hover:scale-110 group"
+                    className="bg-gray-200/80 dark:bg-white/20 p-4 rounded-xl hover:bg-gray-300/80 dark:hover:bg-white/30 transition-all duration-300 transform hover:scale-110 group"
                   >
-                    <social.icon className="w-6 h-6 text-white group-hover:text-purple-400 transition-colors" />
+                    <social.icon className="w-6 h-6 text-gray-700 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors" />
                   </a>
                 ))}
               </div>
-              <p className="text-purple-200 text-sm mt-4">
+              <p className="text-gray-600 dark:text-purple-200 text-sm mt-4">
                 Follow my work and connect professionally
               </p>
             </div>
@@ -152,12 +152,12 @@ const ContactSection = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16 pt-8 border-t border-white/20">
-          <p className="text-purple-100 mb-4">
+        <div className="text-center mt-16 pt-8 border-t border-gray-300/50 dark:border-white/20">
+          <p className="text-gray-700 dark:text-purple-100 mb-4">
             Ready to get started? Let's make it happen!
           </p>
           <Button 
-            className="bg-white/20 hover:bg-white/30 text-white border border-white/30 hover:border-white/40 px-6 py-3 rounded-full transition-all duration-300"
+            className="bg-white/90 hover:bg-white text-gray-900 border border-gray-300 hover:border-gray-400 dark:bg-white/20 dark:hover:bg-white/30 dark:text-white dark:border-white/30 dark:hover:border-white/40 px-6 py-3 rounded-full transition-all duration-300"
             asChild
           >
             <a href="mailto:iqrafaisal81@gmail.com">
