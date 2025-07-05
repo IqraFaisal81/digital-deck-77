@@ -1,3 +1,4 @@
+
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FunnelCarousel from "@/components/FunnelCarousel";
@@ -5,7 +6,6 @@ import { Separator } from "@/components/ui/separator";
 
 interface FunnelsSectionProps {
   isSectionVisible: (sectionId: string) => boolean;
-  setVisibleSection: (sectionId: string) => boolean;
   setVisibleSection: (sectionId: string | null) => void;
   funnelsRef: React.RefObject<HTMLElement>;
 }
@@ -17,7 +17,7 @@ const FunnelsSection = ({ isSectionVisible, setVisibleSection, funnelsRef }: Fun
     <section 
       id="funnels" 
       ref={funnelsRef} 
-      className={`section-padding py-16 sm:py-20 bg-gradient-to-br from-gray-850 via-gray-900 to-gray-850 dark:from-gray-850 dark:via-gray-900 dark:to-gray-850 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      className={`section-padding py-16 sm:py-20 bg-gradient-to-br from-gray-900 via-gray-850 to-gray-900 dark:from-gray-900 dark:via-gray-850 dark:to-gray-900 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
       style={{ 
         display: isVisible ? 'block' : 'none',
         height: isVisible ? 'auto' : '0',

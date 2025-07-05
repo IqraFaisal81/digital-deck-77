@@ -1,5 +1,6 @@
+
 import { Button } from "@/components/ui/button";
-import SEOCarousel from "@/components/SEOCarousel";
+import SEOCarousel from "@/components/SEOAuditCarousel";
 import { Check } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
