@@ -1,3 +1,4 @@
+
 import { ArrowRight, Calendar, Sparkles } from "lucide-react";
 import { services } from "@/data/services";
 import { Button } from "@/components/ui/button";
@@ -65,7 +66,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
   };
   
   return (
-    <section id="services" className="py-24 lg:py-32 relative overflow-hidden bg-gradient-to-br from-white via-blue-50/50 to-purple-50/50 dark:from-gray-900 dark:via-blue-950/30 dark:to-purple-950/30">
+    <section id="services" className="py-24 lg:py-32 relative overflow-hidden bg-gradient-to-br from-white via-blue-50/50 to-purple-50/50 dark:from-blue-950 dark:via-blue-950/30 dark:to-purple-950/30">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
