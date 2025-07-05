@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { ArrowLeft, ExternalLink, Github, Calendar, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -150,7 +151,7 @@ const PortfolioPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:bg-gradient-to-br dark:from-blue-950/80 dark:via-purple-950/90 dark:to-purple-900">
+      <section className="py-16 bg-gradient-to-b from-pink-50/50 via-purple-50/60 to-blue-50/50 dark:from-pink-950/30 dark:via-purple-950/30 dark:to-blue-950/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h3 className="text-2xl lg:text-3xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
             Ready to Start Your Project?
