@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { StarField } from "@/components/ui/star-field";
+import { FloatingOrbs } from "@/components/ui/floating-orbs";
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import MobileHeroSection from "./MobileHeroSection";
@@ -95,6 +96,9 @@ const HomeSection = () => {
     >
       {/* Interactive Stars - Dark Mode Only */}
       <StarField className="z-5" />
+      
+      {/* Floating Orbs - Interactive Element */}
+      <FloatingOrbs className="z-10" />
 
       {/* Floating Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -103,7 +107,7 @@ const HomeSection = () => {
         <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-indigo-500/10 rounded-full blur-lg animate-pulse delay-2000"></div>
       </div>
 
-      <div className="container mx-auto relative z-10 flex flex-col justify-center items-center">
+      <div className="container mx-auto relative z-20 flex flex-col justify-center items-center">
         {isMobile ? (
           <MobileHeroSection displayText={displayText} />
         ) : (
