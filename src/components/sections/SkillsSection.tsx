@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect } from "react";
 import { 
   Globe, 
@@ -120,20 +119,20 @@ const SkillsSection = () => {
     <section 
       id="skills" 
       ref={sectionRef} 
-      className="py-24 lg:py-32 relative overflow-hidden bg-gradient-to-br from-white via-blue-50/50 to-purple-50/50 dark:from-gray-900 dark:via-blue-950/30 dark:to-purple-950/30"
+      className="py-24 lg:py-32 relative overflow-hidden bg-gradient-to-br from-white via-blue-50/50 to-purple-50/50 dark:from-purple-900 dark:via-gray-900 dark:to-blue-950"
     >
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-full blur-2xl animate-pulse delay-2000"></div>
-        <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-full blur-2xl animate-pulse delay-500"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-56 h-56 bg-gradient-to-br from-violet-500/10 to-purple-500/10 rounded-full blur-2xl animate-pulse delay-1500"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 dark:from-purple-500/15 dark:to-violet-500/15 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-br from-purple-500/10 to-pink-500/10 dark:from-purple-600/20 dark:to-indigo-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 dark:from-purple-400/15 dark:to-blue-400/15 rounded-full blur-2xl animate-pulse delay-2000"></div>
+        <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-gradient-to-br from-orange-500/10 to-red-500/10 dark:from-violet-500/15 dark:to-purple-500/15 rounded-full blur-2xl animate-pulse delay-500"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-56 h-56 bg-gradient-to-br from-violet-500/10 to-purple-500/10 dark:from-indigo-500/20 dark:to-purple-500/20 rounded-full blur-2xl animate-pulse delay-1500"></div>
         
         {/* Floating shapes */}
-        <div className="absolute top-40 right-10 w-4 h-4 rounded-full bg-blue-400 opacity-70 animate-float"></div>
-        <div className="absolute top-1/2 left-10 w-6 h-6 rounded-full bg-indigo-400 opacity-60 animate-float" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-40 right-1/3 w-5 h-5 rounded-full bg-purple-400 opacity-50 animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-40 right-10 w-4 h-4 rounded-full bg-blue-400 dark:bg-purple-400 opacity-70 animate-float"></div>
+        <div className="absolute top-1/2 left-10 w-6 h-6 rounded-full bg-indigo-400 dark:bg-violet-400 opacity-60 animate-float" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-40 right-1/3 w-5 h-5 rounded-full bg-purple-400 dark:bg-indigo-400 opacity-50 animate-float" style={{animationDelay: '2s'}}></div>
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
