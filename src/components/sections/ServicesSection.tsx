@@ -179,16 +179,18 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
                 Let's discuss your unique challenges and explore how my expertise can drive your business forward. 
                 Book a free strategy session to get started.
               </p>
-              <Button 
-                className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white rounded-full px-8 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
-                asChild
-              >
-                <a href="https://calendly.com/iqrafaisal81/discovery-call?month=2025-04" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                  <Calendar className="mr-2 h-5 w-5" />
-                  Schedule Free Strategy Call
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-              </Button>
+              <div className="flex justify-center">
+                <Button 
+                  className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white rounded-full px-8 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  asChild
+                >
+                  <a href="https://calendly.com/iqrafaisal81/discovery-call?month=2025-04" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                    <Calendar className="mr-2 h-5 w-5" />
+                    Schedule Free Strategy Call
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
