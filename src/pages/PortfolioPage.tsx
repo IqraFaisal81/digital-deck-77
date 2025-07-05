@@ -1,4 +1,5 @@
 
+
 import React, { useState } from "react";
 import { ArrowLeft, ExternalLink, Github, Calendar, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -32,7 +33,7 @@ const PortfolioPage = () => {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
       <section className="pt-16 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-purple-50/60 to-pink-50/50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30"></div>
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -290,3 +291,4 @@ const PortfolioPage = () => {
 };
 
 export default PortfolioPage;
+
