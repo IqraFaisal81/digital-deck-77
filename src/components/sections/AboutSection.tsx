@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-16 lg:py-20 relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-blue-50 dark:from-purple-950 dark:via-gray-900 dark:to-purple-900/80">
+    <section id="about" className="py-16 lg:py-20 relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-purple-50/30 dark:from-purple-950 dark:via-gray-900 dark:to-purple-900/60">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full">
