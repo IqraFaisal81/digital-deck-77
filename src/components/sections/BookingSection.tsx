@@ -26,10 +26,10 @@ const BookingSection = () => {
   }, [isClient]);
 
   return (
-    <section id="booking" className="section-padding py-24 relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-blue-950 dark:to-indigo-950">
+    <section id="booking" className="section-padding py-24 relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-850">
       {/* Background decoration */}
-      <div className="absolute top-20 left-20 w-96 h-96 bg-electric/10 dark:bg-electric/5 rounded-full blur-3xl opacity-60"></div>
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-royal/10 dark:bg-royal/5 rounded-full blur-3xl opacity-60"></div>
+      <div className="absolute top-20 left-20 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl"></div>
       
       <div className="container mx-auto relative z-10 px-4 md:px-0">
         <SectionHeader

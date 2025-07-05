@@ -1,4 +1,3 @@
-
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FunnelCarousel from "@/components/FunnelCarousel";
@@ -6,6 +5,7 @@ import { Separator } from "@/components/ui/separator";
 
 interface FunnelsSectionProps {
   isSectionVisible: (sectionId: string) => boolean;
+  setVisibleSection: (sectionId: string) => boolean;
   setVisibleSection: (sectionId: string | null) => void;
   funnelsRef: React.RefObject<HTMLElement>;
 }
@@ -17,7 +17,7 @@ const FunnelsSection = ({ isSectionVisible, setVisibleSection, funnelsRef }: Fun
     <section 
       id="funnels" 
       ref={funnelsRef} 
-      className={`section-padding py-16 sm:py-20 bg-gradient-to-br from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      className={`section-padding py-16 sm:py-20 bg-gradient-to-br from-gray-850 via-gray-900 to-gray-850 dark:from-gray-850 dark:via-gray-900 dark:to-gray-850 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
       style={{ 
         display: isVisible ? 'block' : 'none',
         height: isVisible ? 'auto' : '0',
@@ -26,6 +26,12 @@ const FunnelsSection = ({ isSectionVisible, setVisibleSection, funnelsRef }: Fun
         zIndex: isVisible ? '10' : '-1'
       }}
     >
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-20 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+      </div>
+
       <div className="container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-10">
