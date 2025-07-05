@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/context/ThemeContext';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -16,11 +16,13 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { ScrollToServiceUtils } from '@/utils/ScrollToServiceUtils';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const isMobile = useIsMobile();
+  const location = useLocation();
   
   // Check if the theme is dark mode
   const isDarkMode = theme === "dark";
@@ -42,9 +44,41 @@ const Navbar = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname === '/') {
+      // If we're on the home page, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If we're on another page, store the section and navigate to home
+      ScrollToServiceUtils.navigateToHomeWithSection(sectionId);
+    }
+  };
+
+  const handleLogoClick = () => {
+    if (location.pathname !== '/') {
+      // Store the current section context if coming from a service page
+      const currentPath = location.pathname;
+      if (currentPath.includes('/services/')) {
+        // Map service paths to their corresponding sections
+        const serviceToSection: { [key: string]: string } = {
+          '/services/workflows': 'workflows',
+          '/services/funnels': 'funnels',
+          '/services/email-marketing': 'email-marketing',
+          '/services/seo-audits': 'seo-audits',
+          '/services/ai-chatbot': 'ai-chatbot',
+          '/services/webflow': 'services',
+          '/services/shopify': 'services',
+          '/services/tracking-attribution': 'services',
+          '/services/zapier': 'services'
+        };
+        
+        const sectionId = serviceToSection[currentPath];
+        if (sectionId) {
+          ScrollToServiceUtils.storeCurrentSection(sectionId);
+        }
+      }
     }
   };
 
@@ -97,7 +131,7 @@ const Navbar = () => {
           
           {/* Logo */}
           <div className="flex-shrink-0 z-20">
-            <Link to="/" className="text-xl md:text-xl font-bold text-gray-900 dark:text-white flex items-center">
+            <Link to="/" onClick={handleLogoClick} className="text-xl md:text-xl font-bold text-gray-900 dark:text-white flex items-center">
               {isMobile ? (
                 <span className="text-lg font-bold bg-gradient-to-r from-royal to-electric dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">IF</span>
               ) : (

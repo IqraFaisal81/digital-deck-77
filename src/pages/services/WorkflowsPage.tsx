@@ -4,18 +4,26 @@ import { Button } from '@/components/ui/button';
 import { Calendar, ArrowLeft, Settings } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
+import { ScrollToServiceUtils } from '@/utils/ScrollToServiceUtils';
 
 const WorkflowsPage = () => {
+  const handleBackToServices = () => {
+    ScrollToServiceUtils.navigateToHomeWithSection('workflows');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50/50 to-purple-50/50 dark:from-gray-900 dark:via-blue-950/30 dark:to-purple-950/30">
       <Navbar />
       <div className="pt-20 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <Link to="/" className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-8">
+            <button 
+              onClick={handleBackToServices}
+              className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-8 cursor-pointer"
+            >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Services
-            </Link>
+            </button>
             
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12">
               <div className="flex items-center mb-6">

@@ -19,6 +19,35 @@ export const scrollToServiceSection = (sectionId: string | null): void => {
   }, 100);
 };
 
+/**
+ * Stores the current section in session storage
+ */
+export const storeCurrentSection = (sectionId: string): void => {
+  sessionStorage.setItem('lastVisitedSection', sectionId);
+};
+
+/**
+ * Gets the stored section from session storage
+ */
+export const getStoredSection = (): string | null => {
+  return sessionStorage.getItem('lastVisitedSection');
+};
+
+/**
+ * Clears the stored section from session storage
+ */
+export const clearStoredSection = (): void => {
+  sessionStorage.removeItem('lastVisitedSection');
+};
+
+/**
+ * Navigates to home with section context
+ */
+export const navigateToHomeWithSection = (sectionId: string): void => {
+  storeCurrentSection(sectionId);
+  window.location.href = `/#${sectionId}`;
+};
+
 // Add setup function for scroll handlers
 export const setupScrollHandlers = (): void => {
   // Listen for hash changes and scroll to the section
@@ -29,17 +58,30 @@ export const setupScrollHandlers = (): void => {
     }
   });
 
-  // Check if there's a hash on initial load
+  // Check if there's a hash on initial load or stored section
   if (window.location.hash) {
     const hash = window.location.hash.substring(1);
     setTimeout(() => {
       scrollToServiceSection(hash);
     }, 300);
+  } else {
+    // Check for stored section
+    const storedSection = getStoredSection();
+    if (storedSection) {
+      setTimeout(() => {
+        scrollToServiceSection(storedSection);
+        clearStoredSection(); // Clear after use
+      }, 300);
+    }
   }
 };
 
 // Create a namespace object to match the import in App.tsx
 export const ScrollToServiceUtils = {
   setupScrollHandlers,
-  scrollToServiceSection
+  scrollToServiceSection,
+  storeCurrentSection,
+  getStoredSection,
+  clearStoredSection,
+  navigateToHomeWithSection
 };
