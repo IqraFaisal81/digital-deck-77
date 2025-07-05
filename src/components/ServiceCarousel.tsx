@@ -1,4 +1,3 @@
-
 import { 
   Carousel, 
   CarouselContent, 
@@ -141,13 +140,13 @@ const ServiceCarousel = ({ visibleSection, scrollToSection }: ServiceCarouselPro
         </CarouselContent>
         
         <div className="flex justify-center items-center gap-4 mt-6">
-          <CarouselPrevious className="static transform-none bg-gradient-to-r from-royal to-electric/80 dark:from-electric dark:to-blue-600/80 hover:opacity-90 text-white border-none" />
+          <CarouselPrevious className="static transform-none bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white border-2 border-blue-200 dark:border-blue-800 hover:border-transparent text-gray-700 dark:text-gray-300 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 w-12 h-12 rounded-xl" />
           <CarouselPagination 
             carouselApi={carouselApi}
             currentIndex={currentIndex}
             items={services}
           />
-          <CarouselNext className="static transform-none bg-gradient-to-r from-royal to-electric/80 dark:from-electric dark:to-blue-600/80 hover:opacity-90 text-white border-none" />
+          <CarouselNext className="static transform-none bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white border-2 border-blue-200 dark:border-blue-800 hover:border-transparent text-gray-700 dark:text-gray-300 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 w-12 h-12 rounded-xl" />
         </div>
       </Carousel>
     </div>
