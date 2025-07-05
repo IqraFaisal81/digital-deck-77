@@ -1,4 +1,3 @@
-
 import { ArrowRight, Calendar, Sparkles } from "lucide-react";
 import { services } from "@/data/services";
 import { Button } from "@/components/ui/button";
@@ -186,7 +185,7 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
                 >
                   <a href="https://calendly.com/iqrafaisal81/discovery-call?month=2025-04" target="_blank" rel="noopener noreferrer" className="flex items-center">
                     <Calendar className="mr-2 h-5 w-5" />
-                    Schedule Free Strategy Call
+                    Schedule Free Call
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </a>
                 </Button>
