@@ -1,4 +1,3 @@
-
 import { Calendar, ArrowRight, Sparkles, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -6,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { StarField } from "@/components/ui/star-field";
 import { InteractiveGrid } from "@/components/ui/interactive-grid";
+import { Galaxy3DShapes } from "@/components/ui/galaxy-3d-shapes";
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import MobileHeroSection from "./MobileHeroSection";
@@ -95,11 +95,14 @@ const HomeSection = () => {
       className="overflow-hidden relative"
       showRadialGradient={true}
     >
+      {/* Galaxy 3D Shapes - New cosmic background layer */}
+      <Galaxy3DShapes className="z-5" />
+      
       {/* Interactive Stars - Dark Mode Only */}
-      <StarField className="z-5" />
+      <StarField className="z-10" />
       
       {/* Interactive Grid - Mouse Responsive Element */}
-      <InteractiveGrid className="z-10" />
+      <InteractiveGrid className="z-15" />
 
       {/* Floating Elements */}
       <div className="absolute inset-0 overflow-hidden">
