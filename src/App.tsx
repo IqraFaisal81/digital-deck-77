@@ -14,10 +14,8 @@ import TrackingAttributionPage from "./pages/services/TrackingAttributionPage";
 import ZapierPage from "./pages/services/ZapierPage";
 import { useEffect, useState, useRef } from "react";
 import { ScrollToServiceUtils } from "./utils/ScrollToServiceUtils";
-import DebugComponent from "./components/DebugComponent";
 
 function App() {
-  console.log('[DEBUG] App component rendered at:', new Date().toISOString());
   const [visibleSection, setVisibleSection] = useState<string | null>(null);
   
   // Create refs for each section
@@ -50,7 +48,6 @@ function App() {
 
   return (
     <div className="mobile-overflow-fix">
-      <DebugComponent />
       <Routes>
         <Route path="/" element={
           <Index 
