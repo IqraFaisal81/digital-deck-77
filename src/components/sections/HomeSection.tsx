@@ -9,41 +9,32 @@ import NightSky from "@/components/ui/night-sky";
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import MobileHeroSection from "./MobileHeroSection";
-
 const HomeSection = () => {
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
   const isMobile = useIsMobile();
-  
-  const texts = [
-    "Hello, I'm Iqra Faisal",
-    "I Build Digital Solutions", 
-    "I Automate Business Growth"
-  ];
-  
+  const texts = ["Hello, I'm Iqra Faisal", "I Build Digital Solutions", "I Automate Business Growth"];
   useEffect(() => {
     // Start with an empty string when component mounts
     setDisplayText("");
-    
     const timer = setTimeout(() => {
       handleType();
     }, 1000); // Initial delay before typing starts
-    
+
     return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
   useEffect(() => {
     let timer: NodeJS.Timeout;
-    
+
     // Always keep typing until we reach the full text
     if (!isDeleting && displayText !== texts[loopNum % texts.length]) {
       timer = setTimeout(() => {
         handleType();
       }, typingSpeed);
-    } 
+    }
     // If we need to delete, keep deleting until we reach a certain threshold
     else if (isDeleting && displayText.length > 3) {
       timer = setTimeout(() => {
@@ -67,19 +58,17 @@ const HomeSection = () => {
         handleType();
       }, 1500);
     }
-    
     return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [displayText, isDeleting, loopNum]);
-  
   const handleType = () => {
     // Get current text based on loop number
     const currentIndex = loopNum % texts.length;
     const fullText = texts[currentIndex];
-    
+
     // Set typing speed based on action (faster for deleting)
     setTypingSpeed(isDeleting ? 75 : 150);
-    
+
     // Update display text
     if (isDeleting) {
       // Delete a few characters at a time (3 at most) instead of one
@@ -89,12 +78,7 @@ const HomeSection = () => {
       setDisplayText(fullText.substring(0, displayText.length + 1));
     }
   };
-  
-  return (
-    <AuroraBackground 
-      className="overflow-hidden relative"
-      showRadialGradient={true}
-    >
+  return <AuroraBackground className="overflow-hidden relative" showRadialGradient={true}>
       {/* Night Sky Canvas - Dark Mode Only */}
       <NightSky />
       
@@ -112,10 +96,7 @@ const HomeSection = () => {
       </div>
 
       <div className="container mx-auto relative z-20 flex flex-col justify-center items-center">
-        {isMobile ? (
-          <MobileHeroSection displayText={displayText} />
-        ) : (
-          <div className="flex flex-col lg:flex-row w-full items-center justify-between gap-12 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto">
+        {isMobile ? <MobileHeroSection displayText={displayText} /> : <div className="flex flex-col lg:flex-row w-full items-center justify-between gap-12 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto">
             {/* Left Content */}
             <div className="flex flex-col space-y-8 w-full lg:w-1/2 text-center lg:text-left order-2 lg:order-1">
               {/* Status Bar */}
@@ -153,11 +134,7 @@ const HomeSection = () => {
               
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animate-delay-400 justify-center lg:justify-start">
-                <Button 
-                  className="group bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white rounded-full px-8 py-6 text-lg font-semibold shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
-                  size="lg"
-                  asChild
-                >
+                <Button className="group bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white rounded-full px-8 py-6 text-lg font-semibold shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105" size="lg" asChild>
                   <a href="#services" className="flex items-center">
                     <Zap className="mr-2 h-5 w-5" />
                     Explore My Work
@@ -165,12 +142,7 @@ const HomeSection = () => {
                   </a>
                 </Button>
           
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-2 border-gray-300 text-gray-800 hover:bg-gray-50 dark:border-white/30 dark:text-white dark:hover:bg-white/10 backdrop-blur-sm rounded-full px-8 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
-                  asChild
-                >
+                <Button size="lg" variant="outline" className="border-2 border-gray-300 text-gray-800 hover:bg-gray-50 dark:border-white/30 dark:text-white dark:hover:bg-white/10 backdrop-blur-sm rounded-full px-8 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300" asChild>
                   <a href="https://calendly.com/iqrafaisal81/discovery-call?month=2025-04" target="_blank" rel="noopener noreferrer" className="flex items-center">
                     <Calendar className="mr-2 h-5 w-5" />
                     Book Consultation
@@ -185,11 +157,11 @@ const HomeSection = () => {
                   <div className="text-gray-600 dark:text-gray-400 text-sm">Projects Delivered</div>
                 </div>
                 <div className="bg-white/80 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-200 dark:border-white/10 hover:bg-white/90 dark:hover:bg-white/10 transition-all duration-300">
-                  <div className="text-2xl font-bold text-gray-900 dark:text-white">3+</div>
+                  <div className="text-2xl font-bold text-gray-900 dark:text-white">5+</div>
                   <div className="text-gray-600 dark:text-gray-400 text-sm">Years Experience</div>
                 </div>
                 <div className="bg-white/80 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-200 dark:border-white/10 hover:bg-white/90 dark:hover:bg-white/10 transition-all duration-300 col-span-2 lg:col-span-1">
-                  <div className="text-2xl font-bold text-gray-900 dark:text-white">UK</div>
+                  <div className="text-2xl font-bold text-gray-900 dark:text-white">Pakistan</div>
                   <div className="text-gray-600 dark:text-gray-400 text-sm">Based</div>
                 </div>
               </div>
@@ -204,11 +176,7 @@ const HomeSection = () => {
                 {/* Profile container */}
                 <div className="relative w-80 h-80 lg:w-96 lg:h-96 bg-gradient-to-br from-white/20 to-white/10 dark:from-white/10 dark:to-white/5 backdrop-blur-sm rounded-full border border-gray-200 dark:border-white/20 shadow-2xl flex items-center justify-center hover:scale-105 transition-transform duration-500">
                   <Avatar className="w-72 h-72 lg:w-88 lg:h-88 rounded-full border-4 border-gray-200 dark:border-white/30 shadow-2xl">
-                    <AvatarImage
-                      src="/lovable-uploads/934937cb-710e-4f8e-aa1e-757407b8a2ab.png"
-                      alt="Iqra Faisal"
-                      className="object-cover"
-                    />
+                    <AvatarImage src="/lovable-uploads/934937cb-710e-4f8e-aa1e-757407b8a2ab.png" alt="Iqra Faisal" className="object-cover" />
                     <AvatarFallback>IF</AvatarFallback>
                   </Avatar>
                 </div>
@@ -223,11 +191,8 @@ const HomeSection = () => {
                 </div>
               </div>
             </div>
-          </div>
-        )}
+          </div>}
       </div>
-    </AuroraBackground>
-  );
+    </AuroraBackground>;
 };
-
 export default HomeSection;
