@@ -36,8 +36,6 @@ const SkillCard: React.FC<SkillCardProps> = ({ name, icon, skills, index }) => {
       
       {/* Card content */}
       <div className="relative z-10 bg-white dark:bg-gray-800 rounded-xl border border-blue-100 dark:border-blue-800/50 p-6 transition-all duration-300 hover:shadow-xl dark:hover:shadow-blue-900/20 hover:-translate-y-1 overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 w-24 h-24 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-2xl opacity-50 -translate-y-1/2 translate-x-1/2"></div>
         
         {/* Card header */}
         <div className="flex items-start mb-5">
