@@ -12,6 +12,7 @@ import WebflowPage from "./pages/services/WebflowPage";
 import ShopifyPage from "./pages/services/ShopifyPage";
 import TrackingAttributionPage from "./pages/services/TrackingAttributionPage";
 import ZapierPage from "./pages/services/ZapierPage";
+import WordPressPage from "./pages/services/WordPressPage";
 import { useEffect, useState, useRef } from "react";
 import { ScrollToServiceUtils } from "./utils/ScrollToServiceUtils";
 
@@ -73,6 +74,7 @@ function App() {
         <Route path="/services/shopify" element={<ShopifyPage />} />
         <Route path="/services/tracking-attribution" element={<TrackingAttributionPage />} />
         <Route path="/services/zapier" element={<ZapierPage />} />
+        <Route path="/services/wordpress" element={<WordPressPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

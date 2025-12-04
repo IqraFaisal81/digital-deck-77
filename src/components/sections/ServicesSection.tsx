@@ -56,7 +56,8 @@ const ServicesSection = ({ visibleSection, scrollToSection }: ServicesSectionPro
         'webflow-projects': '/services/webflow',
         'shopify-projects': '/services/shopify',
         'tracking-attribution': '/services/tracking-attribution',
-        'zapier-automations': '/services/zapier'
+        'zapier-automations': '/services/zapier',
+        'wordpress-projects': '/services/wordpress'
       };
       
       const route = routeMap[service.sectionId];
