@@ -27,16 +27,6 @@ type SkillCategory = {
 
 const skillCategories: SkillCategory[] = [
   {
-    name: "Digital Marketing & Growth",
-    icon: <Globe className="h-6 w-6 text-blue-600 dark:text-blue-400" />,
-    skills: [
-      { name: "Google Ads Pro (Search, Display, Performance Max)" },
-      { name: "Meta, TikTok, & Snapchat Ads Wizardry" },
-      { name: "SEO Domination (Technical, On-Page, Off-Page)" },
-      { name: "Email Marketing Strategy & Automation" },
-    ]
-  },
-  {
     name: "CRM & Automation Mastery",
     icon: <Database className="h-6 w-6 text-purple-600 dark:text-purple-400" />,
     skills: [
