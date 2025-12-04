@@ -57,15 +57,6 @@ const skillCategories: SkillCategory[] = [
     ]
   },
   {
-    name: "Data & Analytics",
-    icon: <BarChart className="h-6 w-6 text-green-600 dark:text-green-400" />,
-    skills: [
-      { name: "Google Analytics (GA4), Looker Studio Dashboards" },
-      { name: "R Studio, SQL Queries, Power BI, Tableau" },
-      { name: "Data-Driven Decision Making & ROI Reporting" },
-    ]
-  },
-  {
     name: "SaaS & AI Development",
     icon: <Bot className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />,
     skills: [
