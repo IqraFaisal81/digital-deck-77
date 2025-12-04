@@ -85,6 +85,16 @@ const skillCategories: SkillCategory[] = [
       { name: "Custom CRM Add-ons & Feature Workflows" },
     ]
   },
+  {
+    name: "WordPress Expert",
+    icon: <Globe className="h-6 w-6 text-cyan-600 dark:text-cyan-400" />,
+    skills: [
+      { name: "Custom Theme & Plugin Development" },
+      { name: "WooCommerce Store Setup & Optimization" },
+      { name: "Performance Optimization & Speed Tuning" },
+      { name: "Security Hardening & Maintenance" },
+    ]
+  },
 ];
 
 const SkillsSection = () => {
