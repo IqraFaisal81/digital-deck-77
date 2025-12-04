@@ -46,10 +46,10 @@ export const services = [
   },
   {
     id: 5,
-    title: "SEO & Analytics",
-    description: "Boost your online visibility with strategic keyword optimization, technical SEO improvements, and comprehensive analytics tracking through Google Analytics and custom reporting dashboards.",
-    icon: Search,
-    sectionId: "seo-audits",
+    title: "WordPress Development",
+    description: "Build powerful, custom WordPress websites with theme development, plugin customization, WooCommerce integration, and performance optimization for fast, secure, and scalable sites.",
+    icon: Code,
+    sectionId: "wordpress-projects",
   },
   {
     id: 6,
@@ -83,7 +83,7 @@ export const services = [
 
 export const sectionIds = [
   "workflows", 
-  "seo-audits", 
+  "wordpress-projects", 
   "funnels", 
   "email-marketing", 
   "webflow-projects",
