@@ -27,7 +27,7 @@ const HomeSection = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    let timer: ReturnType<typeof setTimeout>;
 
     // Always keep typing until we reach the full text
     if (!isDeleting && displayText !== texts[loopNum % texts.length]) {

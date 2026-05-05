@@ -3,6 +3,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import HomeSection from "../components/sections/HomeSection";
 import AboutSection from "../components/sections/AboutSection";
+import CertificationsSection from "../components/sections/CertificationsSection";
 import SkillsSection from "../components/sections/SkillsSection";
 import ServicesSection from "../components/sections/ServicesSection";
 import PortfolioPreviewSection from "../components/sections/PortfolioPreviewSection";
@@ -46,6 +47,7 @@ function Index({
       <div className="max-w-full mx-auto">
         <HomeSection />
         <AboutSection />
+        <CertificationsSection />
         <SkillsSection />
         <ServicesSection 
           visibleSection={visibleSection} 
